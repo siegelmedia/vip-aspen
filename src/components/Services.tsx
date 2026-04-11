@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Car, Shield, Sparkles } from "lucide-react";
+import { Car, Shield, Sparkles, Music, Megaphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import blackCarService from "@/assets/black-car-service.jpg";
 import vipClub from "@/assets/vip-club.jpg";
@@ -35,6 +35,26 @@ const services = [
     alt: "Professional executive protection and bodyguard service in Aspen Colorado",
     features: ["Executive Protection", "Event Security", "Travel Security", "Risk Assessment"],
     link: "/executive-protection",
+  },
+  {
+    icon: Music,
+    title: "Private Entertainment",
+    description:
+      "Aspen's only dedicated private entertainment service. Elite exotic performers delivered to your private residence or venue with professional security and total discretion.",
+    image: vipClub,
+    alt: "Private entertainment and exotic performance services in Aspen Colorado",
+    features: ["Private Performances", "Security Included", "NDA Available", "Custom Packages"],
+    link: "/private-entertainment",
+  },
+  {
+    icon: Megaphone,
+    title: "Promotional & Event Staffing",
+    description:
+      "Elite promotional talent for Aspen's most exclusive events. Brand ambassadors, event hostesses, atmosphere models, and cocktail service professionals — sourced nationally, delivered locally.",
+    image: protectionService,
+    alt: "Brand ambassadors and promotional models for events in Aspen Colorado",
+    features: ["Brand Ambassadors", "Event Hostesses", "Atmosphere Models", "Cocktail Service"],
+    link: "/promotional-services",
   },
 ];
 
