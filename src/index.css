@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* VIP Aspen Luxury Color Palette */
+    --background: 216 40% 7%;
+    --foreground: 45 20% 95%;
+
+    --card: 216 35% 10%;
+    --card-foreground: 45 20% 95%;
+
+    --popover: 216 35% 10%;
+    --popover-foreground: 45 20% 95%;
+
+    --primary: 40 45% 57%;
+    --primary-foreground: 216 40% 7%;
+
+    --secondary: 216 30% 15%;
+    --secondary-foreground: 45 20% 95%;
+
+    --muted: 216 25% 18%;
+    --muted-foreground: 216 15% 60%;
+
+    --accent: 40 45% 57%;
+    --accent-foreground: 216 40% 7%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 216 25% 20%;
+    --input: 216 25% 20%;
+    --ring: 40 45% 57%;
+
+    --radius: 0.25rem;
+
+    /* Custom luxury tokens */
+    --gold: 40 45% 57%;
+    --gold-light: 40 50% 70%;
+    --gold-dark: 40 40% 45%;
+    --navy: 216 40% 7%;
+    --navy-light: 216 35% 12%;
+    --navy-medium: 216 30% 18%;
+    --cream: 45 20% 95%;
+    --cream-muted: 45 15% 85%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(40 50% 70%), hsl(40 45% 57%), hsl(40 40% 45%));
+    --gradient-hero: linear-gradient(180deg, transparent 0%, hsl(216 40% 7% / 0.4) 50%, hsl(216 40% 7%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(216 35% 12%) 0%, hsl(216 40% 7%) 100%);
+
+    /* Shadows */
+    --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+    --shadow-gold: 0 0 30px hsl(40 45% 57% / 0.2);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.4);
+
+    --sidebar-background: 216 40% 7%;
+    --sidebar-foreground: 45 20% 95%;
+    --sidebar-primary: 40 45% 57%;
+    --sidebar-primary-foreground: 216 40% 7%;
+    --sidebar-accent: 216 30% 15%;
+    --sidebar-accent-foreground: 45 20% 95%;
+    --sidebar-border: 216 25% 20%;
+    --sidebar-ring: 40 45% 57%;
+  }
+
+  .dark {
+    --background: 216 40% 7%;
+    --foreground: 45 20% 95%;
+    --card: 216 35% 10%;
+    --card-foreground: 45 20% 95%;
+    --popover: 216 35% 10%;
+    --popover-foreground: 45 20% 95%;
+    --primary: 40 45% 57%;
+    --primary-foreground: 216 40% 7%;
+    --secondary: 216 30% 15%;
+    --secondary-foreground: 45 20% 95%;
+    --muted: 216 25% 18%;
+    --muted-foreground: 216 15% 60%;
+    --accent: 40 45% 57%;
+    --accent-foreground: 216 40% 7%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 216 25% 20%;
+    --input: 216 25% 20%;
+    --ring: 40 45% 57%;
+    --sidebar-background: 216 40% 7%;
+    --sidebar-foreground: 45 20% 95%;
+    --sidebar-primary: 40 45% 57%;
+    --sidebar-primary-foreground: 216 40% 7%;
+    --sidebar-accent: 216 30% 15%;
+    --sidebar-accent-foreground: 45 20% 95%;
+    --sidebar-border: 216 25% 20%;
+    --sidebar-ring: 40 45% 57%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(40 50% 70%), hsl(40 45% 57%), hsl(40 40% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-gold {
+    background: linear-gradient(135deg, hsl(40 50% 70%), hsl(40 45% 57%), hsl(40 40% 45%));
+  }
+
+  .border-gradient-gold {
+    border-image: linear-gradient(135deg, hsl(40 50% 70%), hsl(40 45% 57%), hsl(40 40% 45%)) 1;
+  }
+
+  .shadow-luxury {
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .glass-card {
+    background: hsl(216 35% 10% / 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(216 25% 20% / 0.5);
+  }
+
+  .luxury-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(40 45% 57% / 0.5), transparent);
+  }
+  }
+
+  /* Protect site header from third-party CSS (e.g., BookRidesOnline Bootstrap) */
+  header[style*="position: fixed"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+  }
+
+  header[style*="position: fixed"] nav,
+  header[style*="position: fixed"] nav > * {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  header[style*="position: fixed"] [data-testid="desktop-nav"] {
+    display: none !important;
+  }
+
+  @media (min-width: 640px) {
+    header[style*="position: fixed"] [data-testid="desktop-nav"] {
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+  }
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+}
