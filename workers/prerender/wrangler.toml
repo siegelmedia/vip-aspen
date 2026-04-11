@@ -1,0 +1,11 @@
+name = "vipaspen-prerender"
+main = "worker.js"
+compatibility_date = "2026-04-11"
+
+routes = [
+  { pattern = "www.vipaspen.com/*", zone_name = "vipaspen.com" },
+  { pattern = "vipaspen.com/*", zone_name = "vipaspen.com" },
+]
+
+[vars]
+UPSTREAM_URL = "https://vip-aspen.pages.dev"
