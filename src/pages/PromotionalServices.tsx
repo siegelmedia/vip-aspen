@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Check, Phone, Mail } from "lucide-react";
+import heroImage from "@/assets/promotional-services.jpg";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -68,30 +69,45 @@ const PromotionalServices = () => {
         <Header />
 
         {/* Hero */}
-        <section className="relative pt-32 pb-20 md:pt-40 md:pb-24">
+        <section className="relative pt-32 pb-16 md:pt-40 md:pb-24">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
           <div className="container mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <p className="text-primary uppercase tracking-[0.3em] text-sm mb-4">
-                Elite Talent
-              </p>
-              <h1 className="font-display text-4xl md:text-6xl font-semibold text-foreground mb-6">
-                Elite Promotional Talent for Aspen's{" "}
-                <span className="text-gradient-gold">Most Exclusive Events</span>
-              </h1>
-              <p className="text-foreground/70 text-lg md:text-xl leading-relaxed mb-8">
-                Brand ambassadors, event hostesses, atmosphere models, and cocktail
-                service professionals — sourced nationally, delivered locally.
-              </p>
-              <Button variant="luxury" size="lg" asChild>
-                <a href="#quote">Get a Quote</a>
-              </Button>
-            </motion.div>
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <p className="text-primary uppercase tracking-[0.3em] text-sm mb-4">
+                  Elite Talent
+                </p>
+                <h1 className="font-display text-4xl md:text-6xl font-semibold text-foreground mb-6">
+                  Elite Promotional Talent for Aspen's{" "}
+                  <span className="text-gradient-gold">Most Exclusive Events</span>
+                </h1>
+                <p className="text-foreground/70 text-lg md:text-xl leading-relaxed mb-8">
+                  Brand ambassadors, event hostesses, atmosphere models, and cocktail
+                  service professionals — sourced nationally, delivered locally.
+                </p>
+                <Button variant="luxury" size="lg" asChild>
+                  <a href="#quote">Get a Quote</a>
+                </Button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="glass-card overflow-hidden"
+              >
+                <img
+                  src={heroImage}
+                  alt="Professional promotional model and cocktail service at Aspen event"
+                  className="w-full h-full object-cover aspect-[4/3] md:aspect-[3/4]"
+                  loading="eager"
+                />
+              </motion.div>
+            </div>
           </div>
         </section>
 

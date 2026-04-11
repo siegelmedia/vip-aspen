@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import blackCarService from "@/assets/black-car-service.jpg";
 import vipClub from "@/assets/vip-club.jpg";
 import protectionService from "@/assets/protection-service.jpg";
+import privateEntertainment from "@/assets/private-entertainment.jpg";
+import promotionalServices from "@/assets/promotional-services.jpg";
 
 const services = [
   {
@@ -41,7 +43,7 @@ const services = [
     title: "Private Entertainment",
     description:
       "Aspen's only dedicated private entertainment service. Elite exotic performers delivered to your private residence or venue with professional security and total discretion.",
-    image: vipClub,
+    image: privateEntertainment,
     alt: "Private entertainment and exotic performance services in Aspen Colorado",
     features: ["Private Performances", "Security Included", "NDA Available", "Custom Packages"],
     link: "/private-entertainment",
@@ -51,7 +53,7 @@ const services = [
     title: "Promotional & Event Staffing",
     description:
       "Elite promotional talent for Aspen's most exclusive events. Brand ambassadors, event hostesses, atmosphere models, and cocktail service professionals — sourced nationally, delivered locally.",
-    image: protectionService,
+    image: promotionalServices,
     alt: "Brand ambassadors and promotional models for events in Aspen Colorado",
     features: ["Brand Ambassadors", "Event Hostesses", "Atmosphere Models", "Cocktail Service"],
     link: "/promotional-services",
