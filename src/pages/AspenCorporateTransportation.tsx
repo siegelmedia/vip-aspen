@@ -8,10 +8,10 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BookingWidget from "@/components/BookingWidget";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import fleetHero from "@/assets/fleet-hero.jpg";
-import escalade from "@/assets/escalade-signature.jpg";
-import sprinter from "@/assets/sprinter-interior.jpg";
-import rrCullinan from "@/assets/rr-cullinan-front.jpg";
+import fleetHero from "@/assets/fleet-hero.webp";
+import escalade from "@/assets/escalade-signature.webp";
+import sprinter from "@/assets/sprinter-interior.webp";
+import rrCullinan from "@/assets/rr-cullinan-front.webp";
 
 const schemaData = {
   "@context": "https://schema.org",

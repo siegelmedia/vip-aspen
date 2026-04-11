@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Check, Phone, Mail } from "lucide-react";
-import heroImage from "@/assets/private-entertainment.jpg";
+import heroImage from "@/assets/private-entertainment.webp";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,

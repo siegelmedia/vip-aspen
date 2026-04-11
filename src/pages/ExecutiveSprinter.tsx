@@ -31,10 +31,10 @@ const sprinterFaqSchema = {
 };
 import BookingWidget from "@/components/BookingWidget";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import tarmacImg from "@/assets/sprinter-tarmac.jpg";
-import interiorSideImg from "@/assets/sprinter-interior-side.jpg";
-import interiorFullImg from "@/assets/sprinter-interior-full.jpg";
-import sprinterExterior from "@/assets/sprinter.jpg";
+import tarmacImg from "@/assets/sprinter-tarmac.webp";
+import interiorSideImg from "@/assets/sprinter-interior-side.webp";
+import interiorFullImg from "@/assets/sprinter-interior-full.webp";
+import sprinterExterior from "@/assets/sprinter.webp";
 
 const features = [
   {

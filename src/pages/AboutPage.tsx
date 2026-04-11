@@ -7,10 +7,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import heroImage from "@/assets/hero-aspen.jpg";
-import cullinanImage from "@/assets/rolls-royce-cullinan.jpg";
-import escaladeImage from "@/assets/escalade.jpg";
-import sprinterImage from "@/assets/sprinter.jpg";
+import heroImage from "@/assets/hero-aspen.webp";
+import cullinanImage from "@/assets/rolls-royce-cullinan.webp";
+import escaladeImage from "@/assets/escalade.webp";
+import sprinterImage from "@/assets/sprinter.webp";
 
 const organizationSchema = {
   "@context": "https://schema.org",

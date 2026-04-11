@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BookingWidget from "@/components/BookingWidget";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import fleetHero from "@/assets/fleet-hero.jpg";
+import fleetHero from "@/assets/fleet-hero.webp";
 
 const schemaData = {
   "@context": "https://schema.org",

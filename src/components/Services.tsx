@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { Car, Shield, Sparkles, Music, Megaphone } from "lucide-react";
 import { Link } from "react-router-dom";
-import blackCarService from "@/assets/black-car-service.jpg";
-import vipClub from "@/assets/vip-club.jpg";
-import protectionService from "@/assets/protection-service.jpg";
-import privateEntertainment from "@/assets/private-entertainment.jpg";
-import promotionalServices from "@/assets/promotional-services.jpg";
+import blackCarService from "@/assets/black-car-service.webp";
+import vipClub from "@/assets/vip-club.webp";
+import protectionService from "@/assets/protection-service.webp";
+import privateEntertainment from "@/assets/private-entertainment.webp";
+import promotionalServices from "@/assets/promotional-services.webp";
 
 const services = [
   {

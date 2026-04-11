@@ -8,12 +8,12 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BookingWidget from "@/components/BookingWidget";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import heroImg from "@/assets/rr-cullinan-doors.jpg";
-import interiorImg from "@/assets/rr-cullinan-interior.jpg";
-import frontImg from "@/assets/rr-cullinan-front.jpg";
-import sideImg from "@/assets/rr-cullinan-side.jpg";
-import aspenArrival from "@/assets/rr-cullinan-aspen-arrival.jpg";
-import aspenExit from "@/assets/rr-cullinan-aspen-exit.jpg";
+import heroImg from "@/assets/rr-cullinan-doors.webp";
+import interiorImg from "@/assets/rr-cullinan-interior.webp";
+import frontImg from "@/assets/rr-cullinan-front.webp";
+import sideImg from "@/assets/rr-cullinan-side.webp";
+import aspenArrival from "@/assets/rr-cullinan-aspen-arrival.webp";
+import aspenExit from "@/assets/rr-cullinan-aspen-exit.webp";
 
 const features = [
   {

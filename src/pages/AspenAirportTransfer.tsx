@@ -39,7 +39,7 @@ const aseFaqSchema = {
 };
 import BookingWidget from "@/components/BookingWidget";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import fleetHero from "@/assets/fleet-hero.jpg";
+import fleetHero from "@/assets/fleet-hero.webp";
 
 const features = [
   "5-minute drive to downtown Aspen",

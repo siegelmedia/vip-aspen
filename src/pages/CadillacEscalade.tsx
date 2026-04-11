@@ -7,10 +7,10 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BookingWidget from "@/components/BookingWidget";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import tarmacImg from "@/assets/escalade-tarmac.jpg";
-import nightImg from "@/assets/escalade-night.jpg";
-import interiorImg from "@/assets/escalade-interior.jpg";
-import signatureImg from "@/assets/escalade-signature.jpg";
+import tarmacImg from "@/assets/escalade-tarmac.webp";
+import nightImg from "@/assets/escalade-night.webp";
+import interiorImg from "@/assets/escalade-interior.webp";
+import signatureImg from "@/assets/escalade-signature.webp";
 
 const features = [
   {

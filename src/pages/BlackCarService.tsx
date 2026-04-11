@@ -7,10 +7,10 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BookingWidget from "@/components/BookingWidget";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import escalade from "@/assets/escalade.jpg";
-import rollsRoyce from "@/assets/rolls-royce-cullinan.jpg";
-import sprinter from "@/assets/sprinter.jpg";
-import fleetHero from "@/assets/fleet-hero.jpg";
+import escalade from "@/assets/escalade.webp";
+import rollsRoyce from "@/assets/rolls-royce-cullinan.webp";
+import sprinter from "@/assets/sprinter.webp";
+import fleetHero from "@/assets/fleet-hero.webp";
 
 const airportRoutes = [
   { name: "Aspen (ASE)", href: "/aspen-airport-transfer" },
