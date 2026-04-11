@@ -23,6 +23,9 @@ const SnowmassVillageTransfer = lazy(() => import("./pages/SnowmassVillageTransf
 const AspenWeddingTransportation = lazy(() => import("./pages/AspenWeddingTransportation"));
 const AspenCorporateTransportation = lazy(() => import("./pages/AspenCorporateTransportation"));
 const AboutPage = lazy(() => import("./pages/AboutPage"));
+const PrivateEntertainment = lazy(() => import("./pages/PrivateEntertainment"));
+const PromotionalServices = lazy(() => import("./pages/PromotionalServices"));
+const TalentGallery = lazy(() => import("./pages/TalentGallery"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -53,6 +56,9 @@ const App = () => (
               <Route path="/aspen-wedding-transportation" element={<AspenWeddingTransportation />} />
               <Route path="/aspen-corporate-transportation" element={<AspenCorporateTransportation />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/private-entertainment" element={<PrivateEntertainment />} />
+              <Route path="/promotional-services" element={<PromotionalServices />} />
+              <Route path="/talent" element={<TalentGallery />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
