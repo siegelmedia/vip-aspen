@@ -34,9 +34,14 @@ const ServiceRoute = ({ slug }: { slug: string }) => {
   const data = services[slug];
   if (!data) return <NotFoundFallback />;
 
-  // Entertainment and promo pages use booking form; transportation uses widget
-  const formPages = ["private-entertainment", "promotional-services", "property-watch"];
-  const bookingVariant = formPages.includes(slug) ? "form" as const : "widget" as const;
+  // Contact-only pages show call/email CTA; form pages use BookingForm; rest use widget
+  const contactOnlyPages = ["private-entertainment"];
+  const formPages = ["promotional-services", "property-watch"];
+  const bookingVariant = contactOnlyPages.includes(slug)
+    ? "contact-only" as const
+    : formPages.includes(slug)
+    ? "form" as const
+    : "widget" as const;
   const heroVariant = slug === "property-watch" ? "cinematic" as const : "standard" as const;
 
   return <ServicePage data={data} bookingVariant={bookingVariant} heroVariant={heroVariant} />;
