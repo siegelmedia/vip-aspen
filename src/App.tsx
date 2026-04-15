@@ -13,7 +13,7 @@ import Index from "./pages/Index";
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const MembershipPage = lazy(() => import("./pages/MembershipPage"));
-const TalentGallery = lazy(() => import("./pages/TalentGallery"));
+// const TalentGallery = lazy(() => import("./pages/TalentGallery")); // Re-enable when real talent photos are ready
 const SecurityAssessment = lazy(() => import("./pages/SecurityAssessment"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -84,7 +84,7 @@ const App = () => (
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/membership" element={<MembershipPage />} />
-              <Route path="/talent" element={<TalentGallery />} />
+              {/* <Route path="/talent" element={<TalentGallery />} /> — Disabled until real talent photos are ready */}
               <Route path="/security-assessment" element={<SecurityAssessment />} />
 
               {/* Service pages — template-driven */}
