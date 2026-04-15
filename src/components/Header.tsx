@@ -27,6 +27,7 @@ const navItems: NavItem[] = [
       { label: "VIP Club Access", href: "/aspen-clubs" },
       { label: "Private Entertainment", href: "/private-entertainment" },
       { label: "Promotional Services", href: "/promotional-services" },
+      { label: "Snowmass Village Transfer", href: "/snowmass-village-transfer" },
       { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
       { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
     ],
@@ -38,7 +39,6 @@ const navItems: NavItem[] = [
       { label: "Eagle Airport (EGE)", href: "/eagle-airport-transfer" },
       { label: "Rifle Airport (RIL)", href: "/rifle-airport-transfer" },
       { label: "Denver Airport (DEN)", href: "/denver-to-aspen-car-service" },
-      { label: "Snowmass Village", href: "/snowmass-village-transfer" },
     ],
   },
   {
