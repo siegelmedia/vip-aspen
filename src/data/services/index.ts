@@ -6,6 +6,7 @@ import weddingTransportation from "./wedding-transportation";
 import corporateTransportation from "./corporate-transportation";
 import privateEntertainment from "./private-entertainment";
 import promotionalServices from "./promotional-services";
+import propertyWatch from "./property-watch";
 
 export const services: Record<string, ServicePageData> = {
   "black-car-service": blackCarService,
@@ -15,6 +16,7 @@ export const services: Record<string, ServicePageData> = {
   "aspen-corporate-transportation": corporateTransportation,
   "private-entertainment": privateEntertainment,
   "promotional-services": promotionalServices,
+  "property-watch": propertyWatch,
 };
 
 export {
@@ -25,4 +27,5 @@ export {
   corporateTransportation,
   privateEntertainment,
   promotionalServices,
+  propertyWatch,
 };
