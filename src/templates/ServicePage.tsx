@@ -53,12 +53,6 @@ const ServicePage = ({
         </SectionContainer>
       )}
 
-      {data.howItWorks && (
-        <SectionContainer background="muted">
-          <HowItWorks steps={data.howItWorks} />
-        </SectionContainer>
-      )}
-
       {data.features && (
         <SectionContainer>
           <SectionHeader
@@ -69,6 +63,12 @@ const ServicePage = ({
             items={data.features}
             columns={data.features.length <= 4 ? (data.features.length as 2 | 3 | 4) : 3}
           />
+        </SectionContainer>
+      )}
+
+      {data.howItWorks && (
+        <SectionContainer background="muted">
+          <HowItWorks steps={data.howItWorks} />
         </SectionContainer>
       )}
 
@@ -100,7 +100,7 @@ const ServicePage = ({
         <BookingCTA
           variant={bookingVariant}
           serviceType={data.slug}
-          heading={data.hero.ctaLabel ? `{{${data.hero.ctaLabel}}}` : "Ready to {{Book}}?"}
+          heading="Ready to {{Get Started}}?"
         />
       </SectionContainer>
     </PageWrapper>

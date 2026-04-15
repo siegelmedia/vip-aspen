@@ -7,10 +7,11 @@ const data: ServicePageData = {
   seo: {
     title: "Corporate Transportation Aspen CO | Executive Car Service & Retreats",
     description:
-      "Professional corporate transportation in Aspen, Colorado. Executive car service, fleet management for retreats & conferences, Sprinter shuttles. Escalade, Rolls Royce & Sprinter fleet. Book (970) 452-6636.",
+      "Corporate transportation in Aspen, CO. Executive car service, fleet management for retreats & conferences. Sprinter shuttles. Call (970) 452-6636.",
     keywords:
       "corporate transportation Aspen, executive car service Aspen, corporate retreat transportation Aspen Colorado, business travel Aspen, conference transportation Aspen, corporate shuttle Aspen",
     canonicalUrl: "/aspen-corporate-transportation",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "Corporate & Executive",

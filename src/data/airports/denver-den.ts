@@ -19,8 +19,9 @@ const data: AirportPageData = {
     description:
       "Luxury private car service from Denver International Airport (DEN) to Aspen, Colorado. Rolls Royce Cullinan, Cadillac Escalade & Executive Sprinter. 3.5-hour scenic mountain transfer with professional chauffeur. Book (970) 452-6636.",
     keywords:
-      "Denver to Aspen car service, DEN to Aspen transfer, Denver airport to Aspen, private car Denver to Aspen, luxury transfer Denver Aspen, chauffeur Denver to Aspen Colorado, Denver International to Aspen",
+      "Denver to Aspen car service, DEN airport transfer, Denver International to Aspen, private car Denver Aspen, mountain transfer DEN",
     canonicalUrl: "/denver-to-aspen-car-service",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "Denver International \u2192 Aspen",

@@ -7,10 +7,11 @@ const data: ServicePageData = {
   seo: {
     title: "Luxury Black Car Service Aspen, Colorado",
     description:
-      "Premium Aspen car service featuring Rolls Royce Cullinan, 2025 Cadillac Escalade & Executive Sprinter. Airport transfers from ASE, EGE & DEN. Private chauffeur, hourly charters, ski resort transport. Book your luxury ride today.",
+      "Premium Aspen car service: Rolls Royce, Escalade & Sprinter. Airport transfers, hourly charters, ski resort transport. Call (970) 452-6636.",
     keywords:
       "Aspen car service, luxury car service Aspen, Aspen airport transfer, private chauffeur Aspen, black car service Aspen Colorado, Aspen limo service, Rolls Royce Aspen, Escalade service Aspen, Sprinter van Aspen, ASE airport transfer, Eagle Vail airport transportation, Denver to Aspen car service, Aspen ski resort transport, executive transportation Aspen",
     canonicalUrl: "/black-car-service",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "Luxury Transportation",
@@ -47,6 +48,12 @@ const data: ServicePageData = {
       description:
         "Daily service to Aspen Mountain, Snowmass, Aspen Highlands, and Buttermilk with gear accommodations.",
     },
+  ],
+  howItWorks: [
+    { step: 1, title: "Choose Your Vehicle", description: "Select from our Rolls Royce Cullinan, Cadillac Escalade, or Executive Sprinter based on your occasion and group size." },
+    { step: 2, title: "Book Your Ride", description: "Call, text, or book online. Share your itinerary and preferences — we handle every detail from there." },
+    { step: 3, title: "Your Chauffeur Arrives", description: "Your professional driver arrives 15 minutes early with the vehicle inspected, climate-set, and stocked with complimentary water." },
+    { step: 4, title: "Enjoy the Ride", description: "Sit back and experience Aspen in luxury. Door-to-door service, available 24/7 for any occasion." },
   ],
   intro: {
     heading: "What Makes VIP Aspen's Black Car Service {{Different}}",

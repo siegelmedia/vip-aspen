@@ -12,8 +12,9 @@ const data: VehiclePageData = {
     description:
       "Ride in a chauffeured 2025 Cadillac Escalade in Aspen, Colorado. Premium luxury SUV with professional driver for airport transfers, ski resorts, weddings & private tours. Up to 5 passengers. Book today.",
     keywords:
-      "Cadillac Escalade Aspen, chauffeured Escalade Aspen, 2025 Escalade Aspen Colorado, luxury SUV Aspen, Escalade rental Aspen, Escalade chauffeur service, Aspen luxury car hire, Escalade airport transfer Aspen, black car Escalade Aspen, private chauffeur Escalade, VIP car service Aspen, Cadillac Escalade hire Aspen",
+      "Cadillac Escalade Aspen, luxury SUV charter Aspen, Escalade mountain roads, ski resort SUV Aspen, Escalade hire Colorado, luxury SUV chauffeur Aspen",
     canonicalUrl: "/cadillac-escalade",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "Premium SUV",
@@ -27,7 +28,7 @@ const data: VehiclePageData = {
   },
   intro: {
     heading: "Aspen's Go-To {{Luxury SUV}}",
-    body: "The 2026 Cadillac Escalade is the workhorse of the VIP Aspen fleet and the perfect vehicle for life in the mountains. With seating for up to 5 passengers, full-time 4WD capability built for Colorado's mountain roads, and generous cargo space for luggage and ski equipment, the Escalade handles everything from ASE airport transfers to multi-day resort transportation with effortless composure. It's the most requested vehicle for families visiting Aspen, corporate groups attending conferences, and clients who need reliable luxury transportation in every weather condition.",
+    body: "The 2025 Cadillac Escalade is the workhorse of the VIP Aspen fleet and the perfect vehicle for life in the mountains. With seating for up to 5 passengers, full-time 4WD capability built for Colorado's mountain roads, and generous cargo space for luggage and ski equipment, the Escalade handles everything from ASE airport transfers to multi-day resort transportation with effortless composure. It's the most requested vehicle for families visiting Aspen, corporate groups attending conferences, and clients who need reliable luxury transportation in every weather condition.",
   },
   features: [
     {
@@ -68,7 +69,13 @@ const data: VehiclePageData = {
     },
   ],
   gallery: [signatureImg, interiorImg, tarmacImg],
-  faqs: undefined,
+  faqs: [
+    { question: "How much does it cost to hire the Escalade?", answer: "Contact us for current rates. We offer both hourly charters and flat-rate airport transfers. VIP Aspen members receive discounted rates on all Escalade bookings." },
+    { question: "How many passengers fit in the Escalade?", answer: "The Escalade comfortably seats up to 5 passengers with luggage. For larger groups, consider our Executive Sprinter which accommodates up to 13 passengers." },
+    { question: "Is the Escalade suitable for winter mountain roads?", answer: "Absolutely. Our Escalades feature 4WD, winter tires, and are driven by experienced mountain road professionals who know every pass and canyon in the valley." },
+    { question: "What amenities are inside the Escalade?", answer: "Premium AKG sound system, rear entertainment screens, tri-zone climate control, Wi-Fi, USB charging, and complimentary bottled water. The interior is detailed before every ride." },
+    { question: "Can I book the Escalade for a full day?", answer: "Yes. We offer hourly rates, half-day, and full-day charters. Full-day bookings are popular for ski days, real estate tours, and corporate retreats throughout the valley." },
+  ],
 };
 
 export default data;

@@ -12,7 +12,7 @@ const data: VehiclePageData = {
     description:
       "Hire a chauffeured Rolls Royce Cullinan in Aspen, Colorado. Bespoke Mandarin interior, professional discreet chauffeur. Airport transfers, ski resorts, weddings, scenic tours & corporate travel. The most exclusive ride in the Rockies. Book (970) 452-6636.",
     keywords:
-      "Rolls Royce Cullinan Aspen, Rolls Royce hire Aspen, chauffeured Rolls Royce Aspen Colorado, Rolls Royce rental Aspen, Rolls Royce airport transfer Aspen, Rolls Royce ski resort Aspen, luxury SUV chauffeur Aspen, Rolls Royce wedding Aspen, Rolls Royce Black Badge Aspen",
+      "Rolls Royce Cullinan Aspen, Rolls Royce hire Colorado, bespoke Mandarin interior, ultra-luxury SUV Aspen, Rolls Royce rental Aspen, Cullinan chauffeur",
     canonicalUrl: "/rolls-royce-cullinan",
     ogImage: "https://www.vipaspen.com/og-rolls-royce.jpg",
   },

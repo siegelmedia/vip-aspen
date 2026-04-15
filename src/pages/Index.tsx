@@ -15,46 +15,6 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { COMPANY } from "@/data/constants";
 import { fadeInUp } from "@/lib/animations";
 
-const homepageSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://www.vipaspen.com/#organization",
-  "name": "VIP Aspen",
-  "alternateName": "VIP Aspen Luxury Transportation",
-  "description": "Premier luxury car service, VIP concierge, property security, and entertainment in Aspen, Colorado.",
-  "url": "https://www.vipaspen.com",
-  "logo": "https://www.vipaspen.com/favicon-192.png",
-  "telephone": COMPANY.phone,
-  "email": COMPANY.email,
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": COMPANY.address.street,
-    "addressLocality": COMPANY.address.city,
-    "addressRegion": COMPANY.address.state,
-    "postalCode": COMPANY.address.zip,
-    "addressCountry": COMPANY.address.country,
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": COMPANY.geo.latitude,
-    "longitude": COMPANY.geo.longitude,
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": COMPANY.phone,
-    "contactType": "reservations",
-    "availableLanguage": "English",
-    "areaServed": "US",
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Aspen", "containedInPlace": { "@type": "State", "name": "Colorado" } },
-    { "@type": "City", "name": "Snowmass Village" },
-    { "@type": "City", "name": "Basalt" },
-    { "@type": "City", "name": "Carbondale" },
-  ],
-  "sameAs": [COMPANY.social.instagram, COMPANY.social.facebook],
-};
-
 const Index = () => {
   return (
     <>
@@ -64,7 +24,6 @@ const Index = () => {
         keywords="luxury car service Aspen, Aspen chauffeur, Rolls Royce Aspen, black car service Aspen Colorado, Aspen airport transfer, luxury transportation Aspen, VIP car service Aspen, private driver Aspen, property watch Aspen, Aspen security"
         canonicalUrl="/"
         ogImage="https://www.vipaspen.com/og-image.jpg"
-        schemaData={homepageSchema}
       />
       <main className="min-h-screen bg-background">
         <Header />

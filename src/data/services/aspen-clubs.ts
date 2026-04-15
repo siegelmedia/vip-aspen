@@ -7,10 +7,11 @@ const data: ServicePageData = {
   seo: {
     title: "VIP Club Access & Nightlife in Aspen, Colorado",
     description:
-      "Skip the line at Aspen's best clubs, lounges, and restaurants. VIP Aspen offers priority entry, bottle service, reserved tables, and exclusive nightlife access. Tell us where you want to be \u2014 we'll get you in.",
+      "Skip the line at Aspen's best clubs and lounges. Priority entry, bottle service, reserved tables & exclusive nightlife access. Call (970) 452-6636.",
     keywords:
       "Aspen nightlife, VIP club access Aspen, Aspen nightclubs, bottle service Aspen, VIP tables Aspen, Aspen apr\u00e8s-ski, Aspen bars, exclusive venues Aspen Colorado, Aspen party, Aspen VIP experience, nightlife concierge Aspen, restaurant reservations Aspen, private club access Aspen",
     canonicalUrl: "/aspen-clubs",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "VIP Access",
@@ -47,6 +48,12 @@ const data: ServicePageData = {
       description:
         "Access to private events, album release parties, and celebrity appearances.",
     },
+  ],
+  howItWorks: [
+    { step: 1, title: "Tell Us Your Plans", description: "Share your group size, preferred venues, dates, and any special requests for your night out." },
+    { step: 2, title: "We Handle Access", description: "We secure priority entry, reserved tables, and bottle service arrangements at Aspen's top venues." },
+    { step: 3, title: "Arrive in Style", description: "Your chauffeur delivers you to the door in a luxury vehicle — no lines, no waiting, no hassle." },
+    { step: 4, title: "VIP All Night", description: "Enjoy exclusive access and dedicated service all evening. Your driver is on call for the ride home." },
   ],
   intro: {
     heading: "Aspen's Nightlife Demands {{VIP Access}}",

@@ -12,8 +12,9 @@ const data: VehiclePageData = {
     description:
       "Luxury Executive Sprinter van service in Aspen, Colorado. Custom interior with seating for up to 13 passengers, ambient LED lighting, entertainment system & professional chauffeur. Airport transfers, group transportation & private events. Book today.",
     keywords:
-      "Executive Sprinter Aspen, luxury Sprinter van Aspen, Sprinter van service Aspen Colorado, group transportation Aspen, luxury van hire Aspen, Mercedes Sprinter Aspen, party bus Aspen, corporate transportation Aspen, Sprinter airport transfer Aspen, luxury group travel Aspen, private Sprinter van Aspen, VIP group transport Aspen, Aspen ski shuttle luxury, wedding transportation Aspen",
+      "Executive Sprinter Aspen, 13 passenger luxury van, group transportation Aspen, corporate shuttle Aspen, Sprinter van hire Colorado, luxury group transfer",
     canonicalUrl: "/executive-sprinter",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "Group Luxury Travel",
@@ -79,6 +80,10 @@ const data: VehiclePageData = {
       answer:
         "Yes, the Sprinter features Wi-Fi, a flat-screen TV, and a premium sound system.",
     },
+    { question: "Is the Sprinter more cost-effective than multiple SUVs?", answer: "For groups of 6 or more, one Sprinter is typically 30-40% less expensive than booking two Escalades. It's the smart choice for corporate groups, wedding parties, and ski teams." },
+    { question: "Can the Sprinter be used for weddings?", answer: "Absolutely. The Executive Sprinter is one of our most popular wedding vehicles — it fits the entire bridal party or groomsmen comfortably with room for garment bags and accessories." },
+    { question: "How much luggage can the Sprinter carry?", answer: "The Sprinter has ample cargo space for 13 passengers with full luggage, ski gear, golf clubs, or event equipment. It's designed for real travel, not just short transfers." },
+    { question: "Does the Sprinter have entertainment and Wi-Fi?", answer: "Yes. Premium sound system, multiple display screens, high-speed Wi-Fi, USB charging at every seat, and ambient lighting. It's a mobile conference room or party lounge." },
   ],
 };
 

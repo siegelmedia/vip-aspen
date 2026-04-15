@@ -11,6 +11,7 @@ const data: ServicePageData = {
     keywords:
       "private entertainment Aspen, exotic entertainment Aspen, private dancers Aspen, Aspen party entertainment, VIP entertainment Aspen Colorado, bachelor party Aspen, bachelorette party Aspen",
     canonicalUrl: "/private-entertainment",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "Private Entertainment",

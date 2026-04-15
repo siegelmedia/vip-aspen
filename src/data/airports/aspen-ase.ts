@@ -19,8 +19,9 @@ const data: AirportPageData = {
     description:
       "Premium Aspen-Pitkin County Airport (ASE) transfer service. Luxury Escalade, Rolls Royce & Sprinter rides to downtown Aspen, Snowmass & resorts. Flight tracking, meet & greet, 24/7 availability. Book now.",
     keywords:
-      "Aspen airport transfer, ASE airport car service, Aspen-Pitkin airport transportation, Aspen airport limo, ASE airport shuttle, Aspen airport to downtown, Aspen airport to Snowmass, luxury airport transfer Aspen, private car Aspen airport",
+      "Aspen airport transfer, ASE car service, Aspen-Pitkin County airport, ASE private car, Aspen airport chauffeur, luxury airport pickup ASE",
     canonicalUrl: "/aspen-airport-transfer",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "ASE Airport Transfers",

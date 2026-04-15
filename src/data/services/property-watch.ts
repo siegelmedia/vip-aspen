@@ -5,9 +5,10 @@ const data: ServicePageData = {
   slug: "property-watch",
   seo: {
     title: "Property Security Watch — Aspen Estate Protection",
-    description: "Security-first property watch for the Roaring Fork Valley's most valuable homes. Veteran and law enforcement owned. Documented patrols, systems monitoring, vehicle management, and emergency response. Starting at $1,500/month.",
+    description: "Security-first property watch for Aspen's most valuable homes. Veteran & LEO owned. Patrols, systems monitoring & emergency response. Call (970) 452-6636.",
     keywords: "property watch Aspen, estate security Aspen, property management Aspen, home watch Aspen Colorado, luxury property security, Aspen estate management, vacant home security Aspen",
     canonicalUrl: "/property-watch",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "Property Security Watch",

@@ -7,10 +7,11 @@ const data: ServicePageData = {
   seo: {
     title: "Promotional Models & Brand Ambassadors in Aspen",
     description:
-      "Elite promotional talent for Aspen events. Brand ambassadors, event hostesses, atmosphere models, and cocktail service professionals. Sourced nationally, delivered locally. Get a quote \u2014 call (970) 452-6636.",
+      "Elite promotional talent for Aspen events. Brand ambassadors, event hostesses, atmosphere models & cocktail professionals. Call (970) 452-6636.",
     keywords:
       "brand ambassadors Aspen, promotional models Aspen, event hostesses Aspen, atmosphere models Colorado, event staffing Aspen, cocktail models Aspen, tradeshow staff Aspen",
     canonicalUrl: "/promotional-services",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "Elite Talent",

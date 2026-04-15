@@ -14,7 +14,7 @@ import { COMPANY } from "@/data/constants";
 
 const seo = {
   title: "Free Property Security Assessment — Aspen Estate Evaluation",
-  description: "Complimentary security assessment for your Aspen property. We evaluate lighting, access control, alarm systems, perimeter vulnerabilities, and emergency preparedness. Professional written report included.",
+  description: "Free security assessment for your Aspen property. We evaluate lighting, access control, alarms & perimeter vulnerabilities. Written report included. Call (970) 452-6636.",
   keywords: "security assessment Aspen, property security evaluation, home security check Aspen, estate security audit Colorado",
   canonicalUrl: "/security-assessment",
 };

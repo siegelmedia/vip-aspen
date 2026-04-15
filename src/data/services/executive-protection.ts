@@ -7,10 +7,11 @@ const data: ServicePageData = {
   seo: {
     title: "Executive Protection & Personal Security in Aspen, Colorado",
     description:
-      "Professional executive protection services in Aspen, CO. Discrete bodyguard and personal security for high-profile individuals, celebrities, and executives. Former military & law enforcement. Risk assessment, event security, and 24/7 protection.",
+      "Executive protection in Aspen, CO. Discrete bodyguard & personal security for celebrities and executives. Former military & LEO. Call (970) 452-6636.",
     keywords:
       "executive protection Aspen, bodyguard Aspen Colorado, personal security Aspen, VIP protection Aspen, celebrity security Aspen, close protection Colorado, private security Aspen, event security Aspen, executive security services, high-profile protection Aspen, personal bodyguard Aspen, security detail Colorado",
     canonicalUrl: "/executive-protection",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "Personal Security",
@@ -47,6 +48,12 @@ const data: ServicePageData = {
       description:
         "Thorough security evaluations of properties, venues, and travel routes to identify and mitigate potential threats.",
     },
+  ],
+  howItWorks: [
+    { step: 1, title: "Initial Consultation", description: "We assess your security needs, travel plans, and any specific risk factors for your Aspen stay." },
+    { step: 2, title: "Threat Assessment", description: "Our team evaluates routes, venues, accommodations, and logistics to develop a comprehensive security plan." },
+    { step: 3, title: "Detail Assignment", description: "A vetted protection specialist with relevant experience is matched to your specific requirements." },
+    { step: 4, title: "Seamless Protection", description: "Discreet, professional security that integrates with your schedule — letting you focus on your experience." },
   ],
   intro: {
     heading: "Why Executive Protection in {{Aspen}}",

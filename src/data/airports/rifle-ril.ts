@@ -19,8 +19,9 @@ const data: AirportPageData = {
     description:
       "Luxury Rifle Garfield County Airport (RIL) transfer to Aspen. Premium car service for private jet arrivals. Tarmac meet & greet, Escalade, Rolls Royce & Sprinter. Book your RIL transfer.",
     keywords:
-      "Rifle airport transfer, RIL airport car service, Rifle to Aspen transportation, Rifle airport limo, private jet Rifle airport, Garfield County airport car service, luxury transfer Rifle, Rifle airport to Aspen, private aviation Rifle",
+      "Rifle airport transfer, RIL car service Aspen, Garfield County airport, private jet transfer Rifle, RIL luxury chauffeur",
     canonicalUrl: "/rifle-airport-transfer",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "RIL Private Jet Transfers",

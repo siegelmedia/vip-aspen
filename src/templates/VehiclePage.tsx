@@ -74,7 +74,7 @@ const VehiclePage = ({ data }: VehiclePageProps) => {
               >
                 <img
                   src={src}
-                  alt=""
+                  alt={`${data.hero.tagline} - photo ${index + 1}`}
                   className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />

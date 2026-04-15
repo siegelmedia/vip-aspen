@@ -11,6 +11,7 @@ const data: ServicePageData = {
     keywords:
       "Aspen wedding transportation, wedding limo Aspen, wedding car service Aspen Colorado, Rolls Royce wedding Aspen, bridal transportation Aspen, wedding shuttle Aspen",
     canonicalUrl: "/aspen-wedding-transportation",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "Wedding Transportation",

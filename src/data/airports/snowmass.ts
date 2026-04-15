@@ -18,10 +18,11 @@ const data: AirportPageData = {
     title:
       "Snowmass Village Car Service | Luxury Transfers from Aspen & Airports",
     description:
-      "Private luxury car service to Snowmass Village, CO. Chauffeured Rolls Royce, Escalade & Sprinter from ASE, Eagle, Rifle & Denver airports. Door-to-door service to all Snowmass resorts. Book (970) 452-6636.",
+      "Private luxury car service to Snowmass Village, CO. Rolls Royce, Escalade & Sprinter from all airports. Door-to-door resort service. Call (970) 452-6636.",
     keywords:
-      "Snowmass Village car service, Snowmass Village transportation, Aspen to Snowmass transfer, Snowmass airport shuttle, luxury car Snowmass Colorado, Snowmass Village limo",
+      "Snowmass Village transfer, Snowmass ski resort car service, Snowmass transportation, Snowmass Village luxury shuttle, Aspen to Snowmass",
     canonicalUrl: "/snowmass-village-transfer",
+    ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
     tagline: "Snowmass Village Transfers",
