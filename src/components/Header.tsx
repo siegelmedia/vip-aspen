@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { COMPANY } from "@/data/constants";
 import logo from "@/assets/vip-aspen-logo.webp";
 
 interface DropdownItem {
@@ -18,11 +19,16 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    label: "Fleet",
+    label: "Services",
     children: [
-      { label: "Rolls Royce Cullinan", href: "/rolls-royce-cullinan" },
-      { label: "Cadillac Escalade", href: "/cadillac-escalade" },
-      { label: "Executive Sprinter", href: "/executive-sprinter" },
+      { label: "Black Car Service", href: "/black-car-service" },
+      { label: "Executive Protection", href: "/executive-protection" },
+      { label: "Property Security Watch", href: "/property-watch" },
+      { label: "VIP Club Access", href: "/aspen-clubs" },
+      { label: "Private Entertainment", href: "/private-entertainment" },
+      { label: "Promotional Services", href: "/promotional-services" },
+      { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
+      { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
     ],
   },
   {
@@ -36,19 +42,13 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: "Services",
+    label: "Fleet",
     children: [
-      { label: "Black Car Service", href: "/black-car-service" },
-      { label: "Executive Protection", href: "/executive-protection" },
-      { label: "Property Security Watch", href: "/property-watch" },
-      { label: "VIP Club Access", href: "/aspen-clubs" },
-      { label: "Private Entertainment", href: "/private-entertainment" },
-      { label: "Promotional Services", href: "/promotional-services" },
-      { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
-      { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
+      { label: "Rolls Royce Cullinan", href: "/rolls-royce-cullinan" },
+      { label: "Cadillac Escalade", href: "/cadillac-escalade" },
+      { label: "Executive Sprinter", href: "/executive-sprinter" },
     ],
   },
-  { label: "Our Talent", href: "/talent" },
   { label: "About", href: "/about" },
   { label: "Membership", href: "/membership" },
   { label: "Contact", href: "/contact" },
@@ -222,22 +222,30 @@ const Header = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* Desktop CTA */}
           <div className="hidden lg:block">
             <Button variant="luxury" size="lg" asChild>
               <Link to="/membership">Become a Member</Link>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-foreground p-2 rounded-md border border-border/50 bg-background/30 backdrop-blur"
-            aria-label="Toggle menu"
-            title="Menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile: Call button + hamburger */}
+          <div className="flex lg:hidden items-center gap-2">
+            <Button variant="luxury" size="sm" asChild>
+              <a href={`tel:${COMPANY.phoneRaw}`} className="flex items-center gap-1.5">
+                <Phone className="w-3.5 h-3.5" />
+                Call
+              </a>
+            </Button>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-foreground p-2 rounded-md border border-border/50 bg-background/30 backdrop-blur"
+              aria-label="Toggle menu"
+              title="Menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </nav>
 
         {/* Mobile Menu */}
@@ -258,9 +266,17 @@ const Header = () => {
                     onClose={() => setIsMobileMenuOpen(false)}
                   />
                 ))}
-                <Button variant="luxury" size="lg" className="mt-4" asChild>
-                  <Link to="/membership">Become a Member</Link>
-                </Button>
+                <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border/30">
+                  <Button variant="luxury" size="lg" asChild>
+                    <a href={`tel:${COMPANY.phoneRaw}`} className="flex items-center justify-center gap-2">
+                      <Phone className="w-4 h-4" />
+                      Call {COMPANY.phoneDisplay}
+                    </a>
+                  </Button>
+                  <Button variant="outline" size="lg" asChild>
+                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
+                  </Button>
+                </div>
               </div>
             </motion.div>
           )}

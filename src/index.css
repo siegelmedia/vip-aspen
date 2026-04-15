@@ -166,8 +166,7 @@
     pointer-events: auto !important;
   }
 
-  header[style*="position: fixed"] nav,
-  header[style*="position: fixed"] nav > * {
+  header[style*="position: fixed"] nav {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -177,7 +176,7 @@
     display: none !important;
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 1024px) {
     header[style*="position: fixed"] [data-testid="desktop-nav"] {
       display: flex !important;
       visibility: visible !important;
