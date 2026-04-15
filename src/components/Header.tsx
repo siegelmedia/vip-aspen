@@ -40,6 +40,7 @@ const navItems: NavItem[] = [
     children: [
       { label: "Black Car Service", href: "/black-car-service" },
       { label: "Executive Protection", href: "/executive-protection" },
+      { label: "Property Security Watch", href: "/property-watch" },
       { label: "VIP Club Access", href: "/aspen-clubs" },
       { label: "Private Entertainment", href: "/private-entertainment" },
       { label: "Promotional Services", href: "/promotional-services" },

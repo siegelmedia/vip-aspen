@@ -5,30 +5,63 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+
+// Homepage — direct import (not lazy)
 import Index from "./pages/Index";
 
-const BlackCarService = lazy(() => import("./pages/BlackCarService"));
-const AspenAirportTransfer = lazy(() => import("./pages/AspenAirportTransfer"));
-const EagleAirportTransfer = lazy(() => import("./pages/EagleAirportTransfer"));
-const RifleAirportTransfer = lazy(() => import("./pages/RifleAirportTransfer"));
-const AspenClubs = lazy(() => import("./pages/AspenClubs"));
-const ExecutiveProtection = lazy(() => import("./pages/ExecutiveProtection"));
-const MembershipPage = lazy(() => import("./pages/MembershipPage"));
-const RollsRoyceCullinan = lazy(() => import("./pages/RollsRoyceCullinan"));
-const ExecutiveSprinter = lazy(() => import("./pages/ExecutiveSprinter"));
-const CadillacEscalade = lazy(() => import("./pages/CadillacEscalade"));
-const ContactPage = lazy(() => import("./pages/ContactPage"));
-const DenverToAspen = lazy(() => import("./pages/DenverToAspen"));
-const SnowmassVillageTransfer = lazy(() => import("./pages/SnowmassVillageTransfer"));
-const AspenWeddingTransportation = lazy(() => import("./pages/AspenWeddingTransportation"));
-const AspenCorporateTransportation = lazy(() => import("./pages/AspenCorporateTransportation"));
+// Custom pages — lazy loaded
 const AboutPage = lazy(() => import("./pages/AboutPage"));
-const PrivateEntertainment = lazy(() => import("./pages/PrivateEntertainment"));
-const PromotionalServices = lazy(() => import("./pages/PromotionalServices"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const MembershipPage = lazy(() => import("./pages/MembershipPage"));
 const TalentGallery = lazy(() => import("./pages/TalentGallery"));
+const SecurityAssessment = lazy(() => import("./pages/SecurityAssessment"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
+// Templates — lazy loaded
+const ServicePage = lazy(() => import("./templates/ServicePage"));
+const VehiclePage = lazy(() => import("./templates/VehiclePage"));
+const AirportPage = lazy(() => import("./templates/AirportPage"));
+
+// Data
+import { services } from "./data/services";
+import { vehicles } from "./data/vehicles";
+import { airports } from "./data/airports";
+
 const queryClient = new QueryClient();
+
+/** Wrapper to render a ServicePage template with data for a given slug */
+const ServiceRoute = ({ slug }: { slug: string }) => {
+  const data = services[slug];
+  if (!data) return <NotFoundFallback />;
+
+  // Entertainment and promo pages use booking form; transportation uses widget
+  const formPages = ["private-entertainment", "promotional-services", "property-watch"];
+  const bookingVariant = formPages.includes(slug) ? "form" as const : "widget" as const;
+  const heroVariant = slug === "property-watch" ? "cinematic" as const : "standard" as const;
+
+  return <ServicePage data={data} bookingVariant={bookingVariant} heroVariant={heroVariant} />;
+};
+
+const VehicleRoute = ({ slug }: { slug: string }) => {
+  const data = vehicles[slug];
+  if (!data) return <NotFoundFallback />;
+  return <VehiclePage data={data} />;
+};
+
+const AirportRoute = ({ slug }: { slug: string }) => {
+  const data = airports[slug];
+  if (!data) return <NotFoundFallback />;
+  return <AirportPage data={data} />;
+};
+
+const NotFoundFallback = () => {
+  const NF = lazy(() => import("./pages/NotFound"));
+  return (
+    <Suspense fallback={null}>
+      <NF />
+    </Suspense>
+  );
+};
 
 const App = () => (
   <HelmetProvider>
@@ -39,27 +72,32 @@ const App = () => (
         <BrowserRouter>
           <Suspense fallback={null}>
             <Routes>
+              {/* Homepage */}
               <Route path="/" element={<Index />} />
-              <Route path="/black-car-service" element={<BlackCarService />} />
-              <Route path="/aspen-airport-transfer" element={<AspenAirportTransfer />} />
-              <Route path="/eagle-airport-transfer" element={<EagleAirportTransfer />} />
-              <Route path="/rifle-airport-transfer" element={<RifleAirportTransfer />} />
-              <Route path="/aspen-clubs" element={<AspenClubs />} />
-              <Route path="/executive-protection" element={<ExecutiveProtection />} />
-              <Route path="/membership" element={<MembershipPage />} />
-              <Route path="/rolls-royce-cullinan" element={<RollsRoyceCullinan />} />
-              <Route path="/executive-sprinter" element={<ExecutiveSprinter />} />
-              <Route path="/cadillac-escalade" element={<CadillacEscalade />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/denver-to-aspen-car-service" element={<DenverToAspen />} />
-              <Route path="/snowmass-village-transfer" element={<SnowmassVillageTransfer />} />
-              <Route path="/aspen-wedding-transportation" element={<AspenWeddingTransportation />} />
-              <Route path="/aspen-corporate-transportation" element={<AspenCorporateTransportation />} />
+
+              {/* Custom pages */}
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/private-entertainment" element={<PrivateEntertainment />} />
-              <Route path="/promotional-services" element={<PromotionalServices />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/membership" element={<MembershipPage />} />
               <Route path="/talent" element={<TalentGallery />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="/security-assessment" element={<SecurityAssessment />} />
+
+              {/* Service pages — template-driven */}
+              {Object.keys(services).map((slug) => (
+                <Route key={slug} path={`/${slug}`} element={<ServiceRoute slug={slug} />} />
+              ))}
+
+              {/* Vehicle pages — template-driven */}
+              {Object.keys(vehicles).map((slug) => (
+                <Route key={slug} path={`/${slug}`} element={<VehicleRoute slug={slug} />} />
+              ))}
+
+              {/* Airport pages — template-driven */}
+              {Object.keys(airports).map((slug) => (
+                <Route key={slug} path={`/${slug}`} element={<AirportRoute slug={slug} />} />
+              ))}
+
+              {/* Catch-all */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

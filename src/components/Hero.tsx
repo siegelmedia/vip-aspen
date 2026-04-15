@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { COMPANY } from "@/data/constants";
 import heroImage from "@/assets/hero-aspen.webp";
 
 const Hero = () => {
@@ -49,7 +50,9 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.9 }}
             className="text-foreground/70 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed"
           >
-            Chauffeured Rolls Royce Cullinan, Cadillac Escalade & Executive Sprinter. Airport transfers, ski resort transportation, VIP nightlife access, and executive protection — available 24/7 for Aspen's most discerning clients.
+            Chauffeured Rolls Royce Cullinan, Cadillac Escalade & Executive Sprinter.
+            Airport transfers, property security, VIP entertainment, and executive protection
+            — available 24/7 for Aspen's most discerning clients.
           </motion.p>
 
           <motion.div
@@ -59,10 +62,13 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button variant="hero" size="xl" asChild>
-              <a href="#membership">Explore Membership</a>
+              <a href="#services">View Services</a>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
-              <a href="#services">View Services</a>
+              <a href={`tel:${COMPANY.phoneRaw}`} className="flex items-center gap-2">
+                <Phone className="w-5 h-5" />
+                Call {COMPANY.phoneDisplay}
+              </a>
             </Button>
           </motion.div>
         </motion.div>
