@@ -22,32 +22,13 @@ const navItems: NavItem[] = [
   {
     label: "Services",
     children: [
-      { label: "Transportation", separator: true },
       { label: "Black Car Service", href: "/black-car-service" },
       { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
-      { label: "Event Transportation", href: "/special-event-transportation" },
-      { label: "Hotel Jerome", href: "/hotel-jerome-transportation" },
-      { label: "St. Regis Aspen", href: "/st-regis-aspen-transportation" },
-      { label: "The Little Nell", href: "/little-nell-transportation" },
-      { label: "Snowmass Village", href: "/snowmass-village-transfer" },
-      { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
-      { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
-      { label: "Security", separator: true },
       { label: "Executive Protection", href: "/executive-protection" },
       { label: "Property Security Watch", href: "/property-watch" },
-      { label: "Entertainment", separator: true },
       { label: "VIP Club Access", href: "/aspen-clubs" },
       { label: "Private Entertainment", href: "/private-entertainment" },
       { label: "Promotional Services", href: "/promotional-services" },
-    ],
-  },
-  {
-    label: "Airport Transfers",
-    children: [
-      { label: "Aspen Airport (ASE)", href: "/aspen-airport-transfer" },
-      { label: "Eagle Airport (EGE)", href: "/eagle-airport-transfer" },
-      { label: "Rifle Airport (RIL)", href: "/rifle-airport-transfer" },
-      { label: "Denver Airport (DEN)", href: "/denver-to-aspen-car-service" },
     ],
   },
   {

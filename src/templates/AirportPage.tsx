@@ -7,7 +7,7 @@ import SectionContainer from "@/components/layout/SectionContainer";
 import SectionHeader from "@/components/layout/SectionHeader";
 import FeatureGrid from "@/components/blocks/FeatureGrid";
 import FAQAccordion from "@/components/blocks/FAQAccordion";
-import BookingCTA from "@/components/blocks/BookingCTA";
+import BookingWidget from "@/components/BookingWidget";
 import ProseSection from "@/components/blocks/ProseSection";
 import { createAirportSchema } from "@/lib/schema";
 import { COMPANY } from "@/data/constants";
@@ -32,7 +32,11 @@ const AirportPage = ({ data }: AirportPageProps) => {
       faqs={data.faqs}
       breadcrumbs={breadcrumbs}
     >
-      <PageHero data={data.hero} />
+      <PageHero data={data.hero}>
+        <div id="booking">
+          <BookingWidget />
+        </div>
+      </PageHero>
 
       {/* Airport Info Card */}
       <SectionContainer background="muted">
@@ -160,14 +164,6 @@ const AirportPage = ({ data }: AirportPageProps) => {
         </SectionContainer>
       )}
 
-      {/* Booking CTA */}
-      <SectionContainer id="booking" background="gradient">
-        <BookingCTA
-          variant="widget"
-          serviceType={data.slug}
-          heading={data.hero.ctaLabel ? `{{${data.hero.ctaLabel}}}` : "Ready to {{Book}}?"}
-        />
-      </SectionContainer>
     </PageWrapper>
   );
 };
