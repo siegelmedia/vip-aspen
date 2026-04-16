@@ -17,16 +17,19 @@ import type { ServicePageData } from "@/types";
 
 interface ServicePageProps {
   data: ServicePageData;
-  /** "form" for entertainment/promo pages, "widget" for transportation pages */
-  bookingVariant?: "form" | "widget";
+  /** "form" for entertainment/promo pages, "widget" for transportation pages, "contact-only" for call/email */
+  bookingVariant?: "form" | "widget" | "contact-only";
   /** Cinematic full-viewport hero for property watch style */
   heroVariant?: "standard" | "cinematic";
+  /** "top" renders booking widget right after hero (transportation pages), "bottom" is default */
+  bookingPosition?: "top" | "bottom";
 }
 
 const ServicePage = ({
   data,
   bookingVariant = "widget",
   heroVariant = "standard",
+  bookingPosition = "bottom",
 }: ServicePageProps) => {
   const schema = createServiceSchema(data);
   const breadcrumbs = [
@@ -42,6 +45,17 @@ const ServicePage = ({
       breadcrumbs={breadcrumbs}
     >
       <PageHero data={data.hero} variant={heroVariant} />
+
+      {bookingPosition === "top" && (
+        <SectionContainer id="booking" background="muted">
+          <BookingCTA
+            variant={bookingVariant}
+            serviceType={data.slug}
+            heading="Book {{Now}}"
+            subheading="Select your vehicle, date, and route — we handle the rest."
+          />
+        </SectionContainer>
+      )}
 
       {data.trustBadges && (
         <TrustBadges badges={data.trustBadges} variant="inline" />

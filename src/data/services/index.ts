@@ -7,9 +7,15 @@ import corporateTransportation from "./corporate-transportation";
 import privateEntertainment from "./private-entertainment";
 import promotionalServices from "./promotional-services";
 import propertyWatch from "./property-watch";
+import hourlyChauffeur from "./hourly-chauffeur";
+import skiResortTransportation from "./ski-resort-transportation";
+import specialEventTransportation from "./special-event-transportation";
 
 export const services: Record<string, ServicePageData> = {
   "black-car-service": blackCarService,
+  "hourly-chauffeur": hourlyChauffeur,
+  "ski-resort-transportation": skiResortTransportation,
+  "special-event-transportation": specialEventTransportation,
   "executive-protection": executiveProtection,
   "aspen-clubs": aspenClubs,
   "aspen-wedding-transportation": weddingTransportation,
@@ -21,6 +27,9 @@ export const services: Record<string, ServicePageData> = {
 
 export {
   blackCarService,
+  hourlyChauffeur,
+  skiResortTransportation,
+  specialEventTransportation,
   executiveProtection,
   aspenClubs,
   weddingTransportation,

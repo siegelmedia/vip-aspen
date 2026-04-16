@@ -8,7 +8,8 @@ import logo from "@/assets/vip-aspen-logo.webp";
 
 interface DropdownItem {
   label: string;
-  href: string;
+  href?: string;
+  separator?: boolean;
 }
 
 interface NavItem {
@@ -21,15 +22,21 @@ const navItems: NavItem[] = [
   {
     label: "Services",
     children: [
+      { label: "Transportation", separator: true },
       { label: "Black Car Service", href: "/black-car-service" },
+      { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
+      { label: "Ski Resort Transfers", href: "/ski-resort-transportation" },
+      { label: "Event Transportation", href: "/special-event-transportation" },
+      { label: "Snowmass Village", href: "/snowmass-village-transfer" },
+      { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
+      { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
+      { label: "Security", separator: true },
       { label: "Executive Protection", href: "/executive-protection" },
       { label: "Property Security Watch", href: "/property-watch" },
+      { label: "Entertainment", separator: true },
       { label: "VIP Club Access", href: "/aspen-clubs" },
       { label: "Private Entertainment", href: "/private-entertainment" },
       { label: "Promotional Services", href: "/promotional-services" },
-      { label: "Snowmass Village Transfer", href: "/snowmass-village-transfer" },
-      { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
-      { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
     ],
   },
   {
@@ -99,16 +106,22 @@ const DesktopDropdown = ({ item }: { item: NavItem }) => {
             transition={{ duration: 0.2 }}
             className="absolute top-full left-0 mt-3 min-w-[220px] bg-background/95 backdrop-blur-xl border border-border/50 rounded-md shadow-xl overflow-hidden"
           >
-            {item.children.map((child) => (
+            {item.children.map((child) =>
+              child.separator ? (
+                <div key={child.label} className="px-5 pt-3 pb-1 text-xs uppercase tracking-wider text-primary/60 font-medium border-t border-border/30 first:border-t-0 first:pt-2">
+                  {child.label}
+                </div>
+              ) : (
               <Link
                 key={child.href}
-                to={child.href}
+                to={child.href!}
                 onClick={() => setOpen(false)}
-                className="block px-5 py-3 text-sm text-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors"
+                className="block px-5 py-2.5 text-sm text-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors"
               >
                 {child.label}
               </Link>
-            ))}
+              )
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -158,16 +171,22 @@ const MobileNavGroup = ({
             transition={{ duration: 0.25 }}
             className="overflow-hidden pl-4"
           >
-            {item.children.map((child) => (
+            {item.children.map((child) =>
+              child.separator ? (
+                <div key={child.label} className="pt-3 pb-1 text-xs uppercase tracking-wider text-primary/60 font-medium border-t border-border/30 first:border-t-0 first:pt-1">
+                  {child.label}
+                </div>
+              ) : (
               <Link
                 key={child.href}
-                to={child.href}
+                to={child.href!}
                 onClick={onClose}
                 className="block py-2 text-sm text-foreground/60 hover:text-primary transition-colors"
               >
                 {child.label}
               </Link>
-            ))}
+              )
+            )}
           </motion.div>
         )}
       </AnimatePresence>

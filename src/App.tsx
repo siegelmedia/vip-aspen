@@ -44,7 +44,11 @@ const ServiceRoute = ({ slug }: { slug: string }) => {
     : "widget" as const;
   const heroVariant = slug === "property-watch" ? "cinematic" as const : "standard" as const;
 
-  return <ServicePage data={data} bookingVariant={bookingVariant} heroVariant={heroVariant} />;
+  // Transportation pages show booking widget at top of page
+  const topBookingPages = ["black-car-service", "hourly-chauffeur", "ski-resort-transportation", "special-event-transportation", "aspen-wedding-transportation", "aspen-corporate-transportation"];
+  const bookingPosition = topBookingPages.includes(slug) ? "top" as const : "bottom" as const;
+
+  return <ServicePage data={data} bookingVariant={bookingVariant} heroVariant={heroVariant} bookingPosition={bookingPosition} />;
 };
 
 const VehicleRoute = ({ slug }: { slug: string }) => {

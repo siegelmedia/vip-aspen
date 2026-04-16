@@ -11,6 +11,9 @@ const fleetLinks = [
 
 const transportationLinks = [
   { label: "Black Car Service", href: "/black-car-service" },
+  { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
+  { label: "Ski Resort Transfers", href: "/ski-resort-transportation" },
+  { label: "Event Transportation", href: "/special-event-transportation" },
   { label: "Aspen Airport Transfer", href: "/aspen-airport-transfer" },
   { label: "Eagle Airport Transfer", href: "/eagle-airport-transfer" },
   { label: "Rifle Airport Transfer", href: "/rifle-airport-transfer" },
