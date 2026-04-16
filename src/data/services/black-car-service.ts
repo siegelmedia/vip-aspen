@@ -1,5 +1,4 @@
 import { Car, Clock, MapPin, Star, Building2, Users, Snowflake, Calendar } from "lucide-react";
-import fleetHero from "@/assets/fleet-hero.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -18,7 +17,6 @@ const data: ServicePageData = {
     headline: "Aspen {{Black Car Service}}",
     description:
       "Experience unparalleled luxury with our exclusive fleet. From airport transfers to special events, travel through Aspen and the Roaring Fork Valley in style with professional chauffeurs available 24/7.",
-    image: fleetHero,
     ctaLabel: "Book Your Ride",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },

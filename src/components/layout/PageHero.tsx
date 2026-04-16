@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -9,10 +10,12 @@ interface PageHeroProps {
   data: HeroData;
   /** Full-viewport dark hero (for property watch) vs standard */
   variant?: "standard" | "cinematic";
+  /** Optional content rendered below the hero text (e.g. booking widget) */
+  children?: ReactNode;
 }
 
-const PageHero = ({ data, variant = "standard" }: PageHeroProps) => {
-  const hasTwoColumns = !!data.image && variant === "standard";
+const PageHero = ({ data, variant = "standard", children }: PageHeroProps) => {
+  const hasTwoColumns = !!data.image && variant === "standard" && !children;
 
   return (
     <section
@@ -87,6 +90,15 @@ const PageHero = ({ data, variant = "standard" }: PageHeroProps) => {
             </motion.div>
           )}
         </div>
+
+        {children && (
+          <motion.div
+            {...heroImage}
+            className="mt-10 max-w-4xl mx-auto"
+          >
+            {children}
+          </motion.div>
+        )}
       </div>
     </section>
   );

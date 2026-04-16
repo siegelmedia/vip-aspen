@@ -7,6 +7,7 @@ import PricingTable from "@/components/blocks/PricingTable";
 import FAQAccordion from "@/components/blocks/FAQAccordion";
 import HowItWorks from "@/components/blocks/HowItWorks";
 import BookingCTA from "@/components/blocks/BookingCTA";
+import BookingWidget from "@/components/BookingWidget";
 import ProseSection from "@/components/blocks/ProseSection";
 import TrustBadges from "@/components/blocks/TrustBadges";
 import DifferentiatorBlocks from "@/components/blocks/DifferentiatorBlocks";
@@ -21,8 +22,8 @@ interface ServicePageProps {
   bookingVariant?: "form" | "widget" | "contact-only";
   /** Cinematic full-viewport hero for property watch style */
   heroVariant?: "standard" | "cinematic";
-  /** "top" renders booking widget right after hero (transportation pages), "bottom" is default */
-  bookingPosition?: "top" | "bottom";
+  /** "hero" embeds widget inside hero, "top" renders after hero, "bottom" is default */
+  bookingPosition?: "hero" | "top" | "bottom";
 }
 
 const ServicePage = ({
@@ -44,7 +45,13 @@ const ServicePage = ({
       faqs={data.faqs}
       breadcrumbs={breadcrumbs}
     >
-      <PageHero data={data.hero} variant={heroVariant} />
+      <PageHero data={data.hero} variant={heroVariant}>
+        {bookingPosition === "hero" && (
+          <div id="booking">
+            <BookingWidget />
+          </div>
+        )}
+      </PageHero>
 
       {bookingPosition === "top" && (
         <SectionContainer id="booking" background="muted">
@@ -110,13 +117,15 @@ const ServicePage = ({
         </SectionContainer>
       )}
 
-      <SectionContainer id="booking" background="gradient">
-        <BookingCTA
-          variant={bookingVariant}
-          serviceType={data.slug}
-          heading="Ready to {{Get Started}}?"
-        />
-      </SectionContainer>
+      {bookingPosition !== "hero" && (
+        <SectionContainer id={bookingPosition === "top" ? "booking-bottom" : "booking"} background="gradient">
+          <BookingCTA
+            variant={bookingVariant}
+            serviceType={data.slug}
+            heading="Ready to {{Get Started}}?"
+          />
+        </SectionContainer>
+      )}
     </PageWrapper>
   );
 };
