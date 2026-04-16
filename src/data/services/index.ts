@@ -12,6 +12,7 @@ import specialEventTransportation from "./special-event-transportation";
 import hotelJeromeTransportation from "./hotel-jerome-transportation";
 import stRegisAspenTransportation from "./st-regis-aspen-transportation";
 import littleNellTransportation from "./little-nell-transportation";
+import securityDriver from "./security-driver";
 
 export const services: Record<string, ServicePageData> = {
   "black-car-service": blackCarService,
@@ -20,6 +21,7 @@ export const services: Record<string, ServicePageData> = {
   "hotel-jerome-transportation": hotelJeromeTransportation,
   "st-regis-aspen-transportation": stRegisAspenTransportation,
   "little-nell-transportation": littleNellTransportation,
+  "security-driver": securityDriver,
   "executive-protection": executiveProtection,
   "aspen-clubs": aspenClubs,
   "aspen-wedding-transportation": weddingTransportation,
@@ -43,4 +45,5 @@ export {
   hotelJeromeTransportation,
   stRegisAspenTransportation,
   littleNellTransportation,
+  securityDriver,
 };

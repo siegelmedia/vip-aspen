@@ -9,6 +9,7 @@ import HowItWorks from "@/components/blocks/HowItWorks";
 import BookingCTA from "@/components/blocks/BookingCTA";
 import BookingWidget from "@/components/BookingWidget";
 import ProseSection from "@/components/blocks/ProseSection";
+import LinkedPagesGrid from "@/components/blocks/LinkedPagesGrid";
 import TrustBadges from "@/components/blocks/TrustBadges";
 import DifferentiatorBlocks from "@/components/blocks/DifferentiatorBlocks";
 import CancellationPolicy from "@/components/blocks/CancellationPolicy";
@@ -86,6 +87,15 @@ const ServicePage = ({
           />
         </SectionContainer>
       )}
+
+      {data.linkedPageGroups?.map((group, i) => (
+        <SectionContainer
+          key={group.heading}
+          background={i % 2 === 0 ? "muted" : "default"}
+        >
+          <LinkedPagesGrid group={group} />
+        </SectionContainer>
+      ))}
 
       {data.howItWorks && (
         <SectionContainer background="muted">

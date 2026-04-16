@@ -93,6 +93,23 @@ export interface RelatedService {
   href: string;
 }
 
+// ─── Linked Pages (clickable grid cards) ────────────────────────────────────
+
+export interface LinkedPage {
+  label: string;
+  href: string;
+  detail?: string;
+  description?: string;
+  icon?: LucideIcon;
+}
+
+export interface LinkedPagesGroup {
+  heading: string;
+  subtitle?: string;
+  columns?: 2 | 3 | 4;
+  items: LinkedPage[];
+}
+
 // ─── Service Page Data ──────────────────────────────────────────────────────
 
 export interface ServicePageData {
@@ -108,6 +125,8 @@ export interface ServicePageData {
   faqs?: FAQ[];
   cancellationPolicy?: string[];
   relatedServices?: RelatedService[];
+  /** Grouped clickable cards linking to related pages (e.g. airports, hotels) */
+  linkedPageGroups?: LinkedPagesGroup[];
   /** Additional custom sections rendered by the template */
   customSections?: {
     id: string;

@@ -45,7 +45,7 @@ const ServiceRoute = ({ slug }: { slug: string }) => {
   const heroVariant = slug === "property-watch" ? "cinematic" as const : "standard" as const;
 
   // All transportation and airport pages embed booking in hero
-  const heroBookingPages = ["black-car-service", "hourly-chauffeur", "special-event-transportation", "aspen-wedding-transportation", "aspen-corporate-transportation", "hotel-jerome-transportation", "st-regis-aspen-transportation", "little-nell-transportation"];
+  const heroBookingPages = ["black-car-service", "hourly-chauffeur", "security-driver", "special-event-transportation", "aspen-wedding-transportation", "aspen-corporate-transportation", "hotel-jerome-transportation", "st-regis-aspen-transportation", "little-nell-transportation"];
   const topBookingPages: string[] = [];
   const bookingPosition = heroBookingPages.includes(slug)
     ? "hero" as const
