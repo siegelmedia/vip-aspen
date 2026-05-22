@@ -15,6 +15,8 @@ const ContactPage = lazy(() => import("./pages/ContactPage"));
 const MembershipPage = lazy(() => import("./pages/MembershipPage"));
 // const TalentGallery = lazy(() => import("./pages/TalentGallery")); // Re-enable when real talent photos are ready
 const SecurityAssessment = lazy(() => import("./pages/SecurityAssessment"));
+const SummitBlackCar = lazy(() => import("./pages/SummitBlackCar"));
+const SummitBlackCarDriver = lazy(() => import("./pages/SummitBlackCarDriver"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Templates — lazy loaded
@@ -95,6 +97,10 @@ const App = () => (
               <Route path="/membership" element={<MembershipPage />} />
               {/* <Route path="/talent" element={<TalentGallery />} /> — Disabled until real talent photos are ready */}
               <Route path="/security-assessment" element={<SecurityAssessment />} />
+
+              {/* Summit Black Car — hidden in-vehicle tablet display */}
+              <Route path="/summit-blackcar" element={<SummitBlackCar />} />
+              <Route path="/summit-blackcar/:slug" element={<SummitBlackCarDriver />} />
 
               {/* Service pages — template-driven */}
               {Object.keys(services).map((slug) => (
