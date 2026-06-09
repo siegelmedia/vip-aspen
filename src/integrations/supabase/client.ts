@@ -2,8 +2,14 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+// Fall back to harmless placeholders if the build-time env vars are missing.
+// Supabase's createClient() throws synchronously on an undefined URL, and this
+// module is imported (via BookingForm/BookingCTA) by every template page — so a
+// misconfigured build would otherwise crash on load and blank the entire site.
+// With these fallbacks, the site still renders and only Supabase-backed form
+// SUBMISSIONS fail until the real VITE_SUPABASE_* vars are set in the build env.
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://placeholder.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || "placeholder-anon-key";
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
