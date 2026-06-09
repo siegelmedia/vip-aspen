@@ -34,6 +34,25 @@ const BOT_AGENTS = [
   "chrome-lighthouse",
   "telegrambot",
   "google-inspectiontool",
+  // AI answer engines / LLM search crawlers — serve them rendered HTML so VIP Aspen
+  // can be read and cited in AI search results instead of seeing an empty JS shell.
+  "gptbot",
+  "oai-searchbot",
+  "chatgpt-user",
+  "perplexitybot",
+  "perplexity-user",
+  "claudebot",
+  "anthropic-ai",
+  "claude-web",
+  "claude-user",
+  "google-extended",
+  "amazonbot",
+  "applebot-extended",
+  "youbot",
+  "duckassistbot",
+  "cohere-ai",
+  "meta-externalagent",
+  "bingbot-llm",
 ];
 
 const STATIC_EXTENSIONS = [
