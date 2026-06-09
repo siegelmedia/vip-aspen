@@ -15,17 +15,31 @@ interface PageHeroProps {
 }
 
 const PageHero = ({ data, variant = "standard", children }: PageHeroProps) => {
-  const hasTwoColumns = !!data.image && variant === "standard" && !children;
+  const hasBgImage = !!data.bgImage;
+  const hasTwoColumns = !hasBgImage && !!data.image && variant === "standard" && !children;
 
   return (
     <section
-      className={`relative ${
+      className={`relative overflow-hidden ${
         variant === "cinematic"
           ? "pt-32 pb-24 md:pt-40 md:pb-32 min-h-[80vh] flex items-center"
           : "pt-32 pb-16 md:pt-40 md:pb-24"
       }`}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
+      {hasBgImage ? (
+        <div className="absolute inset-0">
+          <img
+            src={data.bgImage}
+            alt={data.tagline}
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-background/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
+        </div>
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
+      )}
 
       <div className="container mx-auto px-6 relative z-10">
         <div

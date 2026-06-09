@@ -1,4 +1,5 @@
 import { Plane, Clock, ShieldCheck, Luggage, Radar, MapPin } from "lucide-react";
+import heroBg from "@/assets/service-private-jet-transfer.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -17,6 +18,7 @@ const data: ServicePageData = {
     headline: "Aspen Private Jet & {{FBO Transfers}}",
     description:
       "Planeside ground transportation coordinated directly with your flight crew and schedulers. Step off the jet and into a chilled Rolls Royce, Escalade, or Sprinter — at Atlantic Aviation (ASE), Eagle (EGE), or Rifle (RIL).",
+    bgImage: heroBg,
     ctaLabel: "Arrange Your Transfer",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },

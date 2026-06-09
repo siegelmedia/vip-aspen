@@ -1,5 +1,5 @@
 import { Shield, Eye, UserCheck, Lock } from "lucide-react";
-import protectionService from "@/assets/protection-service.webp";
+import protectionService from "@/assets/service-executive-protection.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -18,7 +18,7 @@ const data: ServicePageData = {
     headline: "Executive {{Protection}}",
     description:
       "Discrete, professional security services for high-profile individuals and families visiting Aspen. Our trained specialists ensure your safety while maintaining the utmost confidentiality.",
-    image: protectionService,
+    bgImage: protectionService,
     ctaLabel: "Request Consultation",
     ctaLink: "#contact",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },

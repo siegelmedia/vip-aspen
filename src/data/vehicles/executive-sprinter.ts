@@ -1,8 +1,7 @@
 import { Users, Star, Shield, Clock, Wifi, Music } from "lucide-react";
 import tarmacImg from "@/assets/sprinter-hero-tarmac.webp";
 import sprinterExterior from "@/assets/sprinter.webp";
-import interiorSideImg from "@/assets/sprinter-interior-side.webp";
-import interiorFullImg from "@/assets/sprinter-interior-full.webp";
+import galleryExterior from "@/assets/sprinter-gallery-exterior.webp";
 import type { VehiclePageData } from "@/types";
 
 const data: VehiclePageData = {
@@ -68,7 +67,7 @@ const data: VehiclePageData = {
         "Customizable LED mood lighting throughout the cabin to set the perfect atmosphere for any occasion.",
     },
   ],
-  gallery: [sprinterExterior, interiorSideImg, interiorFullImg],
+  gallery: [galleryExterior, sprinterExterior],
   faqs: [
     {
       question: "How many passengers does the Sprinter hold?",

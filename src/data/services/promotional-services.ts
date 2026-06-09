@@ -1,5 +1,5 @@
 import { Megaphone, UserCheck, Wine, Building2, Sparkles } from "lucide-react";
-import heroImage from "@/assets/promotional-services.webp";
+import heroImage from "@/assets/service-promotional-events.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -18,7 +18,7 @@ const data: ServicePageData = {
     headline: "Elite Promotional Talent for Aspen's {{Most Exclusive Events}}",
     description:
       "Brand ambassadors, event hostesses, atmosphere models, and cocktail service professionals \u2014 sourced nationally, delivered locally.",
-    image: heroImage,
+    bgImage: heroImage,
     ctaLabel: "Get a Quote",
     ctaLink: "#quote",
   },

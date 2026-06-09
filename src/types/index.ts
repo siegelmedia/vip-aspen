@@ -17,7 +17,10 @@ export interface HeroData {
   /** Wrap text in {{gold}} to apply gold gradient. E.g. "Your Estate, {{Protected}}" */
   headline: string;
   description: string;
+  /** Two-column hero image, shown beside the text (vehicle/airport pages). */
   image?: string;
+  /** Full-bleed darkened hero background image, with text/booking widget overlaid (service pages). */
+  bgImage?: string;
   ctaLabel?: string;
   ctaLink?: string;
   secondaryCta?: { label: string; link: string };

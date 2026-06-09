@@ -1,5 +1,5 @@
 import { Star, Wine, Users, Music } from "lucide-react";
-import vipClub from "@/assets/vip-club.webp";
+import vipClub from "@/assets/service-aspen-clubs.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -18,7 +18,7 @@ const data: ServicePageData = {
     headline: "Aspen {{Nightlife}} & Clubs",
     description:
       "Experience Aspen after dark like never before. Skip the lines, secure the best tables, and enjoy exclusive access to the mountain town's most coveted venues and experiences.",
-    image: vipClub,
+    bgImage: vipClub,
     ctaLabel: "Get VIP Access",
     ctaLink: "#contact",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },

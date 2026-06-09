@@ -1,4 +1,5 @@
 import { Shield, Moon, Users, ClipboardCheck, Briefcase, Phone } from "lucide-react";
+import heroBg from "@/assets/service-property-watch.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -17,6 +18,7 @@ const data: ServicePageData = {
     headline: "Your Aspen Estate, {{Protected.}}",
     description:
       "Residential security and property watch from the Roaring Fork Valley's trusted licensed security company. Present when you need us. Invisible when you don't.",
+    bgImage: heroBg,
     ctaLabel: "Request a Security Assessment",
     ctaLink: "/security-assessment",
   },

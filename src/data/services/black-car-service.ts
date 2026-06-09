@@ -1,4 +1,5 @@
 import { Car, Clock, MapPin, Star, Building2, Users, Snowflake, Calendar, ShieldCheck, Plane, Hotel } from "lucide-react";
+import heroBg from "@/assets/service-black-car-arrival.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -17,6 +18,7 @@ const data: ServicePageData = {
     headline: "Aspen {{Black Car Service}}",
     description:
       "Chauffeured Rolls Royce, Escalade, and Sprinter. Airport transfers, hourly charters, hotel transport, and special events — available 24/7 across Aspen and the Roaring Fork Valley.",
+    bgImage: heroBg,
     ctaLabel: "Book Your Ride",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },
