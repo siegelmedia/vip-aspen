@@ -21,8 +21,8 @@ const Index = () => {
     <>
       <SEOHead
         title="Luxury Car Service Aspen CO | Rolls Royce, Escalade & Sprinter"
-        description="Aspen's #1 luxury car service & VIP concierge. Chauffeured Rolls Royce Cullinan, Cadillac Escalade & Executive Sprinter. Airport transfers, property security, VIP entertainment & executive protection. Available 24/7. Call (970) 452-6636."
-        keywords="luxury car service Aspen, Aspen chauffeur, Rolls Royce Aspen, black car service Aspen Colorado, Aspen airport transfer, luxury transportation Aspen, VIP car service Aspen, private driver Aspen, property watch Aspen, Aspen security"
+        description="Aspen's #1 luxury car service & VIP concierge. Chauffeured Rolls Royce Cullinan, Cadillac Escalade & Executive Sprinter. Airport transfers, VIP entertainment & executive protection. Available 24/7. Call (970) 452-6636."
+        keywords="luxury car service Aspen, Aspen chauffeur, Rolls Royce Aspen, black car service Aspen Colorado, Aspen airport transfer, luxury transportation Aspen, VIP car service Aspen, private driver Aspen, Aspen security"
         canonicalUrl="/"
         ogImage="https://www.vipaspen.com/og-image.jpg"
       />
@@ -67,7 +67,7 @@ const Index = () => {
                 Ready to Experience <span className="text-gradient-gold">VIP Aspen</span>?
               </h2>
               <p className="text-foreground/70 text-lg mb-4 max-w-xl mx-auto">
-                Contact us today for transportation, entertainment, security, or property watch services.
+                Contact us today for transportation, entertainment, and security services.
               </p>
               <p className="text-foreground/50 text-sm mb-8 max-w-md mx-auto">
                 <Link to="/membership" className="text-primary hover:underline">

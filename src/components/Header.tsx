@@ -33,7 +33,6 @@ const navItems: NavItem[] = [
       { label: "Security", separator: true },
       { label: "Security Drivers", href: "/security-driver" },
       { label: "Executive Protection", href: "/executive-protection" },
-      { label: "Property Security Watch", href: "/property-watch" },
       { label: "VIP & Concierge", separator: true },
       { label: "VIP Club Access", href: "/aspen-clubs" },
       { label: "Private Entertainment", href: "/private-entertainment" },

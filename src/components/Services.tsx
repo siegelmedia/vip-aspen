@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Car, Shield, Sparkles, Music, Megaphone, Home, ArrowRight } from "lucide-react";
+import { Car, Shield, Sparkles, Music, Megaphone, ArrowRight } from "lucide-react";
 import { staggerChild } from "@/lib/animations";
 import SectionHeader from "@/components/layout/SectionHeader";
 
@@ -16,12 +16,6 @@ const transportationServices = [
     title: "Executive Protection",
     description: "Discreet, professional security for high-profile individuals.",
     link: "/executive-protection",
-  },
-  {
-    icon: Home,
-    title: "Property Security Watch",
-    description: "Security-first estate protection for vacant luxury properties.",
-    link: "/property-watch",
   },
 ];
 
@@ -102,7 +96,7 @@ const Services = () => {
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {conciergeServices.map((service, index) => (
-            <ServiceCard key={service.title} service={service} index={index + 3} />
+            <ServiceCard key={service.title} service={service} index={index + 2} />
           ))}
         </div>
       </div>

@@ -31,7 +31,7 @@ const data: ServicePageData = {
     heading: "Beyond the {{Chauffeur}}",
     body: `<p>Most luxury car services hire drivers for appearance and etiquette. VIP Aspen's security drivers are trained for something different. These are vetted professionals with law enforcement or military backgrounds — selected and trained to operate as part of a protective detail, not just behind the wheel.</p>
 <p>Our security drivers are the right choice when your visit requires more than a polished chauffeur. CEOs traveling with corporate security, celebrities with existing protective details, family offices requiring vetted transportation, or high-profile guests who want a driver cleared to coordinate with their security team. We integrate directly with your detail leader, follow your protocols, and operate at the level your team expects.</p>
-<p>For clients who need a standalone protective presence, we also offer <a href="/executive-protection">executive protection services</a> and <a href="/property-watch">residential security</a>. Our security drivers work seamlessly alongside either — or on their own as a single layer of protection for clients who want a trained, cleared driver without a full detail.</p>`,
+<p>For clients who need a standalone protective presence, we also offer <a href="/executive-protection">executive protection services</a>. Our security drivers work seamlessly alongside a full detail — or on their own as a single layer of protection for clients who want a trained, cleared driver without one.</p>`,
   },
   features: [
     {
@@ -116,7 +116,6 @@ const data: ServicePageData = {
   ],
   relatedServices: [
     { label: "Executive Protection", href: "/executive-protection" },
-    { label: "Property Security Watch", href: "/property-watch" },
     { label: "Black Car Service", href: "/black-car-service" },
     { label: "Security Assessment", href: "/security-assessment" },
   ],

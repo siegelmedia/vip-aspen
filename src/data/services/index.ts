@@ -6,7 +6,6 @@ import weddingTransportation from "./wedding-transportation";
 import corporateTransportation from "./corporate-transportation";
 import privateEntertainment from "./private-entertainment";
 import promotionalServices from "./promotional-services";
-import propertyWatch from "./property-watch";
 import hourlyChauffeur from "./hourly-chauffeur";
 import multiDayChauffeur from "./multi-day-chauffeur";
 import privateSkiTransfers from "./private-ski-transfers";
@@ -45,7 +44,6 @@ export const services: Record<string, ServicePageData> = {
   "aspen-corporate-transportation": corporateTransportation,
   "private-entertainment": privateEntertainment,
   "promotional-services": promotionalServices,
-  "property-watch": propertyWatch,
   "rates": ratesPage,
 };
 
@@ -67,7 +65,6 @@ export {
   corporateTransportation,
   privateEntertainment,
   promotionalServices,
-  propertyWatch,
   hotelJeromeTransportation,
   stRegisAspenTransportation,
   littleNellTransportation,

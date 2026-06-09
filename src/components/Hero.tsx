@@ -51,7 +51,7 @@ const Hero = () => {
             className="text-foreground/70 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed"
           >
             Chauffeured Rolls Royce Cullinan, Cadillac Escalade & Executive Sprinter.
-            Airport transfers, property security, VIP entertainment, and executive protection
+            Airport transfers, VIP entertainment, and executive protection
             — available 24/7 for Aspen's most discerning clients.
           </motion.p>
 

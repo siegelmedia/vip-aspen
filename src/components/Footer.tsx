@@ -39,7 +39,6 @@ const transferLinks = [
 const vipSecurityLinks = [
   { label: "Security Drivers", href: "/security-driver" },
   { label: "Executive Protection", href: "/executive-protection" },
-  { label: "Property Security Watch", href: "/property-watch" },
   { label: "VIP Club Access", href: "/aspen-clubs" },
   { label: "Private Entertainment", href: "/private-entertainment" },
   { label: "Promotional Services", href: "/promotional-services" },
@@ -126,7 +125,7 @@ const Footer = () => {
             Denver to Aspen and Vail to Aspen. Our services span black car and hourly chauffeur,
             multi-day and concierge driving, private ski transfers across Aspen Mountain,
             Highlands, Buttermilk, and Snowmass, plus wedding, corporate, and special-event
-            transportation, property security watch, private entertainment, VIP nightlife access,
+            transportation, private entertainment, VIP nightlife access,
             and executive protection. Serving Aspen, Snowmass Village, Basalt, Woody Creek,
             Carbondale, and the Roaring Fork Valley. Backed by Aspen Security LLC — a
             Colorado-licensed security company with veteran and law enforcement ownership.
