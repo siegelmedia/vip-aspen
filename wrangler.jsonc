@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers Static Assets config for the vip-aspen site deploy.
+  // Replaces the old Pages `/* /index.html 200` _redirects SPA rule, which the
+  // Workers Assets runtime rejects as an infinite loop. `single-page-application`
+  // serves /index.html (200) for any unmatched path so client-side routes
+  // (/rates, /guides, etc.) resolve instead of 404-ing.
+  "name": "vip-aspen",
+  "compatibility_date": "2026-06-08",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}
