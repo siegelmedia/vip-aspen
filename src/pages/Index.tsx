@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import StatsBar from "@/components/blocks/StatsBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import BookingWidget from "@/components/BookingWidget";
 import { COMPANY } from "@/data/constants";
 import { fadeInUp } from "@/lib/animations";
 
@@ -40,6 +41,23 @@ const Index = () => {
         <Fleet />
         <WhyVIPAspen />
         <AirportTransfers />
+
+        {/* On-page booking — the BookRidesOnline reservation widget */}
+        <section id="booking" className="py-20 md:py-28 bg-muted/20">
+          <div className="container mx-auto px-6">
+            <motion.div {...fadeInUp} className="text-center mb-10 max-w-2xl mx-auto">
+              <p className="text-primary uppercase tracking-[0.3em] text-sm mb-4">Reserve</p>
+              <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-4">
+                Book Your <span className="text-gradient-gold">Aspen Ride</span>
+              </h2>
+              <p className="text-foreground/60 text-lg">
+                Select your vehicle, date, and route — confirmed in minutes. No surge pricing,
+                available 24/7.
+              </p>
+            </motion.div>
+            <BookingWidget />
+          </div>
+        </section>
 
         {/* Contact CTA — membership mention but not the focus */}
         <section id="contact" className="py-20 md:py-28 bg-gradient-to-b from-primary/5 to-transparent">

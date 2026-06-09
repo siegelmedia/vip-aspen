@@ -5,6 +5,7 @@ import SectionContainer from "@/components/layout/SectionContainer";
 import SectionHeader from "@/components/layout/SectionHeader";
 import FeatureGrid from "@/components/blocks/FeatureGrid";
 import FAQAccordion from "@/components/blocks/FAQAccordion";
+import RelatedServices from "@/components/blocks/RelatedServices";
 import BookingCTA from "@/components/blocks/BookingCTA";
 import ProseSection from "@/components/blocks/ProseSection";
 import { createVehicleSchema } from "@/lib/schema";
@@ -30,6 +31,17 @@ const VehiclePage = ({ data }: VehiclePageProps) => {
       breadcrumbs={breadcrumbs}
     >
       <PageHero data={data.hero} />
+
+      {/* On-page booking form — prominent, directly below the hero so the
+          hero's "Book the …" CTA (#booking) lands on a visible widget. */}
+      <SectionContainer id="booking" background="muted">
+        <BookingCTA
+          variant="widget"
+          serviceType={data.slug}
+          heading={data.hero.ctaLabel ? `{{${data.hero.ctaLabel}}}` : "Reserve Your {{Vehicle}}"}
+          subheading="Select your date, route, and vehicle — reserve in under a minute."
+        />
+      </SectionContainer>
 
       {data.intro && (
         <SectionContainer>
@@ -90,11 +102,14 @@ const VehiclePage = ({ data }: VehiclePageProps) => {
         </SectionContainer>
       )}
 
-      <SectionContainer id="booking" background="gradient">
+      <RelatedServices items={data.relatedServices} />
+
+      <SectionContainer background="gradient">
         <BookingCTA
-          variant="widget"
+          variant="contact-only"
           serviceType={data.slug}
-          heading={data.hero.ctaLabel ? `{{${data.hero.ctaLabel}}}` : "Ready to {{Book}}?"}
+          heading="Prefer to {{Speak With Us}}?"
+          subheading="Our team is available 24/7 to arrange your ride. Call, message, or email anytime."
         />
       </SectionContainer>
     </PageWrapper>
