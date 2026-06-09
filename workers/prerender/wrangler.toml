@@ -8,4 +8,6 @@ routes = [
 ]
 
 [vars]
-UPSTREAM_URL = "https://vip-aspen.pages.dev"
+# Human/static traffic is proxied here. Points at the Git-built Workers Static
+# Assets deployment (the new pipeline), not the legacy Pages project.
+UPSTREAM_URL = "https://vip-aspen.silent-sun-bae4.workers.dev"
