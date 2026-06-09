@@ -1,18 +1,19 @@
 import { Star, Shield, Clock, Users } from "lucide-react";
 import heroImg from "@/assets/rr-cullinan-aspen-exit.webp";
-import frontImg from "@/assets/rr-cullinan-front.webp";
-import interiorImg from "@/assets/rr-cullinan-interior.webp";
-import sideImg from "@/assets/rr-cullinan-side.webp";
+import frontImg from "@/assets/rolls-gallery-front.webp";
+import interiorImg from "@/assets/rolls-gallery-interior.webp";
+import sideImg from "@/assets/rolls-gallery-side.webp";
+import roadImg from "@/assets/cullinan-mountain-road.webp";
 import type { VehiclePageData } from "@/types";
 
 const data: VehiclePageData = {
   slug: "rolls-royce-cullinan",
   seo: {
-    title: "Rolls Royce Cullinan Aspen | Chauffeured Luxury SUV Hire",
+    title: "Rolls Royce Cullinan Aspen | Chauffeur Car Service & Hire",
     description:
       "Hire a chauffeured Rolls Royce Cullinan in Aspen, Colorado. Bespoke Mandarin interior, professional discreet chauffeur. Airport transfers, ski resorts, weddings, scenic tours & corporate travel. The most exclusive ride in the Rockies. Book (970) 452-6636.",
     keywords:
-      "Rolls Royce Cullinan Aspen, Rolls Royce hire Colorado, bespoke Mandarin interior, ultra-luxury SUV Aspen, Rolls Royce rental Aspen, Cullinan chauffeur",
+      "Rolls Royce Aspen, Rolls Royce chauffeur Aspen, Rolls Royce Cullinan Aspen, chauffeured Rolls Royce Aspen, Rolls Royce car service Aspen, Cullinan chauffeur, Rolls Royce hire Colorado, bespoke Mandarin interior, ultra-luxury SUV Aspen, Rolls Royce rental Aspen",
     canonicalUrl: "/rolls-royce-cullinan",
     ogImage: "https://www.vipaspen.com/og-rolls-royce.jpg",
   },
@@ -56,7 +57,7 @@ const data: VehiclePageData = {
         "Intimate rear cabin with individual seats, fold-out tables, and champagne cooler.",
     },
   ],
-  gallery: [frontImg, interiorImg, sideImg],
+  gallery: [frontImg, interiorImg, sideImg, roadImg],
   faqs: [
     {
       question: "How much does it cost to hire a Rolls Royce in Aspen?",
@@ -83,6 +84,13 @@ const data: VehiclePageData = {
       answer:
         "Discretion is our highest priority. All VIP Aspen chauffeurs are background-checked, professionally trained, and experienced in serving high-profile clients. NDAs are available upon request.",
     },
+  ],
+  relatedServices: [
+    { label: "Aspen Airport Transfer", href: "/aspen-airport-transfer" },
+    { label: "Private Jet / FBO Transfer", href: "/aspen-private-jet-transfer" },
+    { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
+    { label: "Multi-Day Chauffeur", href: "/multi-day-chauffeur" },
+    { label: "Black Car Service", href: "/black-car-service" },
   ],
 };
 

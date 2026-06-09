@@ -24,3 +24,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Generated image source/staging — large raw PNGs kept locally only.
+# The site uses the optimized WebP versions committed under src/assets/.
+/generated-images-source/
+/public/generated-image-approvals/

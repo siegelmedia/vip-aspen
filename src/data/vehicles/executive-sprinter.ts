@@ -1,5 +1,5 @@
 import { Users, Star, Shield, Clock, Wifi, Music } from "lucide-react";
-import tarmacImg from "@/assets/sprinter-tarmac.webp";
+import tarmacImg from "@/assets/sprinter-hero-tarmac.webp";
 import sprinterExterior from "@/assets/sprinter.webp";
 import interiorSideImg from "@/assets/sprinter-interior-side.webp";
 import interiorFullImg from "@/assets/sprinter-interior-full.webp";
@@ -84,6 +84,13 @@ const data: VehiclePageData = {
     { question: "Can the Sprinter be used for weddings?", answer: "Absolutely. The Executive Sprinter is one of our most popular wedding vehicles — it fits the entire bridal party or groomsmen comfortably with room for garment bags and accessories." },
     { question: "How much luggage can the Sprinter carry?", answer: "The Sprinter has ample cargo space for 13 passengers with full luggage, ski gear, golf clubs, or event equipment. It's designed for real travel, not just short transfers." },
     { question: "Does the Sprinter have entertainment and Wi-Fi?", answer: "Yes. Premium sound system, multiple display screens, high-speed Wi-Fi, USB charging at every seat, and ambient lighting. It's a mobile conference room or party lounge." },
+  ],
+  relatedServices: [
+    { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
+    { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
+    { label: "Event Transportation", href: "/special-event-transportation" },
+    { label: "Denver to Aspen", href: "/denver-to-aspen-car-service" },
+    { label: "Black Car Service", href: "/black-car-service" },
   ],
 };
 

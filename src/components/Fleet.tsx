@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import rollsRoyce from "@/assets/rolls-royce-cullinan.webp";
-import escalade from "@/assets/escalade.webp";
-import sprinter from "@/assets/sprinter.webp";
+import rollsRoyce from "@/assets/fleet-card-cullinan-v2.webp";
+import escalade from "@/assets/fleet-card-escalade-v2.webp";
+import sprinter from "@/assets/fleet-card-sprinter-v2.webp";
 
 const vehicles = [
   {

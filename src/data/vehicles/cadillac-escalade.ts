@@ -1,8 +1,8 @@
 import { Star, Shield, Clock, Users, Monitor, Car } from "lucide-react";
-import nightImg from "@/assets/escalade-night.webp";
-import signatureImg from "@/assets/escalade-signature.webp";
-import interiorImg from "@/assets/escalade-interior.webp";
-import tarmacImg from "@/assets/escalade-tarmac.webp";
+import nightImg from "@/assets/escalade-hero-night.webp";
+import signatureImg from "@/assets/escalade-gallery-signature.webp";
+import interiorImg from "@/assets/escalade-gallery-interior.webp";
+import tarmacImg from "@/assets/escalade-gallery-tarmac.webp";
 import type { VehiclePageData } from "@/types";
 
 const data: VehiclePageData = {
@@ -75,6 +75,13 @@ const data: VehiclePageData = {
     { question: "Is the Escalade suitable for winter mountain roads?", answer: "Absolutely. Our Escalades feature 4WD, winter tires, and are driven by experienced mountain road professionals who know every pass and canyon in the valley." },
     { question: "What amenities are inside the Escalade?", answer: "Premium AKG sound system, rear entertainment screens, tri-zone climate control, Wi-Fi, USB charging, and complimentary bottled water. The interior is detailed before every ride." },
     { question: "Can I book the Escalade for a full day?", answer: "Yes. We offer hourly rates, half-day, and full-day charters. Full-day bookings are popular for ski days, real estate tours, and corporate retreats throughout the valley." },
+  ],
+  relatedServices: [
+    { label: "Aspen Airport Transfer", href: "/aspen-airport-transfer" },
+    { label: "Private Ski Transfers", href: "/private-ski-transfers" },
+    { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
+    { label: "Denver to Aspen", href: "/denver-to-aspen-car-service" },
+    { label: "Black Car Service", href: "/black-car-service" },
   ],
 };
 

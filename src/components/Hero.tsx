@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { COMPANY } from "@/data/constants";
-import heroImage from "@/assets/hero-aspen.webp";
+import heroImage from "@/assets/fleet-tarmac-hero.webp";
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Luxury Rolls Royce Cullinan with Aspen Colorado mountain backdrop"
+          alt="VIP Aspen luxury fleet — Mercedes Sprinter, Cadillac Escalade, and Rolls-Royce Cullinan on the tarmac with Aspen's snow-capped mountains behind"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
