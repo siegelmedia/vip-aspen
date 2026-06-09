@@ -105,6 +105,20 @@ const data: ServicePageData = {
           description: "Denver International to Aspen — the ultimate scenic mountain transfer.",
           icon: Plane,
         },
+        {
+          label: "Private Jet / FBO",
+          href: "/aspen-private-jet-transfer",
+          detail: "Planeside tarmac service",
+          description: "Coordinated planeside pickup at Atlantic Aviation and regional FBOs.",
+          icon: Plane,
+        },
+        {
+          label: "Vail to Aspen",
+          href: "/vail-to-aspen-car-service",
+          detail: "~2-hour resort transfer",
+          description: "Private door-to-door car service between Vail, Beaver Creek, and Aspen.",
+          icon: MapPin,
+        },
       ],
     },
     {
@@ -146,6 +160,27 @@ const data: ServicePageData = {
           detail: "By-the-hour, your schedule",
           description: "A dedicated SUV and driver on call for as long as you need.",
           icon: Clock,
+        },
+        {
+          label: "Multi-Day Chauffeur",
+          href: "/multi-day-chauffeur",
+          detail: "Same driver, whole stay",
+          description: "A dedicated vehicle and chauffeur for the length of your Aspen trip.",
+          icon: Calendar,
+        },
+        {
+          label: "Private Ski Transfers",
+          href: "/private-ski-transfers",
+          detail: "Door-to-slope, all 4 mountains",
+          description: "Private ski-day transfers to Ajax, Highlands, Buttermilk, and Snowmass.",
+          icon: Snowflake,
+        },
+        {
+          label: "New Year's & Holiday",
+          href: "/aspen-new-years-eve-transportation",
+          detail: "Peak-season, no surge",
+          description: "Guaranteed holiday-week vehicles with rates locked and no surge pricing.",
+          icon: Star,
         },
         {
           label: "Security Drivers",
@@ -196,12 +231,54 @@ const data: ServicePageData = {
     body: `<p>VIP Aspen operates the most extensive luxury car service in the Roaring Fork Valley. Our fleet includes the only <a href="/rolls-royce-cullinan">Rolls-Royce Cullinan</a> available for hire in Aspen, late-model <a href="/cadillac-escalade">Cadillac Escalades</a>, and 13-passenger <a href="/executive-sprinter">Executive Sprinters</a> — matched to local chauffeurs who know every back road, hotel entrance, ski drop-off, and restaurant valet in the valley.</p>
 <p>We serve Aspen, Snowmass Village, Basalt, Woody Creek, Carbondale, and the entire Roaring Fork Valley with airport transfers, hourly charters, hotel transportation, security drivers, and event-based packages. For clients who visit regularly, our <a href="/membership">VIP Aspen membership</a> provides priority booking and discounted rates during peak seasons like Christmas, New Year's, X Games, and the Food &amp; Wine Classic.</p>`,
   },
+  faqs: [
+    {
+      question: "What areas does VIP Aspen serve?",
+      answer:
+        "We serve Aspen, Snowmass Village, Basalt, Woody Creek, Carbondale, and the entire Roaring Fork Valley, plus all airports that serve Aspen — ASE, Eagle (EGE), Rifle (RIL), and Denver (DEN) — and resort routes such as Denver to Aspen and Vail to Aspen.",
+    },
+    {
+      question: "What vehicles are in your fleet?",
+      answer:
+        "Our fleet includes the Rolls Royce Cullinan (the only one available for hire in Aspen), late-model Cadillac Escalades seating up to 5, and the 13-passenger Executive Sprinter. We match the vehicle to your group size and occasion.",
+    },
+    {
+      question: "Is VIP Aspen available 24/7, and how do I book?",
+      answer:
+        "Yes, we operate 24 hours a day, year-round. Book by phone or text at (970) 452-6636, through our online booking widget, or by email. For early-morning departures and late arrivals we're always available.",
+    },
+    {
+      question: "Do you offer hourly, multi-day, and one-way service?",
+      answer:
+        "All three. Book a one-way transfer, an as-directed hourly chauffeur (2-hour minimum), or a dedicated multi-day chauffeur with the same driver and vehicle for your entire stay. We also handle round trips and standing daily service.",
+    },
+    {
+      question: "How is pricing structured?",
+      answer:
+        "Airport transfers and routes are quoted as flat rates; as-directed bookings are billed hourly (Escalade from $200/hr, Sprinter from $300/hr, Rolls Royce Cullinan from $400/hr). All rates include a professional chauffeur, fuel, and the vehicle. VIP members receive discounted rates. Contact us for a tailored quote.",
+    },
+    {
+      question: "Are your vehicles and drivers prepared for winter mountain roads?",
+      answer:
+        "Yes. Our fleet is 4WD with winter tires, and our chauffeurs drive Aspen's mountain roads, passes, and canyons year-round — including I-70, Glenwood Canyon, and Independence Pass in season — in every weather condition.",
+    },
+    {
+      question: "Can you handle ski equipment and luggage?",
+      answer:
+        "Absolutely. Every vehicle accommodates skis, snowboards, and luggage, and your chauffeur handles all loading from curb or carousel to vehicle. Child seats are available on request at no charge.",
+    },
+    {
+      question: "Why choose a private car service over ride-share in Aspen?",
+      answer:
+        "Ride-share is notoriously unreliable in mountain towns — drivers are scarce, wait times are long, and surge pricing spikes during events and holidays. A pre-booked private chauffeur guarantees a vehicle on your schedule, at a locked rate, with a driver who knows the valley.",
+    },
+  ],
   relatedServices: [
     { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
+    { label: "Multi-Day Chauffeur", href: "/multi-day-chauffeur" },
+    { label: "Private Ski Transfers", href: "/private-ski-transfers" },
+    { label: "Private Jet / FBO Transfer", href: "/aspen-private-jet-transfer" },
     { label: "Security Drivers", href: "/security-driver" },
-    { label: "Event Transportation", href: "/special-event-transportation" },
-    { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
-    { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
     { label: "Membership", href: "/membership" },
   ],
 };

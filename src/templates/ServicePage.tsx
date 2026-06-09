@@ -10,6 +10,7 @@ import BookingCTA from "@/components/blocks/BookingCTA";
 import BookingWidget from "@/components/BookingWidget";
 import ProseSection from "@/components/blocks/ProseSection";
 import LinkedPagesGrid from "@/components/blocks/LinkedPagesGrid";
+import RelatedServices from "@/components/blocks/RelatedServices";
 import TrustBadges from "@/components/blocks/TrustBadges";
 import DifferentiatorBlocks from "@/components/blocks/DifferentiatorBlocks";
 import CancellationPolicy from "@/components/blocks/CancellationPolicy";
@@ -126,6 +127,8 @@ const ServicePage = ({
           <FAQAccordion faqs={data.faqs} />
         </SectionContainer>
       )}
+
+      <RelatedServices items={data.relatedServices} />
 
       {bookingPosition !== "hero" && (
         <SectionContainer id={bookingPosition === "top" ? "booking-bottom" : "booking"} background="gradient">

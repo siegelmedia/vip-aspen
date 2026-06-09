@@ -25,6 +25,29 @@ export const COMPANY = {
 
 export const WHATSAPP_NUMBER = "19704526636";
 
+/**
+ * Trust signals — fill these with REAL values to activate review-star (AggregateRating)
+ * schema and on-page trust badges. Leave null/empty until you have verifiable numbers;
+ * Google penalizes fabricated review markup, so these are intentionally inactive by default.
+ */
+export const REVIEWS: {
+  ratingValue: number | null;
+  reviewCount: number | null;
+  profileUrl: string;
+} = {
+  ratingValue: null, // e.g. 4.9 (your real Google rating)
+  reviewCount: null, // e.g. 120 (your real Google review count)
+  profileUrl: "", // e.g. "https://g.page/vip-aspen"
+};
+
+export const CREDENTIALS: {
+  cpucNumber: string;
+  yearFounded: number | null;
+} = {
+  cpucNumber: "", // e.g. CPUC/PUC permit number to display as a trust signal
+  yearFounded: null, // e.g. 2014 — powers an "X years serving Aspen" badge
+};
+
 export const SERVICE_AREAS = [
   "Aspen",
   "Snowmass Village",

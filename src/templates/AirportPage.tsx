@@ -7,6 +7,7 @@ import SectionContainer from "@/components/layout/SectionContainer";
 import SectionHeader from "@/components/layout/SectionHeader";
 import FeatureGrid from "@/components/blocks/FeatureGrid";
 import FAQAccordion from "@/components/blocks/FAQAccordion";
+import RelatedServices from "@/components/blocks/RelatedServices";
 import BookingWidget from "@/components/BookingWidget";
 import ProseSection from "@/components/blocks/ProseSection";
 import { createAirportSchema } from "@/lib/schema";
@@ -163,6 +164,8 @@ const AirportPage = ({ data }: AirportPageProps) => {
           <FAQAccordion faqs={data.faqs} />
         </SectionContainer>
       )}
+
+      <RelatedServices items={data.relatedServices} />
 
     </PageWrapper>
   );

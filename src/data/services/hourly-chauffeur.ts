@@ -166,6 +166,8 @@ const data: ServicePageData = {
     },
   ],
   relatedServices: [
+    { label: "Multi-Day Chauffeur", href: "/multi-day-chauffeur" },
+    { label: "Private Ski Transfers", href: "/private-ski-transfers" },
     { label: "Black Car Service", href: "/black-car-service" },
     { label: "Event Transportation", href: "/special-event-transportation" },
     { label: "Airport Transfers", href: "/aspen-airport-transfer" },

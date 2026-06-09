@@ -23,11 +23,14 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const ServicePage = lazy(() => import("./templates/ServicePage"));
 const VehiclePage = lazy(() => import("./templates/VehiclePage"));
 const AirportPage = lazy(() => import("./templates/AirportPage"));
+const GuidePage = lazy(() => import("./templates/GuidePage"));
+const GuidesIndex = lazy(() => import("./pages/GuidesIndex"));
 
 // Data
 import { services } from "./data/services";
 import { vehicles } from "./data/vehicles";
 import { airports } from "./data/airports";
+import { guides } from "./data/guides";
 
 const queryClient = new QueryClient();
 
@@ -47,7 +50,7 @@ const ServiceRoute = ({ slug }: { slug: string }) => {
   const heroVariant = slug === "property-watch" ? "cinematic" as const : "standard" as const;
 
   // All transportation and airport pages embed booking in hero
-  const heroBookingPages = ["black-car-service", "hourly-chauffeur", "security-driver", "special-event-transportation", "aspen-wedding-transportation", "aspen-corporate-transportation", "hotel-jerome-transportation", "st-regis-aspen-transportation", "little-nell-transportation"];
+  const heroBookingPages = ["black-car-service", "hourly-chauffeur", "multi-day-chauffeur", "private-ski-transfers", "aspen-private-jet-transfer", "vail-to-aspen-car-service", "glenwood-springs-to-aspen-car-service", "beaver-creek-to-aspen-car-service", "aspen-food-and-wine-transportation", "aspen-new-years-eve-transportation", "security-driver", "special-event-transportation", "aspen-wedding-transportation", "aspen-corporate-transportation", "hotel-jerome-transportation", "st-regis-aspen-transportation", "little-nell-transportation"];
   const topBookingPages: string[] = [];
   const bookingPosition = heroBookingPages.includes(slug)
     ? "hero" as const
@@ -68,6 +71,12 @@ const AirportRoute = ({ slug }: { slug: string }) => {
   const data = airports[slug];
   if (!data) return <NotFoundFallback />;
   return <AirportPage data={data} />;
+};
+
+const GuideRoute = ({ slug }: { slug: string }) => {
+  const data = guides[slug];
+  if (!data) return <NotFoundFallback />;
+  return <GuidePage data={data} />;
 };
 
 const NotFoundFallback = () => {
@@ -115,6 +124,12 @@ const App = () => (
               {/* Airport pages — template-driven */}
               {Object.keys(airports).map((slug) => (
                 <Route key={slug} path={`/${slug}`} element={<AirportRoute slug={slug} />} />
+              ))}
+
+              {/* Guides — index + template-driven articles */}
+              <Route path="/guides" element={<GuidesIndex />} />
+              {Object.keys(guides).map((slug) => (
+                <Route key={slug} path={`/guides/${slug}`} element={<GuideRoute slug={slug} />} />
               ))}
 
               {/* Catch-all */}

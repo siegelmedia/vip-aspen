@@ -181,3 +181,33 @@ export interface AirportPageData {
   faqs?: FAQ[];
   relatedServices?: RelatedService[];
 }
+
+// ─── Guide / Article Page Data ──────────────────────────────────────────────
+
+export interface GuideSection {
+  heading?: string;
+  /** HTML body — rendered into a typographic prose block */
+  body: string;
+}
+
+export interface GuidePageData {
+  slug: string;
+  seo: SEOData;
+  /** Short eyebrow above the title, e.g. "Aspen Travel Guide" */
+  category: string;
+  /** H1 */
+  title: string;
+  /** Standfirst / dek shown under the title and used as the card summary */
+  excerpt: string;
+  /** ISO date, e.g. "2026-06-08" */
+  datePublished: string;
+  dateModified: string;
+  readTime?: string;
+  /** Lead paragraph(s), HTML */
+  intro: string;
+  /** Optional "the short answer" bullet list shown near the top */
+  keyTakeaways?: string[];
+  sections: GuideSection[];
+  faqs?: FAQ[];
+  relatedServices?: RelatedService[];
+}

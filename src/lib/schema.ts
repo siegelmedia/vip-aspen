@@ -1,5 +1,5 @@
 import { COMPANY } from "@/data/constants";
-import type { FAQ, ServicePageData, VehiclePageData, AirportPageData } from "@/types";
+import type { FAQ, ServicePageData, VehiclePageData, AirportPageData, GuidePageData } from "@/types";
 
 const providerRef = { "@id": `${COMPANY.url}/#organization` };
 
@@ -52,6 +52,23 @@ export const createAirportSchema = (data: AirportPageData) => ({
     "@type": "City",
     name: "Aspen",
     containedInPlace: { "@type": "State", name: "Colorado" },
+  },
+});
+
+export const createArticleSchema = (data: GuidePageData) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: data.title.replace(/\{\{|\}\}/g, ""),
+  description: data.seo.description,
+  url: `${COMPANY.url}/guides/${data.slug}`,
+  datePublished: data.datePublished,
+  dateModified: data.dateModified,
+  author: { "@type": "Organization", name: COMPANY.name, url: COMPANY.url },
+  publisher: providerRef,
+  image: data.seo.ogImage || `${COMPANY.url}/og-image.jpg`,
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `${COMPANY.url}/guides/${data.slug}`,
   },
 });
 

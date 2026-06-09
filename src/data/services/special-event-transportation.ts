@@ -118,6 +118,7 @@ const data: ServicePageData = {
     },
   ],
   relatedServices: [
+    { label: "New Year's Eve & Holiday", href: "/aspen-new-years-eve-transportation" },
     { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
     { label: "Black Car Service", href: "/black-car-service" },
     { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },

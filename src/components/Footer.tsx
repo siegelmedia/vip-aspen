@@ -9,35 +9,48 @@ const fleetLinks = [
   { label: "Executive Sprinter", href: "/executive-sprinter" },
 ];
 
-const transportationLinks = [
+const carServiceLinks = [
   { label: "Black Car Service", href: "/black-car-service" },
   { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
-  { label: "Security Drivers", href: "/security-driver" },
+  { label: "Multi-Day Chauffeur", href: "/multi-day-chauffeur" },
+  { label: "Private Ski Transfers", href: "/private-ski-transfers" },
   { label: "Event Transportation", href: "/special-event-transportation" },
+  { label: "Food & Wine Classic", href: "/aspen-food-and-wine-transportation" },
+  { label: "New Year's Eve & Holiday", href: "/aspen-new-years-eve-transportation" },
+  { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
+  { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
+];
+
+const transferLinks = [
+  { label: "Aspen Airport (ASE)", href: "/aspen-airport-transfer" },
+  { label: "Eagle Airport (EGE)", href: "/eagle-airport-transfer" },
+  { label: "Rifle Airport (RIL)", href: "/rifle-airport-transfer" },
+  { label: "Private Jet / FBO", href: "/aspen-private-jet-transfer" },
+  { label: "Denver to Aspen", href: "/denver-to-aspen-car-service" },
+  { label: "Vail to Aspen", href: "/vail-to-aspen-car-service" },
+  { label: "Beaver Creek to Aspen", href: "/beaver-creek-to-aspen-car-service" },
+  { label: "Glenwood Springs to Aspen", href: "/glenwood-springs-to-aspen-car-service" },
+  { label: "Snowmass Village", href: "/snowmass-village-transfer" },
   { label: "Hotel Jerome", href: "/hotel-jerome-transportation" },
   { label: "St. Regis Aspen", href: "/st-regis-aspen-transportation" },
   { label: "The Little Nell", href: "/little-nell-transportation" },
-  { label: "Aspen Airport Transfer", href: "/aspen-airport-transfer" },
-  { label: "Eagle Airport Transfer", href: "/eagle-airport-transfer" },
-  { label: "Rifle Airport Transfer", href: "/rifle-airport-transfer" },
-  { label: "Denver to Aspen", href: "/denver-to-aspen-car-service" },
-  { label: "Snowmass Transfers", href: "/snowmass-village-transfer" },
-  { label: "Property Security Watch", href: "/property-watch" },
 ];
 
-const entertainmentLinks = [
+const vipSecurityLinks = [
+  { label: "Security Drivers", href: "/security-driver" },
+  { label: "Executive Protection", href: "/executive-protection" },
+  { label: "Property Security Watch", href: "/property-watch" },
+  { label: "VIP Club Access", href: "/aspen-clubs" },
   { label: "Private Entertainment", href: "/private-entertainment" },
   { label: "Promotional Services", href: "/promotional-services" },
-  { label: "VIP Club Access", href: "/aspen-clubs" },
-  { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
-  { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
-  { label: "Executive Protection", href: "/executive-protection" },
 ];
 
 const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+  { label: "Rates & Pricing", href: "/rates" },
   { label: "Membership", href: "/membership" },
+  { label: "Travel Guides", href: "/guides" },
   { label: "Security Assessment", href: "/security-assessment" },
 ];
 
@@ -70,7 +83,7 @@ const Footer = () => {
   return (
     <footer className="py-12 bg-background border-t border-border/50">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 mb-8">
           {/* Logo & Tagline */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <Link to="/">
@@ -97,8 +110,9 @@ const Footer = () => {
           </div>
 
           <LinkColumn title="Fleet" links={fleetLinks} />
-          <LinkColumn title="Transportation" links={transportationLinks} />
-          <LinkColumn title="Entertainment" links={entertainmentLinks} />
+          <LinkColumn title="Car Service" links={carServiceLinks} />
+          <LinkColumn title="Airports & Routes" links={transferLinks} />
+          <LinkColumn title="VIP & Security" links={vipSecurityLinks} />
           <LinkColumn title="Company" links={companyLinks} />
         </div>
 
@@ -107,12 +121,16 @@ const Footer = () => {
           <p className="text-foreground/40 text-sm leading-relaxed max-w-4xl">
             VIP Aspen is Aspen, Colorado's premier luxury car service and VIP concierge.
             We provide chauffeured Rolls Royce Cullinan, Cadillac Escalade, and Executive
-            Sprinter service for airport transfers from ASE, Eagle, Rifle, and Denver airports.
-            We also offer property security watch, private entertainment, promotional staffing,
-            VIP nightlife access, executive protection, and membership programs. Serving Aspen,
-            Snowmass Village, Basalt, Woody Creek, and the Roaring Fork Valley. Backed by
-            Aspen Security LLC — a Colorado-licensed security company with veteran and law
-            enforcement ownership. Available 24/7 —{" "}
+            Sprinter service for airport transfers from ASE, Eagle (EGE), Rifle, and Denver
+            (DEN) airports, private jet and FBO tarmac transfers, and resort routes including
+            Denver to Aspen and Vail to Aspen. Our services span black car and hourly chauffeur,
+            multi-day and concierge driving, private ski transfers across Aspen Mountain,
+            Highlands, Buttermilk, and Snowmass, plus wedding, corporate, and special-event
+            transportation, property security watch, private entertainment, VIP nightlife access,
+            and executive protection. Serving Aspen, Snowmass Village, Basalt, Woody Creek,
+            Carbondale, and the Roaring Fork Valley. Backed by Aspen Security LLC — a
+            Colorado-licensed security company with veteran and law enforcement ownership.
+            Available 24/7 —{" "}
             <a href={`tel:${COMPANY.phoneRaw}`} className="text-foreground/60 hover:text-primary transition-colors">
               call {COMPANY.phoneDisplay}
             </a>.
