@@ -1,4 +1,5 @@
 import { Building2, Plane, Clock, Star, Car, MapPin } from "lucide-react";
+import heroBg from "@/assets/hero-st-regis.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "St. Regis Aspen",
+    bgImage: heroBg,
     headline: "Private Transportation for {{St. Regis Aspen}} Guests",
     description:
       "Dedicated luxury car service for guests of The St. Regis Aspen Resort. Airport transfers, hourly chauffeur, ski mountain shuttles, and on-demand transportation — all coordinated with your hotel's standards in mind.",

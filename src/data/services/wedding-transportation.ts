@@ -1,5 +1,5 @@
 import { MessageSquare, Clock, CheckCircle } from "lucide-react";
-import fleetHero from "@/assets/fleet-hero.webp";
+import heroBg from "@/assets/hero-wedding.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -18,7 +18,7 @@ const data: ServicePageData = {
     headline: "Luxury Wedding Transportation in {{Aspen, Colorado}}",
     description:
       "Make your Aspen wedding unforgettable with the Rolls Royce Cullinan, Cadillac Escalade, and Executive Sprinter. From the ceremony to the reception and everywhere in between.",
-    image: fleetHero,
+    bgImage: heroBg,
     ctaLabel: "Plan Your Wedding Transport",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },

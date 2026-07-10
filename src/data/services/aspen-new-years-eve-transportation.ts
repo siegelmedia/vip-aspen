@@ -1,4 +1,5 @@
 import { Sparkles, Clock, Star, Users, ShieldCheck, Calendar } from "lucide-react";
+import heroBg from "@/assets/hero-new-years-eve.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Holiday & New Year's Eve",
+    bgImage: heroBg,
     headline: "Aspen's {{Holiday Season}}, Without the Scramble",
     description:
       "The week between Christmas and New Year's is the busiest — and most gridlocked — stretch of the Aspen year. Lock in a pre-booked luxury vehicle with an on-call chauffeur and skip the surge pricing, the no-show ride-share, and the wait.",

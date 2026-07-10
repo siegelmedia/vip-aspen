@@ -6,7 +6,7 @@ import {
   Luggage,
   ShieldCheck,
 } from "lucide-react";
-import fleetHero from "@/assets/fleet-hero.webp";
+import heroBg from "@/assets/hero-ase-airport.webp";
 import cullinan from "@/assets/rolls-royce-cullinan.webp";
 import escalade from "@/assets/escalade.webp";
 import sprinter from "@/assets/sprinter.webp";
@@ -28,7 +28,7 @@ const data: AirportPageData = {
     headline: "Aspen-Pitkin {{Airport Transfer}}",
     description:
       "Just 5 minutes from downtown Aspen, our luxury fleet provides seamless transfers from ASE airport to your destination. Professional chauffeurs, flight tracking, and first-class service guaranteed.",
-    image: fleetHero,
+    bgImage: heroBg,
     ctaLabel: "Book ASE Transfer",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },

@@ -6,7 +6,7 @@ import {
   Luggage,
   Mountain,
 } from "lucide-react";
-import fleetHero from "@/assets/fleet-hero.webp";
+import heroBg from "@/assets/hero-ege-airport.webp";
 import cullinan from "@/assets/rolls-royce-cullinan.webp";
 import escalade from "@/assets/escalade.webp";
 import sprinter from "@/assets/sprinter.webp";
@@ -28,7 +28,7 @@ const data: AirportPageData = {
     headline: "Eagle Vail {{Airport Transfer}}",
     description:
       "Eagle County Regional Airport (EGE) offers the most reliable flight options to the Vail Valley. Our luxury fleet provides comfortable transfers to Aspen, Vail, Beaver Creek, and beyond\u2014turning your 90-minute journey into a first-class experience.",
-    image: fleetHero,
+    bgImage: heroBg,
     ctaLabel: "Book EGE Transfer",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },

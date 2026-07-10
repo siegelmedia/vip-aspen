@@ -1,4 +1,5 @@
 import { MapPin, Clock, Train, Luggage, Snowflake, Radar } from "lucide-react";
+import heroBg from "@/assets/hero-glenwood-to-aspen.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Glenwood Springs → Aspen",
+    bgImage: heroBg,
     headline: "Private Car Service {{Glenwood Springs to Aspen}}",
     description:
       "Arriving by Amtrak, spending the day at the hot springs, or connecting through Glenwood? Travel the final 42 miles into Aspen in a chauffeured Rolls Royce, Escalade, or Sprinter — door to door.",

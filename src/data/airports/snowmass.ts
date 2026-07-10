@@ -6,7 +6,7 @@ import {
   Luggage,
   Star,
 } from "lucide-react";
-import fleetHero from "@/assets/fleet-hero.webp";
+import heroBg from "@/assets/hero-snowmass.webp";
 import cullinan from "@/assets/rolls-royce-cullinan.webp";
 import escalade from "@/assets/escalade.webp";
 import sprinter from "@/assets/sprinter.webp";
@@ -29,7 +29,7 @@ const data: AirportPageData = {
     headline: "Luxury Car Service to {{Snowmass Village}}, Colorado",
     description:
       "Private chauffeured transfers from Aspen, ASE Airport, Eagle Airport, and Denver to Snowmass Village resorts, hotels, and residences.",
-    image: fleetHero,
+    bgImage: heroBg,
     ctaLabel: "Book Snowmass Transfer",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },

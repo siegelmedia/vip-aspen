@@ -1,4 +1,5 @@
 import { Wine, Clock, Star, Users, MapPin, ShieldCheck } from "lucide-react";
+import heroBg from "@/assets/hero-food-wine.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Food & Wine Classic",
+    bgImage: heroBg,
     headline: "Transportation for the {{Food & Wine Classic}}",
     description:
       "Every June, the Food & Wine Classic takes over Aspen. Skip the surge pricing and the scramble with a pre-booked private chauffeur — from the Grand Tasting at Wagner Park to seminars, dinners, and after-parties across the valley.",

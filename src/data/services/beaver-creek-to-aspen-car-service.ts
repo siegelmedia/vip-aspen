@@ -1,4 +1,5 @@
 import { MapPin, Clock, Snowflake, Luggage, Radar, Mountain } from "lucide-react";
+import heroBg from "@/assets/hero-beaver-creek-to-aspen.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Beaver Creek ↔ Aspen",
+    bgImage: heroBg,
     headline: "Private Car Service {{Beaver Creek to Aspen}}",
     description:
       "Connect two of Colorado's finest resorts in first-class comfort. A chauffeured ~2-hour transfer between Beaver Creek, Avon, and Aspen — door to door, with Eagle Airport pickups along the way.",

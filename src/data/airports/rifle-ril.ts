@@ -6,7 +6,7 @@ import {
   Luggage,
   Mountain,
 } from "lucide-react";
-import fleetHero from "@/assets/fleet-hero.webp";
+import heroBg from "@/assets/hero-rifle-airport.webp";
 import cullinan from "@/assets/rolls-royce-cullinan.webp";
 import escalade from "@/assets/escalade.webp";
 import sprinter from "@/assets/sprinter.webp";
@@ -28,7 +28,7 @@ const data: AirportPageData = {
     headline: "Rifle Airport {{Private Jet Service}}",
     description:
       "Rifle Garfield County Airport (RIL) is the preferred choice for private jet travelers heading to Aspen. With longer runways and fewer weather restrictions, RIL offers reliable access year-round. Our luxury fleet meets you on the tarmac for seamless, VIP-level transfers.",
-    image: fleetHero,
+    bgImage: heroBg,
     ctaLabel: "Book RIL Transfer",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },

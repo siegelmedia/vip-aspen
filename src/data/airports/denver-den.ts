@@ -6,7 +6,7 @@ import {
   Wifi,
   Baby,
 } from "lucide-react";
-import fleetHero from "@/assets/fleet-hero.webp";
+import heroBg from "@/assets/hero-denver-airport.webp";
 import cullinan from "@/assets/rolls-royce-cullinan.webp";
 import escalade from "@/assets/escalade.webp";
 import sprinter from "@/assets/sprinter.webp";
@@ -28,7 +28,7 @@ const data: AirportPageData = {
     headline: "Private Luxury Car Service {{Denver to Aspen}}",
     description:
       "Skip the shuttle van. Your Aspen experience begins the moment you land at DEN. Choose between the Rolls Royce Cullinan, Cadillac Escalade, or Executive Sprinter for a 3.5-hour transfer through some of the most spectacular mountain scenery in the world.",
-    image: fleetHero,
+    bgImage: heroBg,
     ctaLabel: "Book Your Transfer",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },

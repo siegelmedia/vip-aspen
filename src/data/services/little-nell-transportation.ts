@@ -1,4 +1,5 @@
 import { Building2, Plane, Clock, Star, Car, MapPin } from "lucide-react";
+import heroBg from "@/assets/hero-little-nell.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "The Little Nell",
+    bgImage: heroBg,
     headline: "Luxury Transportation for {{The Little Nell}} Guests",
     description:
       "Dedicated car service for guests of Aspen's only five-star, five-diamond hotel. Airport transfers, hourly chauffeur, après-ski rides, and on-demand luxury transportation — matched to the standard The Little Nell is known for.",

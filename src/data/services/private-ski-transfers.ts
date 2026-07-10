@@ -1,4 +1,5 @@
 import { Snowflake, Clock, Mountain, Luggage, Users, Car } from "lucide-react";
+import heroBg from "@/assets/hero-private-ski-transfers.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Ski Transfers",
+    bgImage: heroBg,
     headline: "Private {{Door-to-Slope}} Ski Transfers",
     description:
       "Four mountains, one chauffeur, zero hassle. A dedicated luxury SUV drops you at the gondola, holds your après gear, and is waiting at the base when you're done — across Ajax, Highlands, Buttermilk, and Snowmass.",

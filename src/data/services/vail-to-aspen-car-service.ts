@@ -1,4 +1,5 @@
 import { MapPin, Clock, Radar, Luggage, Snowflake, Mountain } from "lucide-react";
+import heroBg from "@/assets/hero-vail-to-aspen.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Vail ↔ Aspen",
+    bgImage: heroBg,
     headline: "Private Car Service {{Vail to Aspen}}",
     description:
       "The two-hour drive between Vail and Aspen, done right. Skip shared shuttles and unreliable ride-share — travel resort to resort in a chauffeured Rolls Royce, Escalade, or Sprinter, door to door.",

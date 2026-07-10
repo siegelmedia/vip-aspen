@@ -1,4 +1,5 @@
 import { Calendar, Users, MapPin, Star, Clock, Car } from "lucide-react";
+import heroBg from "@/assets/hero-special-events.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Event Transportation",
+    bgImage: heroBg,
     headline: "Seamless Transportation for Aspen's {{Biggest Events}}",
     description:
       "From the Food & Wine Classic to the X Games, we provide flawless luxury transportation for Aspen's signature events, galas, and private functions.",

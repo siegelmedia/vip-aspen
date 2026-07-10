@@ -1,4 +1,5 @@
 import { Shield, UserCheck, Eye, Lock, Radio, Briefcase } from "lucide-react";
+import heroBg from "@/assets/hero-security-driver.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Security Drivers",
+    bgImage: heroBg,
     headline: "Trained Drivers for {{Those Who Demand More}}",
     description:
       "When a standard chauffeur isn't enough. Security-trained drivers with law enforcement and military backgrounds — for CEOs, high-profile clients, and visiting protective details that require a vetted driver who understands protective operations.",

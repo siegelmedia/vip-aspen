@@ -1,5 +1,5 @@
 import { Plane, Users, CheckCircle, Shield, Utensils, Tag } from "lucide-react";
-import fleetHero from "@/assets/fleet-hero.webp";
+import heroBg from "@/assets/hero-corporate.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -18,7 +18,7 @@ const data: ServicePageData = {
     headline: "Corporate Transportation & Executive Car Service in {{Aspen}}",
     description:
       "Professional fleet management for conferences, corporate retreats, board meetings, and executive travel throughout Aspen and the Roaring Fork Valley.",
-    image: fleetHero,
+    bgImage: heroBg,
     ctaLabel: "Request Corporate Quote",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },

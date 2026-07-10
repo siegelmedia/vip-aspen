@@ -1,4 +1,5 @@
 import { Building2, Plane, Clock, Star, Car, MapPin } from "lucide-react";
+import heroBg from "@/assets/hero-hotel-jerome.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Hotel Jerome",
+    bgImage: heroBg,
     headline: "Luxury Transportation for {{Hotel Jerome}} Guests",
     description:
       "Seamless airport transfers, hourly chauffeur service, and on-demand luxury transportation for guests of Aspen's iconic Hotel Jerome. Your driver knows the property, the drop-off, and the standard of service you expect.",

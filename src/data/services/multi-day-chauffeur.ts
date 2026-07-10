@@ -1,4 +1,5 @@
 import { Calendar, Star, ShieldCheck, Clock, Users } from "lucide-react";
+import heroBg from "@/assets/hero-multi-day-chauffeur.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Multi-Day & Weekly",
+    bgImage: heroBg,
     headline: "Your Own {{Chauffeur}}, For the Whole Stay",
     description:
       "One dedicated vehicle, one trusted driver, on call from your first morning to your last night. The seamless way to experience Aspen — no rebooking, no new faces, no logistics.",

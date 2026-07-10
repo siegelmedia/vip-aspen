@@ -1,4 +1,5 @@
 import { Clock, Car, MapPin, Users, Shield, Snowflake } from "lucide-react";
+import heroBg from "@/assets/hero-hourly-chauffeur.webp";
 import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
@@ -14,6 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Hourly Chauffeur",
+    bgImage: heroBg,
     headline: "Your Own Private Driver, {{By the Hour}}",
     description:
       "No fixed routes. No shared rides. Just your chauffeur, your vehicle, and your schedule. Book a dedicated luxury SUV by the hour for families, ski groups, shopping trips, and multi-stop Aspen itineraries.",
