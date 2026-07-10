@@ -41,9 +41,7 @@ const AirportTransfers = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <p className="text-primary uppercase tracking-[0.3em] text-sm mb-4">
-            Airport Transfers
-          </p>
+          <p className="eyebrow mb-4">Airport Transfers</p>
           <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-6">
             Airport Transfers from <span className="text-gradient-gold">Every Airport Serving Aspen</span>
           </h2>
@@ -61,12 +59,12 @@ const AirportTransfers = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass-card p-6 flex flex-col items-center text-center group hover:border-primary/30 transition-colors"
+              className="glass-card p-6 flex flex-col items-center text-center group hover:border-primary/40 hover:-translate-y-1.5 hover:shadow-luxury transition-all duration-300"
             >
-              <div className="p-3 bg-primary/10 rounded-sm mb-4">
+              <div className="p-3 bg-primary/10 border border-primary/25 mb-4">
                 <Plane className="w-6 h-6 text-primary" />
               </div>
-              <span className="text-primary font-display text-2xl font-semibold mb-1">
+              <span className="text-primary font-mono text-2xl tracking-tight mb-1">
                 {airport.code}
               </span>
               <h3 className="font-display text-lg font-medium text-foreground mb-2">

@@ -22,8 +22,8 @@ const PageHero = ({ data, variant = "standard", children }: PageHeroProps) => {
     <section
       className={`relative overflow-hidden ${
         variant === "cinematic"
-          ? "pt-32 pb-24 md:pt-40 md:pb-32 min-h-[80vh] flex items-center"
-          : "pt-32 pb-16 md:pt-40 md:pb-24"
+          ? "pt-36 pb-24 md:pt-44 md:pb-32 min-h-[80vh] flex items-center"
+          : "pt-36 pb-16 md:pt-44 md:pb-24"
       }`}
     >
       {hasBgImage ? (
@@ -33,12 +33,14 @@ const PageHero = ({ data, variant = "standard", children }: PageHeroProps) => {
             alt={data.tagline}
             className="w-full h-full object-cover"
             loading="eager"
+            {...{ fetchpriority: "high" }}
           />
-          <div className="absolute inset-0 bg-background/70" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
+          <div className="absolute inset-0 hero-overlay-center" />
         </div>
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-grid pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-background" />
+        </div>
       )}
 
       <div className="container mx-auto px-6 relative z-10">
@@ -53,13 +55,13 @@ const PageHero = ({ data, variant = "standard", children }: PageHeroProps) => {
             {...fadeInUpAnimate}
             className={hasTwoColumns ? "" : "text-center max-w-3xl mx-auto"}
           >
-            <p className="text-primary uppercase tracking-[0.3em] text-sm mb-4">
+            <p className={`eyebrow mb-4 ${hasTwoColumns ? "eyebrow-tick" : ""}`}>
               {data.tagline}
             </p>
-            <h1 className="font-display text-4xl md:text-6xl font-semibold text-foreground mb-6">
+            <h1 className="font-display text-4xl md:text-6xl font-semibold text-foreground mb-6 leading-[1.08] text-balance">
               {renderGoldText(data.headline)}
             </h1>
-            <p className="text-foreground/70 text-lg md:text-xl leading-relaxed mb-8">
+            <p className="text-foreground/75 text-lg md:text-xl leading-relaxed mb-8">
               {data.description}
             </p>
 
@@ -94,22 +96,22 @@ const PageHero = ({ data, variant = "standard", children }: PageHeroProps) => {
           </motion.div>
 
           {hasTwoColumns && data.image && (
-            <motion.div {...heroImage} className="glass-card overflow-hidden">
-              <img
-                src={data.image}
-                alt={data.tagline}
-                className="w-full h-full object-cover aspect-[4/3] md:aspect-[3/4]"
-                loading="eager"
-              />
+            <motion.div {...heroImage} className="accent-frame">
+              <div className="glass-card overflow-hidden">
+                <img
+                  src={data.image}
+                  alt={data.tagline}
+                  className="w-full h-full object-cover aspect-[4/3] md:aspect-[3/4]"
+                  loading="eager"
+                  {...{ fetchpriority: "high" }}
+                />
+              </div>
             </motion.div>
           )}
         </div>
 
         {children && (
-          <motion.div
-            {...heroImage}
-            className="mt-10 max-w-4xl mx-auto"
-          >
+          <motion.div {...heroImage} className="mt-10 max-w-4xl mx-auto">
             {children}
           </motion.div>
         )}

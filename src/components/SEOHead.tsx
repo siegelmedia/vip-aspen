@@ -24,7 +24,7 @@ const SEOHead = ({
   const baseUrl = "https://www.vipaspen.com";
 
   return (
-    <Helmet>
+    <Helmet defer={false}>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />

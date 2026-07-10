@@ -61,7 +61,7 @@ const LinkColumn = ({
   links: { label: string; href: string }[];
 }) => (
   <div>
-    <h4 className="text-foreground font-medium mb-4 text-sm uppercase tracking-wider">
+    <h4 className="eyebrow eyebrow-tick !text-[11px] mb-4">
       {title}
     </h4>
     <nav className="flex flex-col gap-2">
@@ -80,8 +80,10 @@ const LinkColumn = ({
 
 const Footer = () => {
   return (
-    <footer className="py-12 bg-background border-t border-border/50">
-      <div className="container mx-auto px-6">
+    <footer className="relative py-14 bg-navy-light border-t border-border/50 overflow-hidden">
+      <div className="absolute inset-0 bg-grid pointer-events-none" aria-hidden />
+      <div className="absolute top-0 left-0 right-0 luxury-divider" aria-hidden />
+      <div className="container mx-auto px-6 relative">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 mb-8">
           {/* Logo & Tagline */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">

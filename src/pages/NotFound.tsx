@@ -35,9 +35,10 @@ const NotFound = () => {
       <main className="min-h-screen bg-background">
         <Header />
 
-        <section className="pt-32 pb-20 md:pt-40 md:pb-28">
-          <div className="container mx-auto px-6 text-center">
-            <p className="text-primary uppercase tracking-[0.3em] text-sm mb-4">404</p>
+        <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+          <div className="absolute inset-0 bg-grid pointer-events-none" aria-hidden />
+          <div className="container mx-auto px-6 text-center relative">
+            <p className="font-mono text-primary/40 text-7xl md:text-8xl tracking-tight mb-6 select-none">404</p>
             <h1 className="font-display text-4xl md:text-6xl font-semibold text-foreground mb-4">
               Page <span className="text-gradient-gold">Not Found</span>
             </h1>

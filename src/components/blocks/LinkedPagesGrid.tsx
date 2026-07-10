@@ -29,10 +29,10 @@ const LinkedPagesGrid = ({ group }: LinkedPagesGridProps) => {
             <motion.div key={item.href} {...staggerChild(index)}>
               <Link
                 to={item.href}
-                className="glass-card p-6 flex flex-col h-full group hover:border-primary/30 transition-colors block"
+                className="glass-card p-6 flex flex-col h-full group hover:border-primary/40 hover:-translate-y-1.5 hover:shadow-luxury transition-all duration-300 block"
               >
                 {Icon && (
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 border border-primary/25 mb-4 self-start">
                     <Icon className="w-6 h-6 text-primary" />
                   </div>
                 )}
@@ -40,7 +40,7 @@ const LinkedPagesGrid = ({ group }: LinkedPagesGridProps) => {
                   {item.label}
                 </h3>
                 {item.detail && (
-                  <p className="text-primary text-sm mb-2">{item.detail}</p>
+                  <p className="font-mono text-primary text-xs tracking-wide mb-2">{item.detail}</p>
                 )}
                 {item.description && (
                   <p className="text-foreground/60 text-sm leading-relaxed mb-4 flex-grow">

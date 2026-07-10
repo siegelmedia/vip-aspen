@@ -20,7 +20,7 @@ const FAQAccordion = ({
 }: FAQAccordionProps) => {
   return (
     <>
-      <SectionHeader heading={heading} />
+      <SectionHeader eyebrow="Answers" heading={heading} />
 
       <motion.div {...fadeInUp} className="max-w-3xl mx-auto">
         <Accordion type="single" collapsible className="space-y-3">
@@ -30,10 +30,15 @@ const FAQAccordion = ({
               value={`faq-${index}`}
               className="glass-card px-6 border-none"
             >
-              <AccordionTrigger className="text-left font-display text-foreground hover:text-primary hover:no-underline py-5">
-                {faq.question}
+              <AccordionTrigger className="text-left font-display text-foreground hover:text-primary hover:no-underline py-5 gap-4">
+                <span className="flex items-baseline gap-4">
+                  <span className="font-mono text-xs text-primary/50 shrink-0">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {faq.question}
+                </span>
               </AccordionTrigger>
-              <AccordionContent className="text-foreground/70 text-sm leading-relaxed pb-5">
+              <AccordionContent className="text-foreground/70 text-sm leading-relaxed pb-5 pl-9">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

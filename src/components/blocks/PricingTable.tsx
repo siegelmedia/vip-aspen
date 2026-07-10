@@ -13,7 +13,7 @@ const PricingTable = ({ tiers }: PricingTableProps) => {
     <>
       {tiers.map((tier) => (
         <div key={tier.category} className="mb-16 last:mb-0">
-          <SectionHeader heading={`{{${tier.category}}}`} subtitle={tier.note} />
+          <SectionHeader eyebrow="Rates" heading={`{{${tier.category}}}`} subtitle={tier.note} />
 
           <div
             className={`grid ${
@@ -26,13 +26,15 @@ const PricingTable = ({ tiers }: PricingTableProps) => {
               <motion.div
                 key={item.name}
                 {...staggerChild(index)}
-                className={`glass-card p-6 ${
-                  item.featured ? "border-primary/30 relative" : ""
+                className={`glass-card p-6 transition-all duration-300 hover:-translate-y-1.5 ${
+                  item.featured
+                    ? "border-primary/50 relative shadow-gold"
+                    : "hover:border-primary/30"
                 }`}
               >
                 {item.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-gradient-gold text-primary-foreground text-xs uppercase tracking-wider px-3 py-1 rounded-sm font-medium">
+                    <span className="bg-gradient-gold text-primary-foreground font-mono text-[11px] uppercase tracking-[0.16em] px-3 py-1">
                       Popular
                     </span>
                   </div>
@@ -43,8 +45,8 @@ const PricingTable = ({ tiers }: PricingTableProps) => {
                 </h3>
                 <p className="text-foreground/50 text-sm mb-3">{item.detail}</p>
 
-                <div className="py-3 mb-3 bg-muted/50 rounded-sm text-center">
-                  <p className="font-display text-2xl font-semibold text-gradient-gold">
+                <div className="py-3 mb-3 bg-muted/50 border-l-2 border-l-primary/60 text-center">
+                  <p className="font-mono text-2xl font-medium text-gradient-gold">
                     {item.price}
                   </p>
                 </div>

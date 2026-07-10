@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Mail, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { COMPANY } from "@/data/constants";
@@ -88,7 +88,7 @@ const DesktopDropdown = ({ item }: { item: NavItem }) => {
     return (
       <Link
         to={item.href!}
-        className="text-foreground/80 hover:text-primary transition-colors duration-300 text-sm uppercase tracking-widest font-medium"
+        className="text-foreground/80 hover:text-primary transition-colors duration-300 text-[13px] uppercase tracking-[0.14em] font-mono"
       >
         {item.label}
       </Link>
@@ -98,7 +98,7 @@ const DesktopDropdown = ({ item }: { item: NavItem }) => {
   return (
     <div className="relative" onMouseEnter={enter} onMouseLeave={leave}>
       <button
-        className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300 text-sm uppercase tracking-widest font-medium"
+        className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300 text-[13px] uppercase tracking-[0.14em] font-mono"
         onClick={() => setOpen((o) => !o)}
       >
         {item.label}
@@ -114,22 +114,26 @@ const DesktopDropdown = ({ item }: { item: NavItem }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 mt-3 min-w-[220px] bg-background/95 backdrop-blur-xl border border-border/50 rounded-md shadow-xl overflow-hidden"
+            className="absolute top-full left-0 mt-3 min-w-[240px] bg-background/95 backdrop-blur-xl border border-border/50 shadow-xl overflow-hidden"
           >
+            <div className="h-px bg-gradient-gold" />
             {item.children.map((child) =>
               child.separator ? (
-                <div key={child.label} className="px-5 pt-3 pb-1 text-xs uppercase tracking-wider text-primary/60 font-medium border-t border-border/30 first:border-t-0 first:pt-2">
+                <div
+                  key={child.label}
+                  className="px-5 pt-3 pb-1 text-[11px] uppercase tracking-[0.18em] text-primary/70 font-mono border-t border-border/30 first:border-t-0 first:pt-3"
+                >
                   {child.label}
                 </div>
               ) : (
-              <Link
-                key={child.href}
-                to={child.href!}
-                onClick={() => setOpen(false)}
-                className="block px-5 py-2.5 text-sm text-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors"
-              >
-                {child.label}
-              </Link>
+                <Link
+                  key={child.href}
+                  to={child.href!}
+                  onClick={() => setOpen(false)}
+                  className="block px-5 py-2.5 text-sm text-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors"
+                >
+                  {child.label}
+                </Link>
               )
             )}
           </motion.div>
@@ -154,7 +158,7 @@ const MobileNavGroup = ({
       <Link
         to={item.href!}
         onClick={onClose}
-        className="text-foreground/80 hover:text-primary transition-colors duration-300 text-sm uppercase tracking-widest font-medium py-2"
+        className="text-foreground/80 hover:text-primary transition-colors duration-300 text-sm uppercase tracking-[0.14em] font-mono py-2"
       >
         {item.label}
       </Link>
@@ -165,7 +169,7 @@ const MobileNavGroup = ({
     <div>
       <button
         onClick={() => setExpanded((e) => !e)}
-        className="w-full flex items-center justify-between text-foreground/80 hover:text-primary transition-colors duration-300 text-sm uppercase tracking-widest font-medium py-2"
+        className="w-full flex items-center justify-between text-foreground/80 hover:text-primary transition-colors duration-300 text-sm uppercase tracking-[0.14em] font-mono py-2"
       >
         {item.label}
         <ChevronDown
@@ -183,18 +187,21 @@ const MobileNavGroup = ({
           >
             {item.children.map((child) =>
               child.separator ? (
-                <div key={child.label} className="pt-3 pb-1 text-xs uppercase tracking-wider text-primary/60 font-medium border-t border-border/30 first:border-t-0 first:pt-1">
+                <div
+                  key={child.label}
+                  className="pt-3 pb-1 text-[11px] uppercase tracking-[0.18em] text-primary/70 font-mono border-t border-border/30 first:border-t-0 first:pt-1"
+                >
                   {child.label}
                 </div>
               ) : (
-              <Link
-                key={child.href}
-                to={child.href!}
-                onClick={onClose}
-                className="block py-2 text-sm text-foreground/60 hover:text-primary transition-colors"
-              >
-                {child.label}
-              </Link>
+                <Link
+                  key={child.href}
+                  to={child.href!}
+                  onClick={onClose}
+                  className="block py-2 text-sm text-foreground/60 hover:text-primary transition-colors"
+                >
+                  {child.label}
+                </Link>
               )
             )}
           </motion.div>
@@ -233,14 +240,44 @@ const Header = () => {
         opacity: 1,
       }}
     >
-      <div className="container mx-auto px-6 py-4">
+      {/* Utility strip — collapses on scroll */}
+      <div
+        className={`hidden md:block overflow-hidden border-b border-border/40 bg-background/80 transition-all duration-500 ${
+          isScrolled ? "max-h-0 border-b-0 opacity-0" : "max-h-10 opacity-100"
+        }`}
+      >
+        <div className="container mx-auto px-6 flex items-center justify-between py-2">
+          <div className="flex items-center gap-6">
+            <a
+              href={`tel:${COMPANY.phoneRaw}`}
+              className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground/60 hover:text-primary transition-colors"
+            >
+              <Phone className="w-3 h-3 text-primary/70" />
+              {COMPANY.phoneDisplay}
+            </a>
+            <a
+              href={`mailto:${COMPANY.email}`}
+              className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground/60 hover:text-primary transition-colors"
+            >
+              <Mail className="w-3 h-3 text-primary/70" />
+              {COMPANY.email}
+            </a>
+          </div>
+          <div className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground/60">
+            <Clock className="w-3 h-3 text-primary/70" />
+            Available 24/7 · Aspen, Colorado
+          </div>
+        </div>
+      </div>
+
+      <div className={`container mx-auto px-6 transition-all duration-500 ${isScrolled ? "py-2.5" : "py-4"}`}>
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
               src={logo}
               alt="VIP Aspen - Luxury Services in Aspen Colorado"
-              className="h-14 md:h-16 w-auto"
+              className={`w-auto transition-all duration-500 ${isScrolled ? "h-11 md:h-12" : "h-14 md:h-16"}`}
             />
           </Link>
 
@@ -252,9 +289,12 @@ const Header = () => {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-3">
             <Button variant="luxury" size="lg" asChild>
-              <Link to="/membership">Become a Member</Link>
+              <a href={`tel:${COMPANY.phoneRaw}`} className="flex items-center gap-2">
+                <Phone className="w-4 h-4" />
+                Book Now
+              </a>
             </Button>
           </div>
 
@@ -268,7 +308,7 @@ const Header = () => {
             </Button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-foreground p-2 rounded-md border border-border/50 bg-background/30 backdrop-blur"
+              className="text-foreground p-2 border border-border/50 bg-background/30 backdrop-blur"
               aria-label="Toggle menu"
               title="Menu"
             >
@@ -285,7 +325,7 @@ const Header = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden"
+              className="lg:hidden overflow-hidden max-h-[calc(100svh-90px)] overflow-y-auto"
             >
               <div className="py-6 flex flex-col gap-2">
                 {navItems.map((item) => (

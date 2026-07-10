@@ -43,9 +43,7 @@ const Fleet = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 md:mb-24"
         >
-          <p className="text-primary uppercase tracking-[0.3em] text-sm mb-4">
-            The Fleet
-          </p>
+          <p className="eyebrow mb-4">The Fleet</p>
           <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-6">
             Aspen's <span className="text-gradient-gold">Exclusive Collection</span>
           </h2>
@@ -66,13 +64,14 @@ const Fleet = () => {
               className="group"
             >
               <Link to={vehicle.link} className="block">
-                <div className="relative overflow-hidden rounded-sm mb-6">
+                <div className="relative overflow-hidden mb-6 accent-frame">
                   <img
                     src={vehicle.image}
                     alt={vehicle.alt}
+                    loading="lazy"
                     className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
                 </div>
 
                 <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-3">
@@ -87,7 +86,7 @@ const Fleet = () => {
                   {vehicle.specs.map((spec) => (
                     <span
                       key={spec}
-                      className="text-xs text-primary bg-primary/10 px-3 py-1.5 rounded-sm"
+                      className="font-mono text-[10px] uppercase tracking-[0.14em] text-primary bg-primary/10 border border-primary/20 px-3 py-1.5"
                     >
                       {spec}
                     </span>

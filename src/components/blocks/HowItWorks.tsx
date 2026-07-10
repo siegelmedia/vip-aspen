@@ -14,21 +14,19 @@ const HowItWorks = ({
 }: HowItWorksProps) => {
   return (
     <>
-      <SectionHeader heading={heading} />
+      <SectionHeader eyebrow="The Process" heading={heading} />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto pt-4">
         {steps.map((step, index) => (
           <motion.div
             key={step.step}
             {...staggerChild(index)}
-            className="glass-card p-6 text-center"
+            className="relative glass-card p-6 pt-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40"
           >
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
-              <span className="text-primary font-display font-semibold text-lg">
-                {step.step}
-              </span>
-            </div>
-            <h3 className="font-display text-lg font-semibold text-foreground mb-2">
+            <span className="absolute -top-4 left-6 inline-flex items-center justify-center w-9 h-9 bg-gradient-gold text-primary-foreground font-mono text-sm shadow-gold">
+              {step.step}
+            </span>
+            <h3 className="font-display text-lg font-semibold text-foreground mb-2 mt-2">
               {step.title}
             </h3>
             <p className="text-foreground/60 text-sm leading-relaxed">

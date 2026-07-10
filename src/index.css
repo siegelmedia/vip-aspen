@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,16 +14,16 @@
     --popover: 0 0% 7%;
     --popover-foreground: 30 14% 94%;
 
-    --primary: 38 35% 52%;
+    --primary: 38 38% 54%;
     --primary-foreground: 0 0% 4%;
 
     --secondary: 0 0% 10%;
     --secondary-foreground: 30 14% 94%;
 
     --muted: 0 0% 14%;
-    --muted-foreground: 30 6% 55%;
+    --muted-foreground: 30 6% 58%;
 
-    --accent: 38 35% 52%;
+    --accent: 38 38% 54%;
     --accent-foreground: 0 0% 4%;
 
     --destructive: 0 40% 38%;
@@ -33,13 +31,13 @@
 
     --border: 0 0% 16%;
     --input: 0 0% 16%;
-    --ring: 38 35% 52%;
+    --ring: 38 38% 54%;
 
     --radius: 0.25rem;
 
     /* Custom luxury tokens */
-    --gold: 38 35% 52%;
-    --gold-light: 40 38% 62%;
+    --gold: 38 38% 54%;
+    --gold-light: 40 42% 66%;
     --gold-dark: 36 30% 42%;
     --navy: 0 0% 4%;
     --navy-light: 0 0% 8%;
@@ -48,13 +46,13 @@
     --cream-muted: 30 8% 78%;
 
     /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(40 38% 62%), hsl(38 35% 52%), hsl(36 30% 42%));
+    --gradient-gold: linear-gradient(135deg, hsl(40 42% 66%), hsl(38 38% 54%), hsl(36 30% 42%));
     --gradient-hero: linear-gradient(180deg, transparent 0%, hsl(0 0% 4% / 0.4) 50%, hsl(0 0% 4%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 4%) 100%);
 
     /* Shadows */
     --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.6);
-    --shadow-gold: 0 0 30px hsl(38 35% 52% / 0.15);
+    --shadow-gold: 0 0 30px hsl(38 38% 54% / 0.15);
     --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
 
     --sidebar-background: 216 40% 7%;
@@ -74,27 +72,27 @@
     --card-foreground: 30 14% 94%;
     --popover: 0 0% 7%;
     --popover-foreground: 30 14% 94%;
-    --primary: 38 35% 52%;
+    --primary: 38 38% 54%;
     --primary-foreground: 0 0% 4%;
     --secondary: 0 0% 10%;
     --secondary-foreground: 30 14% 94%;
     --muted: 0 0% 14%;
-    --muted-foreground: 30 6% 55%;
-    --accent: 38 35% 52%;
+    --muted-foreground: 30 6% 58%;
+    --accent: 38 38% 54%;
     --accent-foreground: 0 0% 4%;
     --destructive: 0 40% 38%;
     --destructive-foreground: 30 14% 94%;
     --border: 0 0% 16%;
     --input: 0 0% 16%;
-    --ring: 38 35% 52%;
+    --ring: 38 38% 54%;
     --sidebar-background: 0 0% 4%;
     --sidebar-foreground: 30 14% 94%;
-    --sidebar-primary: 38 35% 52%;
+    --sidebar-primary: 38 38% 54%;
     --sidebar-primary-foreground: 0 0% 4%;
     --sidebar-accent: 0 0% 10%;
     --sidebar-accent-foreground: 30 14% 94%;
     --sidebar-border: 0 0% 16%;
-    --sidebar-ring: 38 35% 52%;
+    --sidebar-ring: 38 38% 54%;
   }
 }
 
@@ -113,24 +111,51 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
+    color: hsl(var(--foreground));
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(0 0% 18%);
+    border-radius: 5px;
+    border: 2px solid hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
   }
 }
 
 @layer components {
   .text-gradient-gold {
-    background: linear-gradient(135deg, hsl(40 38% 62%), hsl(38 35% 52%), hsl(36 30% 42%));
+    background: linear-gradient(135deg, hsl(42 48% 72%), hsl(38 38% 56%), hsl(36 32% 46%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .bg-gradient-gold {
-    background: linear-gradient(135deg, hsl(40 38% 62%), hsl(38 35% 52%), hsl(36 30% 42%));
+    background: linear-gradient(135deg, hsl(40 42% 66%), hsl(38 38% 54%), hsl(36 30% 42%));
   }
 
   .border-gradient-gold {
-    border-image: linear-gradient(135deg, hsl(40 38% 62%), hsl(38 35% 52%), hsl(36 30% 42%)) 1;
+    border-image: linear-gradient(135deg, hsl(40 42% 66%), hsl(38 38% 54%), hsl(36 30% 42%)) 1;
   }
 
   .shadow-luxury {
@@ -149,48 +174,113 @@
 
   .luxury-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(38 35% 52% / 0.4), transparent);
-  }
-  }
-
-  /* Protect site header from third-party CSS (e.g., BookRidesOnline Bootstrap) */
-  header[style*="position: fixed"] {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 9999 !important;
-    pointer-events: auto !important;
+    background: linear-gradient(90deg, transparent, hsl(38 38% 54% / 0.4), transparent);
   }
 
-  header[style*="position: fixed"] nav {
+  /* Mono uppercase eyebrow label */
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.75rem;
+    color: hsl(var(--primary));
+  }
+
+  /* Accent tick that precedes eyebrows */
+  .eyebrow-tick::before {
+    content: "";
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background: hsl(var(--primary));
+    vertical-align: middle;
+    margin-right: 0.75rem;
+  }
+
+  /* Subtle blueprint grid backdrop */
+  .bg-grid {
+    background-image:
+      linear-gradient(hsl(0 0% 100% / 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 100% / 0.025) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  /* Layered hero overlay — dark on the text side, near-clear opposite */
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, hsl(0 0% 4% / 0.74) 0%, hsl(0 0% 4% / 0.45) 45%, hsl(0 0% 4% / 0.08) 100%),
+      linear-gradient(180deg, hsl(0 0% 4% / 0.35) 0%, transparent 30%, transparent 62%, hsl(0 0% 4% / 0.92) 100%);
+  }
+
+  /* Centered-text hero overlay — darker core so headlines stay legible over bright snow */
+  .hero-overlay-center {
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 42%, hsl(0 0% 4% / 0.55), transparent 100%),
+      linear-gradient(180deg, hsl(0 0% 4% / 0.6) 0%, hsl(0 0% 4% / 0.48) 45%, hsl(0 0% 4% / 0.94) 100%);
+  }
+
+  /* Full-bleed CTA band overlay — mid gradient, not a flat wash */
+  .cta-overlay {
+    background: linear-gradient(90deg, hsl(0 0% 4% / 0.82) 0%, hsl(0 0% 4% / 0.55) 55%, hsl(0 0% 4% / 0.2) 100%);
+  }
+
+  /* Offset accent frame for image+text sections */
+  .accent-frame {
+    position: relative;
+  }
+  .accent-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translate(14px, 14px);
+    border: 1px solid hsl(var(--primary) / 0.35);
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+/* Protect site header from third-party CSS (e.g., BookRidesOnline Bootstrap) */
+header[style*="position: fixed"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+}
+
+header[style*="position: fixed"] nav {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+header[style*="position: fixed"] [data-testid="desktop-nav"] {
+  display: none !important;
+}
+
+@media (min-width: 1024px) {
+  header[style*="position: fixed"] [data-testid="desktop-nav"] {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
   }
-
-  header[style*="position: fixed"] [data-testid="desktop-nav"] {
-    display: none !important;
-  }
-
-  @media (min-width: 1024px) {
-    header[style*="position: fixed"] [data-testid="desktop-nav"] {
-      display: flex !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-    }
-  }
+}
 
 @layer utilities {
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Space Grotesk', sans-serif;
   }
 
   .font-body {
     font-family: 'Inter', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
   }
 
   .text-balance {
@@ -207,6 +297,14 @@
 
   .animate-shimmer {
     animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .animate-marquee {
+    animation: marquee 36s linear infinite;
+  }
+
+  .pause-on-hover:hover .animate-marquee {
+    animation-play-state: paused;
   }
 
   @keyframes fadeUp {
@@ -235,6 +333,21 @@
     }
     50% {
       opacity: 0.7;
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
     }
   }
 }

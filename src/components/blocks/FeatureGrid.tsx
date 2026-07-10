@@ -23,9 +23,12 @@ const FeatureGrid = ({ items, columns = 3 }: FeatureGridProps) => {
           <motion.div
             key={item.title}
             {...staggerChild(index)}
-            className="glass-card p-6 md:p-8"
+            className="group relative glass-card p-6 md:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-luxury"
           >
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4">
+            <span className="absolute top-6 right-6 font-mono text-xs text-primary/40 group-hover:text-primary/70 transition-colors">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 border border-primary/25 mb-5">
               <Icon className="w-6 h-6 text-primary" />
             </div>
             <h3 className="font-display text-xl font-semibold text-foreground mb-3">
