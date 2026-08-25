@@ -18,7 +18,7 @@ const Index = () => {
     <>
       <SEOHead
         title="Luxury Car Service Aspen CO | Rolls Royce, Escalade & Sprinter"
-        description="Aspen's #1 luxury car service & VIP concierge. Chauffeured Rolls Royce Cullinan, Cadillac Escalade & Executive Sprinter. Airport transfers, VIP entertainment & executive protection. Available 24/7. Call (970) 452-6636."
+        description="Aspen's #1 luxury car service & VIP concierge. Chauffeured Rolls Royce Cullinan, Cadillac Escalade & Executive Sprinter. Airport transfers, private ski transfers & executive protection. Available 24/7. Call (970) 452-6636."
         keywords="luxury car service Aspen, Aspen chauffeur, Rolls Royce Aspen, black car service Aspen Colorado, Aspen airport transfer, luxury transportation Aspen, VIP car service Aspen, private driver Aspen, Aspen security"
         canonicalUrl="/"
         ogImage="https://www.vipaspen.com/og-image.jpg"

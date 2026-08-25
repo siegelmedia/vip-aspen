@@ -64,6 +64,18 @@ const STATIC_EXTENSIONS = [
   ".woff2", ".svg", ".webp", ".webm", ".avif",
 ];
 
+/**
+ * Permanent redirects for retired pages. Private entertainment and promotional
+ * staffing were removed from the site in Aug 2026; these 301s pass their link
+ * equity to the closest live page instead of leaking it into 404s.
+ * Keep in sync with RETIRED_ROUTES in src/App.tsx.
+ */
+const REDIRECTS = {
+  "/private-entertainment": "/aspen-clubs",
+  "/promotional-services": "/special-event-transportation",
+  "/talent": "/aspen-clubs",
+};
+
 function isBot(userAgent) {
   const ua = (userAgent || "").toLowerCase();
   return BOT_AGENTS.some((bot) => ua.includes(bot));
@@ -78,6 +90,12 @@ export default {
   async fetch(request, env) {
     const userAgent = request.headers.get("user-agent") || "";
     const url = new URL(request.url);
+
+    // Retired pages 301 before anything else — humans and crawlers alike.
+    const redirectTarget = REDIRECTS[url.pathname.replace(/\/+$/, "") || "/"];
+    if (redirectTarget) {
+      return Response.redirect(new URL(redirectTarget + url.search, url.origin).toString(), 301);
+    }
 
     if (!isBot(userAgent) || isStaticFile(url.href)) {
       const upstreamUrl = new URL(url.pathname + url.search, env.UPSTREAM_URL);

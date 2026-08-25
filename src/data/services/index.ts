@@ -1,73 +1,42 @@
 import type { ServicePageData } from "@/types";
-import blackCarService from "./black-car-service";
-import executiveProtection from "./executive-protection";
-import aspenClubs from "./aspen-clubs";
-import weddingTransportation from "./wedding-transportation";
-import corporateTransportation from "./corporate-transportation";
-import privateEntertainment from "./private-entertainment";
-import promotionalServices from "./promotional-services";
-import hourlyChauffeur from "./hourly-chauffeur";
-import multiDayChauffeur from "./multi-day-chauffeur";
-import privateSkiTransfers from "./private-ski-transfers";
-import specialEventTransportation from "./special-event-transportation";
-import newYearsEveTransportation from "./aspen-new-years-eve-transportation";
-import privateJetTransfer from "./aspen-private-jet-transfer";
-import vailToAspenCarService from "./vail-to-aspen-car-service";
-import glenwoodToAspenCarService from "./glenwood-springs-to-aspen-car-service";
-import beaverCreekToAspenCarService from "./beaver-creek-to-aspen-car-service";
-import foodAndWineTransportation from "./aspen-food-and-wine-transportation";
-import hotelJeromeTransportation from "./hotel-jerome-transportation";
-import stRegisAspenTransportation from "./st-regis-aspen-transportation";
-import littleNellTransportation from "./little-nell-transportation";
-import securityDriver from "./security-driver";
-import ratesPage from "./rates";
 
-export const services: Record<string, ServicePageData> = {
-  "black-car-service": blackCarService,
-  "hourly-chauffeur": hourlyChauffeur,
-  "multi-day-chauffeur": multiDayChauffeur,
-  "private-ski-transfers": privateSkiTransfers,
-  "aspen-private-jet-transfer": privateJetTransfer,
-  "vail-to-aspen-car-service": vailToAspenCarService,
-  "glenwood-springs-to-aspen-car-service": glenwoodToAspenCarService,
-  "beaver-creek-to-aspen-car-service": beaverCreekToAspenCarService,
-  "special-event-transportation": specialEventTransportation,
-  "aspen-food-and-wine-transportation": foodAndWineTransportation,
-  "aspen-new-years-eve-transportation": newYearsEveTransportation,
-  "hotel-jerome-transportation": hotelJeromeTransportation,
-  "st-regis-aspen-transportation": stRegisAspenTransportation,
-  "little-nell-transportation": littleNellTransportation,
-  "security-driver": securityDriver,
-  "executive-protection": executiveProtection,
-  "aspen-clubs": aspenClubs,
-  "aspen-wedding-transportation": weddingTransportation,
-  "aspen-corporate-transportation": corporateTransportation,
-  "private-entertainment": privateEntertainment,
-  "promotional-services": promotionalServices,
-  "rates": ratesPage,
+/**
+ * Service pages are loaded on demand, one chunk per page.
+ *
+ * These data objects are large (long-form copy, FAQs, pricing tables) and used
+ * to be imported eagerly so App.tsx could enumerate routes — which parked every
+ * page's content in the main bundle whether or not the visitor ever opened it.
+ * The route table only needs the slugs, so the values stay behind dynamic
+ * imports and each page's copy ships with the page.
+ *
+ * Adding a page = add a data file + one line here. Nothing else to register:
+ * the router, the sitemap generator, and the slug list all read this map.
+ */
+export const serviceLoaders: Record<
+  string,
+  () => Promise<{ default: ServicePageData }>
+> = {
+  "black-car-service": () => import("./black-car-service"),
+  "hourly-chauffeur": () => import("./hourly-chauffeur"),
+  "multi-day-chauffeur": () => import("./multi-day-chauffeur"),
+  "private-ski-transfers": () => import("./private-ski-transfers"),
+  "aspen-private-jet-transfer": () => import("./aspen-private-jet-transfer"),
+  "vail-to-aspen-car-service": () => import("./vail-to-aspen-car-service"),
+  "glenwood-springs-to-aspen-car-service": () =>
+    import("./glenwood-springs-to-aspen-car-service"),
+  "beaver-creek-to-aspen-car-service": () => import("./beaver-creek-to-aspen-car-service"),
+  "special-event-transportation": () => import("./special-event-transportation"),
+  "aspen-food-and-wine-transportation": () => import("./aspen-food-and-wine-transportation"),
+  "aspen-new-years-eve-transportation": () => import("./aspen-new-years-eve-transportation"),
+  "hotel-jerome-transportation": () => import("./hotel-jerome-transportation"),
+  "st-regis-aspen-transportation": () => import("./st-regis-aspen-transportation"),
+  "little-nell-transportation": () => import("./little-nell-transportation"),
+  "security-driver": () => import("./security-driver"),
+  "executive-protection": () => import("./executive-protection"),
+  "aspen-clubs": () => import("./aspen-clubs"),
+  "aspen-wedding-transportation": () => import("./wedding-transportation"),
+  "aspen-corporate-transportation": () => import("./corporate-transportation"),
+  rates: () => import("./rates"),
 };
 
-export {
-  blackCarService,
-  hourlyChauffeur,
-  multiDayChauffeur,
-  privateSkiTransfers,
-  specialEventTransportation,
-  newYearsEveTransportation,
-  privateJetTransfer,
-  vailToAspenCarService,
-  glenwoodToAspenCarService,
-  beaverCreekToAspenCarService,
-  foodAndWineTransportation,
-  executiveProtection,
-  aspenClubs,
-  weddingTransportation,
-  corporateTransportation,
-  privateEntertainment,
-  promotionalServices,
-  hotelJeromeTransportation,
-  stRegisAspenTransportation,
-  littleNellTransportation,
-  securityDriver,
-  ratesPage,
-};
+export const serviceSlugs = Object.keys(serviceLoaders);

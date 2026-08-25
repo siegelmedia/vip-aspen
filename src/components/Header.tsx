@@ -6,61 +6,101 @@ import { Button } from "@/components/ui/button";
 import { COMPANY } from "@/data/constants";
 import logo from "@/assets/vip-aspen-logo.webp";
 
-interface DropdownItem {
+interface NavLinkItem {
   label: string;
-  href?: string;
-  separator?: boolean;
+  href: string;
+}
+
+/** One column of a mega-menu panel. Every column carries the SAME number of
+ *  links so the panel reads as an even grid rather than a ragged list. */
+interface NavColumn {
+  heading: string;
+  links: NavLinkItem[];
 }
 
 interface NavItem {
   label: string;
   href?: string;
-  children?: DropdownItem[];
+  /** Simple single-column dropdown */
+  links?: NavLinkItem[];
+  /** Multi-column mega panel */
+  columns?: NavColumn[];
 }
 
 const navItems: NavItem[] = [
   {
     label: "Services",
-    children: [
-      { label: "Transportation", separator: true },
-      { label: "Black Car Service", href: "/black-car-service" },
-      { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
-      { label: "Multi-Day Chauffeur", href: "/multi-day-chauffeur" },
-      { label: "Private Ski Transfers", href: "/private-ski-transfers" },
-      { label: "Event Transportation", href: "/special-event-transportation" },
-      { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
-      { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
-      { label: "Security", separator: true },
-      { label: "Security Drivers", href: "/security-driver" },
-      { label: "Executive Protection", href: "/executive-protection" },
-      { label: "VIP & Concierge", separator: true },
-      { label: "VIP Club Access", href: "/aspen-clubs" },
-      { label: "Private Entertainment", href: "/private-entertainment" },
-      { label: "Promotional Services", href: "/promotional-services" },
+    // 3 columns × 5 links — deliberately balanced.
+    columns: [
+      {
+        heading: "Chauffeur Service",
+        links: [
+          { label: "Black Car Service", href: "/black-car-service" },
+          { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
+          { label: "Multi-Day Chauffeur", href: "/multi-day-chauffeur" },
+          { label: "Private Ski Transfers", href: "/private-ski-transfers" },
+          { label: "Rates & Pricing", href: "/rates" },
+        ],
+      },
+      {
+        heading: "Events & Occasions",
+        links: [
+          { label: "Event Transportation", href: "/special-event-transportation" },
+          { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
+          { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
+          { label: "Food & Wine Classic", href: "/aspen-food-and-wine-transportation" },
+          { label: "New Year's Eve & Holiday", href: "/aspen-new-years-eve-transportation" },
+        ],
+      },
+      {
+        heading: "Security & VIP",
+        links: [
+          { label: "Security Drivers", href: "/security-driver" },
+          { label: "Executive Protection", href: "/executive-protection" },
+          { label: "VIP Club Access", href: "/aspen-clubs" },
+          { label: "Security Assessment", href: "/security-assessment" },
+          { label: "VIP Membership", href: "/membership" },
+        ],
+      },
     ],
   },
   {
     label: "Transfers",
-    children: [
-      { label: "Airports", separator: true },
-      { label: "Aspen Airport (ASE)", href: "/aspen-airport-transfer" },
-      { label: "Eagle Airport (EGE)", href: "/eagle-airport-transfer" },
-      { label: "Rifle Airport (RIL)", href: "/rifle-airport-transfer" },
-      { label: "Private Jet / FBO", href: "/aspen-private-jet-transfer" },
-      { label: "Routes", separator: true },
-      { label: "Denver to Aspen", href: "/denver-to-aspen-car-service" },
-      { label: "Vail to Aspen", href: "/vail-to-aspen-car-service" },
-      { label: "Snowmass Village", href: "/snowmass-village-transfer" },
-      { label: "Hotels", separator: true },
-      { label: "Hotel Jerome", href: "/hotel-jerome-transportation" },
-      { label: "St. Regis Aspen", href: "/st-regis-aspen-transportation" },
-      { label: "The Little Nell", href: "/little-nell-transportation" },
+    // 3 columns × 4 links.
+    columns: [
+      {
+        heading: "Airports",
+        links: [
+          { label: "Aspen Airport (ASE)", href: "/aspen-airport-transfer" },
+          { label: "Eagle Airport (EGE)", href: "/eagle-airport-transfer" },
+          { label: "Rifle Airport (RIL)", href: "/rifle-airport-transfer" },
+          { label: "Private Jet / FBO", href: "/aspen-private-jet-transfer" },
+        ],
+      },
+      {
+        heading: "Routes",
+        links: [
+          { label: "Denver to Aspen", href: "/denver-to-aspen-car-service" },
+          { label: "Vail to Aspen", href: "/vail-to-aspen-car-service" },
+          { label: "Beaver Creek to Aspen", href: "/beaver-creek-to-aspen-car-service" },
+          { label: "Glenwood Springs to Aspen", href: "/glenwood-springs-to-aspen-car-service" },
+        ],
+      },
+      {
+        heading: "Resorts & Hotels",
+        links: [
+          { label: "Snowmass Village", href: "/snowmass-village-transfer" },
+          { label: "Hotel Jerome", href: "/hotel-jerome-transportation" },
+          { label: "St. Regis Aspen", href: "/st-regis-aspen-transportation" },
+          { label: "The Little Nell", href: "/little-nell-transportation" },
+        ],
+      },
     ],
   },
   {
     label: "Fleet",
-    children: [
-      { label: "Rolls Royce Cullinan", href: "/rolls-royce-cullinan" },
+    links: [
+      { label: "Rolls-Royce Cullinan", href: "/rolls-royce-cullinan" },
       { label: "Cadillac Escalade", href: "/cadillac-escalade" },
       { label: "Executive Sprinter", href: "/executive-sprinter" },
     ],
@@ -71,7 +111,13 @@ const navItems: NavItem[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-/* ───────── Desktop dropdown ───────── */
+/* ───────── Desktop dropdown / mega panel ───────── */
+const dropdownLinkClass =
+  "block px-3 py-2 text-sm text-foreground/70 rounded-sm hover:text-primary hover:bg-primary/5 transition-colors";
+
+const columnHeadingClass =
+  "px-3 pb-2 mb-1 text-[11px] uppercase tracking-[0.18em] text-primary/80 font-mono border-b border-border/40";
+
 const DesktopDropdown = ({ item }: { item: NavItem }) => {
   const [open, setOpen] = useState(false);
   const timeout = useRef<ReturnType<typeof setTimeout>>();
@@ -84,7 +130,11 @@ const DesktopDropdown = ({ item }: { item: NavItem }) => {
     timeout.current = setTimeout(() => setOpen(false), 150);
   };
 
-  if (!item.children) {
+  useEffect(() => () => clearTimeout(timeout.current), []);
+
+  const isMega = !!item.columns;
+
+  if (!item.columns && !item.links) {
     return (
       <Link
         to={item.href!}
@@ -96,10 +146,16 @@ const DesktopDropdown = ({ item }: { item: NavItem }) => {
   }
 
   return (
-    <div className="relative" onMouseEnter={enter} onMouseLeave={leave}>
+    <div
+      className={isMega ? "" : "relative"}
+      onMouseEnter={enter}
+      onMouseLeave={leave}
+    >
       <button
         className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300 text-[13px] uppercase tracking-[0.14em] font-mono"
         onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-haspopup="true"
       >
         {item.label}
         <ChevronDown
@@ -114,27 +170,47 @@ const DesktopDropdown = ({ item }: { item: NavItem }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 mt-3 min-w-[240px] bg-background/95 backdrop-blur-xl border border-border/50 shadow-xl overflow-hidden"
+            className={`absolute top-full mt-3 bg-background/95 backdrop-blur-xl border border-border/50 shadow-xl overflow-hidden ${
+              isMega
+                ? "right-0 w-[min(54rem,calc(100vw-3rem))]"
+                : "left-0 min-w-[240px]"
+            }`}
           >
             <div className="h-px bg-gradient-gold" />
-            {item.children.map((child) =>
-              child.separator ? (
-                <div
-                  key={child.label}
-                  className="px-5 pt-3 pb-1 text-[11px] uppercase tracking-[0.18em] text-primary/70 font-mono border-t border-border/30 first:border-t-0 first:pt-3"
-                >
-                  {child.label}
-                </div>
-              ) : (
-                <Link
-                  key={child.href}
-                  to={child.href!}
-                  onClick={() => setOpen(false)}
-                  className="block px-5 py-2.5 text-sm text-foreground/70 hover:text-primary hover:bg-primary/5 transition-colors"
-                >
-                  {child.label}
-                </Link>
-              )
+
+            {isMega ? (
+              <div className="grid grid-cols-3 gap-x-6 p-6">
+                {item.columns!.map((col) => (
+                  <div key={col.heading}>
+                    <p className={columnHeadingClass}>{col.heading}</p>
+                    <div className="flex flex-col">
+                      {col.links.map((link) => (
+                        <Link
+                          key={link.href}
+                          to={link.href}
+                          onClick={() => setOpen(false)}
+                          className={dropdownLinkClass}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-col p-2">
+                {item.links!.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    onClick={() => setOpen(false)}
+                    className={dropdownLinkClass}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
             )}
           </motion.div>
         )}
@@ -153,7 +229,7 @@ const MobileNavGroup = ({
 }) => {
   const [expanded, setExpanded] = useState(false);
 
-  if (!item.children) {
+  if (!item.columns && !item.links) {
     return (
       <Link
         to={item.href!}
@@ -165,45 +241,51 @@ const MobileNavGroup = ({
     );
   }
 
+  // Normalise both shapes into the same "sections" list so mobile renders evenly.
+  const sections: NavColumn[] = item.columns ?? [
+    { heading: item.label, links: item.links! },
+  ];
+
   return (
     <div>
       <button
         onClick={() => setExpanded((e) => !e)}
         className="w-full flex items-center justify-between text-foreground/80 hover:text-primary transition-colors duration-300 text-sm uppercase tracking-[0.14em] font-mono py-2"
+        aria-expanded={expanded}
       >
         {item.label}
         <ChevronDown
           className={`w-4 h-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
         />
       </button>
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {expanded && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden pl-4"
+            className="overflow-hidden"
           >
-            {item.children.map((child) =>
-              child.separator ? (
-                <div
-                  key={child.label}
-                  className="pt-3 pb-1 text-[11px] uppercase tracking-[0.18em] text-primary/70 font-mono border-t border-border/30 first:border-t-0 first:pt-1"
-                >
-                  {child.label}
+            <div className="pl-3 pb-2">
+              {sections.map((section, i) => (
+                <div key={section.heading} className={i > 0 ? "mt-4" : "mt-1"}>
+                  <p className="pb-1.5 mb-1 text-[11px] uppercase tracking-[0.18em] text-primary/80 font-mono border-b border-border/30">
+                    {section.heading}
+                  </p>
+                  {section.links.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={onClose}
+                      className="block py-2 text-sm text-foreground/60 hover:text-primary transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
-              ) : (
-                <Link
-                  key={child.href}
-                  to={child.href!}
-                  onClick={onClose}
-                  className="block py-2 text-sm text-foreground/60 hover:text-primary transition-colors"
-                >
-                  {child.label}
-                </Link>
-              )
-            )}
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -282,7 +364,10 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-7" data-testid="desktop-nav">
+          <div
+            className="hidden lg:flex items-center gap-6 xl:gap-7 relative"
+            data-testid="desktop-nav"
+          >
             {navItems.map((item) => (
               <DesktopDropdown key={item.label} item={item} />
             ))}

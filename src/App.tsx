@@ -1,10 +1,12 @@
 import { lazy, Suspense } from "react";
+import type { ComponentType } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import RouteFallback from "@/components/layout/RouteFallback";
 
 // Homepage — direct import (not lazy)
 import Index from "./pages/Index";
@@ -13,80 +15,93 @@ import Index from "./pages/Index";
 const AboutPage = lazy(() => import("./pages/AboutPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const MembershipPage = lazy(() => import("./pages/MembershipPage"));
-// const TalentGallery = lazy(() => import("./pages/TalentGallery")); // Re-enable when real talent photos are ready
 const SecurityAssessment = lazy(() => import("./pages/SecurityAssessment"));
 const SummitBlackCar = lazy(() => import("./pages/SummitBlackCar"));
 const SummitBlackCarDriver = lazy(() => import("./pages/SummitBlackCarDriver"));
+const GuidesIndex = lazy(() => import("./pages/GuidesIndex"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-// Templates — lazy loaded
-const ServicePage = lazy(() => import("./templates/ServicePage"));
-const VehiclePage = lazy(() => import("./templates/VehiclePage"));
-const AirportPage = lazy(() => import("./templates/AirportPage"));
-const GuidePage = lazy(() => import("./templates/GuidePage"));
-const GuidesIndex = lazy(() => import("./pages/GuidesIndex"));
-
-// Data
-import { services } from "./data/services";
-import { vehicles } from "./data/vehicles";
-import { airports } from "./data/airports";
-import { guides } from "./data/guides";
+// Route tables — slugs only. The page data itself sits behind dynamic imports
+// so a visitor downloads one page's copy, not all forty.
+import { serviceLoaders } from "./data/services";
+import { vehicleLoaders } from "./data/vehicles";
+import { airportLoaders } from "./data/airports";
+import { guideLoaders } from "./data/guides";
 
 const queryClient = new QueryClient();
 
-/** Wrapper to render a ServicePage template with data for a given slug */
-const ServiceRoute = ({ slug }: { slug: string }) => {
-  const data = services[slug];
-  if (!data) return <NotFoundFallback />;
-
-  // Contact-only pages show call/email CTA; form pages use BookingForm; rest use widget
-  const contactOnlyPages = ["private-entertainment"];
-  const formPages = ["promotional-services", "property-watch"];
-  const bookingVariant = contactOnlyPages.includes(slug)
-    ? "contact-only" as const
-    : formPages.includes(slug)
-    ? "form" as const
-    : "widget" as const;
-  const heroVariant = slug === "property-watch" ? "cinematic" as const : "standard" as const;
-
-  // All transportation and airport pages embed booking in hero
-  const heroBookingPages = ["black-car-service", "hourly-chauffeur", "multi-day-chauffeur", "private-ski-transfers", "aspen-private-jet-transfer", "vail-to-aspen-car-service", "glenwood-springs-to-aspen-car-service", "beaver-creek-to-aspen-car-service", "aspen-food-and-wine-transportation", "aspen-new-years-eve-transportation", "security-driver", "special-event-transportation", "aspen-wedding-transportation", "aspen-corporate-transportation", "hotel-jerome-transportation", "st-regis-aspen-transportation", "little-nell-transportation"];
-  const topBookingPages: string[] = [];
-  const bookingPosition = heroBookingPages.includes(slug)
-    ? "hero" as const
-    : topBookingPages.includes(slug)
-    ? "top" as const
-    : "bottom" as const;
-
-  return <ServicePage data={data} bookingVariant={bookingVariant} heroVariant={heroVariant} bookingPosition={bookingPosition} />;
+/**
+ * Pages that no longer exist, mapped to their closest live equivalent.
+ * Keep this in sync with REDIRECTS in workers/prerender/worker.js, which
+ * issues the real 301s for crawlers and non-JS clients.
+ */
+const RETIRED_ROUTES: Record<string, string> = {
+  "/private-entertainment": "/aspen-clubs",
+  "/promotional-services": "/special-event-transportation",
+  "/talent": "/aspen-clubs",
 };
 
-const VehicleRoute = ({ slug }: { slug: string }) => {
-  const data = vehicles[slug];
-  if (!data) return <NotFoundFallback />;
-  return <VehiclePage data={data} />;
-};
+/**
+ * Builds a lazy route component that fetches its template and its page data in
+ * parallel, then renders one from the other. Called at module scope (once per
+ * route) so React.lazy isn't re-created on every render.
+ */
+function dataRoute<TData>(
+  loadTemplate: () => Promise<{ default: ComponentType<never> }>,
+  loadData: () => Promise<{ default: TData }>,
+  props: (data: TData) => Record<string, unknown> = (data) => ({ data }),
+) {
+  return lazy(async () => {
+    const [template, data] = await Promise.all([loadTemplate(), loadData()]);
+    const Template = template.default as ComponentType<Record<string, unknown>>;
+    const resolved = props(data.default);
+    return { default: () => <Template {...resolved} /> };
+  });
+}
 
-const AirportRoute = ({ slug }: { slug: string }) => {
-  const data = airports[slug];
-  if (!data) return <NotFoundFallback />;
-  return <AirportPage data={data} />;
-};
+/** Bookable transportation pages embed the reservation widget inside the hero. */
+const HERO_BOOKING_PAGES = new Set([
+  "black-car-service",
+  "hourly-chauffeur",
+  "multi-day-chauffeur",
+  "private-ski-transfers",
+  "aspen-private-jet-transfer",
+  "vail-to-aspen-car-service",
+  "glenwood-springs-to-aspen-car-service",
+  "beaver-creek-to-aspen-car-service",
+  "aspen-food-and-wine-transportation",
+  "aspen-new-years-eve-transportation",
+  "security-driver",
+  "special-event-transportation",
+  "aspen-wedding-transportation",
+  "aspen-corporate-transportation",
+  "hotel-jerome-transportation",
+  "st-regis-aspen-transportation",
+  "little-nell-transportation",
+]);
 
-const GuideRoute = ({ slug }: { slug: string }) => {
-  const data = guides[slug];
-  if (!data) return <NotFoundFallback />;
-  return <GuidePage data={data} />;
-};
+const serviceRoutes = Object.entries(serviceLoaders).map(([slug, load]) => {
+  const Page = dataRoute(() => import("./templates/ServicePage"), load, (data) => ({
+    data,
+    bookingPosition: HERO_BOOKING_PAGES.has(slug) ? "hero" : "bottom",
+  }));
+  return <Route key={slug} path={`/${slug}`} element={<Page />} />;
+});
 
-const NotFoundFallback = () => {
-  const NF = lazy(() => import("./pages/NotFound"));
-  return (
-    <Suspense fallback={null}>
-      <NF />
-    </Suspense>
-  );
-};
+const vehicleRoutes = Object.entries(vehicleLoaders).map(([slug, load]) => {
+  const Page = dataRoute(() => import("./templates/VehiclePage"), load);
+  return <Route key={slug} path={`/${slug}`} element={<Page />} />;
+});
+
+const airportRoutes = Object.entries(airportLoaders).map(([slug, load]) => {
+  const Page = dataRoute(() => import("./templates/AirportPage"), load);
+  return <Route key={slug} path={`/${slug}`} element={<Page />} />;
+});
+
+const guideRoutes = Object.entries(guideLoaders).map(([slug, load]) => {
+  const Page = dataRoute(() => import("./templates/GuidePage"), load);
+  return <Route key={slug} path={`/guides/${slug}`} element={<Page />} />;
+});
 
 const App = () => (
   <HelmetProvider>
@@ -95,7 +110,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Suspense fallback={null}>
+          <Suspense fallback={<RouteFallback />}>
             <Routes>
               {/* Homepage */}
               <Route path="/" element={<Index />} />
@@ -104,33 +119,27 @@ const App = () => (
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/membership" element={<MembershipPage />} />
-              {/* <Route path="/talent" element={<TalentGallery />} /> — Disabled until real talent photos are ready */}
               <Route path="/security-assessment" element={<SecurityAssessment />} />
+
+              {/* Retired services — client-side redirects so old links and stale
+                  search results land somewhere useful instead of a 404. The
+                  authoritative 301s live in workers/prerender/worker.js. */}
+              {Object.entries(RETIRED_ROUTES).map(([from, to]) => (
+                <Route key={from} path={from} element={<Navigate to={to} replace />} />
+              ))}
 
               {/* Summit Black Car — hidden in-vehicle tablet display */}
               <Route path="/summit-blackcar" element={<SummitBlackCar />} />
               <Route path="/summit-blackcar/:slug" element={<SummitBlackCarDriver />} />
 
-              {/* Service pages — template-driven */}
-              {Object.keys(services).map((slug) => (
-                <Route key={slug} path={`/${slug}`} element={<ServiceRoute slug={slug} />} />
-              ))}
+              {/* Template-driven pages */}
+              {serviceRoutes}
+              {vehicleRoutes}
+              {airportRoutes}
 
-              {/* Vehicle pages — template-driven */}
-              {Object.keys(vehicles).map((slug) => (
-                <Route key={slug} path={`/${slug}`} element={<VehicleRoute slug={slug} />} />
-              ))}
-
-              {/* Airport pages — template-driven */}
-              {Object.keys(airports).map((slug) => (
-                <Route key={slug} path={`/${slug}`} element={<AirportRoute slug={slug} />} />
-              ))}
-
-              {/* Guides — index + template-driven articles */}
+              {/* Guides — index + articles */}
               <Route path="/guides" element={<GuidesIndex />} />
-              {Object.keys(guides).map((slug) => (
-                <Route key={slug} path={`/guides/${slug}`} element={<GuideRoute slug={slug} />} />
-              ))}
+              {guideRoutes}
 
               {/* Catch-all */}
               <Route path="*" element={<NotFound />} />

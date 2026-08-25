@@ -5,11 +5,13 @@ import { staggerChild } from "@/lib/animations";
 import SectionHeader from "@/components/layout/SectionHeader";
 import blackCarImg from "@/assets/service-black-car-arrival.webp";
 import airportImg from "@/assets/escalade-tarmac.webp";
+import skiImg from "@/assets/hero-private-ski-transfers.webp";
+import eventsImg from "@/assets/hero-special-events.webp";
 import protectionImg from "@/assets/service-executive-protection.webp";
 import clubsImg from "@/assets/service-aspen-clubs.webp";
-import entertainmentImg from "@/assets/private-entertainment.webp";
-import promoImg from "@/assets/service-promotional-events.webp";
 
+/** Six cards — an exact fit for both the 2-column and 3-column grid, so the
+ *  section never ends on a half-empty row. */
 const services = [
   {
     title: "Black Car Service",
@@ -21,13 +23,31 @@ const services = [
     tag: "Transportation",
   },
   {
-    title: "Airport Transfers",
+    title: "Airport & Jet Transfers",
     description:
       "Flight-tracked pickups at Aspen (ASE), Eagle (EGE), Rifle, and Denver — including private jet and FBO tarmac service.",
     image: airportImg,
     alt: "Black Cadillac Escalade waiting on the Aspen airport tarmac",
     link: "/aspen-airport-transfer",
     tag: "Transportation",
+  },
+  {
+    title: "Private Ski Transfers",
+    description:
+      "Door-to-slope private SUV service across Aspen Mountain, Highlands, Buttermilk, and Snowmass — gear handled.",
+    image: skiImg,
+    alt: "Luxury SUV at an Aspen ski resort drop-off in winter",
+    link: "/private-ski-transfers",
+    tag: "Transportation",
+  },
+  {
+    title: "Weddings & Events",
+    description:
+      "Coordinated multi-vehicle transportation for weddings, galas, corporate offsites, and Aspen's marquee events.",
+    image: eventsImg,
+    alt: "Luxury vehicles lined up outside an Aspen event venue",
+    link: "/special-event-transportation",
+    tag: "Events",
   },
   {
     title: "Executive Protection",
@@ -45,24 +65,6 @@ const services = [
     image: clubsImg,
     alt: "Upscale Aspen nightlife venue interior",
     link: "/aspen-clubs",
-    tag: "Concierge",
-  },
-  {
-    title: "Private Entertainment",
-    description:
-      "Elite private performers and event talent delivered with security and total discretion.",
-    image: entertainmentImg,
-    alt: "Private entertainment setting in a luxury Aspen residence",
-    link: "/private-entertainment",
-    tag: "Concierge",
-  },
-  {
-    title: "Promotional Staffing",
-    description:
-      "Brand ambassadors, event hostesses, and atmosphere models for launches and corporate events.",
-    image: promoImg,
-    alt: "Event staff at an upscale Aspen promotional event",
-    link: "/promotional-services",
     tag: "Concierge",
   },
 ];
@@ -115,7 +117,7 @@ const Services = () => {
         <SectionHeader
           eyebrow="What We Do"
           heading="Elevate Your {{Aspen Experience}}"
-          subtitle="Transportation, security, entertainment, and concierge — all under one roof."
+          subtitle="Transportation, security, and concierge — all under one roof."
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

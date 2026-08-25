@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Clock } from "lucide-react";
 import PageWrapper from "@/components/layout/PageWrapper";
 import SectionContainer from "@/components/layout/SectionContainer";
-import { guidesList } from "@/data/guides";
+import { guideSummaries } from "@/data/guides";
 import { COMPANY } from "@/data/constants";
 import { fadeInUp, staggerChild } from "@/lib/animations";
 import type { SEOData } from "@/types";
@@ -27,7 +27,7 @@ const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Aspen Travel & Transportation Guides",
-  itemListElement: guidesList.map((g, i) => ({
+  itemListElement: guideSummaries.map((g, i) => ({
     "@type": "ListItem",
     position: i + 1,
     name: g.title.replace(/\{\{|\}\}/g, ""),
@@ -57,7 +57,7 @@ const GuidesIndex = () => {
 
       <SectionContainer className="pt-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {guidesList.map((guide, index) => (
+          {guideSummaries.map((guide, index) => (
             <motion.div key={guide.slug} {...staggerChild(index)}>
               <Link
                 to={`/guides/${guide.slug}`}

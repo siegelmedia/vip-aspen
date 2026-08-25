@@ -5,7 +5,6 @@ import { useToast } from "@/hooks/use-toast";
 
 interface BookingFormProps {
   serviceType?: string;
-  talentName?: string;
   heading?: string;
   subheading?: string;
   submitLabel?: string;
@@ -13,7 +12,6 @@ interface BookingFormProps {
 
 const BookingForm = ({
   serviceType,
-  talentName,
   heading = "Request a Booking",
   subheading = "Fill out the form below and we'll get back to you promptly.",
   submitLabel = "Request a Booking",
@@ -21,14 +19,19 @@ const BookingForm = ({
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const serviceLabels: Record<string, string> = {
-    "private-entertainment": "Private Entertainment",
-    "promotional-services": "Promotional Services",
-    "brand-ambassador": "Brand Ambassador",
-    "event-staffing": "Event Staffing",
-    "cocktail-service": "Cocktail Service",
-    other: "Other",
-  };
+  const serviceOptions: { value: string; label: string }[] = [
+    { value: "black-car-service", label: "Black Car Service" },
+    { value: "airport-transfer", label: "Airport / FBO Transfer" },
+    { value: "hourly-chauffeur", label: "Hourly Chauffeur" },
+    { value: "multi-day-chauffeur", label: "Multi-Day Chauffeur" },
+    { value: "private-ski-transfers", label: "Private Ski Transfer" },
+    { value: "special-event-transportation", label: "Event / Wedding Transportation" },
+    { value: "executive-protection", label: "Security / Executive Protection" },
+    { value: "other", label: "Other" },
+  ];
+  const serviceLabels: Record<string, string> = Object.fromEntries(
+    serviceOptions.map((o) => [o.value, o.label]),
+  );
 
   return (
     <form
@@ -43,14 +46,12 @@ const BookingForm = ({
         const phone = formData.get("phone") as string;
         const eventDate = formData.get("eventDate") as string;
         const service = formData.get("service") as string;
-        const talentRequest = formData.get("talentRequest") as string;
         const message = formData.get("message") as string;
 
         const formattedMessage = [
           `Phone: ${phone || "Not provided"}`,
           `Event Date: ${eventDate || "Not specified"}`,
           `Service: ${serviceLabels[service] || service || "Not specified"}`,
-          talentRequest ? `Talent Request: ${talentRequest}` : null,
           message ? `\nMessage:\n${message}` : null,
         ]
           .filter(Boolean)
@@ -153,28 +154,13 @@ const BookingForm = ({
             className="w-full bg-background/50 border border-border rounded-sm px-4 py-3 text-foreground focus:outline-none focus:border-primary transition-colors"
           >
             <option value="">Select a service</option>
-            <option value="private-entertainment">Private Entertainment</option>
-            <option value="promotional-services">Promotional Services</option>
-            <option value="brand-ambassador">Brand Ambassador</option>
-            <option value="event-staffing">Event Staffing</option>
-            <option value="cocktail-service">Cocktail Service</option>
-            <option value="other">Other</option>
+            {serviceOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
         </div>
-      </div>
-
-      <div>
-        <label htmlFor="booking-talent" className="block text-foreground/80 text-sm mb-2">
-          Talent Request <span className="text-foreground/40">(optional)</span>
-        </label>
-        <input
-          type="text"
-          id="booking-talent"
-          name="talentRequest"
-          defaultValue={talentName || ""}
-          className="w-full bg-background/50 border border-border rounded-sm px-4 py-3 text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary transition-colors"
-          placeholder="Preferred talent name or type"
-        />
       </div>
 
       <div>

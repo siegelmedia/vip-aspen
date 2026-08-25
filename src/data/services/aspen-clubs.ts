@@ -64,7 +64,7 @@ const data: ServicePageData = {
   relatedServices: [
     { label: "Black Car Service", href: "/black-car-service" },
     { label: "Executive Protection", href: "/executive-protection" },
-    { label: "Private Entertainment", href: "/private-entertainment" },
+    { label: "Special Event Transportation", href: "/special-event-transportation" },
   ],
 };
 

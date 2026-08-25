@@ -26,6 +26,7 @@ const Hero = () => {
           src={heroImage}
           alt="VIP Aspen luxury fleet — Mercedes Sprinter, Cadillac Escalade, and Rolls-Royce Cullinan on the tarmac with Aspen's snow-capped mountains behind"
           className="w-full h-full object-cover"
+          decoding="async"
           {...{ fetchpriority: "high" }}
         />
         <div className="absolute inset-0 hero-overlay" />

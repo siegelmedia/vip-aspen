@@ -9,10 +9,9 @@ import BookingWidget from "@/components/BookingWidget";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 interface BookingCTAProps {
-  /** "form" uses the BookingForm, "widget" uses the external booking widget, "contact-only" shows call/email/WhatsApp */
+  /** "form" renders the inquiry form, "widget" the reservation widget, "contact-only" call/email/WhatsApp */
   variant?: "form" | "widget" | "contact-only";
   serviceType?: string;
-  talentName?: string;
   heading?: string;
   subheading?: string;
   submitLabel?: string;
@@ -21,7 +20,6 @@ interface BookingCTAProps {
 const BookingCTA = ({
   variant = "widget",
   serviceType,
-  talentName,
   heading = "Ready to {{Book}}?",
   subheading,
   submitLabel,
@@ -67,7 +65,6 @@ const BookingCTA = ({
         {variant === "form" ? (
           <BookingForm
             serviceType={serviceType}
-            talentName={talentName}
             heading={heading.replace(/\{\{(.+?)\}\}/g, "$1")}
             subheading={subheading || "Tell us about your needs and we'll get back to you promptly."}
             submitLabel={submitLabel || "Send Request"}
