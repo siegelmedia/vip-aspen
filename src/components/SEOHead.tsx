@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 interface SEOHeadProps {
   title: string;
@@ -22,6 +23,17 @@ const SEOHead = ({
   const defaultOgImage = "https://www.vipaspen.com/og-image.jpg";
   const fullTitle = `${title} | VIP Aspen`;
   const baseUrl = "https://www.vipaspen.com";
+
+  useEffect(() => {
+    // This component mounts inside the resolved route, after its template/data
+    // and synchronous Helmet tags have committed. Never capture an empty root
+    // in the gap between starting React and resolving a lazy page.
+    document.querySelectorAll("[data-seo-fallback]").forEach((tag) => tag.remove());
+    (window as Window & { prerenderReady?: boolean }).prerenderReady = true;
+    return () => {
+      (window as Window & { prerenderReady?: boolean }).prerenderReady = false;
+    };
+  }, [canonicalUrl]);
 
   return (
     <Helmet defer={false}>
