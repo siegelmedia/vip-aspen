@@ -11,16 +11,16 @@ const airports = [
     link: "/aspen-airport-transfer",
   },
   {
-    code: "EGE",
-    name: "Eagle Airport",
-    detail: "90 min scenic drive",
-    link: "/eagle-airport-transfer",
-  },
-  {
     code: "RIL",
     name: "Rifle Airport",
     detail: "60 min, private jets",
     link: "/rifle-airport-transfer",
+  },
+  {
+    code: "EGE",
+    name: "Eagle Airport",
+    detail: "90 min scenic drive",
+    link: "/eagle-airport-transfer",
   },
   {
     code: "DEN",

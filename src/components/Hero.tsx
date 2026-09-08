@@ -6,7 +6,14 @@ import heroImage from "@/assets/fleet-tarmac-hero.webp";
 
 const stats = [
   { value: "24/7", label: "Dispatch & availability" },
-  { value: "ASE·EGE·DEN", label: "Airports served" },
+  {
+    value: (
+      <>
+        ASE·RIL·<wbr />EGE·DEN
+      </>
+    ),
+    label: "Airports served",
+  },
   { value: "3", label: "Flagship vehicles" },
   { value: "VET/LEO", label: "Veteran & LEO owned" },
 ];
