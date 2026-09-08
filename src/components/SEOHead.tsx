@@ -29,6 +29,7 @@ const SEOHead = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       {robots && <meta name="robots" content={robots} />}
+      {title === "Page Not Found" && <meta name="prerender-status-code" content="404" />}
       {canonicalUrl && <link rel="canonical" href={`${baseUrl}${canonicalUrl}`} />}
 
       {/* Open Graph */}
@@ -47,6 +48,7 @@ const SEOHead = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage || defaultOgImage} />
 
       {/* Schema.org JSON-LD */}
       {schemaData && (

@@ -7,6 +7,10 @@ routes = [
   { pattern = "vipaspen.com/*", zone_name = "vipaspen.com" },
 ]
 
+[observability]
+enabled = true
+head_sampling_rate = 0.1
+
 [vars]
 # Human/static traffic is proxied here. Points at the Git-built Workers Static
 # Assets deployment (the new pipeline), not the legacy Pages project.

@@ -1,3 +1,5 @@
+import { PAGE_PATHS } from './routes.js';
+
 const BOT_AGENTS = [
   "googlebot",
   "yahoo! slurp",
@@ -55,15 +57,6 @@ const BOT_AGENTS = [
   "bingbot-llm",
 ];
 
-const STATIC_EXTENSIONS = [
-  ".js", ".css", ".xml", ".less", ".png", ".jpg", ".jpeg", ".gif",
-  ".pdf", ".doc", ".txt", ".ico", ".rss", ".zip", ".mp3", ".rar",
-  ".exe", ".wmv", ".avi", ".ppt", ".mpg", ".mpeg", ".tif", ".wav",
-  ".mov", ".psd", ".ai", ".xls", ".mp4", ".m4a", ".swf", ".dat",
-  ".dmg", ".iso", ".flv", ".m4v", ".torrent", ".ttf", ".woff",
-  ".woff2", ".svg", ".webp", ".webm", ".avif",
-];
-
 /**
  * Permanent redirects for retired pages. Private entertainment and promotional
  * staffing were removed from the site in Aug 2026; these 301s pass their link
@@ -81,62 +74,56 @@ function isBot(userAgent) {
   return BOT_AGENTS.some((bot) => ua.includes(bot));
 }
 
-function isStaticFile(url) {
-  const pathname = new URL(url).pathname.toLowerCase();
-  return STATIC_EXTENSIONS.some((ext) => pathname.endsWith(ext));
-}
-
 export default {
   async fetch(request, env) {
     const userAgent = request.headers.get("user-agent") || "";
     const url = new URL(request.url);
 
-    // Retired pages 301 before anything else — humans and crawlers alike.
-    const redirectTarget = REDIRECTS[url.pathname.replace(/\/+$/, "") || "/"];
-    if (redirectTarget) {
-      return Response.redirect(new URL(redirectTarget + url.search, url.origin).toString(), 301);
+    const path = url.pathname.replace(/\/+$/, '') || '/';
+    const redirectTarget = Object.hasOwn(REDIRECTS, path) ? REDIRECTS[path] : null;
+    if (['GET', 'HEAD'].includes(request.method) &&
+        (url.protocol !== 'https:' || url.hostname !== 'www.vipaspen.com' || redirectTarget ||
+         (PAGE_PATHS.has(path) && path !== url.pathname))) {
+      return Response.redirect('https://www.vipaspen.com' + (redirectTarget || path) + url.search, 301);
     }
-
-    if (!isBot(userAgent) || isStaticFile(url.href)) {
-      const upstreamUrl = new URL(url.pathname + url.search, env.UPSTREAM_URL);
-      const upstreamRequest = new Request(upstreamUrl.toString(), {
-        method: request.method,
-        headers: request.headers,
-      });
-      return fetch(upstreamRequest);
+    // Preserve methods, request bodies and visitor queries; never let a // path
+    // turn into a request to an unrelated host.
+    const upstreamUrl = new URL(env.UPSTREAM_URL);
+    upstreamUrl.pathname = url.pathname; upstreamUrl.search = url.search;
+    const origin = () => fetch(new Request(upstreamUrl, request));
+    // Only published, indexable GET routes need rendering. X-Prerender prevents
+    // the rendering browser from recursively requesting itself.
+    if (request.method !== 'GET' || request.headers.has('X-Prerender') ||
+        !PAGE_PATHS.has(url.pathname) || !env.PRERENDER_TOKEN ||
+        !(isBot(userAgent) || url.searchParams.has('_escaped_fragment_'))) {
+      return origin();
     }
-
-    const prerenderUrl = `https://service.prerender.io/${url.toString()}`;
-
+    // Public pages do not vary by tracking parameters. One canonical cache key.
+    const prerenderUrl = `https://service.prerender.io/https://www.vipaspen.com${url.pathname}`;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 25000);
     try {
       const prerenderResponse = await fetch(prerenderUrl, {
         headers: {
           "X-Prerender-Token": env.PRERENDER_TOKEN,
           "User-Agent": userAgent,
+          "X-Prerender-Int-Type": "CloudFlare",
         },
         redirect: "manual",
+        signal: controller.signal,
       });
-
-      if (prerenderResponse.status >= 400) {
-        const upstreamUrl = new URL(url.pathname + url.search, env.UPSTREAM_URL);
-        return fetch(new Request(upstreamUrl.toString(), {
-          method: request.method,
-          headers: request.headers,
-        }));
+      if (prerenderResponse.status >= 500 || [401, 403, 408, 429].includes(prerenderResponse.status)) {
+        console.warn({ event: 'prerender_fallback', reason: 'http_error', status: prerenderResponse.status });
+        await prerenderResponse.body?.cancel();
+        return origin();
       }
-
-      const response = new Response(prerenderResponse.body, {
-        status: prerenderResponse.status,
-        headers: prerenderResponse.headers,
-      });
-
-      return response;
-    } catch (e) {
-      const upstreamUrl = new URL(url.pathname + url.search, env.UPSTREAM_URL);
-      return fetch(new Request(upstreamUrl.toString(), {
-        method: request.method,
-        headers: request.headers,
-      }));
+      // Preserve content 404s and redirects instead of turning them into 200s.
+      return prerenderResponse;
+    } catch {
+      console.warn({ event: 'prerender_fallback', reason: controller.signal.aborted ? 'timeout' : 'network_error' });
+      return origin();
+    } finally {
+      clearTimeout(timeout);
     }
   },
 };
