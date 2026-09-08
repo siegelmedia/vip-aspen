@@ -116,6 +116,38 @@ const data: ServicePageData = {
         "Your visit runs the way it should — quietly, professionally, and without the friction of a driver who doesn't understand protective operations.",
     },
   ],
+  faqs: [
+    {
+      question: "What is the difference between a security driver and a chauffeur?",
+      answer:
+        "A chauffeur is trained in service and etiquette. A security driver has that plus a law enforcement or military background and formal training in defensive and evasive driving, route planning, surveillance detection, and protective operations. They operate as part of your protective picture, not just behind the wheel.",
+    },
+    {
+      question: "Who typically hires a security driver in Aspen?",
+      answer:
+        "CEOs and executives traveling with corporate security, public figures and celebrities with existing details, family offices that require vetted transportation, and visiting protective teams that need a locally cleared driver who knows the valley's roads, venues, and FBO procedures.",
+    },
+    {
+      question: "Can your security driver coordinate with my detail leader?",
+      answer:
+        "Yes. That is the normal way we work. Your detail leader briefs our driver on protocols, routes, and contingencies before you arrive, and our driver follows your chain of command. We provide the vehicle, the local knowledge, and a professional who understands protective operations.",
+    },
+    {
+      question: "Which vehicles are available with a security driver?",
+      answer:
+        "Most details run in the Cadillac Escalade for its capability on mountain roads and its low profile in Aspen. The Rolls-Royce Cullinan is available for principals who want it, and the Executive Sprinter supports staff and luggage movements for larger parties. Multi-vehicle configurations are available.",
+    },
+    {
+      question: "Is a security driver more expensive than a standard chauffeur?",
+      answer:
+        "Yes, security drivers are quoted at a premium over standard chauffeur rates because of the training and vetting involved. Pricing is flat and all-inclusive per engagement, with hourly, daily, and multi-day options. Contact us for a confidential quote.",
+    },
+    {
+      question: "Do you sign NDAs?",
+      answer:
+        "Every engagement is covered by a confidentiality agreement, and we will sign your organization's NDA on request. Our drivers do not discuss clients, destinations, or itineraries.",
+    },
+  ],
   relatedServices: [
     { label: "Executive Protection", href: "/executive-protection" },
     { label: "Black Car Service", href: "/black-car-service" },

@@ -4,6 +4,15 @@ import { Button } from "@/components/ui/button";
 import { COMPANY } from "@/data/constants";
 import heroImage from "@/assets/fleet-tarmac-hero.webp";
 
+/**
+ * Optional hero video. Drop an H.264 MP4 (ideally 1920x1080, a 10-20s loop,
+ * under ~6MB, no audio) into /public/video/ and set the path here, e.g.
+ * { mp4: "/video/hero.mp4" }. A WebM alongside it improves compression on
+ * Chrome. Leave null to render the still image. The image is always used as
+ * the poster and as the fallback while the video buffers.
+ */
+export const HERO_VIDEO: { mp4: string; webm?: string } | null = null;
+
 const stats = [
   { value: "24/7", label: "Dispatch & availability" },
   {
@@ -36,6 +45,21 @@ const Hero = () => {
           decoding="async"
           {...{ fetchpriority: "high" }}
         />
+        {HERO_VIDEO && (
+          <video
+            className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={heroImage}
+            aria-hidden
+          >
+            {HERO_VIDEO.webm && <source src={HERO_VIDEO.webm} type="video/webm" />}
+            <source src={HERO_VIDEO.mp4} type="video/mp4" />
+          </video>
+        )}
         <div className="absolute inset-0 hero-overlay" />
       </div>
 

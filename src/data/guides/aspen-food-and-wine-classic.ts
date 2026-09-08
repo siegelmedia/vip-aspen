@@ -1,4 +1,5 @@
 import type { GuidePageData } from "@/types";
+import heroImage from "@/assets/guide-food-wine.webp";
 
 const data: GuidePageData = {
   slug: "aspen-food-and-wine-classic",
@@ -18,6 +19,7 @@ const data: GuidePageData = {
   datePublished: "2026-06-08",
   dateModified: "2026-06-08",
   readTime: "6 min read",
+  heroImage,
   keyTakeaways: [
     "The FOOD & WINE Classic in Aspen is the magazine's flagship event — held every June in downtown Aspen.",
     "The heart of it is the Grand Tasting in Wagner Park, alongside seminars and demos led by world-renowned chefs and wine experts.",

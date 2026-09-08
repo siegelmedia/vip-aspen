@@ -8,6 +8,9 @@ import Fleet from "@/components/Fleet";
 import HowWeWork from "@/components/HowWeWork";
 import CTABand from "@/components/CTABand";
 import AirportTransfers from "@/components/AirportTransfers";
+import HomeGuides from "@/components/HomeGuides";
+import HomeFAQ, { homeFaqs } from "@/components/HomeFAQ";
+import { createFAQSchema } from "@/lib/schema";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import BookingWidget from "@/components/BookingWidget";
@@ -22,6 +25,7 @@ const Index = () => {
         keywords="luxury car service Aspen, Aspen chauffeur, Rolls Royce Aspen, black car service Aspen Colorado, Aspen airport transfer, luxury transportation Aspen, VIP car service Aspen, private driver Aspen, Aspen security"
         canonicalUrl="/"
         ogImage="https://www.vipaspen.com/og-image.jpg"
+        schemaData={createFAQSchema(homeFaqs)}
       />
       <main className="min-h-screen bg-background">
         <Header />
@@ -32,6 +36,7 @@ const Index = () => {
         <HowWeWork />
         <WhyVIPAspen />
         <AirportTransfers />
+        <HomeGuides />
 
         {/* On-page booking — the BookRidesOnline reservation widget */}
         <section id="booking" className="py-20 md:py-28 bg-muted/20">
@@ -50,6 +55,7 @@ const Index = () => {
           </div>
         </section>
 
+        <HomeFAQ />
         <CTABand />
 
         <Footer />

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Plane, ArrowRight } from "lucide-react";
+import { Plane, ArrowRight, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const airports = [
@@ -28,6 +28,13 @@ const airports = [
     detail: "3.5 hour luxury transfer",
     link: "/denver-to-aspen-car-service",
   },
+];
+
+const routes = [
+  { label: "Vail to Aspen", detail: "~2 hrs", link: "/vail-to-aspen-car-service" },
+  { label: "Beaver Creek to Aspen", detail: "~2 hrs", link: "/beaver-creek-to-aspen-car-service" },
+  { label: "Glenwood Springs to Aspen", detail: "~1 hr", link: "/glenwood-springs-to-aspen-car-service" },
+  { label: "Snowmass Village", detail: "20 min", link: "/snowmass-village-transfer" },
 ];
 
 const AirportTransfers = () => {
@@ -79,6 +86,35 @@ const AirportTransfers = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Popular routes: a compact strip so the section covers airports AND
+            the intercity transfers people search for, without a second grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-10 md:mt-12 border-t border-border/40 pt-8"
+        >
+          <p className="eyebrow text-center mb-5">Popular Routes</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {routes.map((route) => (
+              <Link
+                key={route.link}
+                to={route.link}
+                className="group inline-flex items-center gap-2.5 glass-card px-4 py-2.5 hover:border-primary/40 transition-colors"
+              >
+                <Route className="w-4 h-4 text-primary" />
+                <span className="text-sm text-foreground/85 group-hover:text-primary transition-colors">
+                  {route.label}
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-foreground/45">
+                  {route.detail}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

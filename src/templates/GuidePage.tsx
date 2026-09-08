@@ -66,6 +66,22 @@ const GuidePage = ({ data }: GuidePageProps) => {
         </div>
       </section>
 
+      {/* Editorial hero image */}
+      {data.heroImage && (
+        <div className="container mx-auto px-6 mb-10 md:mb-14">
+          <motion.div {...fadeInUp} className="max-w-5xl mx-auto accent-frame">
+            <img
+              src={data.heroImage}
+              alt={cleanTitle}
+              className="w-full aspect-[21/9] object-cover"
+              loading="eager"
+              decoding="async"
+              {...{ fetchpriority: "high" }}
+            />
+          </motion.div>
+        </div>
+      )}
+
       {/* Key takeaways */}
       {data.keyTakeaways && data.keyTakeaways.length > 0 && (
         <div className="container mx-auto px-6">

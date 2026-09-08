@@ -61,9 +61,19 @@ const GuidesIndex = () => {
             <motion.div key={guide.slug} {...staggerChild(index)}>
               <Link
                 to={`/guides/${guide.slug}`}
-                className="glass-card p-7 flex flex-col h-full group hover:border-primary/30 transition-colors"
+                className="glass-card overflow-hidden flex flex-col h-full group hover:border-primary/40 hover:-translate-y-1.5 hover:shadow-luxury transition-all duration-300"
               >
-                <p className="text-primary text-xs uppercase tracking-widest mb-3">
+                <div className="relative overflow-hidden aspect-[16/9]">
+                  <img
+                    src={guide.image}
+                    alt={guide.title.replace(/\{\{|\}\}/g, "")}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+                </div>
+                <div className="p-7 flex flex-col flex-grow -mt-8 relative">
+                <p className="text-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">
                   {guide.category}
                 </p>
                 <h2 className="font-display text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
@@ -82,6 +92,7 @@ const GuidesIndex = () => {
                   <span className="inline-flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all">
                     Read <ArrowRight className="w-4 h-4" />
                   </span>
+                </div>
                 </div>
               </Link>
             </motion.div>

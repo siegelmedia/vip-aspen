@@ -206,6 +206,8 @@ export interface GuidePageData {
   datePublished: string;
   dateModified: string;
   readTime?: string;
+  /** Wide editorial hero image shown under the article header and on guide cards */
+  heroImage?: string;
   /** Lead paragraph(s), HTML */
   intro: string;
   /** Optional "the short answer" bullet list shown near the top */

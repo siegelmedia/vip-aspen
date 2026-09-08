@@ -1,4 +1,5 @@
 import type { GuidePageData } from "@/types";
+import heroImage from "@/assets/guide-ase-vs-ege.webp";
 
 const data: GuidePageData = {
   slug: "ase-vs-ege-airport",
@@ -18,6 +19,7 @@ const data: GuidePageData = {
   datePublished: "2026-06-08",
   dateModified: "2026-06-08",
   readTime: "7 min read",
+  heroImage,
   keyTakeaways: [
     "ASE (Aspen) is closest — 5 minutes to town — but has a single high-altitude runway and cancels frequently in winter weather.",
     "EGE (Eagle, near Vail) is ~70 miles / 90 minutes away but is far more reliable, with bigger aircraft and more nonstops in ski season.",

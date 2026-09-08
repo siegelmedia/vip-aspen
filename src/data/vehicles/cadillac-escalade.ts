@@ -8,9 +8,9 @@ import type { VehiclePageData } from "@/types";
 const data: VehiclePageData = {
   slug: "cadillac-escalade",
   seo: {
-    title: "Chauffeured 2025 Cadillac Escalade in Aspen",
+    title: "Chauffeured Cadillac Escalade in Aspen | Luxury SUV Car Service",
     description:
-      "Ride in a chauffeured 2025 Cadillac Escalade in Aspen, Colorado. Premium luxury SUV with professional driver for airport transfers, ski resorts, weddings & private tours. Up to 5 passengers. Book today.",
+      "Ride in a chauffeured latest-generation Cadillac Escalade in Aspen, Colorado. Premium luxury SUV with professional driver for airport transfers, ski resorts, weddings & private tours. Up to 5 passengers. Book today.",
     keywords:
       "Cadillac Escalade Aspen, luxury SUV charter Aspen, Escalade mountain roads, ski resort SUV Aspen, Escalade hire Colorado, luxury SUV chauffeur Aspen",
     canonicalUrl: "/cadillac-escalade",
@@ -18,9 +18,9 @@ const data: VehiclePageData = {
   },
   hero: {
     tagline: "Premium SUV",
-    headline: "Chauffeured {{2025 Cadillac Escalade}} in Aspen",
+    headline: "Chauffeured {{Cadillac Escalade}} in Aspen",
     description:
-      "Command Aspen's roads in the iconic 2025 Cadillac Escalade. Featuring the bold new facelift design, premium leather interior, rear entertainment, and complimentary refreshments\u2014all with a professional chauffeur at your service 24/7.",
+      "Command Aspen's roads in the latest-generation Cadillac Escalade. Featuring the bold redesigned front end, premium leather interior, rear entertainment, and complimentary refreshments\u2014all with a professional chauffeur at your service 24/7.",
     image: nightImg,
     ctaLabel: "Book the Escalade",
     ctaLink: "#booking",
@@ -28,12 +28,12 @@ const data: VehiclePageData = {
   },
   intro: {
     heading: "Aspen's Go-To {{Luxury SUV}}",
-    body: "The 2025 Cadillac Escalade is the workhorse of the VIP Aspen fleet and the perfect vehicle for life in the mountains. With seating for up to 5 passengers, full-time 4WD capability built for Colorado's mountain roads, and generous cargo space for luggage and ski equipment, the Escalade handles everything from ASE airport transfers to multi-day resort transportation with effortless composure. It's the most requested vehicle for families visiting Aspen, corporate groups attending conferences, and clients who need reliable luxury transportation in every weather condition.",
+    body: "The Cadillac Escalade is the workhorse of the VIP Aspen fleet and the perfect vehicle for life in the mountains. With seating for up to 5 passengers, full-time 4WD capability built for Colorado's mountain roads, and generous cargo space for luggage and ski equipment, the Escalade handles everything from ASE airport transfers to multi-day resort transportation with effortless composure. It's the most requested vehicle for families visiting Aspen, corporate groups attending conferences, and clients who need reliable luxury transportation in every weather condition.",
   },
   features: [
     {
       icon: Star,
-      title: "2025 Facelift Design",
+      title: "Latest-Generation Design",
       description:
         "The latest Cadillac Escalade featuring the illuminated crest, vertical LED light bars, and bold new front fascia.",
     },

@@ -6,29 +6,8 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import { createFAQSchema } from "@/lib/schema";
 
-const membershipFaqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What does VIP Aspen membership include?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Membership includes airport transfers, hourly service, discounted rates, VIP club access, and dedicated concierge support. Three tiers: Silver, Gold, and Black."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I cancel my membership?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, memberships are month-to-month with no long-term commitment."
-      }
-    }
-  ]
-};
 import WhatsAppButton from "@/components/WhatsAppButton";
 import {
   Accordion,
@@ -213,7 +192,7 @@ const MembershipPage = () => {
         schemaData={schemaData}
       />
       <Helmet>
-        <script type="application/ld+json">{JSON.stringify(membershipFaqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(createFAQSchema(faqs))}</script>
       </Helmet>
 
       <main className="min-h-screen bg-background">

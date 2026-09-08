@@ -28,7 +28,6 @@ const NotFound = () => {
         title="Page Not Found"
         description="The page you're looking for doesn't exist. Browse VIP Aspen's luxury car service, airport transfers, and VIP services in Aspen, Colorado."
         keywords="VIP Aspen, luxury car service Aspen"
-        canonicalUrl={location.pathname}
         robots="noindex, nofollow"
       />
 

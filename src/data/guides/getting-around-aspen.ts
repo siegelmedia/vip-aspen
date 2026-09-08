@@ -1,4 +1,5 @@
 import type { GuidePageData } from "@/types";
+import heroImage from "@/assets/guide-getting-around.webp";
 
 const data: GuidePageData = {
   slug: "getting-around-aspen",
@@ -18,6 +19,7 @@ const data: GuidePageData = {
   datePublished: "2026-06-08",
   dateModified: "2026-06-08",
   readTime: "6 min read",
+  heroImage,
   keyTakeaways: [
     "Most visitors don't need a rental car — downtown Aspen is walkable and parking is scarce and expensive.",
     "The free RFTA buses and Aspen city shuttles cover the valley and the ski mountains well.",

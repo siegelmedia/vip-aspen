@@ -1,4 +1,5 @@
 import type { GuidePageData } from "@/types";
+import heroImage from "@/assets/guide-denver-to-aspen.webp";
 
 const data: GuidePageData = {
   slug: "denver-to-aspen",
@@ -18,6 +19,7 @@ const data: GuidePageData = {
   datePublished: "2026-06-08",
   dateModified: "2026-06-08",
   readTime: "8 min read",
+  heroImage,
   keyTakeaways: [
     "Aspen is about 200 miles from Denver — roughly a 3.5–4 hour drive via I-70, or a 35-minute connecting flight to Aspen's airport (ASE).",
     "The fastest option is a connecting flight DEN→ASE, but ASE flights are weather-sensitive and cancel often in winter.",

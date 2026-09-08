@@ -63,7 +63,7 @@ const ContactPage = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-4xl md:text-6xl font-semibold text-foreground mb-6"
             >
-              Contact <span className="text-gradient-gold">VIP Aspen</span> | Book Luxury Car Service in Aspen, CO
+              Contact <span className="text-gradient-gold">VIP Aspen</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
