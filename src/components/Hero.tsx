@@ -35,9 +35,13 @@ const trustChips = [
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[92svh] flex flex-col overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
+    <section className="relative md:min-h-[92svh] flex flex-col overflow-hidden bg-background">
+      {/* Hero image. On phones a 16:9 photo cropped to a tall viewport leaves
+          mostly sky, so below md it renders as a full-width 4:3 band (the whole
+          three-vehicle scene stays visible) with the copy stacked beneath it.
+          From md up it is the full-bleed background it always was. The 88px
+          top margin clears the fixed header on phones. */}
+      <div className="relative mt-[88px] aspect-[4/3] md:mt-0 md:aspect-auto md:absolute md:inset-0">
         <img
           src={heroImage}
           alt="VIP Aspen luxury fleet — Mercedes Sprinter, Cadillac Escalade, and Rolls-Royce Cullinan on the tarmac with Aspen's snow-capped mountains behind"
@@ -60,11 +64,13 @@ const Hero = () => {
             <source src={HERO_VIDEO.mp4} type="video/mp4" />
           </video>
         )}
-        <div className="absolute inset-0 hero-overlay" />
+        <div className="absolute inset-0 hidden md:block hero-overlay" />
+        {/* Phone-only fade so the band melts into the copy below it */}
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/40 to-transparent md:hidden" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 flex-1 flex items-center pt-32 pb-16 md:pt-36">
+      <div className="relative z-10 container mx-auto px-6 flex-1 flex items-center -mt-6 pb-12 md:mt-0 md:pt-36 md:pb-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
