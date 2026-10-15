@@ -15,7 +15,9 @@ import { useEffect, useRef, useState } from "react";
  * The frame reports its content height via postMessage; the fallback height
  * covers the interval before the first message arrives.
  */
-const WIDGET_SRC = "/booking-widget.html";
+// Workers Static Assets serves public/booking-widget.html at the extensionless
+// path (and 307s the .html form); Vite's dev server only knows the file name.
+const WIDGET_SRC = import.meta.env.DEV ? "/booking-widget.html" : "/booking-widget";
 const FALLBACK_HEIGHT = 620;
 
 const BookingWidget = () => {
