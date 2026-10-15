@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="color-scheme" content="dark" />
+    <title>Reserve — VIP Aspen</title>
+    <!--
+      The BookRidesOnline reservation widget runs on AngularJS 1.6, whose
+      $location service rewrites the host page URL back to the one it booted
+      on after any client-side navigation (and pushes a history entry doing
+      it). Hosting the widget in this same-origin iframe gives Angular its own
+      window.history, so the React Router URL in the parent page is left alone.
+      The parent (src/components/BookingWidget.tsx) sizes the frame from the
+      height messages posted below.
+    -->
+    <link rel="preconnect" href="https://bookridesonline.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        color: #f5f5f5;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      body {
+        overflow: hidden;
+      }
+      #bro_reservation {
+        min-height: 320px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bro_reservation"></div>
+    <input type="hidden" id="cid" value="EFKSsto4uvyjl1lWS0y0Aw%3d%3d" />
+    <input type="hidden" id="dbaid" value="EZ%2fY%2fwL80Ghz5UqtMQIaqA%3d%3d" />
+
+    <script>
+      (function () {
+        var last = 0;
+        function measure() {
+          var doc = document.documentElement;
+          var h = Math.max(doc.scrollHeight, document.body.scrollHeight, doc.offsetHeight);
+          if (Math.abs(h - last) > 2) {
+            last = h;
+            parent.postMessage({ type: "vip-booking-height", height: h }, location.origin);
+          }
+        }
+        if (window.ResizeObserver) {
+          new ResizeObserver(measure).observe(document.body);
+        }
+        new MutationObserver(measure).observe(document.documentElement, {
+          subtree: true,
+          childList: true,
+          attributes: true,
+        });
+        window.addEventListener("load", measure);
+        // Fallback for layout changes neither observer catches (fonts, async CSS)
+        setInterval(measure, 1000);
+      })();
+    </script>
+    <script async type="text/javascript" src="https://bookridesonline.com/web/reservation.js"></script>
+  </body>
+</html>

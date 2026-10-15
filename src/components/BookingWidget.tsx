@@ -1,67 +1,52 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+/**
+ * BookRidesOnline reservation widget, hosted in a same-origin iframe.
+ *
+ * The widget bootstraps AngularJS 1.6 on the page it loads into. Angular's
+ * $location service treats any URL change it did not make as an error and
+ * pushes the URL it booted on back onto the history stack during its next
+ * digest — so with the widget inline, every React Router navigation was
+ * reverted to "/" in the address bar a few milliseconds later (page content
+ * stayed correct, but deep links, sharing, the back button, and GA4 page
+ * paths were all wrong). Giving Angular its own window via /booking-widget.html
+ * keeps it away from the parent's history entirely.
+ *
+ * The frame reports its content height via postMessage; the fallback height
+ * covers the interval before the first message arrives.
+ */
+const WIDGET_SRC = "/booking-widget.html";
+const FALLBACK_HEIGHT = 620;
 
 const BookingWidget = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const scriptLoaded = useRef(false);
+  const frameRef = useRef<HTMLIFrameElement>(null);
+  const [height, setHeight] = useState(FALLBACK_HEIGHT);
 
   useEffect(() => {
-    if (scriptLoaded.current) return;
-
-    // Create the reservation container
-    const reservationDiv = document.createElement("div");
-    reservationDiv.id = "bro_reservation";
-
-    // Create hidden inputs
-    const cidInput = document.createElement("input");
-    cidInput.type = "hidden";
-    cidInput.id = "cid";
-    cidInput.value = "EFKSsto4uvyjl1lWS0y0Aw%3d%3d";
-
-    const dbaidInput = document.createElement("input");
-    dbaidInput.type = "hidden";
-    dbaidInput.id = "dbaid";
-    dbaidInput.value = "EZ%2fY%2fwL80Ghz5UqtMQIaqA%3d%3d";
-
-    // Append elements to container
-    if (containerRef.current) {
-      containerRef.current.appendChild(reservationDiv);
-      containerRef.current.appendChild(cidInput);
-      containerRef.current.appendChild(dbaidInput);
-
-      // Load the external script
-      const script = document.createElement("script");
-      script.type = "text/javascript";
-      script.async = true;
-      script.src = "https://bookridesonline.com/web/reservation.js";
-      document.body.appendChild(script);
-
-      scriptLoaded.current = true;
-    }
-
-    return () => {
-      // Cleanup on unmount
-      const existingScript = document.querySelector(
-        'script[src="https://bookridesonline.com/web/reservation.js"]'
-      );
-      if (existingScript) {
-        existingScript.remove();
+    const onMessage = (event: MessageEvent) => {
+      if (event.origin !== window.location.origin) return;
+      if (event.source !== frameRef.current?.contentWindow) return;
+      const data = event.data as { type?: string; height?: number } | null;
+      if (data?.type === "vip-booking-height" && typeof data.height === "number" && data.height > 0) {
+        setHeight(Math.ceil(data.height));
       }
     };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="w-full max-w-4xl mx-auto bg-card/50 backdrop-blur-sm rounded-sm p-6 border border-border/50"
-      style={{
-        // CSS containment to limit any layout/paint side effects from the third-party widget
-        contain: "content",
-        // Establish a new stacking context so the widget can't escape
-        isolation: "isolate",
-        position: "relative",
-        zIndex: 0,
-      }}
-    />
+    <div className="w-full max-w-4xl mx-auto bg-card/50 backdrop-blur-sm rounded-sm p-6 border border-border/50">
+      <iframe
+        ref={frameRef}
+        src={WIDGET_SRC}
+        title="Reserve your VIP Aspen ride"
+        loading="lazy"
+        scrolling="no"
+        className="block w-full border-0"
+        style={{ height, overflow: "hidden", colorScheme: "dark" }}
+      />
+    </div>
   );
 };
 
