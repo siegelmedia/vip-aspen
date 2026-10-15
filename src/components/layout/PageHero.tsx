@@ -20,14 +20,20 @@ const PageHero = ({ data, variant = "standard", children }: PageHeroProps) => {
 
   return (
     <section
-      className={`relative overflow-hidden ${
+      className={`relative overflow-hidden bg-background ${
         variant === "cinematic"
           ? "pt-36 pb-24 md:pt-44 md:pb-32 min-h-[80vh] flex items-center"
-          : "pt-36 pb-16 md:pt-44 md:pb-24"
+          : hasBgImage
+            ? "pt-0 pb-14 md:pt-44 md:pb-24"
+            : "pt-36 pb-16 md:pt-44 md:pb-24"
       }`}
     >
       {hasBgImage ? (
-        <div className="absolute inset-0">
+        /* On phones a landscape hero cropped behind tall stacked copy shows
+           little of the scene, so below md the photo is a full-width 4:3 band
+           under the fixed header (88px) with the copy beneath it. From md up it
+           is the full-bleed background. */
+        <div className="relative mt-[88px] aspect-[4/3] md:mt-0 md:aspect-auto md:absolute md:inset-0">
           <img
             src={data.bgImage}
             alt={data.tagline}
@@ -35,7 +41,8 @@ const PageHero = ({ data, variant = "standard", children }: PageHeroProps) => {
             loading="eager"
             {...{ fetchpriority: "high" }}
           />
-          <div className="absolute inset-0 hero-overlay-center" />
+          <div className="absolute inset-0 hidden md:block hero-overlay-center" />
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/40 to-transparent md:hidden" />
         </div>
       ) : (
         <div className="absolute inset-0 bg-grid pointer-events-none">
@@ -43,7 +50,7 @@ const PageHero = ({ data, variant = "standard", children }: PageHeroProps) => {
         </div>
       )}
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className={`container mx-auto px-6 relative z-10 ${hasBgImage ? "-mt-6 md:mt-0" : ""}`}>
         <div
           className={
             hasTwoColumns

@@ -124,8 +124,9 @@ const AboutPage = () => {
       <Header />
 
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0">
+      <section className="relative md:min-h-[70vh] flex flex-col md:flex-row md:items-center overflow-hidden bg-background">
+        {/* Same phone treatment as the homepage hero: 4:3 band, copy below */}
+        <div className="relative mt-[88px] aspect-[4/3] md:mt-0 md:aspect-auto md:absolute md:inset-0">
           <img
             src={heroImage}
             alt="Aspen, Colorado, home of VIP Aspen luxury car service"
@@ -134,9 +135,10 @@ const AboutPage = () => {
             decoding="async"
             {...{ fetchpriority: "high" }}
           />
-          <div className="absolute inset-0 hero-overlay" />
+          <div className="absolute inset-0 hidden md:block hero-overlay" />
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/40 to-transparent md:hidden" />
         </div>
-        <div className="relative z-10 container mx-auto px-6 pt-36 pb-20 md:pt-44 md:pb-28">
+        <div className="relative z-10 container mx-auto px-6 -mt-6 pb-16 md:mt-0 md:pt-44 md:pb-28">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
