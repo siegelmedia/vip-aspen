@@ -85,6 +85,23 @@ async function output(path, html) {
 for (const [path, metadata] of pages) await output(path, render(path, metadata));
 await output('/404', render(null, notFound, 404));
 
+// llms.txt — a plain-text index for AI answer engines: one line per public page.
+const llms = [
+  '# VIP Aspen',
+  '',
+  '> Luxury chauffeured car service and executive protection in Aspen, Colorado. Rolls-Royce Cullinan,',
+  '> Cadillac Escalade and Executive Sprinter with professional chauffeurs. Airport transfers (ASE, EGE, RIL, DEN),',
+  '> Vail/Beaver Creek/Glenwood route transfers, private ski transfers, security drivers. Law-enforcement-owned,',
+  '> available 24/7. Phone +1 970-452-6636. 411 E Main St, Suite 205H, Aspen, CO 81611.',
+  '',
+  '## Pages',
+  '',
+  ...[...pages].sort(([a], [b]) => (a === '/' ? -1 : b === '/' ? 1 : a.localeCompare(b)))
+    .map(([path, m]) => `- [${m.title.split('|')[0].trim()}](${base}${path}): ${m.description}`),
+  '',
+].join('\n');
+await writeFile('dist/llms.txt', llms);
+
 // Preserve the existing in-vehicle pages while keeping them out of search.
 const tabletPaths = ['/summit-blackcar'];
 visit(await source('src/data/summitDrivers.ts'), node => {

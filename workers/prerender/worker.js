@@ -47,6 +47,13 @@ const BOT_AGENTS = [
   "anthropic-ai",
   "claude-web",
   "claude-user",
+  "claude-searchbot",
+  "duckduckbot",
+  "mistralai",
+  // SEO crawlers — so audits see the same HTML search engines do
+  "ahrefsbot",
+  "semrushbot",
+  "screaming frog",
   "google-extended",
   "amazonbot",
   "applebot-extended",

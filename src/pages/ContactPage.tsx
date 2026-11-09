@@ -9,6 +9,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import FormErrorFallback from "@/components/FormErrorFallback";
+import { trackEvent } from "@/lib/analytics";
 
 const schemaData = {
   "@context": "https://schema.org",
@@ -33,6 +35,7 @@ const schemaData = {
 const ContactPage = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [failed, setFailed] = useState<{ subject: string; body: string } | null>(null);
 
   return (
     <>
@@ -192,20 +195,28 @@ const ContactPage = () => {
                     e.preventDefault();
                     setIsSubmitting(true);
                     const formData = new FormData(e.currentTarget);
+                    const service = String(formData.get("service") || "");
                     try {
                       const { error } = await supabase.functions.invoke("send-contact-inquiry", {
                         body: {
                           firstName: formData.get("firstName"),
                           lastName: formData.get("lastName"),
                           email: formData.get("email"),
-                          service: formData.get("service"),
+                          service,
                           message: formData.get("message"),
                         },
                       });
                       if (error) throw error;
+                      setFailed(null);
+                      trackEvent("generate_lead", { form_name: "contact", service: service || "unspecified" });
                       toast({ title: "Inquiry sent", description: "We'll be in touch shortly." });
                       (e.target as HTMLFormElement).reset();
                     } catch (err) {
+                      trackEvent("form_error", { form_name: "contact", service: service || "unspecified" });
+                      setFailed({
+                        subject: `Inquiry — ${service || "VIP Aspen"}`,
+                        body: `Name: ${formData.get("firstName")} ${formData.get("lastName")}\nEmail: ${formData.get("email")}\nInterested in: ${service || "Not specified"}\n\n${formData.get("message") || ""}`,
+                      });
                       toast({ title: "Error", description: "Failed to send inquiry. Please try again.", variant: "destructive" });
                     } finally {
                       setIsSubmitting(false);
@@ -278,6 +289,8 @@ const ContactPage = () => {
                       placeholder="Tell us about your needs..."
                     />
                   </div>
+
+                  {failed && <FormErrorFallback subject={failed.subject} body={failed.body} />}
 
                   <Button variant="luxury" size="xl" className="w-full" type="submit" disabled={isSubmitting}>
                     {isSubmitting ? "Sending..." : "Send Inquiry"}

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * BookRidesOnline reservation widget, hosted in a same-origin iframe.
@@ -28,9 +29,14 @@ const BookingWidget = () => {
     const onMessage = (event: MessageEvent) => {
       if (event.origin !== window.location.origin) return;
       if (event.source !== frameRef.current?.contentWindow) return;
-      const data = event.data as { type?: string; height?: number } | null;
+      const data = event.data as { type?: string; height?: number; event?: string; label?: string } | null;
       if (data?.type === "vip-booking-height" && typeof data.height === "number" && data.height > 0) {
         setHeight(Math.ceil(data.height));
+      }
+      // Reservation-widget interactions, relayed from the frame so GA4 can see
+      // how far visitors get through the BookRidesOnline flow.
+      if (data?.type === "vip-booking-event" && typeof data.event === "string") {
+        trackEvent(data.event, { label: typeof data.label === "string" ? data.label : undefined });
       }
     };
     window.addEventListener("message", onMessage);

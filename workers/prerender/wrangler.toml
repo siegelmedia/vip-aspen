@@ -1,6 +1,10 @@
 name = "vipaspen-prerender"
 main = "worker.js"
 compatibility_date = "2026-04-11"
+# PRERENDER_TOKEN is set in the Cloudflare dashboard, not here. Without this a
+# `wrangler deploy` replaces the worker's variables with only the [vars] below
+# and silently turns prerendering off.
+keep_vars = true
 
 routes = [
   { pattern = "www.vipaspen.com/*", zone_name = "vipaspen.com" },

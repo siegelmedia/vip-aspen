@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import RouteFallback from "@/components/layout/RouteFallback";
+import AnalyticsListener from "@/components/AnalyticsListener";
 
 // Homepage — direct import (not lazy)
 import Index from "./pages/Index";
@@ -110,6 +111,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <AnalyticsListener />
           <Suspense fallback={<RouteFallback />}>
             <Routes>
               {/* Homepage */}

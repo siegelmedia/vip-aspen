@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { trackEvent } from "@/lib/analytics";
+import FormErrorFallback from "@/components/FormErrorFallback";
 
 interface BookingFormProps {
   serviceType?: string;
@@ -18,6 +20,7 @@ const BookingForm = ({
 }: BookingFormProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [failed, setFailed] = useState<{ subject: string; body: string } | null>(null);
 
   const serviceOptions: { value: string; label: string }[] = [
     { value: "black-car-service", label: "Black Car Service" },
@@ -68,12 +71,19 @@ const BookingForm = ({
             },
           });
           if (error) throw error;
+          setFailed(null);
+          trackEvent("generate_lead", { form_name: "booking_inquiry", service: service || "unspecified" });
           toast({
             title: "Booking request sent",
             description: "We'll be in touch shortly to confirm your booking.",
           });
           (e.target as HTMLFormElement).reset();
         } catch (err) {
+          trackEvent("form_error", { form_name: "booking_inquiry", service: service || "unspecified" });
+          setFailed({
+            subject: `Booking request — ${serviceLabels[service] || "VIP Aspen"}`,
+            body: `Name: ${name}\nEmail: ${email}\n${formattedMessage}`,
+          });
           toast({
             title: "Error",
             description: "Failed to send request. Please try again.",
@@ -175,6 +185,8 @@ const BookingForm = ({
           placeholder="Tell us about your event or preferences..."
         />
       </div>
+
+      {failed && <FormErrorFallback subject={failed.subject} body={failed.body} />}
 
       <Button variant="luxury" size="xl" className="w-full" type="submit" disabled={isSubmitting}>
         {isSubmitting ? "Sending..." : submitLabel}

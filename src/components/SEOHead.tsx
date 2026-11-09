@@ -29,8 +29,23 @@ const SEOHead = ({
     // and synchronous Helmet tags have committed. Never capture an empty root
     // in the gap between starting React and resolving a lazy page.
     document.querySelectorAll("[data-seo-fallback]").forEach((tag) => tag.remove());
-    (window as Window & { prerenderReady?: boolean }).prerenderReady = true;
+    // Two frames so framer-motion has applied its (instant, see lib/prerender)
+    // animation end states before the renderer takes the snapshot. The timer
+    // is a safety net for environments that throttle requestAnimationFrame, so
+    // the flag can never stay false and stall the capture.
+    const w = window as Window & { prerenderReady?: boolean };
+    const ready = () => {
+      w.prerenderReady = true;
+    };
+    const timer = window.setTimeout(ready, 1500);
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        window.clearTimeout(timer);
+        ready();
+      }),
+    );
     return () => {
+      window.clearTimeout(timer);
       (window as Window & { prerenderReady?: boolean }).prerenderReady = false;
     };
   }, [canonicalUrl]);

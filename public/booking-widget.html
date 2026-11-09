@@ -67,6 +67,39 @@
         window.addEventListener("load", measure);
         // Fallback for layout changes neither observer catches (fonts, async CSS)
         setInterval(measure, 1000);
+
+        // Relay engagement to the parent page for GA4. The first focus or click
+        // inside the widget is one event; every button press after that is
+        // reported with its label ("Continue", "Get Quote", "Submit"…) so the
+        // reservation funnel is visible without depending on the widget's markup.
+        var engaged = false;
+        function report(name, label) {
+          var payload = { type: "vip-booking-event", event: name };
+          if (label) payload.label = label;
+          parent.postMessage(payload, location.origin);
+        }
+        function engage() {
+          if (engaged) return;
+          engaged = true;
+          report("booking_widget_engaged");
+        }
+        document.addEventListener("focusin", engage, true);
+        document.addEventListener(
+          "click",
+          function (e) {
+            engage();
+            var el = e.target && e.target.closest
+              ? e.target.closest("button, a, [role='button'], input[type='submit']")
+              : null;
+            if (!el) return;
+            var label = (el.innerText || el.value || el.getAttribute("aria-label") || "")
+              .replace(/\s+/g, " ")
+              .trim()
+              .slice(0, 60);
+            if (label) report("booking_widget_click", label);
+          },
+          true
+        );
       })();
     </script>
     <script async type="text/javascript" src="https://bookridesonline.com/web/reservation.js"></script>
