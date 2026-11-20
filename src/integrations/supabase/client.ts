@@ -14,9 +14,13 @@ const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY |
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
+// This module is also evaluated by the build-time server render (Node has no
+// localStorage); there, supabase-js falls back to its in-memory session store.
+const browserStorage = typeof localStorage === "undefined" ? {} : { storage: localStorage };
+
 export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: {
-    storage: localStorage,
+    ...browserStorage,
     persistSession: true,
     autoRefreshToken: true,
   }

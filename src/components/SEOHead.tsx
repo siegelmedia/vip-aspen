@@ -34,14 +34,15 @@ const SEOHead = ({
   const baseUrl = "https://www.vipaspen.com";
 
   useEffect(() => {
+    // Readiness flag for the Prerender.io fallback path (workers/prerender).
     // This component mounts inside the resolved route, after its template/data
-    // and synchronous Helmet tags have committed. Never capture an empty root
-    // in the gap between starting React and resolving a lazy page.
-    document.querySelectorAll("[data-seo-fallback]").forEach((tag) => tag.remove());
-    // Two frames so framer-motion has applied its (instant, see lib/prerender)
-    // animation end states before the renderer takes the snapshot. The timer
-    // is a safety net for environments that throttle requestAnimationFrame, so
-    // the flag can never stay false and stall the capture.
+    // and synchronous Helmet tags have committed; the build-time HTML already
+    // carries these same tags (data-rh), which Helmet adopts rather than
+    // duplicates. Two frames so framer-motion has applied its (instant, see
+    // lib/prerender) animation end states before the renderer takes the
+    // snapshot. The timer is a safety net for environments that throttle
+    // requestAnimationFrame, so the flag can never stay false and stall the
+    // capture.
     const w = window as Window & { prerenderReady?: boolean };
     const ready = () => {
       w.prerenderReady = true;

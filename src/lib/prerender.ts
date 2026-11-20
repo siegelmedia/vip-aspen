@@ -17,6 +17,8 @@ import { MotionGlobalConfig } from "framer-motion";
  * Triggered by the Prerender user agent, or `?__prerender=1` for local checks.
  */
 export const isPrerender =
+  // Both checks: Node 21+ defines a global `navigator` but no `window`.
+  typeof window !== "undefined" &&
   typeof navigator !== "undefined" &&
   (/prerender/i.test(navigator.userAgent) || new URLSearchParams(window.location.search).has("__prerender"));
 

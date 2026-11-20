@@ -15,6 +15,12 @@ import { trackEvent } from "@/lib/analytics";
  *
  * The frame reports its content height via postMessage; the fallback height
  * covers the interval before the first message arrives.
+ *
+ * The iframe is client-only. Pages are rendered to HTML at build time
+ * (src/entry-server.tsx), and that HTML carries an empty box of the same size
+ * instead of the frame; the frame is swapped in after mount. Crawlers never see
+ * the AngularJS widget, and the box keeps the build-time markup and the
+ * hydration render identical.
  */
 // Workers Static Assets serves public/booking-widget.html at the extensionless
 // path (and 307s the .html form); Vite's dev server only knows the file name.
@@ -24,6 +30,11 @@ const FALLBACK_HEIGHT = 620;
 const BookingWidget = () => {
   const frameRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState(FALLBACK_HEIGHT);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const onMessage = (event: MessageEvent) => {
@@ -45,15 +56,19 @@ const BookingWidget = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto bg-card/50 backdrop-blur-sm rounded-sm p-6 border border-border/50">
-      <iframe
-        ref={frameRef}
-        src={WIDGET_SRC}
-        title="Reserve your VIP Aspen ride"
-        loading="lazy"
-        scrolling="no"
-        className="block w-full border-0"
-        style={{ height, overflow: "hidden", colorScheme: "dark" }}
-      />
+      {mounted ? (
+        <iframe
+          ref={frameRef}
+          src={WIDGET_SRC}
+          title="Reserve your VIP Aspen ride"
+          loading="lazy"
+          scrolling="no"
+          className="block w-full border-0"
+          style={{ height, overflow: "hidden", colorScheme: "dark" }}
+        />
+      ) : (
+        <div className="block w-full" style={{ height }} aria-hidden />
+      )}
     </div>
   );
 };

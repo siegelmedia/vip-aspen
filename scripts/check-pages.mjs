@@ -14,10 +14,11 @@ for (const path of PAGE_PATHS) {
   assert(!/noindex/i.test(doc.querySelector('meta[name="robots"]')?.content || ''), path);
   // Cloudflare intentionally adds noindex to version previews.
   if (!process.argv.includes('--preview')) assert(!/noindex/i.test(r.headers.get('x-robots-tag') || ''), path);
-  if (/Googlebot/.test(agent)) {
-    assert(r.headers.get('x-prerender-requestid'), 'Prerender missing: ' + path);
-    assert(doc.querySelector('#root')?.textContent.length > 300, 'Empty rendered content: ' + path);
-  }
+  // Every client gets the build-time render: the page body is in the HTML itself.
+  assert(doc.querySelector('#root')?.textContent.length > 300, 'Empty rendered content: ' + path);
+  assert(doc.querySelector('#root h1'), 'No <h1> in rendered content: ' + path);
+  // Only while the Worker still forwards bots to Prerender.io (PRERENDER_TOKEN set).
+  if (/Googlebot/.test(agent)) assert(r.headers.get('x-prerender-requestid'), 'Prerender missing: ' + path);
 }
 for (const path of ['/vip-audit-missing-20260908', '/service/.env', '/missing.js']) {
   const r = await get(path); assert.equal(r.status, 404, path);

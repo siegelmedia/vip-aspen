@@ -5,6 +5,28 @@ Public site: https://www.vipaspen.com
 Origin: `vip-aspen.silent-sun-bae4.workers.dev` (Worker Static Assets).
 Routing Worker: `vipaspen-prerender`, on both apex and www.
 
+## What renders where
+
+Every public route is complete HTML at build time. `npm run build` renders each
+sitemap URL with a Node bundle of the React app (`src/entry-server.tsx`, see the
+root README) and writes `dist/<route>.html` with the full page inside `#root`
+and that page's title, description, canonical, Open Graph and JSON-LD in
+`<head>`. The origin serves those files to every client, and the browser
+hydrates them. No request depends on a JavaScript render to show content.
+
+The routing Worker's jobs are now, in order of importance:
+
+1. Canonical host: 301 from apex/http/trailing-slash variants to `https://www.vipaspen.com`.
+2. 301s for retired pages (`REDIRECTS` in `worker.js`, mirrored by `RETIRED_ROUTES` in `src/App.tsx`).
+3. Optionally, sending listed bot user agents to Prerender.io for the paths in
+   `routes.js`. This is a fallback, not a requirement: Prerender snapshots the
+   same complete page the origin already serves, at the cost of an upstream hop
+   (25 s timeout on a miss) and a Prerender bill. To retire it, delete the
+   `PRERENDER_TOKEN` secret from the Worker (the Worker falls through to origin
+   when the token is absent) and drop the `x-prerender-requestid` assertion in
+   `scripts/check-pages.mjs`. The `window.prerenderReady` flag in `index.html` /
+   `SEOHead` and `src/lib/prerender.ts` exist only for that path and can go with it.
+
 ## Build and validate
 
 Keep the existing public Supabase build variables available in your local `.env`
@@ -21,9 +43,12 @@ npx wrangler dev --port 8789
 node scripts/check-pages.mjs
 ```
 
-The build reads the same SEO metadata as React. It fails if the sitemap does not
-match published page metadata. It generates `workers/prerender/routes.js`; commit
-that file when routes change, and deploy both the site and routing Worker.
+The build reads the same SEO metadata as React and renders every page through
+the React app itself. It fails if the sitemap does not match published page
+metadata, or if a rendered page lacks an `<h1>`, carries an `opacity: 0` style,
+or references an asset the browser build did not emit. It generates
+`workers/prerender/routes.js`; commit that file when routes change, and deploy
+both the site and routing Worker.
 
 ## Preview, deploy, verify
 
@@ -44,7 +69,9 @@ their body, method, and query string. Render cache keys use canonical public URL
 without tracking parameters. Rendering times out at 25 seconds, falls back to
 origin on infrastructure failures, and preserves content 404/redirect responses.
 
-When publishing content changes, refresh the corresponding Prerender snapshots.
+When publishing content changes while Prerender is still enabled, refresh the
+corresponding Prerender snapshots (the origin HTML is correct immediately; only
+the cached snapshot lags).
 The sitemap is registered for weekly imports and cached content expires at three
 days. Prerender's daily 404 check guards against accidental soft-404 regressions.
 Test with mobile Googlebot as well as desktop. User-agent tests demonstrate the
