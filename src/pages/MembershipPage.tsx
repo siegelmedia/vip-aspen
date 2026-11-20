@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Check, Crown, Star, Gem, Phone, Clock, Plane, Users, Shield, ArrowRightLeft } from "lucide-react";
@@ -6,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import { createFAQSchema } from "@/lib/schema";
+import { combineSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
+import { COMPANY } from "@/data/constants";
 
 import WhatsAppButton from "@/components/WhatsAppButton";
 import {
@@ -172,28 +172,44 @@ const schemaData = {
       "name": "Colorado"
     }
   },
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "VIP Aspen",
-    "telephone": "+19704526636"
-  },
-  "additionalType": "https://schema.org/MemberProgramTier",
-  "termsOfService": "https://www.vipaspen.com/membership"
+  "url": `${COMPANY.url}/membership`,
+  "provider": { "@id": `${COMPANY.url}/#organization` },
+  "termsOfService": `${COMPANY.url}/membership`,
+  "offers": tiers.map((tier) => ({
+    "@type": "Offer",
+    "name": `${tier.name} Membership`,
+    "description": tier.tagline,
+    "url": `${COMPANY.url}/membership`,
+    "priceCurrency": "USD",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": Number(tier.price.replace(/[^0-9.]/g, "")),
+      "priceCurrency": "USD",
+      "unitText": "MONTH",
+      "billingIncrement": 1,
+    },
+  })),
 };
+
+const pageSchema = combineSchema(
+  schemaData,
+  createFAQSchema(faqs),
+  createBreadcrumbSchema([
+    { name: "Home", url: COMPANY.url },
+    { name: "Membership", url: `${COMPANY.url}/membership` },
+  ]),
+);
 
 const MembershipPage = () => {
   return (
     <>
       <SEOHead
-        title="VIP Aspen Memberships – Monthly Luxury Transportation"
-        description="VIP Aspen monthly memberships include free airport transfers, hourly service, discounted rates, and personal concierge. Silver $1,000/mo, Gold $2,500/mo, Black $6,000/mo. Rollover benefits. Priority booking."
+        title="VIP Aspen Memberships | Monthly Car Service"
+        description="VIP Aspen monthly memberships include airport transfers, hourly service, discounted rates and a personal concierge. Silver $1,000, Gold $2,500, Black $6,000 per month."
         keywords="VIP Aspen membership, Aspen luxury membership, monthly car service Aspen, Aspen concierge membership, luxury lifestyle Aspen, private member club Aspen, Aspen VIP benefits, Aspen transportation membership, Escalade membership Aspen"
         canonicalUrl="/membership"
-        schemaData={schemaData}
+        schemaData={pageSchema}
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(createFAQSchema(faqs))}</script>
-      </Helmet>
 
       <main className="min-h-screen bg-background">
         <Header />
@@ -227,6 +243,8 @@ const MembershipPage = () => {
         {/* Key Features */}
         <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-6">
+            {/* Keeps the heading outline in order: the feature cards below are h3s. */}
+            <h2 className="sr-only">Membership Benefits</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {keyFeatures.map((feature, index) => (
                 <motion.div

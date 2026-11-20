@@ -4,10 +4,11 @@ import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
   slug: "vail-to-aspen-car-service",
+  areaServed: ["Vail", "Aspen"],
   seo: {
-    title: "Vail to Aspen Car Service | Private Luxury Transfer",
+    title: "Vail to Aspen Car Service | Private Transfer",
     description:
-      "Private car service from Vail to Aspen and Aspen to Vail. Rolls Royce, Escalade & Sprinter for the ~2-hour mountain transfer. Door-to-door, flight-tracked, 24/7. Call (970) 452-6636.",
+      "Private car service between Vail and Aspen. Rolls Royce, Escalade & Sprinter for the ~2-hour mountain transfer. Door-to-door, 24/7. Call (970) 452-6636.",
     keywords:
       "Vail to Aspen car service, Aspen to Vail shuttle, Vail to Aspen private transfer, Beaver Creek to Aspen car service, Eagle Vail to Aspen, luxury car Vail Aspen, resort to resort transfer Colorado",
     canonicalUrl: "/vail-to-aspen-car-service",

@@ -76,9 +76,9 @@ const LinkColumn = ({
   links: { label: string; href: string }[];
 }) => (
   <div>
-    <h4 className="eyebrow eyebrow-tick !text-[11px] mb-4">
+    <p className="eyebrow eyebrow-tick !text-[11px] mb-4">
       {title}
-    </h4>
+    </p>
     <nav className="flex flex-col gap-2">
       {links.map((link) => (
         <Link

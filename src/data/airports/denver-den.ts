@@ -15,9 +15,9 @@ import type { AirportPageData } from "@/types";
 const data: AirportPageData = {
   slug: "denver-to-aspen-car-service",
   seo: {
-    title: "Denver to Aspen Car Service | Luxury Private Transfer",
+    title: "Denver to Aspen Car Service | DEN Transfers",
     description:
-      "Luxury private car service from Denver International Airport (DEN) to Aspen, Colorado. Rolls Royce Cullinan, Cadillac Escalade & Executive Sprinter. 3.5-hour scenic mountain transfer with professional chauffeur. Book (970) 452-6636.",
+      "Luxury private car service from Denver International Airport (DEN) to Aspen. Rolls Royce, Escalade & Sprinter, ~3.5-hour scenic transfer with a professional chauffeur. (970) 452-6636.",
     keywords:
       "Denver to Aspen car service, DEN airport transfer, Denver International to Aspen, private car Denver Aspen, mountain transfer DEN",
     canonicalUrl: "/denver-to-aspen-car-service",
@@ -122,6 +122,7 @@ const data: AirportPageData = {
     },
   ],
   relatedServices: [
+    { label: "Denver to Aspen: Every Option Compared", href: "/guides/denver-to-aspen" },
     { label: "Vail to Aspen Car Service", href: "/vail-to-aspen-car-service" },
     { label: "Aspen Airport Transfer", href: "/aspen-airport-transfer" },
     { label: "Eagle Airport Transfer", href: "/eagle-airport-transfer" },

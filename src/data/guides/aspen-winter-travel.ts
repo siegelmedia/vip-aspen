@@ -4,9 +4,9 @@ import heroImage from "@/assets/guide-winter-travel.webp";
 const data: GuidePageData = {
   slug: "aspen-winter-travel",
   seo: {
-    title: "Getting to Aspen in Winter: Roads, Independence Pass & Snow Travel Tips",
+    title: "Getting to Aspen in Winter: Roads & Passes",
     description:
-      "How winter changes the trip to Aspen: Independence Pass closure, the I-70 traction law, Glenwood Canyon, ASE flight cancellations, and how to build a travel plan that survives a storm. From an Aspen car service.",
+      "How winter changes the trip to Aspen: Independence Pass closure, the I-70 traction law, Glenwood Canyon, ASE cancellations, and how to build a plan that survives a storm.",
     keywords:
       "Aspen winter travel, Independence Pass closed, driving to Aspen in winter, I-70 traction law, Aspen airport winter cancellations, Denver to Aspen winter, Glenwood Canyon closure, Aspen snow driving",
     canonicalUrl: "/guides/aspen-winter-travel",

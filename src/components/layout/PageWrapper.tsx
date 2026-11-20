@@ -1,11 +1,9 @@
 import type { ReactNode } from "react";
-import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
 import type { SEOData, FAQ } from "@/types";
-import { createFAQSchema, createBreadcrumbSchema } from "@/lib/schema";
-import { COMPANY } from "@/data/constants";
+import { combineSchema, createFAQSchema, createBreadcrumbSchema } from "@/lib/schema";
 
 interface PageWrapperProps {
   children: ReactNode;
@@ -13,6 +11,10 @@ interface PageWrapperProps {
   schemaData?: object;
   faqs?: FAQ[];
   breadcrumbs?: { name: string; url: string }[];
+  /** Open Graph type: guides are articles, everything else a website page */
+  ogType?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
 const PageWrapper = ({
@@ -21,7 +23,18 @@ const PageWrapper = ({
   schemaData,
   faqs,
   breadcrumbs,
+  ogType,
+  publishedTime,
+  modifiedTime,
 }: PageWrapperProps) => {
+  // One @graph per page: page schema + FAQPage + BreadcrumbList, all in the
+  // synchronous Helmet so the Prerender snapshot always carries it.
+  const schema = combineSchema(
+    schemaData,
+    faqs && faqs.length > 0 && createFAQSchema(faqs),
+    breadcrumbs && breadcrumbs.length > 0 && createBreadcrumbSchema(breadcrumbs),
+  );
+
   return (
     <>
       <SEOHead
@@ -30,22 +43,11 @@ const PageWrapper = ({
         keywords={seo.keywords}
         canonicalUrl={seo.canonicalUrl}
         ogImage={seo.ogImage}
-        schemaData={schemaData}
+        schemaData={schema}
+        ogType={ogType}
+        publishedTime={publishedTime}
+        modifiedTime={modifiedTime}
       />
-      {faqs && faqs.length > 0 && (
-        <Helmet>
-          <script type="application/ld+json">
-            {JSON.stringify(createFAQSchema(faqs))}
-          </script>
-        </Helmet>
-      )}
-      {breadcrumbs && breadcrumbs.length > 0 && (
-        <Helmet>
-          <script type="application/ld+json">
-            {JSON.stringify(createBreadcrumbSchema(breadcrumbs))}
-          </script>
-        </Helmet>
-      )}
 
       <main className="min-h-screen bg-background">
         <Header />

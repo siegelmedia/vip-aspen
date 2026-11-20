@@ -3,7 +3,7 @@ import type { FAQ, ServicePageData, VehiclePageData, AirportPageData, GuidePageD
 
 const providerRef = { "@id": `${COMPANY.url}/#organization` };
 
-const addressSchema = {
+export const addressSchema = {
   "@type": "PostalAddress" as const,
   streetAddress: COMPANY.address.street,
   addressLocality: COMPANY.address.city,
@@ -12,48 +12,98 @@ const addressSchema = {
   addressCountry: COMPANY.address.country,
 };
 
+/** Turns a Vite asset path ("/assets/hero-x.webp") or an absolute URL into an absolute URL. */
+export const absoluteUrl = (path?: string) =>
+  !path ? undefined : /^https?:\/\//.test(path) ? path : `${COMPANY.url}${path.startsWith("/") ? "" : "/"}${path}`;
+
+const colorado = { "@type": "State", name: "Colorado" };
+const cityIn = (name: string) => ({ "@type": "City", name, containedInPlace: colorado });
+const defaultArea = [cityIn("Aspen")];
+
+/** Strips the page title down to the part before the first pipe. */
+const shortTitle = (title: string) => title.split("|")[0]?.trim() || title;
+
+const imageOf = (primary?: string, fallback?: string) => {
+  const url = absoluteUrl(primary || fallback);
+  return url ? { image: url } : {};
+};
+
 export const createServiceSchema = (data: ServicePageData) => ({
   "@context": "https://schema.org",
   "@type": "Service",
-  name: `VIP Aspen ${data.seo.title.split("|")[0]?.trim() || data.seo.title}`,
+  name: `VIP Aspen ${shortTitle(data.seo.title)}`,
   description: data.seo.description,
   url: `${COMPANY.url}/${data.slug}`,
+  serviceType: data.serviceType || data.hero.tagline,
   provider: providerRef,
-  areaServed: {
-    "@type": "City",
-    name: "Aspen",
-    containedInPlace: { "@type": "State", name: "Colorado" },
-  },
+  areaServed: data.areaServed?.length ? data.areaServed.map(cityIn) : defaultArea,
+  ...imageOf(data.hero.bgImage, data.hero.image),
 });
 
+/**
+ * A chauffeured vehicle is a service you book, not a product you buy, so this
+ * is a Service with the vehicle's maker as its brand. Product markup without a
+ * price or review is rejected by Google's rich-result validator.
+ */
 export const createVehicleSchema = (data: VehiclePageData) => ({
   "@context": "https://schema.org",
-  "@type": "Product",
-  name: data.seo.title.split("|")[0]?.trim() || data.seo.title,
+  "@type": "Service",
+  name: shortTitle(data.seo.title),
   description: data.seo.description,
   url: `${COMPANY.url}/${data.slug}`,
-  brand: { "@type": "Brand", name: "VIP Aspen" },
-  offers: {
-    "@type": "Offer",
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
-  },
+  serviceType: "Chauffeured vehicle hire",
+  provider: providerRef,
+  areaServed: defaultArea,
+  ...imageOf(data.hero.image, data.hero.bgImage),
+  ...(data.vehicle
+    ? {
+        brand: { "@type": "Brand", name: data.vehicle.make },
+        ...(data.vehicle.hourlyRateFrom
+          ? {
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
+                priceSpecification: {
+                  "@type": "UnitPriceSpecification",
+                  price: data.vehicle.hourlyRateFrom,
+                  priceCurrency: "USD",
+                  unitText: "HOUR",
+                  description: `From $${data.vehicle.hourlyRateFrom}/hr, 2-hour minimum, chauffeur and fuel included`,
+                },
+              },
+            }
+          : {}),
+      }
+    : {}),
 });
 
-export const createAirportSchema = (data: AirportPageData) => ({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: `${data.airport.name} (${data.airport.code}) Transfer`,
-  description: data.seo.description,
-  url: `${COMPANY.url}/${data.slug}`,
-  serviceType: "Airport Transfer",
-  provider: providerRef,
-  areaServed: {
-    "@type": "City",
-    name: "Aspen",
-    containedInPlace: { "@type": "State", name: "Colorado" },
-  },
-});
+export const createAirportSchema = (data: AirportPageData) => {
+  const destination = data.destination || "Aspen";
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: data.destination
+      ? `${data.airport.code} to ${destination} Transfer`
+      : `${data.airport.name} (${data.airport.code}) Transfer`,
+    description: data.seo.description,
+    url: `${COMPANY.url}/${data.slug}`,
+    serviceType: "Airport Transfer",
+    provider: providerRef,
+    areaServed: destination === "Aspen" ? defaultArea : [cityIn(destination), cityIn("Aspen")],
+    ...imageOf(data.hero.bgImage, data.hero.image),
+  };
+};
+
+/** The named author of every guide: the owner, whose bio and headshot are on /about. */
+export const AUTHOR = {
+  "@type": "Person",
+  "@id": `${COMPANY.url}/about#andrew-siegel`,
+  name: "Andrew Siegel",
+  jobTitle: "Founder",
+  url: `${COMPANY.url}/about`,
+  worksFor: providerRef,
+};
 
 export const createArticleSchema = (data: GuidePageData) => ({
   "@context": "https://schema.org",
@@ -63,9 +113,9 @@ export const createArticleSchema = (data: GuidePageData) => ({
   url: `${COMPANY.url}/guides/${data.slug}`,
   datePublished: data.datePublished,
   dateModified: data.dateModified,
-  author: { "@type": "Organization", name: COMPANY.name, url: COMPANY.url },
+  author: AUTHOR,
   publisher: providerRef,
-  image: data.seo.ogImage || `${COMPANY.url}/og-image.jpg`,
+  image: absoluteUrl(data.heroImage) || data.seo.ogImage || `${COMPANY.url}/og-image.jpg`,
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id": `${COMPANY.url}/guides/${data.slug}`,
@@ -94,3 +144,29 @@ export const createBreadcrumbSchema = (
     item: item.url,
   })),
 });
+
+type Node = Record<string, unknown>;
+
+/**
+ * Merges several JSON-LD objects into one `@graph` so a page emits a single,
+ * connected structured-data block instead of several disconnected scripts.
+ * Objects that are already a graph are flattened in.
+ */
+export const combineSchema = (...nodes: (object | undefined | null | false)[]) => {
+  const items: Node[] = [];
+  for (const node of nodes) {
+    if (!node) continue;
+    const { "@context": _context, "@graph": graph, ...rest } = node as Node & { "@graph"?: Node[] };
+    void _context;
+    if (Array.isArray(graph)) {
+      for (const g of graph) {
+        const { "@context": _inner, ...item } = g;
+        void _inner;
+        items.push(item);
+      }
+    } else {
+      items.push(rest);
+    }
+  }
+  return items.length ? { "@context": "https://schema.org", "@graph": items } : undefined;
+};

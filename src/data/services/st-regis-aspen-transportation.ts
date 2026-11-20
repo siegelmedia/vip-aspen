@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "st-regis-aspen-transportation",
   seo: {
-    title: "St. Regis Aspen Transportation | Private Car Service",
+    title: "St. Regis Aspen Transportation & Car Service",
     description:
       "Private car service for St. Regis Aspen guests. Airport transfers, ski resort shuttles, hourly chauffeur & event transport. Call (970) 452-6636.",
     keywords:

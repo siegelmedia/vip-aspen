@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "hourly-chauffeur",
   seo: {
-    title: "Hourly Chauffeur Service Aspen | As-Directed Private Driver",
+    title: "Hourly Chauffeur & Private Driver in Aspen",
     description:
       "Dedicated SUV and private chauffeur by the hour in Aspen. Families, ski groups & VIPs — your driver, your schedule. Call (970) 452-6636.",
     keywords:

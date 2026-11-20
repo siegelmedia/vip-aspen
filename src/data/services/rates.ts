@@ -6,7 +6,7 @@ const data: ServicePageData = {
   seo: {
     title: "Aspen Car Service Rates & Pricing",
     description:
-      "How VIP Aspen pricing works: flat-rate airport and route transfers, as-directed hourly chauffeur rates from $200/hr, and no surge pricing — ever. Request a quote: (970) 452-6636.",
+      "How VIP Aspen pricing works: flat-rate airport and route transfers, hourly chauffeur from $200/hr, and no surge pricing, ever. Quotes: (970) 452-6636.",
     keywords:
       "Aspen car service rates, Aspen car service cost, Aspen limo prices, Aspen chauffeur rates, how much is a car service in Aspen, Aspen airport transfer cost, Aspen black car pricing",
     canonicalUrl: "/rates",

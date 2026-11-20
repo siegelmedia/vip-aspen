@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "little-nell-transportation",
   seo: {
-    title: "Little Nell Transportation | Luxury Car Service Aspen",
+    title: "The Little Nell Transportation & Car Service",
     description:
       "Private car service for Little Nell guests. Airport transfers, as-directed chauffeur, dinner reservations & events. Call (970) 452-6636.",
     keywords:

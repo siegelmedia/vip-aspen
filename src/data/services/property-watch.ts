@@ -7,7 +7,7 @@ const data: ServicePageData = {
   seo: {
     title: "Aspen Residential Security & Property Watch | VIP Aspen",
     description:
-      "Licensed residential security and property watch for Aspen's luxury homeowners. Unmarked patrols, armed overnight protection & trusted local contact. Call (970) 452-6636.",
+      "Licensed residential security and property watch for Aspen homeowners. Unmarked patrols, armed overnight protection, trusted local contact. Call (970) 452-6636.",
     keywords:
       "Aspen residential security, property watch Aspen, armed overnight protection Aspen, Aspen security company, licensed security Aspen, unmarked patrol Aspen, executive protection residence, luxury home security Aspen",
     canonicalUrl: "/property-watch",

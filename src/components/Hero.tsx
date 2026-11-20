@@ -74,13 +74,13 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2 }}
+          transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
             className="eyebrow eyebrow-tick mb-6"
           >
             Aspen's Premier Luxury Transportation
@@ -89,7 +89,7 @@ const Hero = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.55 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground mb-6 leading-[1.05]"
           >
             <span className="text-gradient-gold">Luxury Car Service</span>
@@ -100,7 +100,7 @@ const Hero = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.7 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
             className="text-foreground/75 text-lg md:text-xl max-w-2xl mb-8 leading-relaxed"
           >
             Chauffeured Rolls-Royce Cullinan, Cadillac Escalade & Executive
@@ -111,7 +111,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.85 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 mb-8"
           >
             <Button variant="hero" size="xl" asChild>
@@ -128,7 +128,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: 1 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
             className="flex flex-wrap gap-x-6 gap-y-2"
           >
             {trustChips.map(({ icon: Icon, label }) => (

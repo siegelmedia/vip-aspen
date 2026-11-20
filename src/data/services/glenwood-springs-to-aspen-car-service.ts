@@ -4,10 +4,11 @@ import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
   slug: "glenwood-springs-to-aspen-car-service",
+  areaServed: ["Glenwood Springs", "Aspen"],
   seo: {
-    title: "Glenwood Springs to Aspen Car Service | Private Transfer",
+    title: "Glenwood Springs to Aspen Car Service",
     description:
-      "Private car service from Glenwood Springs to Aspen — including Amtrak station and hot springs pickups. ~50-minute luxury transfer in a Rolls Royce, Escalade, or Sprinter. Call (970) 452-6636.",
+      "Private car service from Glenwood Springs to Aspen, including Amtrak and hot springs pickups. ~50-minute luxury transfer. Call (970) 452-6636.",
     keywords:
       "Glenwood Springs to Aspen car service, Glenwood to Aspen shuttle, Amtrak Glenwood Springs to Aspen, Glenwood Springs Aspen transfer, Glenwood Springs private car Aspen",
     canonicalUrl: "/glenwood-springs-to-aspen-car-service",

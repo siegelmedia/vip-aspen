@@ -16,6 +16,31 @@ import escaladeImage from "@/assets/escalade.webp";
 import sprinterImage from "@/assets/sprinter.webp";
 import teamImage from "@/assets/rr-cullinan-aspen-exit.webp";
 
+/**
+ * Leadership. The credentials here are the company's strongest trust signal
+ * and are published so search engines and AI answer engines can attribute the
+ * site to named, verifiable people (E-E-A-T). The @id anchors match the Person
+ * nodes referenced from the Organization schema and every guide's author.
+ */
+const leaders = [
+  {
+    id: "andrew-siegel",
+    name: "Andrew Siegel",
+    title: "Founder",
+    photo: "/andrewheadshot.jpg",
+    credentials: ["Former Colorado State Trooper", "Reserve Colorado Ranger", "Dignitary protection certified"],
+    bio: "Andrew Siegel is the founder of VIP Aspen and its sister company Summit Black Car. A former Colorado State Trooper and current Reserve Colorado Ranger, Andrew is certified in dignitary protection and has experience supporting high-profile motorcades, executive travel, and VIP movements throughout Colorado. His background in law enforcement, mountain operations, and executive protection shaped the company's focus on safety, discretion, and luxury service.",
+  },
+  {
+    id: "austin-dvorak",
+    name: "Austin Dvorak",
+    title: "Chief Operating Officer, Aspen Security",
+    photo: "/austinheadshot.jpg",
+    credentials: ["Special Operations veteran", "Executive protection trained", "Threat assessment & secure transportation"],
+    bio: "Austin Dvorak is the COO of Aspen Security and brings a background in Special Operations, executive protection, and high-risk operational planning. He has completed advanced training through multiple nationally recognized executive protection academies, with specialized experience in threat assessment, surveillance detection, emergency response, fleet logistics, and secure transportation. Austin oversees operational standards, training, and VIP service execution, bringing a disciplined, protection-focused mindset to every client movement.",
+  },
+];
+
 const aboutSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -31,6 +56,17 @@ const aboutSchema = {
       { name: "Home", url: COMPANY.url },
       { name: "About", url: `${COMPANY.url}/about` },
     ]),
+    ...leaders.map((person) => ({
+      "@type": "Person",
+      "@id": `${COMPANY.url}/about#${person.id}`,
+      name: person.name,
+      jobTitle: person.title,
+      description: person.bio,
+      image: `${COMPANY.url}${person.photo}`,
+      url: `${COMPANY.url}/about#${person.id}`,
+      worksFor: { "@id": `${COMPANY.url}/#organization` },
+      knowsAbout: person.credentials,
+    })),
   ],
 };
 
@@ -114,8 +150,8 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEOHead
-        title="About VIP Aspen | Luxury Car Service & Security Company in Aspen, CO"
-        description="VIP Aspen is a veteran and law-enforcement owned luxury transportation, VIP access, and executive protection company in Aspen, Colorado. Rolls-Royce Cullinan, Cadillac Escalade, and Executive Sprinter, available 24/7 across the Roaring Fork Valley."
+        title="About VIP Aspen | Veteran & LEO-Owned Car Service"
+        description="VIP Aspen is a veteran and law-enforcement owned luxury transportation and executive protection company in Aspen, Colorado. Rolls-Royce, Escalade & Sprinter, available 24/7."
         keywords="about VIP Aspen, luxury car service Aspen Colorado, VIP transportation Roaring Fork Valley, Aspen car service company, executive protection Aspen, Aspen Security LLC"
         canonicalUrl="/about"
         schemaData={aboutSchema}
@@ -207,6 +243,53 @@ const AboutPage = () => {
                 loading="lazy"
               />
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section id="leadership" className="py-20 md:py-28 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <SectionHeader
+            eyebrow="Leadership"
+            heading="The People {{Behind the Wheel}}"
+            subtitle="Law enforcement and special operations backgrounds, not a dispatch desk. These are the people who set the standard for every ride."
+          />
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {leaders.map((person, i) => (
+              <motion.article
+                key={person.id}
+                id={person.id}
+                {...staggerChild(i)}
+                className="glass-card p-7 md:p-8 flex flex-col sm:flex-row gap-6"
+              >
+                <img
+                  src={person.photo}
+                  alt={`${person.name}, ${person.title} at VIP Aspen`}
+                  width={160}
+                  height={160}
+                  loading="lazy"
+                  className="w-32 h-32 sm:w-40 sm:h-40 object-cover object-top shrink-0 accent-frame"
+                />
+                <div>
+                  <h3 className="font-display text-2xl font-semibold mb-1">{person.name}</h3>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary/80 mb-4">
+                    {person.title}
+                  </p>
+                  <ul className="flex flex-wrap gap-2 mb-4">
+                    {person.credentials.map((c) => (
+                      <li
+                        key={c}
+                        className="text-[11px] uppercase tracking-[0.12em] font-mono px-2.5 py-1 border border-primary/30 text-foreground/70"
+                      >
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-foreground/65 text-sm leading-relaxed">{person.bio}</p>
+                </div>
+              </motion.article>
+            ))}
           </div>
         </div>
       </section>

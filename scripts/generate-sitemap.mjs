@@ -9,6 +9,7 @@
  * Run via `npm run build` (prebuild) or directly: `node scripts/generate-sitemap.mjs`
  */
 import { readFileSync, writeFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -20,17 +21,61 @@ const BASE = "https://www.vipaspen.com";
  * written one `"slug": () => import(...)` per line, so a line-anchored match on
  * the arrow-import shape can't pick up unrelated object literals in the file.
  */
-function slugsFrom(folder) {
+function entriesFrom(folder) {
   const source = readFileSync(join(root, "src/data", folder, "index.ts"), "utf8");
-  return [...source.matchAll(/^\s*"?([a-z0-9-]+)"?:\s*\(\)\s*=>\s*$|^\s*"?([a-z0-9-]+)"?:\s*\(\)\s*=>\s*import\(/gm)]
-    .map((m) => m[1] ?? m[2])
-    .filter(Boolean);
+  return [...source.matchAll(/"?([a-z0-9-]+)"?:\s*\(\)\s*=>\s*import\("\.\/([^"]+)"\)/g)].map((m) => ({
+    slug: m[1],
+    file: `src/data/${folder}/${m[2]}.ts`,
+  }));
 }
+const slugsFrom = (folder) => entriesFrom(folder).map((e) => e.slug);
 
 const services = slugsFrom("services");
 const vehicles = slugsFrom("vehicles");
 const airports = slugsFrom("airports");
 const guides = slugsFrom("guides");
+
+/** Source file(s) whose last commit dates a route. */
+const sourcesFor = new Map([
+  ["", ["src/pages/Index.tsx", "src/components"]],
+  ["about", ["src/pages/AboutPage.tsx"]],
+  ["contact", ["src/pages/ContactPage.tsx"]],
+  ["membership", ["src/pages/MembershipPage.tsx"]],
+  ["security-assessment", ["src/pages/SecurityAssessment.tsx"]],
+  ["guides", ["src/pages/GuidesIndex.tsx", "src/data/guides/index.ts"]],
+]);
+for (const folder of ["services", "vehicles", "airports", "guides"]) {
+  for (const { slug, file } of entriesFrom(folder)) {
+    sourcesFor.set(folder === "guides" ? `guides/${slug}` : slug, [file]);
+  }
+}
+
+const today = new Date().toISOString().slice(0, 10);
+let dirty = new Set();
+try {
+  dirty = new Set(
+    execFileSync("git", ["status", "--porcelain", "--", "src"], { cwd: root, encoding: "utf8" })
+      .split("\n").filter(Boolean).map((line) => line.slice(3).trim().replace(/\\/g, "/")),
+  );
+} catch {
+  // not a git checkout — every URL gets today's date
+}
+
+/**
+ * Real per-URL <lastmod>: the date of the last commit that touched the page's
+ * source. Stamping every URL with the build date made the field meaningless,
+ * and Google ignores lastmod once it sees that pattern.
+ */
+function lastmodFor(path) {
+  const sources = sourcesFor.get(path) ?? [];
+  if (sources.some((s) => [...dirty].some((d) => d === s || d.startsWith(s + "/")))) return today;
+  try {
+    const date = execFileSync("git", ["log", "-1", "--format=%cs", "--", ...sources], { cwd: root, encoding: "utf8" }).trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : today;
+  } catch {
+    return today;
+  }
+}
 
 // Routes defined directly in App.tsx rather than generated from data.
 const staticRoutes = ["", "about", "contact", "membership", "security-assessment", "guides"];
@@ -46,8 +91,6 @@ const priorityFor = (path) => {
 };
 
 const changefreqFor = (path) => (path === "" ? "weekly" : "monthly");
-
-const lastmod = new Date().toISOString().slice(0, 10);
 
 const paths = [
   ...staticRoutes,
@@ -68,7 +111,7 @@ const xml = [
     [
       "  <url>",
       `    <loc>${BASE}/${path}</loc>`,
-      `    <lastmod>${lastmod}</lastmod>`,
+      `    <lastmod>${lastmodFor(path)}</lastmod>`,
       `    <changefreq>${changefreqFor(path)}</changefreq>`,
       `    <priority>${priorityFor(path)}</priority>`,
       "  </url>",
@@ -79,7 +122,7 @@ const xml = [
 ].join("\n");
 
 writeFileSync(join(root, "public/sitemap.xml"), xml, "utf8");
-console.log(`sitemap.xml: ${unique.length} URLs (lastmod ${lastmod})`);
+console.log(`sitemap.xml: ${unique.length} URLs (per-page lastmod from git history)`);
 
 // Sanity check: nothing retired should ever reappear in the sitemap.
 const retired = ["private-entertainment", "promotional-services", "talent"];

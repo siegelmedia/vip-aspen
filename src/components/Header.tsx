@@ -163,19 +163,22 @@ const DesktopDropdown = ({ item }: { item: NavItem }) => {
         />
       </button>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 8 }}
-            transition={{ duration: 0.2 }}
-            className={`absolute top-full mt-3 bg-background/95 backdrop-blur-xl border border-border/50 shadow-xl overflow-hidden ${
-              isMega
-                ? "right-0 w-[min(54rem,calc(100vw-3rem))]"
-                : "left-0 min-w-[240px]"
-            }`}
-          >
+      {/* The panel stays mounted and is toggled with CSS so every Services,
+          Transfers and Fleet link is in the HTML crawlers and the Prerender
+          snapshot see, not only after a hover. visibility:hidden keeps the
+          closed panel out of the tab order. */}
+      <div
+        aria-hidden={!open}
+        className={`absolute top-full mt-3 bg-background/95 backdrop-blur-xl border border-border/50 shadow-xl overflow-hidden transition-all duration-200 ease-out ${
+          open
+            ? "opacity-100 translate-y-0 visible"
+            : "opacity-0 translate-y-2 invisible pointer-events-none"
+        } ${
+          isMega
+            ? "right-0 w-[min(54rem,calc(100vw-3rem))]"
+            : "left-0 min-w-[240px]"
+        }`}
+      >
             <div className="h-px bg-gradient-gold" />
 
             {isMega ? (
@@ -212,9 +215,7 @@ const DesktopDropdown = ({ item }: { item: NavItem }) => {
                 ))}
               </div>
             )}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </div>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "executive-protection",
   seo: {
-    title: "Executive Protection & Personal Security in Aspen, Colorado",
+    title: "Executive Protection & Security in Aspen, CO",
     description:
       "Executive protection in Aspen, CO. Discreet bodyguard & personal security for celebrities and executives. Former military & LEO. Call (970) 452-6636.",
     keywords:
@@ -20,7 +20,7 @@ const data: ServicePageData = {
       "Discreet, professional security services for high-profile individuals and families visiting Aspen. Our trained specialists ensure your safety while maintaining the utmost confidentiality.",
     bgImage: protectionService,
     ctaLabel: "Request Consultation",
-    ctaLink: "#contact",
+    ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },
   },
   features: [

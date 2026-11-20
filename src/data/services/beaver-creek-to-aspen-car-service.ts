@@ -4,10 +4,11 @@ import type { ServicePageData } from "@/types";
 
 const data: ServicePageData = {
   slug: "beaver-creek-to-aspen-car-service",
+  areaServed: ["Beaver Creek", "Aspen"],
   seo: {
-    title: "Beaver Creek to Aspen Car Service | Private Transfer",
+    title: "Beaver Creek to Aspen Car Service",
     description:
-      "Private car service between Beaver Creek and Aspen. Chauffeured Rolls Royce, Escalade & Sprinter for the ~2-hour resort transfer, with Eagle (EGE) airport pickups. Call (970) 452-6636.",
+      "Private car service between Beaver Creek and Aspen. Chauffeured Rolls Royce, Escalade & Sprinter for the ~2-hour transfer, with EGE pickups. Call (970) 452-6636.",
     keywords:
       "Beaver Creek to Aspen car service, Avon to Aspen, Beaver Creek Aspen transfer, Aspen to Beaver Creek shuttle, resort to resort Colorado, Eagle to Aspen private car",
     canonicalUrl: "/beaver-creek-to-aspen-car-service",

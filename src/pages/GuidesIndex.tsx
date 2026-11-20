@@ -11,7 +11,7 @@ import type { SEOData } from "@/types";
 const seo: SEOData = {
   title: "Aspen Travel & Transportation Guides",
   description:
-    "Practical guides to getting to and around Aspen: how to get from Denver, which airport to fly into (ASE vs. Eagle), whether you need a car, and more — from VIP Aspen.",
+    "Practical guides to getting to and around Aspen: how to get from Denver, which airport to fly into (ASE vs. Eagle), whether you need a car, and more.",
   keywords:
     "Aspen travel guide, Aspen transportation guide, how to get to Aspen, getting around Aspen, Aspen airport guide",
   canonicalUrl: "/guides",

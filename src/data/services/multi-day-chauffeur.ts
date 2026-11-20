@@ -5,9 +5,9 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "multi-day-chauffeur",
   seo: {
-    title: "Multi-Day & Weekly Chauffeur Aspen | Personal Driver",
+    title: "Multi-Day & Weekly Chauffeur in Aspen",
     description:
-      "Your own dedicated chauffeur and vehicle for your entire Aspen stay. Same driver every day, on call from morning to night. Weekly rates, total discretion. Call (970) 452-6636.",
+      "Your own dedicated chauffeur and vehicle for your entire Aspen stay. Same driver every day, on call morning to night. Weekly rates. Call (970) 452-6636.",
     keywords:
       "multi-day chauffeur Aspen, weekly car service Aspen, personal driver Aspen, dedicated chauffeur Aspen, on-call driver Aspen, private driver for the week Aspen, concierge chauffeur Aspen, full-time driver Aspen vacation",
     canonicalUrl: "/multi-day-chauffeur",

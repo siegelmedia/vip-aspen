@@ -19,7 +19,7 @@ const schemaData = {
     "@id": "https://www.vipaspen.com/#organization",
     "@type": "LocalBusiness",
     "name": "VIP Aspen",
-    "telephone": "+1-970-452-6636",
+    "telephone": "+19704526636",
     "email": "info@vipaspen.com",
     "address": {
       "@type": "PostalAddress",
@@ -40,8 +40,8 @@ const ContactPage = () => {
   return (
     <>
       <SEOHead
-        title="Contact VIP Aspen | Luxury Concierge & Black Car Service"
-        description="Get in touch with VIP Aspen for luxury black car service, VIP club access, and executive protection in Aspen, Colorado. Call (970) 452-6636 or send us a message."
+        title="Contact VIP Aspen | Luxury Car Service, 24/7"
+        description="Get in touch with VIP Aspen for luxury black car service, VIP club access, and executive protection in Aspen, Colorado. Call (970) 452-6636 or send a message."
         keywords="contact VIP Aspen, Aspen luxury service inquiry, Aspen concierge contact"
         canonicalUrl="/contact"
         schemaData={schemaData}

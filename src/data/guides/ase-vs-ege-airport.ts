@@ -4,9 +4,9 @@ import heroImage from "@/assets/guide-ase-vs-ege.webp";
 const data: GuidePageData = {
   slug: "ase-vs-ege-airport",
   seo: {
-    title: "Flying to Aspen: ASE vs. Eagle (EGE) — Which Airport?",
+    title: "Flying to Aspen: ASE vs. Eagle (EGE) Airport",
     description:
-      "Should you fly into Aspen (ASE) or Eagle (EGE)? A practical comparison of the airports that serve Aspen — distance, reliability, flights, and cost — to help you choose the right one.",
+      "Should you fly into Aspen (ASE) or Eagle (EGE)? A practical comparison of distance, reliability, flights and cost to help you choose the right airport.",
     keywords:
       "ASE vs EGE, which airport for Aspen, best airport to fly into for Aspen, Aspen airport vs Eagle, Eagle airport to Aspen, fly into Aspen, closest airport to Aspen",
     canonicalUrl: "/guides/ase-vs-ege-airport",

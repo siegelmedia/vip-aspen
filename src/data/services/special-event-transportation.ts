@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "special-event-transportation",
   seo: {
-    title: "Aspen Event Transportation | Food & Wine, X Games & Galas",
+    title: "Aspen Event Transportation | X Games & Galas",
     description:
       "Luxury event transportation for Aspen's biggest occasions. Food & Wine Classic, X Games, galas & private events. Call (970) 452-6636.",
     keywords:
@@ -121,6 +121,7 @@ const data: ServicePageData = {
   ],
   relatedServices: [
     { label: "New Year's Eve & Holiday", href: "/aspen-new-years-eve-transportation" },
+    { label: "Aspen Events Calendar", href: "/guides/aspen-events-calendar" },
     { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
     { label: "Black Car Service", href: "/black-car-service" },
     { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },

@@ -9,6 +9,11 @@ interface SEOHeadProps {
   ogImage?: string;
   schemaData?: object;
   robots?: string;
+  /** Open Graph type — "article" for guides, default "website" */
+  ogType?: "website" | "article";
+  /** ISO dates, emitted as article:published_time / article:modified_time */
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
 const SEOHead = ({
@@ -19,9 +24,13 @@ const SEOHead = ({
   ogImage,
   schemaData,
   robots,
+  ogType = "website",
+  publishedTime,
+  modifiedTime,
 }: SEOHeadProps) => {
   const defaultOgImage = "https://www.vipaspen.com/og-image.jpg";
-  const fullTitle = `${title} | VIP Aspen`;
+  // Append the brand once: titles that already name VIP Aspen stay as written.
+  const fullTitle = /VIP Aspen/i.test(title) ? title : `${title} | VIP Aspen`;
   const baseUrl = "https://www.vipaspen.com";
 
   useEffect(() => {
@@ -62,7 +71,13 @@ const SEOHead = ({
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
+      {ogType === "article" && publishedTime && (
+        <meta property="article:published_time" content={publishedTime} />
+      )}
+      {ogType === "article" && modifiedTime && (
+        <meta property="article:modified_time" content={modifiedTime} />
+      )}
       {canonicalUrl && <meta property="og:url" content={`${baseUrl}${canonicalUrl}`} />}
       <meta property="og:image" content={ogImage || defaultOgImage} />
       <meta property="og:image:width" content="1200" />

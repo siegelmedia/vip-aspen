@@ -8,14 +8,15 @@ import type { VehiclePageData } from "@/types";
 const data: VehiclePageData = {
   slug: "cadillac-escalade",
   seo: {
-    title: "Chauffeured Cadillac Escalade in Aspen | Luxury SUV Car Service",
+    title: "Chauffeured Cadillac Escalade in Aspen",
     description:
-      "Ride in a chauffeured latest-generation Cadillac Escalade in Aspen, Colorado. Premium luxury SUV with professional driver for airport transfers, ski resorts, weddings & private tours. Up to 5 passengers. Book today.",
+      "Chauffeured latest-generation Cadillac Escalade in Aspen, Colorado. Luxury SUV with professional driver for airport transfers, ski days, weddings & tours. Up to 5 passengers.",
     keywords:
       "Cadillac Escalade Aspen, luxury SUV charter Aspen, Escalade mountain roads, ski resort SUV Aspen, Escalade hire Colorado, luxury SUV chauffeur Aspen",
     canonicalUrl: "/cadillac-escalade",
     ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
+  vehicle: { make: "Cadillac", model: "Escalade", passengers: 5, hourlyRateFrom: 200 },
   hero: {
     tagline: "Premium SUV",
     headline: "Chauffeured {{Cadillac Escalade}} in Aspen",

@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "hotel-jerome-transportation",
   seo: {
-    title: "Hotel Jerome Transportation | Luxury Car Service Aspen",
+    title: "Hotel Jerome Transportation & Car Service",
     description:
       "Private car service for Hotel Jerome guests. Airport transfers, hourly chauffeur, dinner reservations & ski transfers. Call (970) 452-6636.",
     keywords:

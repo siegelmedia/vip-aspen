@@ -22,6 +22,9 @@ interface AirportPageProps {
 
 const AirportPage = ({ data }: AirportPageProps) => {
   const schema = createAirportSchema(data);
+  // Destination pages (e.g. Snowmass) reuse this template for an airport they
+  // do not describe, so the labels say where the ride goes, not "to Aspen".
+  const destination = data.destination || "Aspen";
   const breadcrumbs = [
     { name: "Home", url: COMPANY.url },
     { name: data.hero.tagline, url: `${COMPANY.url}/${data.slug}` },
@@ -55,7 +58,7 @@ const AirportPage = ({ data }: AirportPageProps) => {
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-sm text-foreground/60">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-primary" />
-                  <span>{data.airport.distanceToAspen} to Aspen</span>
+                  <span>{data.airport.distanceToAspen} to {destination}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-primary" />
@@ -173,7 +176,7 @@ const AirportPage = ({ data }: AirportPageProps) => {
         <BookingCTA
           variant="contact-only"
           serviceType={data.slug}
-          heading={`Reserve Your {{${data.airport.code} Transfer}}`}
+          heading={data.destination ? `Reserve Your {{${destination} Transfer}}` : `Reserve Your {{${data.airport.code} Transfer}}`}
           subheading="Flight-tracked pickups, meet-and-greet, and a flat all-inclusive rate. Book online above or reach our 24/7 dispatch."
         />
       </SectionContainer>

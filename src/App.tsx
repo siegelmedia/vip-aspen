@@ -81,10 +81,17 @@ const HERO_BOOKING_PAGES = new Set([
   "little-nell-transportation",
 ]);
 
+/**
+ * Security and access services are not a car pickup, so their booking section
+ * is the inquiry form rather than the ride-reservation widget.
+ */
+const INQUIRY_FORM_PAGES = new Set(["executive-protection", "aspen-clubs", "property-watch"]);
+
 const serviceRoutes = Object.entries(serviceLoaders).map(([slug, load]) => {
   const Page = dataRoute(() => import("./templates/ServicePage"), load, (data) => ({
     data,
     bookingPosition: HERO_BOOKING_PAGES.has(slug) ? "hero" : "bottom",
+    bookingVariant: INQUIRY_FORM_PAGES.has(slug) ? "form" : "widget",
   }));
   return <Route key={slug} path={`/${slug}`} element={<Page />} />;
 });

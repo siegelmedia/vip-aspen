@@ -128,6 +128,10 @@ export interface ServicePageData {
   faqs?: FAQ[];
   cancellationPolicy?: string[];
   relatedServices?: RelatedService[];
+  /** Cities this service covers, for Service.areaServed (defaults to Aspen) */
+  areaServed?: string[];
+  /** Service.serviceType override (defaults to the hero tagline) */
+  serviceType?: string;
   /** Grouped clickable cards linking to related pages (e.g. airports, hotels) */
   linkedPageGroups?: LinkedPagesGroup[];
   /** Additional custom sections rendered by the template */
@@ -145,10 +149,20 @@ export interface VehicleSpec {
   value: string;
 }
 
+export interface VehicleIdentity {
+  /** Manufacturer, e.g. "Rolls-Royce" — used as the schema brand */
+  make: string;
+  model: string;
+  passengers: number;
+  /** Published as-directed starting rate in USD per hour, if any */
+  hourlyRateFrom?: number;
+}
+
 export interface VehiclePageData {
   slug: string;
   seo: SEOData;
   hero: HeroData;
+  vehicle?: VehicleIdentity;
   intro?: ProseBlock;
   specs?: VehicleSpec[];
   features?: Feature[];
@@ -177,6 +191,12 @@ export interface AirportPageData {
   seo: SEOData;
   hero: HeroData;
   airport: AirportInfo;
+  /**
+   * Where the transfer goes when it is not Aspen itself (e.g. "Snowmass Village").
+   * Drives the distance label, closing CTA and schema so a destination page
+   * never duplicates the airport's own page.
+   */
+  destination?: string;
   intro?: ProseBlock;
   features?: Feature[];
   destinations?: Destination[];

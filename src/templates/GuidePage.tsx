@@ -32,6 +32,9 @@ const GuidePage = ({ data }: GuidePageProps) => {
       schemaData={schema}
       faqs={data.faqs}
       breadcrumbs={breadcrumbs}
+      ogType="article"
+      publishedTime={data.datePublished}
+      modifiedTime={data.dateModified}
     >
       {/* Article header */}
       <section className="pt-32 pb-10 md:pt-40 md:pb-14">

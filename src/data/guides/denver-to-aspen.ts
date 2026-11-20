@@ -4,9 +4,9 @@ import heroImage from "@/assets/guide-denver-to-aspen.webp";
 const data: GuidePageData = {
   slug: "denver-to-aspen",
   seo: {
-    title: "How to Get From Denver to Aspen (2026): Every Option Compared",
+    title: "Denver to Aspen: Every Option Compared",
     description:
-      "Flying, driving, shuttle, or private car from Denver to Aspen? A clear comparison of every way to get from DEN to Aspen — time, cost, and winter considerations — from an Aspen car service.",
+      "Flying, driving, shuttle, or private car from Denver to Aspen? A clear comparison of every option: time, cost, and winter considerations, from an Aspen car service.",
     keywords:
       "how to get from Denver to Aspen, Denver to Aspen, best way to get to Aspen from Denver, Denver airport to Aspen, DEN to Aspen, drive Denver to Aspen, Denver to Aspen shuttle",
     canonicalUrl: "/guides/denver-to-aspen",
@@ -21,7 +21,7 @@ const data: GuidePageData = {
   readTime: "8 min read",
   heroImage,
   keyTakeaways: [
-    "Aspen is about 200 miles from Denver — roughly a 3.5–4 hour drive via I-70, or a 35-minute connecting flight to Aspen's airport (ASE).",
+    "Aspen is about 200 miles from downtown Denver (about 225 from DEN Airport) — roughly a 3.5–4 hour drive via I-70, or a 35-minute connecting flight to Aspen's airport (ASE).",
     "The fastest option is a connecting flight DEN→ASE, but ASE flights are weather-sensitive and cancel often in winter.",
     "The most reliable door-to-door option is a private car service: no parking, no shared stops, and a driver who knows the mountain roads.",
     "In winter, Independence Pass is closed, so every ground route uses I-70 through Glenwood Springs.",
@@ -63,7 +63,7 @@ const data: GuidePageData = {
     {
       question: "How long does it take to get from Denver to Aspen?",
       answer:
-        "By road it's about 3.5–4 hours (roughly 200 miles via I-70 and Highway 82), longer with ski traffic or winter weather. A connecting flight from Denver to Aspen's airport (ASE) is about 35 minutes in the air, plus airport time.",
+        "By road it's about 3.5–4 hours (roughly 200 miles from downtown Denver, or 225 miles from DEN Airport, via I-70 and Highway 82), longer with ski traffic or winter weather. A connecting flight from Denver to Aspen's airport (ASE) is about 35 minutes in the air, plus airport time.",
     },
     {
       question: "What is the best way to get from Denver to Aspen?",

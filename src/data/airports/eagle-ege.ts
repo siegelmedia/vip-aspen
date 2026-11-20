@@ -15,9 +15,9 @@ import type { AirportPageData } from "@/types";
 const data: AirportPageData = {
   slug: "eagle-airport-transfer",
   seo: {
-    title: "Eagle Vail Airport Transfer | EGE to Aspen Car Service",
+    title: "Eagle Airport (EGE) to Aspen Car Service",
     description:
-      "Luxury Eagle County Airport (EGE) transfer to Aspen, Vail & Beaver Creek. Premium Escalade, Rolls Royce & Sprinter service. Flight tracking, meet & greet, ski equipment handling. Book your EGE transfer.",
+      "Luxury Eagle County Airport (EGE) transfers to Aspen, Vail & Beaver Creek. Escalade, Rolls Royce & Sprinter with flight tracking, meet & greet and ski gear handling.",
     keywords:
       "Eagle airport transfer, EGE to Aspen car service, Eagle County Regional airport, Eagle Vail airport luxury transfer, EGE chauffeur",
     canonicalUrl: "/eagle-airport-transfer",

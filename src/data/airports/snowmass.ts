@@ -15,8 +15,7 @@ import type { AirportPageData } from "@/types";
 const data: AirportPageData = {
   slug: "snowmass-village-transfer",
   seo: {
-    title:
-      "Snowmass Village Car Service | Luxury Transfers from Aspen & Airports",
+    title: "Snowmass Village Car Service & Transfers",
     description:
       "Private luxury car service to Snowmass Village, CO. Rolls Royce, Escalade & Sprinter from all airports. Door-to-door resort service. Call (970) 452-6636.",
     keywords:
@@ -40,6 +39,7 @@ const data: AirportPageData = {
     distanceToAspen: "9 miles",
     driveTime: "~20 min",
   },
+  destination: "Snowmass Village",
   intro: {
     heading: "Getting to Snowmass Village {{in Style}}",
     body: "Snowmass Village is just 15 minutes from downtown Aspen and 20 minutes from Aspen-Pitkin County Airport (ASE), but getting there with luggage, ski equipment, and family in a standard taxi or rideshare isn't the luxury experience you came to the mountains for. VIP Aspen provides private, door-to-door Snowmass Village car service in the Rolls Royce Cullinan, Cadillac Escalade, or Executive Sprinter \u2014 directly to the front entrance of your Snowmass hotel, condominium, or private residence with every piece of luggage and ski gear handled for you.\n\nWe know every property in Snowmass Village intimately \u2014 from the slope-side luxury of the Viceroy and the modern energy of the Limelight Snowmass to the refined comfort of the Westin, the condos scattered through Base Village, and the private homes tucked into the mountainside above the village center. Our chauffeurs pull up to the correct entrance, know where the bellhops are, and ensure your arrival is seamless regardless of which property you call home during your stay.",

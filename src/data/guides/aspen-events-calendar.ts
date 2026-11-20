@@ -4,9 +4,9 @@ import heroImage from "@/assets/guide-events.webp";
 const data: GuidePageData = {
   slug: "aspen-events-calendar",
   seo: {
-    title: "Aspen Events Calendar: X Games, Ideas Festival, Music Festival & More",
+    title: "Aspen Events Calendar: X Games, Ideas Fest & More",
     description:
-      "A season-by-season guide to Aspen's biggest events: X Games, Gay Ski Week, Food & Wine Classic, Ideas Festival, Aspen Music Festival, Jazz Aspen, and the holidays. What each weekend feels like and how to get around when town is full.",
+      "A season-by-season guide to Aspen's biggest events: X Games, Gay Ski Week, Food & Wine Classic, Ideas Festival, Music Festival and the holidays, plus how to get around.",
     keywords:
       "Aspen events, Aspen events calendar, X Games Aspen, Aspen Ideas Festival, Aspen Music Festival, Jazz Aspen Snowmass, Aspen Gay Ski Week, best time to visit Aspen, Aspen New Year's Eve, Aspen event transportation",
     canonicalUrl: "/guides/aspen-events-calendar",

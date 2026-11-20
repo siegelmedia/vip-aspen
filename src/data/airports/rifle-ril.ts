@@ -15,9 +15,9 @@ import type { AirportPageData } from "@/types";
 const data: AirportPageData = {
   slug: "rifle-airport-transfer",
   seo: {
-    title: "Rifle Airport Transfer | RIL to Aspen Private Jet Service",
+    title: "Rifle Airport (RIL) to Aspen Car Service",
     description:
-      "Luxury Rifle Garfield County Airport (RIL) transfer to Aspen. Premium car service for private jet arrivals. Tarmac meet & greet, Escalade, Rolls Royce & Sprinter. Book your RIL transfer.",
+      "Luxury Rifle Garfield County Airport (RIL) transfers to Aspen for private jet arrivals. Tarmac meet & greet in an Escalade, Rolls Royce or Sprinter. (970) 452-6636.",
     keywords:
       "Rifle airport transfer, RIL car service Aspen, Garfield County airport, private jet transfer Rifle, RIL luxury chauffeur",
     canonicalUrl: "/rifle-airport-transfer",

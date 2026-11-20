@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Shield, FileText, MapPin, Phone as PhoneIcon } from "lucide-react";
+import { Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -9,15 +9,34 @@ import SectionContainer from "@/components/layout/SectionContainer";
 import SectionHeader from "@/components/layout/SectionHeader";
 import HowItWorks from "@/components/blocks/HowItWorks";
 import TrustBadges from "@/components/blocks/TrustBadges";
+import FormErrorFallback from "@/components/FormErrorFallback";
+import { trackEvent } from "@/lib/analytics";
 import { fadeInUpAnimate, fadeInUp } from "@/lib/animations";
 import { COMPANY } from "@/data/constants";
 
 const seo = {
-  title: "Free Property Security Assessment — Aspen Estate Evaluation",
-  description: "Free security assessment for your Aspen property. We evaluate lighting, access control, alarms & perimeter vulnerabilities. Written report included. Call (970) 452-6636.",
+  title: "Free Property Security Assessment in Aspen",
+  description: "Free security assessment for your Aspen property: lighting, access control, alarms & perimeter vulnerabilities, with a written report. Call (970) 452-6636.",
   keywords: "security assessment Aspen, property security evaluation, home security check Aspen, estate security audit Colorado",
   canonicalUrl: "/security-assessment",
 };
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "VIP Aspen Property Security Assessment",
+  description: seo.description,
+  url: `${COMPANY.url}/security-assessment`,
+  serviceType: "Residential security assessment",
+  provider: { "@id": `${COMPANY.url}/#organization` },
+  areaServed: { "@type": "City", name: "Aspen", containedInPlace: { "@type": "State", name: "Colorado" } },
+  offers: { "@type": "Offer", price: 0, priceCurrency: "USD", description: "Complimentary on-site assessment with written report" },
+};
+
+const breadcrumbs = [
+  { name: "Home", url: COMPANY.url },
+  { name: "Security Assessment", url: `${COMPANY.url}/security-assessment` },
+];
 
 const steps = [
   { step: 1, title: "Initial Consultation", description: "A brief phone call to understand your property, your concerns, and your schedule." },
@@ -35,9 +54,10 @@ const trustBadges = [
 const SecurityAssessment = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [failed, setFailed] = useState<{ subject: string; body: string } | null>(null);
 
   return (
-    <PageWrapper seo={seo}>
+    <PageWrapper seo={seo} schemaData={schemaData} breadcrumbs={breadcrumbs}>
       {/* Hero */}
       <section className="relative pt-32 pb-12 md:pt-40 md:pb-16">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
@@ -99,12 +119,19 @@ const SecurityAssessment = () => {
                   },
                 });
                 if (error) throw error;
+                setFailed(null);
+                trackEvent("generate_lead", { form_name: "security_assessment", service: "security-assessment" });
                 toast({
                   title: "Assessment request received",
                   description: "We'll be in touch within 24 hours to schedule your assessment.",
                 });
                 (e.target as HTMLFormElement).reset();
               } catch (err) {
+                trackEvent("form_error", { form_name: "security_assessment", service: "security-assessment" });
+                setFailed({
+                  subject: "Security assessment request — VIP Aspen",
+                  body: `Name: ${name}\nEmail: ${email}\n${formattedMessage}`,
+                });
                 toast({
                   title: "Error",
                   description: "Failed to send request. Please try again.",
@@ -192,6 +219,8 @@ const SecurityAssessment = () => {
                 placeholder="Tell us about your property or any specific security concerns..."
               />
             </div>
+
+            {failed && <FormErrorFallback subject={failed.subject} body={failed.body} />}
 
             <Button variant="luxury" size="xl" className="w-full" type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Sending..." : "Request Assessment"}

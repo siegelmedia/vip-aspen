@@ -8,6 +8,21 @@ interface ProseSectionProps {
   className?: string;
 }
 
+/**
+ * Bodies are HTML. Some data files pass plain text with blank-line paragraph
+ * breaks instead; HTML collapses those into one run-on block, so wrap each
+ * paragraph in <p> when no block-level markup is present.
+ */
+export const toHtml = (body: string) =>
+  /<(p|ul|ol|h[1-6]|table|blockquote|div)[\s>]/i.test(body)
+    ? body
+    : body
+        .split(/\n\s*\n/)
+        .map((p) => p.trim())
+        .filter(Boolean)
+        .map((p) => `<p>${p}</p>`)
+        .join("\n");
+
 const ProseSection = ({ content, className = "" }: ProseSectionProps) => {
   return (
     <div className={`max-w-4xl mx-auto ${className}`}>
@@ -22,7 +37,7 @@ const ProseSection = ({ content, className = "" }: ProseSectionProps) => {
         )}
         <div
           className="prose prose-lg max-w-none text-foreground/70 leading-relaxed space-y-6"
-          dangerouslySetInnerHTML={{ __html: content.body }}
+          dangerouslySetInnerHTML={{ __html: toHtml(content.body) }}
         />
       </motion.div>
     </div>

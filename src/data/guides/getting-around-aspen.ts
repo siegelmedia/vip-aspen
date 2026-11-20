@@ -4,9 +4,9 @@ import heroImage from "@/assets/guide-getting-around.webp";
 const data: GuidePageData = {
   slug: "getting-around-aspen",
   seo: {
-    title: "Getting Around Aspen: Do You Need a Car? Is Uber Reliable?",
+    title: "Getting Around Aspen: Do You Need a Car?",
     description:
-      "How to get around Aspen without the stress: whether you need a rental car, how reliable Uber and Lyft really are, the free bus system, and when a private car makes sense.",
+      "How to get around Aspen without stress: whether you need a rental car, how reliable Uber and Lyft are, the free bus system, and when a private car makes sense.",
     keywords:
       "getting around Aspen, do you need a car in Aspen, is Uber reliable in Aspen, Aspen without a car, Aspen transportation, Aspen parking, Uber Lyft Aspen, RFTA bus Aspen",
     canonicalUrl: "/guides/getting-around-aspen",

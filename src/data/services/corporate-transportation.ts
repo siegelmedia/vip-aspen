@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "aspen-corporate-transportation",
   seo: {
-    title: "Corporate Transportation Aspen CO | Executive Car Service & Retreats",
+    title: "Corporate Transportation & Car Service Aspen",
     description:
       "Corporate transportation in Aspen, CO. Executive car service, fleet management for retreats & conferences. Sprinter shuttles. Call (970) 452-6636.",
     keywords:

@@ -4,9 +4,9 @@ import heroImage from "@/assets/guide-food-wine.webp";
 const data: GuidePageData = {
   slug: "aspen-food-and-wine-classic",
   seo: {
-    title: "FOOD & WINE Classic in Aspen: Guide, Tips & Getting Around",
+    title: "FOOD & WINE Classic Aspen: Guide & Tips",
     description:
-      "Everything you need for the FOOD & WINE Classic in Aspen — what it is, when it happens, the Grand Tasting at Wagner Park, and how to get around the sold-out weekend without the stress.",
+      "Everything you need for the FOOD & WINE Classic in Aspen: what it is, when it happens, the Grand Tasting at Wagner Park, and how to get around the sold-out weekend.",
     keywords:
       "Food and Wine Classic Aspen, FOOD & WINE Classic, Aspen Food and Wine festival, Grand Tasting Aspen, Food and Wine Classic schedule, Food and Wine Classic getting around, Food and Wine Aspen transportation",
     canonicalUrl: "/guides/aspen-food-and-wine-classic",

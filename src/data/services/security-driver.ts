@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "security-driver",
   seo: {
-    title: "Security Drivers Aspen | Trained Protective Drivers",
+    title: "Security Drivers in Aspen | Protective Drivers",
     description:
       "Security-trained drivers for CEOs, high-profile clients, and visiting protective details. Law enforcement and military backgrounds. Call (970) 452-6636.",
     keywords:

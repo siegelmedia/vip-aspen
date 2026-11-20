@@ -7,7 +7,7 @@ const data: ServicePageData = {
   seo: {
     title: "Aspen New Year's Eve & Holiday Transportation",
     description:
-      "Guaranteed luxury transportation for Aspen's New Year's Eve and Christmas holiday season. Pre-booked Rolls Royce, Escalade & Sprinter with on-call drivers — no surge, no scramble. Book early: (970) 452-6636.",
+      "Guaranteed luxury transportation for Aspen's New Year's Eve and holiday season. Pre-booked Rolls Royce, Escalade & Sprinter, no surge. Book early: (970) 452-6636.",
     keywords:
       "Aspen New Year's Eve transportation, Aspen NYE car service, Aspen holiday car service, Aspen Christmas transportation, Aspen winter holiday chauffeur, New Year's Eve limo Aspen, holiday season car service Aspen",
     canonicalUrl: "/aspen-new-years-eve-transportation",
@@ -102,6 +102,7 @@ const data: ServicePageData = {
   ],
   relatedServices: [
     { label: "Event Transportation", href: "/special-event-transportation" },
+    { label: "Aspen Events Calendar", href: "/guides/aspen-events-calendar" },
     { label: "Multi-Day Chauffeur", href: "/multi-day-chauffeur" },
     { label: "VIP Club Access", href: "/aspen-clubs" },
     { label: "Airport Transfers", href: "/aspen-airport-transfer" },

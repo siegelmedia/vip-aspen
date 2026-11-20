@@ -20,7 +20,7 @@ const data: ServicePageData = {
       "Experience Aspen after dark like never before. Skip the lines, secure the best tables, and enjoy exclusive access to the mountain town's most coveted venues and experiences.",
     bgImage: vipClub,
     ctaLabel: "Get VIP Access",
-    ctaLink: "#contact",
+    ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },
   },
   trustBadges: [

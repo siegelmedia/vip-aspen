@@ -5,9 +5,9 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "aspen-food-and-wine-transportation",
   seo: {
-    title: "Aspen Food & Wine Classic Transportation | Car Service",
+    title: "Food & Wine Classic Transportation Aspen",
     description:
-      "Private transportation for the Food & Wine Classic in Aspen. Pre-booked Rolls Royce, Escalade & Sprinter with on-call drivers, no surge — from Grand Tasting to after-parties. Book early: (970) 452-6636.",
+      "Private transportation for the Food & Wine Classic in Aspen. Pre-booked Rolls Royce, Escalade & Sprinter, on-call drivers, no surge. Book early: (970) 452-6636.",
     keywords:
       "Aspen Food and Wine Classic transportation, Food & Wine Classic car service, Food and Wine Aspen shuttle, Food and Wine Classic chauffeur, Aspen Food Wine private car, Grand Tasting transportation Aspen",
     canonicalUrl: "/aspen-food-and-wine-transportation",
@@ -96,6 +96,7 @@ const data: ServicePageData = {
   ],
   relatedServices: [
     { label: "Food & Wine Classic Guide", href: "/guides/aspen-food-and-wine-classic" },
+    { label: "Aspen Events Calendar", href: "/guides/aspen-events-calendar" },
     { label: "Event Transportation", href: "/special-event-transportation" },
     { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
     { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },

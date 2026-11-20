@@ -5,9 +5,9 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "aspen-wedding-transportation",
   seo: {
-    title: "Aspen Wedding Transportation | Rolls Royce, Sprinter & Escalade",
+    title: "Aspen Wedding Transportation | Rolls-Royce",
     description:
-      "Luxury wedding transportation in Aspen, Colorado. Rolls Royce Cullinan for the couple, Executive Sprinter for the bridal party, Escalade shuttles for guests. Full wedding day coordination. Book (970) 452-6636.",
+      "Luxury wedding transportation in Aspen: Rolls Royce Cullinan for the couple, Executive Sprinter for the party, Escalade shuttles for guests. Book (970) 452-6636.",
     keywords:
       "Aspen wedding transportation, wedding limo Aspen, wedding car service Aspen Colorado, Rolls Royce wedding Aspen, bridal transportation Aspen, wedding shuttle Aspen",
     canonicalUrl: "/aspen-wedding-transportation",

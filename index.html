@@ -48,11 +48,37 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": ["LimousineService", "LocalBusiness"],
+      "@type": ["LocalBusiness", "TaxiService"],
       "@id": "https://www.vipaspen.com/#organization",
       "name": "VIP Aspen",
+      "legalName": "Aspen Security LLC",
       "alternateName": "VIP Aspen Luxury Transportation",
-      "logo": "https://www.vipaspen.com/favicon-192.png",
+      "logo": {"@type": "ImageObject", "url": "https://www.vipaspen.com/favicon-192.png", "width": 192, "height": 192},
+      "founder": {
+        "@type": "Person",
+        "@id": "https://www.vipaspen.com/about#andrew-siegel",
+        "name": "Andrew Siegel",
+        "jobTitle": "Founder",
+        "url": "https://www.vipaspen.com/about",
+        "image": "https://www.vipaspen.com/andrewheadshot.jpg"
+      },
+      "employee": {
+        "@type": "Person",
+        "@id": "https://www.vipaspen.com/about#austin-dvorak",
+        "name": "Austin Dvorak",
+        "jobTitle": "Chief Operating Officer",
+        "url": "https://www.vipaspen.com/about",
+        "image": "https://www.vipaspen.com/austinheadshot.jpg"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "reservations",
+        "telephone": "+19704526636",
+        "email": "info@vipaspen.com",
+        "availableLanguage": "English",
+        "hoursAvailable": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "00:00", "closes": "23:59"}
+      },
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=411+E+Main+St+Suite+205H+Aspen+CO+81611",
       "description": "Aspen's premier luxury car service featuring Rolls Royce Cullinan, Cadillac Escalade, and Executive Sprinter with professional chauffeurs. Airport transfers, ski resort transportation, VIP nightlife, and executive protection.",
       "url": "https://www.vipaspen.com",
       "telephone": "+19704526636",

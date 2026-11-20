@@ -5,9 +5,9 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "private-ski-transfers",
   seo: {
-    title: "Private Ski Transfers Aspen | Door-to-Slope Car Service",
+    title: "Private Ski Transfers in Aspen & Snowmass",
     description:
-      "Private door-to-slope ski transfers across Aspen's four mountains — Ajax, Highlands, Buttermilk & Snowmass. Skip the shuttle: a dedicated SUV and chauffeur for your ski day. Call (970) 452-6636.",
+      "Private door-to-slope ski transfers across Aspen's four mountains. Skip the shuttle: a dedicated SUV and chauffeur for your ski day. Call (970) 452-6636.",
     keywords:
       "private ski transfer Aspen, Aspen ski shuttle private, door to slope car service Aspen, Aspen Highlands transfer, Buttermilk transfer, Snowmass ski transfer, ski day chauffeur Aspen, Aspen Snowmass private ski transportation",
     canonicalUrl: "/private-ski-transfers",
@@ -110,7 +110,7 @@ const data: ServicePageData = {
     { label: "Multi-Day Chauffeur", href: "/multi-day-chauffeur" },
     { label: "Snowmass Village Transfer", href: "/snowmass-village-transfer" },
     { label: "Aspen Airport Transfer", href: "/aspen-airport-transfer" },
-    { label: "Black Car Service", href: "/black-car-service" },
+    { label: "Winter Travel Guide", href: "/guides/aspen-winter-travel" },
   ],
 };
 

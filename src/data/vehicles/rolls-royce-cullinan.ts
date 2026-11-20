@@ -9,14 +9,15 @@ import type { VehiclePageData } from "@/types";
 const data: VehiclePageData = {
   slug: "rolls-royce-cullinan",
   seo: {
-    title: "Rolls Royce Cullinan Aspen | Chauffeur Car Service & Hire",
+    title: "Rolls Royce Cullinan Aspen | Chauffeur & Hire",
     description:
-      "Hire a chauffeured Rolls Royce Cullinan in Aspen, Colorado. Bespoke Mandarin interior, professional discreet chauffeur. Airport transfers, ski resorts, weddings, scenic tours & corporate travel. The most exclusive ride in the Rockies. Book (970) 452-6636.",
+      "Hire Aspen's only chauffeured Rolls Royce Cullinan. Bespoke Mandarin interior, discreet professional chauffeur. Airport transfers, weddings & scenic tours. (970) 452-6636.",
     keywords:
       "Rolls Royce Aspen, Rolls Royce chauffeur Aspen, Rolls Royce Cullinan Aspen, chauffeured Rolls Royce Aspen, Rolls Royce car service Aspen, Cullinan chauffeur, Rolls Royce hire Colorado, bespoke Mandarin interior, ultra-luxury SUV Aspen, Rolls Royce rental Aspen",
     canonicalUrl: "/rolls-royce-cullinan",
     ogImage: "https://www.vipaspen.com/og-rolls-royce.jpg",
   },
+  vehicle: { make: "Rolls-Royce", model: "Cullinan", passengers: 3, hourlyRateFrom: 400 },
   hero: {
     tagline: "Aspen's Finest",
     headline: "Chauffeured {{Rolls Royce Cullinan}} in Aspen",

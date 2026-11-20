@@ -5,9 +5,9 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "aspen-private-jet-transfer",
   seo: {
-    title: "Aspen Private Jet & FBO Transfer | Tarmac Car Service",
+    title: "Aspen Private Jet & FBO Tarmac Transfers",
     description:
-      "Planeside private jet transfers in Aspen. Tarmac pickup at Atlantic Aviation (ASE), Eagle & Rifle FBOs. Rolls Royce, Escalade & Sprinter coordinated with your flight crew. Call (970) 452-6636.",
+      "Planeside private jet transfers at Aspen (ASE), Eagle & Rifle FBOs. Rolls Royce, Escalade & Sprinter coordinated with your flight crew. Call (970) 452-6636.",
     keywords:
       "Aspen private jet transfer, FBO car service Aspen, Atlantic Aviation Aspen, tarmac transfer Aspen, planeside pickup ASE, private aviation ground transportation Aspen, Aspen jet ground transport, Eagle FBO transfer, Rifle FBO car service",
     canonicalUrl: "/aspen-private-jet-transfer",
