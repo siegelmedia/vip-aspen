@@ -1,11 +1,13 @@
-import { motion } from "framer-motion";
-import { fadeInUp } from "@/lib/animations";
-import { renderGoldText } from "@/lib/goldText";
+import { Accent } from "@/components/site/Shared";
 import type { ProseBlock } from "@/types";
 
 interface ProseSectionProps {
   content: ProseBlock;
   className?: string;
+  /** Larger opening paragraphs. */
+  lead?: boolean;
+  /** Label above the heading. */
+  eyebrow?: string;
 }
 
 /**
@@ -23,23 +25,18 @@ export const toHtml = (body: string) =>
         .map((p) => `<p>${p}</p>`)
         .join("\n");
 
-const ProseSection = ({ content, className = "" }: ProseSectionProps) => {
+const ProseSection = ({ content, className = "", lead = false, eyebrow = "In Depth" }: ProseSectionProps) => {
   return (
-    <div className={`max-w-4xl mx-auto ${className}`}>
-      <motion.div {...fadeInUp}>
-        {content.heading && (
-          <>
-            <p className="eyebrow text-center mb-4">In Depth</p>
-            <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-8 text-center text-balance">
-              {renderGoldText(content.heading)}
-            </h2>
-          </>
-        )}
-        <div
-          className="prose prose-lg max-w-none text-foreground/70 leading-relaxed space-y-6"
-          dangerouslySetInnerHTML={{ __html: toHtml(content.body) }}
-        />
-      </motion.div>
+    <div className={`prose--narrow${className ? ` ${className}` : ""}`}>
+      {content.heading && (
+        <div className="sec__head">
+          <p className="eyebrow">{eyebrow}</p>
+          <h2 className="h2">
+            <Accent text={content.heading} />
+          </h2>
+        </div>
+      )}
+      <div className={`prose${lead ? " prose--lead" : ""}`} dangerouslySetInnerHTML={{ __html: toHtml(content.body) }} />
     </div>
   );
 };

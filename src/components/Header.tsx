@@ -1,443 +1,279 @@
-import { useState, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X, ChevronDown, Phone, Mail, Clock } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { COMPANY } from "@/data/constants";
+import {
+  CORSA,
+  TEL_HREF,
+  WHATSAPP_URL,
+  companyLinks,
+  featuredServices,
+  fleetLinks,
+  moreServices,
+  transferGroups,
+} from "@/data/site";
+import { PhoneIcon, WhatsAppIcon } from "@/components/site/icons";
 import logo from "@/assets/vip-aspen-logo.webp";
 
-interface NavLinkItem {
-  label: string;
-  href: string;
-}
-
-/** One column of a mega-menu panel. Every column carries the SAME number of
- *  links so the panel reads as an even grid rather than a ragged list. */
-interface NavColumn {
-  heading: string;
-  links: NavLinkItem[];
-}
-
-interface NavItem {
-  label: string;
-  href?: string;
-  /** Simple single-column dropdown */
-  links?: NavLinkItem[];
-  /** Multi-column mega panel */
-  columns?: NavColumn[];
-}
-
-const navItems: NavItem[] = [
-  {
-    label: "Services",
-    // 3 columns × 5 links — deliberately balanced.
-    columns: [
-      {
-        heading: "Chauffeur Service",
-        links: [
-          { label: "Black Car Service", href: "/black-car-service" },
-          { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
-          { label: "Multi-Day Chauffeur", href: "/multi-day-chauffeur" },
-          { label: "Private Ski Transfers", href: "/private-ski-transfers" },
-          { label: "Rates & Pricing", href: "/rates" },
-        ],
-      },
-      {
-        heading: "Events & Occasions",
-        links: [
-          { label: "Event Transportation", href: "/special-event-transportation" },
-          { label: "Wedding Transportation", href: "/aspen-wedding-transportation" },
-          { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
-          { label: "Food & Wine Classic", href: "/aspen-food-and-wine-transportation" },
-          { label: "New Year's Eve & Holiday", href: "/aspen-new-years-eve-transportation" },
-        ],
-      },
-      {
-        heading: "Security & VIP",
-        links: [
-          { label: "Security Drivers", href: "/security-driver" },
-          { label: "Executive Protection", href: "/executive-protection" },
-          { label: "VIP Club Access", href: "/aspen-clubs" },
-          { label: "Security Assessment", href: "/security-assessment" },
-          { label: "VIP Membership", href: "/membership" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Transfers",
-    // 3 columns × 4 links.
-    columns: [
-      {
-        heading: "Airports",
-        links: [
-          { label: "Aspen Airport (ASE)", href: "/aspen-airport-transfer" },
-          { label: "Eagle Airport (EGE)", href: "/eagle-airport-transfer" },
-          { label: "Rifle Airport (RIL)", href: "/rifle-airport-transfer" },
-          { label: "Private Jet / FBO", href: "/aspen-private-jet-transfer" },
-        ],
-      },
-      {
-        heading: "Routes",
-        links: [
-          { label: "Denver to Aspen", href: "/denver-to-aspen-car-service" },
-          { label: "Vail to Aspen", href: "/vail-to-aspen-car-service" },
-          { label: "Beaver Creek to Aspen", href: "/beaver-creek-to-aspen-car-service" },
-          { label: "Glenwood Springs to Aspen", href: "/glenwood-springs-to-aspen-car-service" },
-        ],
-      },
-      {
-        heading: "Resorts & Hotels",
-        links: [
-          { label: "Snowmass Village", href: "/snowmass-village-transfer" },
-          { label: "Hotel Jerome", href: "/hotel-jerome-transportation" },
-          { label: "St. Regis Aspen", href: "/st-regis-aspen-transportation" },
-          { label: "The Little Nell", href: "/little-nell-transportation" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Fleet",
-    links: [
-      { label: "Rolls-Royce Cullinan", href: "/rolls-royce-cullinan" },
-      { label: "Cadillac Escalade", href: "/cadillac-escalade" },
-      { label: "Executive Sprinter", href: "/executive-sprinter" },
-    ],
-  },
-  { label: "Guides", href: "/guides" },
-  { label: "About", href: "/about" },
-  { label: "Membership", href: "/membership" },
-  { label: "Contact", href: "/contact" },
-];
-
-/* ───────── Desktop dropdown / mega panel ───────── */
-const dropdownLinkClass =
-  "block px-3 py-2 text-sm text-foreground/70 rounded-sm hover:text-primary hover:bg-primary/5 transition-colors";
-
-const columnHeadingClass =
-  "px-3 pb-2 mb-1 text-[11px] uppercase tracking-[0.18em] text-primary/80 font-mono border-b border-border/40";
-
-const DesktopDropdown = ({ item }: { item: NavItem }) => {
+/**
+ * Site header in the Summit Black Car layout: logo, wide menus from 1300 px,
+ * phone and WhatsApp, a Book Now pill, and a menu button that opens the full
+ * drawer on smaller screens.
+ *
+ * Every menu link is in the HTML at all times (the panels are shown and hidden
+ * with CSS), so crawlers and the build-time render see the whole navigation.
+ */
+const Header = () => {
+  const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
-  const timeout = useRef<ReturnType<typeof setTimeout>>();
+  /** After a menu link is followed the pointer is still over the menu: keep the panels shut until it leaves. */
+  const [suppress, setSuppress] = useState(false);
+  const burger = useRef<HTMLButtonElement>(null);
+  const drawer = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
-  const enter = () => {
-    clearTimeout(timeout.current);
-    setOpen(true);
+  useEffect(() => {
+    const onScroll = () => setSolid(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // A new page: close the drawer.
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
+
+  // While the drawer is open the page behind is inert, so keyboard focus stays in the header and the drawer.
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", open);
+    const behind = document.querySelectorAll<HTMLElement>("#main, .ftr, .dock");
+    behind.forEach((el) => (open ? el.setAttribute("inert", "") : el.removeAttribute("inert")));
+    if (!open) return;
+    const first = drawer.current?.querySelector<HTMLElement>("summary, a, button");
+    first?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        burger.current?.focus();
+      }
+    };
+    const wide = window.matchMedia("(min-width: 1300px)");
+    const onWide = (m: MediaQueryListEvent) => m.matches && setOpen(false);
+    document.addEventListener("keydown", onKey);
+    wide.addEventListener("change", onWide);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      wide.removeEventListener("change", onWide);
+    };
+  }, [open]);
+
+  useEffect(
+    () => () => {
+      document.body.classList.remove("menu-open");
+      document.querySelectorAll("#main, .ftr, .dock").forEach((el) => el.removeAttribute("inert"));
+    },
+    [],
+  );
+
+  const followed = () => {
+    setSuppress(true);
+    (document.activeElement as HTMLElement | null)?.blur?.();
   };
-  const leave = () => {
-    timeout.current = setTimeout(() => setOpen(false), 150);
-  };
-
-  useEffect(() => () => clearTimeout(timeout.current), []);
-
-  const isMega = !!item.columns;
-
-  if (!item.columns && !item.links) {
-    return (
-      <Link
-        to={item.href!}
-        className="text-foreground/80 hover:text-primary transition-colors duration-300 text-[13px] uppercase tracking-[0.14em] font-mono"
-      >
-        {item.label}
-      </Link>
-    );
-  }
 
   return (
-    <div
-      className={isMega ? "" : "relative"}
-      onMouseEnter={enter}
-      onMouseLeave={leave}
-    >
-      <button
-        className="flex items-center gap-1 text-foreground/80 hover:text-primary transition-colors duration-300 text-[13px] uppercase tracking-[0.14em] font-mono"
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-        aria-haspopup="true"
-      >
-        {item.label}
-        <ChevronDown
-          className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-        />
-      </button>
+    <>
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
+      <header className={`hdr${solid || open ? " is-solid" : ""}`} id="hdr">
+        <div className="hdr__in">
+          <Link className="hdr__logo" to="/" aria-label="VIP Aspen home">
+            <img src={logo} width={305} height={127} alt="VIP Aspen" />
+          </Link>
 
-      {/* The panel stays mounted and is toggled with CSS so every Services,
-          Transfers and Fleet link is in the HTML crawlers and the Prerender
-          snapshot see, not only after a hover. visibility:hidden keeps the
-          closed panel out of the tab order. */}
-      <div
-        aria-hidden={!open}
-        className={`absolute top-full mt-3 bg-background/95 backdrop-blur-xl border border-border/50 shadow-xl overflow-hidden transition-all duration-200 ease-out ${
-          open
-            ? "opacity-100 translate-y-0 visible"
-            : "opacity-0 translate-y-2 invisible pointer-events-none"
-        } ${
-          isMega
-            ? "right-0 w-[min(54rem,calc(100vw-3rem))]"
-            : "left-0 min-w-[240px]"
-        }`}
-      >
-            <div className="h-px bg-gradient-gold" />
-
-            {isMega ? (
-              <div className="grid grid-cols-3 gap-x-6 p-6">
-                {item.columns!.map((col) => (
-                  <div key={col.heading}>
-                    <p className={columnHeadingClass}>{col.heading}</p>
-                    <div className="flex flex-col">
-                      {col.links.map((link) => (
-                        <Link
-                          key={link.href}
-                          to={link.href}
-                          onClick={() => setOpen(false)}
-                          className={dropdownLinkClass}
-                        >
-                          {link.label}
+          <nav
+            className={`nav${suppress ? " is-suppressed" : ""}`}
+            aria-label="Main"
+            onMouseLeave={() => setSuppress(false)}
+            onClick={(e) => (e.target as Element).closest("a") && followed()}
+          >
+            <div className="nav__item has-panel">
+              <Link className="nav__link" to="/black-car-service" aria-haspopup="true">
+                Services
+              </Link>
+              <div className="panel panel--wide">
+                <div className="panel__cols">
+                  <div className="panel__core">
+                    <p className="panel__label">Most requested</p>
+                    {featuredServices.map((s) => (
+                      <Link key={s.href} className="panel__big" to={s.href}>
+                        <strong>{s.label}</strong>
+                      </Link>
+                    ))}
+                  </div>
+                  <div>
+                    <p className="panel__label">More services</p>
+                    <div className="panel__list">
+                      {moreServices.map((s) => (
+                        <Link key={s.href} to={s.href}>
+                          {s.label}
                         </Link>
                       ))}
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
-            ) : (
-              <div className="flex flex-col p-2">
-                {item.links!.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    onClick={() => setOpen(false)}
-                    className={dropdownLinkClass}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+            </div>
+
+            <div className="nav__item has-panel">
+              <Link className="nav__link" to="/aspen-airport-transfer" aria-haspopup="true">
+                Transfers
+              </Link>
+              <div className="panel panel--wide">
+                <div className="panel__cols panel__cols--3">
+                  {transferGroups.map((g) => (
+                    <div key={g.heading}>
+                      <p className="panel__label">{g.heading}</p>
+                      <div className="panel__list">
+                        {g.links.map((l) => (
+                          <Link key={l.href} to={l.href}>
+                            {l.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            )}
-      </div>
-    </div>
-  );
-};
+            </div>
 
-/* ───────── Mobile accordion group ───────── */
-const MobileNavGroup = ({
-  item,
-  onClose,
-}: {
-  item: NavItem;
-  onClose: () => void;
-}) => {
-  const [expanded, setExpanded] = useState(false);
-
-  if (!item.columns && !item.links) {
-    return (
-      <Link
-        to={item.href!}
-        onClick={onClose}
-        className="text-foreground/80 hover:text-primary transition-colors duration-300 text-sm uppercase tracking-[0.14em] font-mono py-2"
-      >
-        {item.label}
-      </Link>
-    );
-  }
-
-  // Normalise both shapes into the same "sections" list so mobile renders evenly.
-  const sections: NavColumn[] = item.columns ?? [
-    { heading: item.label, links: item.links! },
-  ];
-
-  return (
-    <div>
-      <button
-        onClick={() => setExpanded((e) => !e)}
-        className="w-full flex items-center justify-between text-foreground/80 hover:text-primary transition-colors duration-300 text-sm uppercase tracking-[0.14em] font-mono py-2"
-        aria-expanded={expanded}
-      >
-        {item.label}
-        <ChevronDown
-          className={`w-4 h-4 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
-        />
-      </button>
-      <AnimatePresence initial={false}>
-        {expanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="overflow-hidden"
-          >
-            <div className="pl-3 pb-2">
-              {sections.map((section, i) => (
-                <div key={section.heading} className={i > 0 ? "mt-4" : "mt-1"}>
-                  <p className="pb-1.5 mb-1 text-[11px] uppercase tracking-[0.18em] text-primary/80 font-mono border-b border-border/30">
-                    {section.heading}
-                  </p>
-                  {section.links.map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      onClick={onClose}
-                      className="block py-2 text-sm text-foreground/60 hover:text-primary transition-colors"
-                    >
-                      {link.label}
+            <div className="nav__item has-panel has-panel--own">
+              <Link className="nav__link" to="/rolls-royce-cullinan" aria-haspopup="true">
+                Fleet
+              </Link>
+              <div className="panel panel--own">
+                <div className="panel__list">
+                  {fleetLinks.map((l) => (
+                    <Link key={l.href} to={l.href}>
+                      {l.label}
                     </Link>
                   ))}
                 </div>
-              ))}
+              </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
 
-/* ───────── Header ───────── */
-const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+            <div className="nav__item">
+              <Link className="nav__link" to="/guides">
+                Guides
+              </Link>
+            </div>
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-[100] isolate transition-all duration-500 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-lg border-b border-border/50"
-          : "bg-background/70 backdrop-blur-md"
-      }`}
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 9999,
-        display: "block",
-        visibility: "visible",
-        opacity: 1,
-      }}
-    >
-      {/* Utility strip — collapses on scroll */}
-      <div
-        className={`hidden md:block overflow-hidden border-b border-border/40 bg-background/80 transition-all duration-500 ${
-          isScrolled ? "max-h-0 border-b-0 opacity-0" : "max-h-10 opacity-100"
-        }`}
-      >
-        <div className="container mx-auto px-6 flex items-center justify-between py-2">
-          <div className="flex items-center gap-6">
-            <a
-              href={`tel:${COMPANY.phoneRaw}`}
-              className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground/60 hover:text-primary transition-colors"
-            >
-              <Phone className="w-3 h-3 text-primary/70" />
-              {COMPANY.phoneDisplay}
-            </a>
-            <a
-              href={`mailto:${COMPANY.email}`}
-              className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground/60 hover:text-primary transition-colors"
-            >
-              <Mail className="w-3 h-3 text-primary/70" />
-              {COMPANY.email}
-            </a>
-          </div>
-          <div className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground/60">
-            <Clock className="w-3 h-3 text-primary/70" />
-            Available 24/7 · Aspen, Colorado
-          </div>
-        </div>
-      </div>
-
-      <div className={`container mx-auto px-6 transition-all duration-500 ${isScrolled ? "py-2.5" : "py-4"}`}>
-        <nav className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img
-              src={logo}
-              alt="VIP Aspen - Luxury Services in Aspen Colorado"
-              className={`w-auto transition-all duration-500 ${isScrolled ? "h-11 md:h-12" : "h-14 md:h-16"}`}
-            />
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div
-            className="hidden lg:flex items-center gap-6 xl:gap-7 relative"
-            data-testid="desktop-nav"
-          >
-            {navItems.map((item) => (
-              <DesktopDropdown key={item.label} item={item} />
-            ))}
-          </div>
-
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button variant="luxury" size="lg" asChild>
-              <a href={`tel:${COMPANY.phoneRaw}`} className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                Book Now
-              </a>
-            </Button>
-          </div>
-
-          {/* Mobile: Call button + hamburger */}
-          <div className="flex lg:hidden items-center gap-2">
-            <Button variant="luxury" size="sm" asChild>
-              <a href={`tel:${COMPANY.phoneRaw}`} className="flex items-center gap-1.5">
-                <Phone className="w-3.5 h-3.5" />
-                Call
-              </a>
-            </Button>
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-foreground p-2 border border-border/50 bg-background/30 backdrop-blur"
-              aria-label="Toggle menu"
-              title="Menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </nav>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden max-h-[calc(100svh-90px)] overflow-y-auto"
-            >
-              <div className="py-6 flex flex-col gap-2">
-                {navItems.map((item) => (
-                  <MobileNavGroup
-                    key={item.label}
-                    item={item}
-                    onClose={() => setIsMobileMenuOpen(false)}
-                  />
-                ))}
-                <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border/30">
-                  <Button variant="luxury" size="lg" asChild>
-                    <a href={`tel:${COMPANY.phoneRaw}`} className="flex items-center justify-center gap-2">
-                      <Phone className="w-4 h-4" />
-                      Call {COMPANY.phoneDisplay}
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="lg" asChild>
-                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
-                  </Button>
+            <div className="nav__item has-panel has-panel--own">
+              <Link className="nav__link" to="/about" aria-haspopup="true">
+                About
+              </Link>
+              <div className="panel panel--own">
+                <div className="panel__list">
+                  {companyLinks.map((l) => (
+                    <Link key={l.href} to={l.href}>
+                      {l.label}
+                    </Link>
+                  ))}
                 </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </nav>
+
+          <div className="hdr__cta">
+            <a className="hdr__contact" href={TEL_HREF} aria-label={`Call ${COMPANY.phoneDisplay}`}>
+              <PhoneIcon />
+              <span>{COMPANY.phoneDisplay}</span>
+            </a>
+            <a
+              className="hdr__contact hdr__contact--wa"
+              href={WHATSAPP_URL}
+              rel="noopener"
+              aria-label="Message us on WhatsApp"
+            >
+              <WhatsAppIcon />
+              <span>WhatsApp</span>
+            </a>
+            <a className="btn btn--brass btn--sm hdr__book" href={CORSA.bookUrl}>
+              Book Now
+            </a>
+            <button
+              ref={burger}
+              className="burger"
+              id="burger"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              aria-controls="drawer"
+              onClick={() => setOpen((o) => !o)}
+            >
+              <span />
+              <span />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div className="drawer" id="drawer" ref={drawer} hidden={!open}>
+        <nav aria-label="Mobile">
+          <details>
+            <summary>Services</summary>
+            {[...featuredServices, ...moreServices].map((s) => (
+              <Link key={s.href} to={s.href}>
+                {s.label}
+              </Link>
+            ))}
+          </details>
+          <details>
+            <summary>Transfers</summary>
+            {transferGroups.map((g) => (
+              <div key={g.heading}>
+                <p>{g.heading}</p>
+                {g.links.map((l) => (
+                  <Link key={l.href} to={l.href}>
+                    {l.label}
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </details>
+          <details>
+            <summary>Fleet</summary>
+            {fleetLinks.map((l) => (
+              <Link key={l.href} to={l.href}>
+                {l.label}
+              </Link>
+            ))}
+          </details>
+          <Link className="drawer__top" to="/guides">
+            Guides
+          </Link>
+          <Link className="drawer__top" to="/about">
+            About
+          </Link>
+          <Link className="drawer__top" to="/membership">
+            Membership
+          </Link>
+          <Link className="drawer__top" to="/contact">
+            Contact
+          </Link>
+        </nav>
+        <div className="drawer__cta">
+          <a className="btn btn--brass" href={CORSA.bookUrl}>
+            Get an Instant Quote
+          </a>
+          <a className="btn btn--line" href={TEL_HREF}>
+            Call {COMPANY.phoneDisplay}
+          </a>
+          <a className="btn btn--line" href={WHATSAPP_URL} rel="noopener">
+            WhatsApp
+          </a>
+        </div>
       </div>
-    </header>
+    </>
   );
 };
 

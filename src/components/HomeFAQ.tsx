@@ -1,4 +1,3 @@
-import FAQAccordion from "@/components/blocks/FAQAccordion";
 import type { FAQ } from "@/types";
 
 /** Homepage FAQ — the six questions dispatch hears most. Exported so Index can
@@ -36,15 +35,3 @@ export const homeFaqs: FAQ[] = [
       "For most rides, 24 hours is plenty. For the holidays, X Games, Presidents' Day, the Food & Wine Classic, and Labor Day weekend, book as soon as your dates are confirmed, because vehicles for those weekends are committed weeks ahead.",
   },
 ];
-
-const HomeFAQ = () => {
-  return (
-    <section className="py-20 md:py-28 bg-navy-light">
-      <div className="container mx-auto px-6">
-        <FAQAccordion faqs={homeFaqs} heading="Questions We Hear {{Every Day}}" />
-      </div>
-    </section>
-  );
-};
-
-export default HomeFAQ;

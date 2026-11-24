@@ -1,11 +1,4 @@
-import { motion } from "framer-motion";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { fadeInUp } from "@/lib/animations";
+import { FaqList } from "@/components/site/Shared";
 import SectionHeader from "@/components/layout/SectionHeader";
 import type { FAQ } from "@/types";
 
@@ -14,38 +7,16 @@ interface FAQAccordionProps {
   heading?: string;
 }
 
-const FAQAccordion = ({
-  faqs,
-  heading = "Frequently Asked {{Questions}}",
-}: FAQAccordionProps) => {
+/**
+ * Questions and answers for use inside a section a page builds itself.
+ * Templates use FaqSection (components/site/Shared), which is the whole section.
+ */
+const FAQAccordion = ({ faqs, heading = "Frequently Asked {{Questions}}" }: FAQAccordionProps) => {
   return (
-    <>
-      <SectionHeader eyebrow="Answers" heading={heading} />
-
-      <motion.div {...fadeInUp} className="max-w-3xl mx-auto">
-        <Accordion type="single" collapsible className="space-y-3">
-          {faqs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`faq-${index}`}
-              className="glass-card px-6 border-none"
-            >
-              <AccordionTrigger className="text-left font-display text-foreground hover:text-primary hover:no-underline py-5 gap-4">
-                <span className="flex items-baseline gap-4">
-                  <span className="font-mono text-xs text-primary/50 shrink-0">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  {faq.question}
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="text-foreground/70 text-sm leading-relaxed pb-5 pl-9">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </motion.div>
-    </>
+    <div style={{ maxWidth: 860, marginInline: "auto" }}>
+      <SectionHeader eyebrow="Answers" heading={heading} align="left" />
+      <FaqList faqs={faqs} />
+    </div>
   );
 };
 

@@ -1,127 +1,93 @@
 import type { ReactNode } from "react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { fadeInUpAnimate, heroImage } from "@/lib/animations";
-import { renderGoldText } from "@/lib/goldText";
+import { COMPANY } from "@/data/constants";
+import { TEL_HREF } from "@/data/site";
+import { Accent, SmartLink } from "@/components/site/Shared";
+import fallbackImage from "@/assets/cullinan-mountain-road.webp";
 import type { HeroData } from "@/types";
+
+export interface Crumb {
+  name: string;
+  /** Omit on the last crumb (the page itself). */
+  href?: string;
+}
 
 interface PageHeroProps {
   data: HeroData;
-  /** Full-viewport dark hero (for property watch) vs standard */
-  variant?: "standard" | "cinematic";
-  /** Optional content rendered below the hero text (e.g. booking widget) */
-  children?: ReactNode;
+  /** Breadcrumb trail; defaults to Home / the page's tagline. */
+  crumbs?: Crumb[];
+  /** Guides: slightly smaller title. */
+  article?: boolean;
+  /** Replaces the description and buttons on the right (guides show a byline there). */
+  side?: ReactNode;
+  /** False hides the two buttons. */
+  cta?: boolean;
 }
 
-const PageHero = ({ data, variant = "standard", children }: PageHeroProps) => {
-  const hasBgImage = !!data.bgImage;
-  const hasTwoColumns = !hasBgImage && !!data.image && variant === "standard" && !children;
+/**
+ * Interior page header, as on summitblackcar.com: the photo fills the width,
+ * darkened toward the bottom, and the text sits on it. From 1100 px the
+ * breadcrumbs are at the top, the title on the left and the description and
+ * buttons on the right, both on the bottom edge of the photo; on phones a strip
+ * of photo shows under the menu bar, then the text.
+ *
+ * The words inside {{ }} in a headline take the gold accent.
+ */
+const PageHero = ({ data, crumbs, article = false, side, cta = true }: PageHeroProps) => {
+  const image = data.bgImage || data.image || fallbackImage;
+  const trail: Crumb[] = crumbs || [{ name: "Home", href: "/" }, { name: data.tagline }];
+  const primary = { label: data.ctaLabel || "Instant Quote", href: data.ctaLink || "#booking" };
+  const secondary = data.secondaryCta
+    ? { label: data.secondaryCta.label, href: data.secondaryCta.link }
+    : { label: `Call ${COMPANY.phoneDisplay}`, href: TEL_HREF };
 
   return (
-    <section
-      className={`relative overflow-hidden bg-background ${
-        variant === "cinematic"
-          ? "pt-36 pb-24 md:pt-44 md:pb-32 min-h-[80vh] flex items-center"
-          : hasBgImage
-            ? "pt-0 pb-14 md:pt-44 md:pb-24"
-            : "pt-36 pb-16 md:pt-44 md:pb-24"
-      }`}
-    >
-      {hasBgImage ? (
-        /* On phones a landscape hero cropped behind tall stacked copy shows
-           little of the scene, so below md the photo is a full-width 4:3 band
-           under the fixed header (88px) with the copy beneath it. From md up it
-           is the full-bleed background. */
-        <div className="relative mt-[88px] aspect-[4/3] md:mt-0 md:aspect-auto md:absolute md:inset-0">
-          <img
-            src={data.bgImage}
-            alt={data.tagline}
-            className="w-full h-full object-cover"
-            loading="eager"
-            {...{ fetchpriority: "high" }}
-          />
-          <div className="absolute inset-0 hidden md:block hero-overlay-center" />
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/40 to-transparent md:hidden" />
-        </div>
-      ) : (
-        <div className="absolute inset-0 bg-grid pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-background" />
-        </div>
-      )}
-
-      <div className={`container mx-auto px-6 relative z-10 ${hasBgImage ? "-mt-6 md:mt-0" : ""}`}>
-        <div
-          className={
-            hasTwoColumns
-              ? "grid lg:grid-cols-2 gap-10 lg:gap-14 items-center"
-              : ""
-          }
-        >
-          <motion.div
-            {...fadeInUpAnimate}
-            className={hasTwoColumns ? "" : "text-center max-w-3xl mx-auto"}
-          >
-            <p className={`eyebrow mb-4 ${hasTwoColumns ? "eyebrow-tick" : ""}`}>
-              {data.tagline}
-            </p>
-            <h1 className="font-display text-4xl md:text-6xl font-semibold text-foreground mb-6 leading-[1.08] text-balance">
-              {renderGoldText(data.headline)}
-            </h1>
-            <p className="text-foreground/75 text-lg md:text-xl leading-relaxed mb-8">
-              {data.description}
-            </p>
-
-            <div
-              className={`flex flex-col sm:flex-row gap-4 ${
-                hasTwoColumns ? "" : "justify-center"
-              }`}
-            >
-              {data.ctaLabel && (
-                <Button variant="luxury" size="lg" asChild>
-                  {data.ctaLink?.startsWith("/") ? (
-                    <Link to={data.ctaLink}>{data.ctaLabel}</Link>
-                  ) : (
-                    <a href={data.ctaLink || "#booking"}>{data.ctaLabel}</a>
-                  )}
-                </Button>
-              )}
-              {data.secondaryCta && (
-                <Button variant="outline" size="lg" asChild>
-                  {data.secondaryCta.link.startsWith("/") ? (
-                    <Link to={data.secondaryCta.link}>
-                      {data.secondaryCta.label}
-                    </Link>
-                  ) : (
-                    <a href={data.secondaryCta.link}>
-                      {data.secondaryCta.label}
-                    </a>
-                  )}
-                </Button>
-              )}
-            </div>
-          </motion.div>
-
-          {hasTwoColumns && data.image && (
-            <motion.div {...heroImage} className="accent-frame">
-              <div className="glass-card overflow-hidden">
-                <img
-                  src={data.image}
-                  alt={data.tagline}
-                  className="w-full h-full object-cover aspect-[4/3] md:aspect-[3/4]"
-                  loading="eager"
-                  {...{ fetchpriority: "high" }}
-                />
-              </div>
-            </motion.div>
-          )}
-        </div>
-
-        {children && (
-          <motion.div {...heroImage} className="mt-10 max-w-4xl mx-auto">
-            {children}
-          </motion.div>
+    <section className={`phero${article ? " phero--article" : ""}`}>
+      <div className="phero__media">
+        <img src={image} alt={data.tagline} decoding="async" {...{ fetchpriority: "high" }} />
+      </div>
+      <div className="wrap phero__in">
+        {trail.length > 1 && (
+          <nav className="crumbs" aria-label="Breadcrumb">
+            {trail.map((c, i) =>
+              i < trail.length - 1 && c.href ? (
+                <span key={c.name} style={{ display: "contents" }}>
+                  <Link to={c.href}>{c.name}</Link>
+                  <span aria-hidden="true">/</span>
+                </span>
+              ) : (
+                <span key={c.name} aria-current="page">
+                  {c.name}
+                </span>
+              ),
+            )}
+          </nav>
         )}
+        <div className="phero__grid">
+          <div className="phero__head">
+            <p className="eyebrow">{data.tagline}</p>
+            <h1>
+              <Accent text={data.headline} />
+            </h1>
+          </div>
+          <div className="phero__side">
+            {side ?? (
+              <>
+                {data.description && <p className="phero__lede">{data.description}</p>}
+                {cta && (
+                  <div className="btns">
+                    <SmartLink className="btn btn--brass" href={primary.href}>
+                      <span>{primary.label}</span>
+                    </SmartLink>
+                    <SmartLink className="btn btn--line" href={secondary.href}>
+                      <span>{secondary.label}</span>
+                    </SmartLink>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

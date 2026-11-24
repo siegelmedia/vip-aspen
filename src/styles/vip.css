@@ -1,0 +1,164 @@
+/* VIP ASPEN LAYER, loaded after summit.css.
+   Andrew, 2026-11-23: "we will keep the logo white but use gold for other areas and buttons". Summit is black and
+   white only; here gold is the accent: primary buttons, eyebrows, the second half of headings, small marks.
+   Two golds: --gold on black, --gold-deep for text on white (readable contrast). */
+:root{--gold:#b8975a;--gold-light:#cfb67f;--gold-deep:#876a2f}
+::selection{background:rgba(184,151,90,.3)}
+
+/* buttons: gold is the primary on black and on white */
+.btn--brass{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.btn--brass:hover{background:transparent;color:var(--gold-light);border-color:var(--gold-light)}
+.btn--dark{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.btn--dark:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn--ink{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn--ink:hover{background:transparent;color:var(--ink)}
+.btn--outline{border-color:var(--ink);color:var(--ink)}
+.btn--outline:hover{background:var(--ink);color:#fff}
+.dock a.dock__book{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.cta__round{background:var(--gold);color:var(--ink)}
+.cta__round:hover{background:#fff;color:var(--ink)}
+.vsvc:hover,.vsvc:focus-visible{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+@media (max-width:699px){.qb__toggle{background:var(--gold)}}
+
+/* type accents */
+.eyebrow{color:var(--gold-deep)}
+.sec--ink .eyebrow,.hero .eyebrow,.phero .eyebrow,.cta .eyebrow,.about .eyebrow,.wwd .eyebrow,.bookband .eyebrow{color:var(--gold-light)}
+h1 em,.h2 em,.h3 em{color:var(--gold-deep)}
+.sec--ink .h2 em,.hero h1 em,.phero h1 em,.cta .h2 em,.about .h2 em,.wwd .h2 em,.bookband .h2 em{color:var(--gold-light)}
+.phero__st{color:var(--gold-light)}
+.panel__label,.ftr__label,.glance h2,.glance dt{color:var(--gold-light)}
+.vhero__hl li+li{border-left-color:var(--gold)}
+.go{color:var(--gold-deep)}
+.tile .go,.sec--ink .go{color:var(--gold-light)}
+a.svc__card:hover .go{color:var(--gold-light)}
+
+/* small marks */
+.marquee li::after{width:8px;height:8px;transform:rotate(45deg)}
+.std__item::after{color:var(--gold-light)}
+.ticks li::before{border-color:var(--gold-deep)}
+.sec--ink .ticks li::before,.duo--dark .ticks li::before{border-color:var(--gold-light)}
+.wte__n{border-color:var(--gold-deep);color:var(--gold-deep)}
+.veh__seats{border-color:var(--gold-deep)}
+.rev__card::before{color:var(--gold-deep)}
+.wwd__list a::before{border-color:var(--gold-light);background:radial-gradient(circle,var(--gold-light) 0 3px,transparent 3.5px)}
+.wwd__else{border-left-color:var(--gold)}
+.rmap__pt--home i{background:var(--gold);box-shadow:0 0 0 3px #fff,0 0 0 4.5px var(--ink),0 2px 8px rgba(0,0,0,.35)}
+.rmap__key .k-home{background:var(--gold)}
+.fleet__pick button.is-on{box-shadow:inset 3px 0 0 var(--gold),0 12px 28px rgba(12,12,13,.18)}
+.toc nav a:hover,.toc nav a.is-on{border-color:var(--gold-deep)}
+.faq summary:hover h3{color:var(--gold-deep)}
+.prose a,.intro__text a,.faq__a a{text-decoration-color:var(--gold)}
+.ftr__col a:hover,.panel__list a:hover{color:var(--gold-light)}
+.ftr__social a:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.hdr__logo img{height:44px}
+@media (max-width:420px){.hdr__logo img{height:36px}}
+.ftr__brand img{height:72px}
+
+/* intro watermark: the outlined "VIP" of the logo, where Summit has its mountain mark */
+.intro__disp::before{content:"VIP";width:auto;aspect-ratio:auto;font-family:var(--serif);font-weight:500;font-size:clamp(9rem,17vw,14.5rem);line-height:1;letter-spacing:.08em;color:transparent;-webkit-text-stroke:1.5px rgba(184,151,90,.42);white-space:nowrap;pointer-events:none}
+.sec--intro .intro__disp::before{width:auto}
+
+/* interior pages: feature cards, trust strip, pricing, policy list, galleries */
+.svc__icon{width:42px;height:42px;display:grid;place-content:center;border:1px solid var(--line);color:var(--gold-deep)}
+.svc__icon svg{width:20px;height:20px}
+a.svc__card:hover .svc__icon{border-color:rgba(255,255,255,.3);color:var(--gold-light)}
+.svc__list{display:grid;gap:.35rem;margin-top:.25rem;font-size:.88rem;color:var(--muted)}
+.svc__list li{padding-left:1.1rem;position:relative}
+.svc__list li::before{content:"";position:absolute;left:0;top:.68em;width:7px;height:1.5px;background:var(--gold-deep)}
+@media (min-width:1050px){.svc--2{grid-template-columns:repeat(2,1fr)}.svc--4{grid-template-columns:repeat(4,1fr)}}
+.sec__head+.svc,.sec__head+.towns,.sec__head+.vcards,.sec__head+.gallery{margin-top:0}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 2rem;padding:1.1rem var(--gut);background:var(--paper);border-bottom:1px solid var(--line);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.badges li{display:flex;align-items:center;gap:.5rem}
+.badges svg{width:15px;height:15px;color:var(--gold-deep)}
+.price{margin-top:2.5rem}
+.price:first-of-type{margin-top:0}
+.price__cat{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1rem;padding-bottom:1rem;border-bottom:1px solid var(--text)}
+.price__cat span{font-size:.8rem;color:var(--muted)}
+.price__row{display:grid;gap:.35rem 2rem;padding:1.25rem .25rem;border-bottom:1px solid var(--line)}
+@media (min-width:760px){.price__row{grid-template-columns:minmax(0,1fr) auto;align-items:baseline}}
+.price__name{font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.03em;font-size:clamp(1.2rem,1.8vw,1.45rem);line-height:1.15}
+.price__name small{display:block;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.14em;color:var(--muted);margin-top:.3rem}
+.price__amt{font-size:1.15rem;font-weight:600;color:var(--gold-deep);white-space:nowrap}
+.price__row p,.price__row ul{grid-column:1/-1;font-size:.92rem;color:var(--muted);max-width:70ch}
+.price__row.is-featured{background:var(--paper);padding-inline:1rem;box-shadow:inset 3px 0 0 var(--gold)}
+.policy{max-width:860px;margin-inline:auto;padding:1.75rem;background:var(--paper);font-size:.92rem;color:var(--muted)}
+.policy h2{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text);margin-bottom:.75rem}
+.policy ul{display:grid;gap:.5rem}
+.policy li{padding-left:1.35rem;position:relative}
+.policy li::before{content:"";position:absolute;left:.1rem;top:.72em;width:9px;height:1.5px;background:var(--gold-deep)}
+.gallery{display:grid;gap:.5rem;grid-template-columns:1fr}
+@media (min-width:700px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1050px){.gallery--3{grid-template-columns:repeat(3,1fr)}}
+.gallery figure{aspect-ratio:4/3;overflow:hidden;background:var(--coal)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.gallery figure:hover img{transform:scale(1.04)}
+.vcards{display:grid;gap:1.25rem}
+@media (min-width:760px){.vcards{grid-template-columns:repeat(3,1fr)}}
+.takeaways{margin:0 0 2.5rem;padding:1.75rem;background:var(--paper)}
+.takeaways h2{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.prose--narrow{max-width:820px;margin-inline:auto}
+
+/* booking section on interior pages: the Corsa form on a white card, on black */
+.bookband{background:var(--ink);color:#fff;padding:clamp(2.75rem,5.5vw,4.5rem) 0}
+.bookband__grid{display:grid;gap:2rem}
+.bookband__grid>*{min-width:0}
+@media (min-width:1000px){.bookband__grid{grid-template-columns:minmax(0,1fr) minmax(420px,520px);gap:clamp(2rem,5vw,5rem);align-items:start}}
+.bookband__copy .lead{color:#dcdcdf;margin-top:1rem}
+.bookband__copy .lead a{color:#fff}
+.bookband .steps{margin-top:1.75rem}
+.bookband .book{box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.bookband--solo .bookband__grid{grid-template-columns:minmax(0,1fr);max-width:720px;margin-inline:auto;text-align:center}
+.bookband--solo .lead{margin-inline:auto}
+.bookband--solo .btns{justify-content:center}
+.inq{background:#fff;color:var(--text);padding:clamp(1.25rem,3vw,2rem);box-shadow:0 30px 70px rgba(0,0,0,.5)}
+
+/* contact tiles used in the closing band */
+.reach{display:grid;gap:.75rem;margin-top:1.75rem;text-align:left}
+@media (min-width:620px){.reach{grid-template-columns:repeat(3,1fr)}}
+.reach a{display:grid;gap:.2rem;padding:1.1rem 1.25rem;border:1px solid var(--line-d);text-decoration:none;transition:border-color .2s,background .2s}
+.reach a:hover{border-color:var(--gold-light);background:rgba(255,255,255,.05)}
+.reach b{font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light)}
+.reach span{font-size:.95rem;overflow-wrap:anywhere}
+
+/* header: three even columns in the Transfers menu; panels stay shut after a menu link is followed until the pointer leaves */
+.panel__cols--3{grid-template-columns:repeat(3,1fr)}
+.nav.is-suppressed .panel{opacity:0!important;visibility:hidden!important}
+
+/* footer: the long description paragraph and the address line */
+.ftr__seo{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line-d)}
+.ftr__seo p{font-size:.8rem;line-height:1.7;color:#8e8e93;max-width:110ch}
+.ftr__seo a{color:var(--mute-d)}
+.ftr__base address{font-style:normal}
+
+/* team cards: two people, so two columns */
+@media (min-width:760px){.crew--2{grid-template-columns:repeat(2,1fr);max-width:860px;margin-inline:auto}}
+.crew__creds{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .85rem}
+.crew__creds li{padding:.25rem .65rem;border:1px solid var(--line);border-radius:999px;font-size:.66rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:759px){.crew__creds{display:none}}
+
+/* Where We Drive: each airport and route with its drive time under the name, two columns */
+.wwd__list--detail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.4rem}
+.wwd__list--detail a{align-items:flex-start;line-height:1.35}
+.wwd__list--detail a::before{flex:none;margin-top:.1rem}
+.wwd__list small{display:block;margin-top:.15rem;font-size:.74rem;font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--mute-d)}
+.wwd .eyebrow{margin-bottom:.65rem}
+@media (max-width:420px){.wwd__list--detail{grid-template-columns:minmax(0,1fr)}}
+
+/* numbered steps used inside an ordinary section (no photo band above), and four across when there are four */
+.wte__steps--flat{padding:0}
+@media (min-width:1050px){.wte__steps--4{grid-template-columns:repeat(4,1fr);gap:2rem}}
+/* headshots are not all 4:5: the frame crops them to it */
+.crew__photo{display:block}
+.crew__photo img{display:block;aspect-ratio:4/5}
+/* the overview column holds a prose block of its own width */
+.overview__intro .prose--narrow{max-width:none;margin:0}
+.overview__intro .sec__head{margin-bottom:1.25rem}
+/* booking band: the copy stays in view beside the long form */
+@media (min-width:1000px){.bookband__copy{position:sticky;top:calc(var(--hdr) + 2rem)}}
+.bookband--solo .bookband__copy{position:static}
+.bookband__copy .lead+.lead,.bookband__copy .steps+.lead{margin-top:1.5rem;font-size:.95rem}
+
+/* inquiry form inside the booking band: the white card is the frame, and the band already carries the heading */
+.inq .glass-card{border:0;padding:0}
+.inq form>h2,.inq form>h2+p{display:none}
+@media (max-width:759px){.crew--2{grid-template-columns:repeat(2,minmax(0,1fr))}}

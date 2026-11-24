@@ -4,6 +4,8 @@ import frontImg from "@/assets/rolls-gallery-front.webp";
 import interiorImg from "@/assets/rolls-gallery-interior.webp";
 import sideImg from "@/assets/rolls-gallery-side.webp";
 import roadImg from "@/assets/cullinan-mountain-road.webp";
+import openImg from "@/assets/rolls-ranch-open.webp";
+import townImg from "@/assets/rolls-town.webp";
 import type { VehiclePageData } from "@/types";
 
 const data: VehiclePageData = {
@@ -58,7 +60,7 @@ const data: VehiclePageData = {
         "Intimate rear cabin with individual seats, fold-out tables, and champagne cooler.",
     },
   ],
-  gallery: [frontImg, interiorImg, sideImg, roadImg],
+  gallery: [frontImg, interiorImg, sideImg, roadImg, openImg, townImg],
   faqs: [
     {
       question: "How much does it cost to hire a Rolls Royce in Aspen?",

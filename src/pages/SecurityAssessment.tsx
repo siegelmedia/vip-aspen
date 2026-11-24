@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import PageWrapper from "@/components/layout/PageWrapper";
+import PageHero from "@/components/layout/PageHero";
+import Marquee from "@/components/site/Marquee";
 import SectionContainer from "@/components/layout/SectionContainer";
 import SectionHeader from "@/components/layout/SectionHeader";
 import HowItWorks from "@/components/blocks/HowItWorks";
 import TrustBadges from "@/components/blocks/TrustBadges";
 import FormErrorFallback from "@/components/FormErrorFallback";
 import { trackEvent } from "@/lib/analytics";
-import { fadeInUpAnimate, fadeInUp } from "@/lib/animations";
 import { COMPANY } from "@/data/constants";
+import heroImage from "@/assets/service-property-watch.webp";
 
 const seo = {
   title: "Free Property Security Assessment in Aspen",
@@ -58,23 +59,19 @@ const SecurityAssessment = () => {
 
   return (
     <PageWrapper seo={seo} schemaData={schemaData} breadcrumbs={breadcrumbs}>
-      {/* Hero */}
-      <section className="relative pt-32 pb-12 md:pt-40 md:pb-16">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div {...fadeInUpAnimate} className="text-center max-w-3xl mx-auto">
-            <p className="text-primary uppercase tracking-[0.3em] text-sm mb-4">
-              Complimentary Assessment
-            </p>
-            <h1 className="font-display text-4xl md:text-5xl font-semibold text-foreground mb-6">
-              Property <span className="text-gradient-gold">Security Assessment</span>
-            </h1>
-            <p className="text-foreground/70 text-lg leading-relaxed">
-              A comprehensive evaluation of your Aspen property's security — lighting, access control, alarm systems, perimeter vulnerabilities, and emergency preparedness. Delivered as a professional written report.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        data={{
+          tagline: "Complimentary Assessment",
+          headline: "Property {{Security Assessment}}",
+          description:
+            "A comprehensive evaluation of your Aspen property's security — lighting, access control, alarm systems, perimeter vulnerabilities, and emergency preparedness. Delivered as a professional written report.",
+          bgImage: heroImage,
+          ctaLabel: "Request Assessment",
+          ctaLink: "#request",
+        }}
+        crumbs={[{ name: "Home", href: "/" }, { name: "Security Assessment" }]}
+      />
+      <Marquee />
 
       {/* How It Works */}
       <SectionContainer background="muted">
@@ -82,13 +79,12 @@ const SecurityAssessment = () => {
       </SectionContainer>
 
       {/* Inquiry Form */}
-      <SectionContainer>
-        <div className="max-w-2xl mx-auto">
+      <SectionContainer id="request" narrow>
+        <div>
           <SectionHeader heading="Request Your {{Assessment}}" />
 
-          <motion.form
-            {...fadeInUp}
-            className="glass-card rounded-sm p-8 md:p-10 space-y-6"
+          <form
+            className="glass-card p-8 md:p-10 space-y-6"
             onSubmit={async (e) => {
               e.preventDefault();
               setIsSubmitting(true);
@@ -229,7 +225,7 @@ const SecurityAssessment = () => {
             <p className="text-foreground/40 text-xs text-center">
               Your information is confidential. We do not share client details with third parties.
             </p>
-          </motion.form>
+          </form>
 
           {/* Trust elements */}
           <div className="mt-8">

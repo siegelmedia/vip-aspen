@@ -1,18 +1,20 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
+import SiteShell from "@/components/site/SiteShell";
+import PageHero from "@/components/layout/PageHero";
+import { COMPANY } from "@/data/constants";
+import { TEL_HREF } from "@/data/site";
 
 const popularPages = [
+  { label: "Home", to: "/" },
   { label: "Rolls Royce Cullinan", to: "/rolls-royce-cullinan" },
   { label: "Aspen Airport Transfer", to: "/aspen-airport-transfer" },
   { label: "Denver to Aspen", to: "/denver-to-aspen-car-service" },
   { label: "Black Car Service", to: "/black-car-service" },
   { label: "Membership", to: "/membership" },
   { label: "Contact", to: "/contact" },
+  { label: "Travel Guides", to: "/guides" },
 ];
 
 const NotFound = () => {
@@ -31,58 +33,36 @@ const NotFound = () => {
         robots="noindex, nofollow"
       />
 
-      <main className="min-h-screen bg-background">
-        <Header />
+      <SiteShell>
+        <PageHero
+          data={{
+            tagline: "Error 404",
+            headline: "Page {{Not Found}}",
+            description: "The page you're looking for may have moved or doesn't exist.",
+            ctaLabel: "Return Home",
+            ctaLink: "/",
+          }}
+          crumbs={[{ name: "Home", href: "/" }, { name: "Page not found" }]}
+        />
 
-        <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
-          <div className="absolute inset-0 bg-grid pointer-events-none" aria-hidden />
-          <div className="container mx-auto px-6 text-center relative">
-            <p className="font-mono text-primary/40 text-7xl md:text-8xl tracking-tight mb-6 select-none">404</p>
-            <h1 className="font-display text-4xl md:text-6xl font-semibold text-foreground mb-4">
-              Page <span className="text-gradient-gold">Not Found</span>
-            </h1>
-            <p className="text-foreground/70 text-lg max-w-xl mx-auto mb-10">
-              The page you're looking for may have moved or doesn't exist.
-            </p>
-
-            <Button variant="luxury" size="lg" asChild>
-              <Link to="/">Return Home</Link>
-            </Button>
-          </div>
-        </section>
-
-        <section className="pb-20 md:pb-28">
-          <div className="container mx-auto px-6 max-w-2xl">
-            <h2 className="font-display text-2xl font-semibold text-foreground mb-6 text-center">
-              Popular <span className="text-gradient-gold">Pages</span>
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <section className="sec sec--paper">
+          <div className="wrap">
+            <p className="eyebrow">Popular pages</p>
+            <h2 className="h2">These will get you where you are going</h2>
+            <nav className="rel" aria-label="Popular pages">
               {popularPages.map((page) => (
-                <Link
-                  key={page.to}
-                  to={page.to}
-                  className="glass-card px-4 py-3 text-sm text-foreground/70 hover:text-primary transition-colors text-center rounded-sm"
-                >
-                  {page.label}
+                <Link key={page.to} to={page.to}>
+                  <span>{page.label}</span>
+                  <i aria-hidden="true">&rarr;</i>
                 </Link>
               ))}
-            </div>
-
-            <div className="mt-10 text-center">
-              <p className="text-foreground/60 text-sm mb-2">Or call us directly:</p>
-              <a
-                href="tel:+19704526636"
-                className="inline-flex items-center gap-2 text-primary hover:underline text-lg font-medium"
-              >
-                <Phone className="w-4 h-4" />
-                (970) 452-6636
-              </a>
-            </div>
+            </nav>
+            <p className="note">
+              Or call us directly: <a href={TEL_HREF}>{COMPANY.phoneDisplay}</a>
+            </p>
           </div>
         </section>
-
-        <Footer />
-      </main>
+      </SiteShell>
     </>
   );
 };

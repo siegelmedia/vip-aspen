@@ -2,6 +2,8 @@ import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.tsx";
 import { configurePrerender } from "./lib/prerender";
 import "./index.css";
+import "./styles/summit.css";
+import "./styles/vip.css";
 
 // Must run before any framer-motion component mounts.
 configurePrerender();

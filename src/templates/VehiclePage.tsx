@@ -1,11 +1,10 @@
-import { motion } from "framer-motion";
 import PageWrapper from "@/components/layout/PageWrapper";
 import PageHero from "@/components/layout/PageHero";
 import SectionContainer from "@/components/layout/SectionContainer";
 import SectionHeader from "@/components/layout/SectionHeader";
+import Marquee from "@/components/site/Marquee";
+import { FaqSection, RelatedLinks } from "@/components/site/Shared";
 import FeatureGrid from "@/components/blocks/FeatureGrid";
-import FAQAccordion from "@/components/blocks/FAQAccordion";
-import RelatedServices from "@/components/blocks/RelatedServices";
 import BookingCTA from "@/components/blocks/BookingCTA";
 import ProseSection from "@/components/blocks/ProseSection";
 import { createVehicleSchema } from "@/lib/schema";
@@ -23,31 +22,63 @@ const VehiclePage = ({ data }: VehiclePageProps) => {
     { name: data.hero.tagline, url: `${COMPANY.url}/${data.slug}` },
   ];
 
+  // "At a glance": the page's own spec list when it has one, else the vehicle's identity.
+  const facts: { label: string; value: string }[] =
+    data.specs && data.specs.length > 0
+      ? data.specs
+      : data.vehicle
+        ? [
+            { label: "Vehicle", value: `${data.vehicle.make} ${data.vehicle.model}` },
+            { label: "Passengers", value: `Up to ${data.vehicle.passengers}` },
+            ...(data.vehicle.hourlyRateFrom
+              ? [{ label: "Hourly service", value: `From $${data.vehicle.hourlyRateFrom} per hour` }]
+              : []),
+            { label: "Availability", value: "24/7, with a professional chauffeur" },
+          ]
+        : [];
+
   return (
-    <PageWrapper
-      seo={data.seo}
-      schemaData={schema}
-      faqs={data.faqs}
-      breadcrumbs={breadcrumbs}
-    >
+    <PageWrapper seo={data.seo} schemaData={schema} faqs={data.faqs} breadcrumbs={breadcrumbs}>
       <PageHero data={data.hero} />
+      <Marquee />
 
-      {/* On-page booking form — prominent, directly below the hero so the
-          hero's "Book the …" CTA (#booking) lands on a visible widget. */}
-      <SectionContainer id="booking" background="muted">
-        <BookingCTA
-          variant="widget"
-          serviceType={data.slug}
-          heading={data.hero.ctaLabel ? `{{${data.hero.ctaLabel}}}` : "Reserve Your {{Vehicle}}"}
-          subheading="Select your date, route, and vehicle — reserve in under a minute."
-        />
-      </SectionContainer>
+      {/* On-page booking form, directly below the header so the header's
+          "Book the ..." button (#booking) lands on it. */}
+      <BookingCTA
+        id="booking"
+        variant="widget"
+        serviceType={data.slug}
+        heading={data.hero.ctaLabel ? `{{${data.hero.ctaLabel}}}` : "Reserve Your {{Vehicle}}"}
+        subheading="Select your date, route, and vehicle — reserve in under a minute."
+      />
 
-      {data.intro && (
-        <SectionContainer>
-          <ProseSection content={data.intro} />
-        </SectionContainer>
-      )}
+      <section className="sec sec--paper overview">
+        <div className="wrap overview__grid">
+          <div className="overview__intro">
+            {data.intro ? (
+              <ProseSection content={data.intro} lead eyebrow="Overview" />
+            ) : (
+              <p className="lead">{data.hero.description}</p>
+            )}
+          </div>
+          {facts.length > 0 && (
+            <aside className="glance" aria-labelledby="glance-h">
+              <h2 id="glance-h">At a glance</h2>
+              <dl>
+                {facts.map((f) => (
+                  <div key={f.label}>
+                    <dt>{f.label}</dt>
+                    <dd>{f.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <a className="btn btn--brass" href="#booking">
+                {data.hero.ctaLabel || "Get an Instant Quote"}
+              </a>
+            </aside>
+          )}
+        </div>
+      </section>
 
       {data.features && (
         <SectionContainer>
@@ -64,54 +95,27 @@ const VehiclePage = ({ data }: VehiclePageProps) => {
 
       {data.gallery && data.gallery.length > 0 && (
         <SectionContainer background="muted">
-          <SectionHeader
-            heading="The {{Experience}}"
-            subtitle="Step inside and see what awaits."
-          />
-          <div
-            className={`grid gap-4 ${
-              data.gallery.length === 2
-                ? "md:grid-cols-2"
-                : "md:grid-cols-2 lg:grid-cols-3"
-            }`}
-          >
+          <SectionHeader heading="The {{Experience}}" subtitle="Step inside and see what awaits." />
+          <div className={`gallery${data.gallery.length === 2 || data.gallery.length === 4 ? "" : " gallery--3"}`}>
             {data.gallery.map((src, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card overflow-hidden group"
-              >
-                <img
-                  src={src}
-                  alt={`${data.hero.tagline} - photo ${index + 1}`}
-                  className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </motion.div>
+              <figure key={src}>
+                <img src={src} alt={`${data.hero.tagline} - photo ${index + 1}`} loading="lazy" decoding="async" />
+              </figure>
             ))}
           </div>
         </SectionContainer>
       )}
 
-      {data.faqs && (
-        <SectionContainer>
-          <FAQAccordion faqs={data.faqs} />
-        </SectionContainer>
-      )}
+      <FaqSection faqs={data.faqs} />
 
-      <RelatedServices items={data.relatedServices} />
+      <RelatedLinks items={data.relatedServices} paper />
 
-      <SectionContainer background="gradient">
-        <BookingCTA
-          variant="contact-only"
-          serviceType={data.slug}
-          heading="Prefer to {{Speak With Us}}?"
-          subheading="Our team is available 24/7 to arrange your ride. Call, message, or email anytime."
-        />
-      </SectionContainer>
+      <BookingCTA
+        variant="contact-only"
+        serviceType={data.slug}
+        heading="Prefer to {{Speak With Us}}?"
+        subheading="Our team is available 24/7 to arrange your ride. Call, message, or email anytime."
+      />
     </PageWrapper>
   );
 };

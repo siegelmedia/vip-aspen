@@ -21,10 +21,13 @@ describe('server render', () => {
     expect(head).toContain('type="application/ld+json"');
   });
 
-  it('keeps the booking iframe out of the static markup', async () => {
+  it('writes the booking frame without an address, for the Corsa script to load', async () => {
     const { html } = await render('/');
     expect(html).toMatch(/<h1[\s>]/);
-    expect(html).not.toContain('<iframe');
+    // The frame carries the form address in data-corsa-form and has no src: nothing is fetched from the static
+    // HTML, and the Corsa embed script (index.html) loads it with the visitor source added.
+    expect(html).toContain('data-corsa-form="https://ops.summitblackcar.com/embed/book?brand=vip-aspen"');
+    expect(html).not.toMatch(/<iframe[^>]*\ssrc=/);
   });
 
   it('renders the 404 page for unknown routes', async () => {

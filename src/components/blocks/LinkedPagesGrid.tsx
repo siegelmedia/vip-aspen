@@ -1,7 +1,4 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import { staggerChild } from "@/lib/animations";
 import SectionHeader from "@/components/layout/SectionHeader";
 import type { LinkedPagesGroup } from "@/types";
 
@@ -9,12 +6,9 @@ interface LinkedPagesGridProps {
   group: LinkedPagesGroup;
 }
 
-const colClasses = {
-  2: "sm:grid-cols-2",
-  3: "sm:grid-cols-2 lg:grid-cols-3",
-  4: "sm:grid-cols-2 lg:grid-cols-4",
-};
+const colClass = { 2: " svc--2", 3: "", 4: " svc--4" };
 
+/** A heading and a grid of cards, each linking to another page of the site. */
 const LinkedPagesGrid = ({ group }: LinkedPagesGridProps) => {
   const columns = group.columns || 4;
 
@@ -22,36 +16,23 @@ const LinkedPagesGrid = ({ group }: LinkedPagesGridProps) => {
     <>
       <SectionHeader heading={group.heading} subtitle={group.subtitle} />
 
-      <div className={`grid ${colClasses[columns]} gap-6`}>
-        {group.items.map((item, index) => {
+      <div className={`svc${colClass[columns]}`}>
+        {group.items.map((item) => {
           const Icon = item.icon;
           return (
-            <motion.div key={item.href} {...staggerChild(index)}>
-              <Link
-                to={item.href}
-                className="glass-card p-6 flex flex-col h-full group hover:border-primary/40 hover:-translate-y-1.5 hover:shadow-luxury transition-all duration-300 block"
-              >
-                {Icon && (
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 border border-primary/25 mb-4 self-start">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                )}
-                <h3 className="font-display text-lg font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
-                  {item.label}
-                </h3>
-                {item.detail && (
-                  <p className="font-mono text-primary text-xs tracking-wide mb-2">{item.detail}</p>
-                )}
-                {item.description && (
-                  <p className="text-foreground/60 text-sm leading-relaxed mb-4 flex-grow">
-                    {item.description}
-                  </p>
-                )}
-                <span className="inline-flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all mt-auto">
-                  Learn More <ArrowRight className="w-4 h-4" />
+            <Link key={item.href} to={item.href} className="svc__card">
+              {Icon && (
+                <span className="svc__icon">
+                  <Icon aria-hidden="true" strokeWidth={1.5} />
                 </span>
-              </Link>
-            </motion.div>
+              )}
+              {item.detail && <p className="eyebrow">{item.detail}</p>}
+              <h3>{item.label}</h3>
+              {item.description && <p>{item.description}</p>}
+              <span className="go" style={{ marginTop: "auto" }}>
+                Learn more <i aria-hidden="true">&rarr;</i>
+              </span>
+            </Link>
           );
         })}
       </div>

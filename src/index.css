@@ -2,97 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme tokens for the Tailwind / shadcn components that remain (forms, toasts, the membership and security pages).
+   2026-11-23 rebuild: the site took the Summit Black Car design (white and ink sections, square corners, serif
+   capitals) with gold as the accent. The Summit rules themselves are in styles/summit.css and styles/vip.css,
+   imported after this file in main.tsx. */
 @layer base {
   :root {
-    /* VIP Aspen — Rich Black + Muted Champagne */
-    --background: 0 0% 4%;
-    --foreground: 30 14% 94%;
+    --background: 0 0% 100%;
+    --foreground: 240 3% 7%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 30 14% 94%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 3% 7%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 30 14% 94%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 3% 7%;
 
-    --primary: 38 38% 54%;
-    --primary-foreground: 0 0% 4%;
+    /* gold deep enough to read as text on white */
+    --primary: 40 48% 36%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 30 14% 94%;
+    --secondary: 60 5% 96%;
+    --secondary-foreground: 240 3% 7%;
 
-    --muted: 0 0% 14%;
-    --muted-foreground: 30 6% 58%;
+    --muted: 60 5% 96%;
+    --muted-foreground: 240 2% 38%;
 
-    --accent: 38 38% 54%;
-    --accent-foreground: 0 0% 4%;
+    --accent: 60 4% 92%;
+    --accent-foreground: 240 3% 7%;
 
-    --destructive: 0 40% 38%;
-    --destructive-foreground: 30 14% 94%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-    --ring: 38 38% 54%;
+    --border: 240 2% 86%;
+    --input: 240 2% 80%;
+    --ring: 39 39% 54%;
 
-    --radius: 0.25rem;
+    --radius: 0rem;
 
-    /* Custom luxury tokens */
-    --gold: 38 38% 54%;
-    --gold-light: 40 42% 66%;
-    --gold-dark: 36 30% 42%;
-    --navy: 0 0% 4%;
-    --navy-light: 0 0% 8%;
-    --navy-medium: 0 0% 14%;
-    --cream: 30 14% 94%;
-    --cream-muted: 30 8% 78%;
+    --gold: 39 39% 54%;
+    --gold-light: 41 45% 65%;
+    --gold-dark: 40 48% 36%;
+    /* legacy names from the dark theme, mapped to the light surfaces so old class names stay readable */
+    --navy: 0 0% 100%;
+    --navy-light: 60 5% 96%;
+    --navy-medium: 60 4% 92%;
+    --cream: 240 3% 7%;
+    --cream-muted: 240 2% 38%;
 
-    /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(40 42% 66%), hsl(38 38% 54%), hsl(36 30% 42%));
-    --gradient-hero: linear-gradient(180deg, transparent 0%, hsl(0 0% 4% / 0.4) 50%, hsl(0 0% 4%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 4%) 100%);
+    --shadow-luxury: 0 24px 50px rgba(0, 0, 0, 0.12);
+    --shadow-gold: 0 0 0 rgba(0, 0, 0, 0);
+    --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.08);
 
-    /* Shadows */
-    --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.6);
-    --shadow-gold: 0 0 30px hsl(38 38% 54% / 0.15);
-    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
-
-    --sidebar-background: 216 40% 7%;
-    --sidebar-foreground: 45 20% 95%;
-    --sidebar-primary: 40 45% 57%;
-    --sidebar-primary-foreground: 216 40% 7%;
-    --sidebar-accent: 216 30% 15%;
-    --sidebar-accent-foreground: 45 20% 95%;
-    --sidebar-border: 216 25% 20%;
-    --sidebar-ring: 40 45% 57%;
-  }
-
-  .dark {
-    --background: 0 0% 4%;
-    --foreground: 30 14% 94%;
-    --card: 0 0% 7%;
-    --card-foreground: 30 14% 94%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 30 14% 94%;
-    --primary: 38 38% 54%;
-    --primary-foreground: 0 0% 4%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 30 14% 94%;
-    --muted: 0 0% 14%;
-    --muted-foreground: 30 6% 58%;
-    --accent: 38 38% 54%;
-    --accent-foreground: 0 0% 4%;
-    --destructive: 0 40% 38%;
-    --destructive-foreground: 30 14% 94%;
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-    --ring: 38 38% 54%;
-    --sidebar-background: 0 0% 4%;
-    --sidebar-foreground: 30 14% 94%;
-    --sidebar-primary: 38 38% 54%;
-    --sidebar-primary-foreground: 0 0% 4%;
-    --sidebar-accent: 0 0% 10%;
-    --sidebar-accent-foreground: 30 14% 94%;
-    --sidebar-border: 0 0% 16%;
-    --sidebar-ring: 38 38% 54%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 3% 7%;
+    --sidebar-primary: 40 48% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 60 5% 96%;
+    --sidebar-accent-foreground: 240 3% 7%;
+    --sidebar-border: 240 2% 86%;
+    --sidebar-ring: 39 39% 54%;
   }
 }
 
@@ -100,62 +68,16 @@
   * {
     @apply border-border;
   }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: -0.02em;
-  }
-
-  ::selection {
-    background: hsl(var(--primary) / 0.25);
-    color: hsl(var(--foreground));
-  }
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: hsl(var(--background));
-  }
-  ::-webkit-scrollbar-thumb {
-    background: hsl(0 0% 18%);
-    border-radius: 5px;
-    border: 2px solid hsl(var(--background));
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.5);
-  }
-
-  :focus-visible {
-    outline: 2px solid hsl(var(--ring));
-    outline-offset: 2px;
-  }
 }
 
 @layer components {
+  /* Legacy helpers from the dark theme, restated for the light one */
   .text-gradient-gold {
-    background: linear-gradient(135deg, hsl(42 48% 72%), hsl(38 38% 56%), hsl(36 32% 46%));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: hsl(var(--gold-dark));
   }
 
   .bg-gradient-gold {
-    background: linear-gradient(135deg, hsl(40 42% 66%), hsl(38 38% 54%), hsl(36 30% 42%));
-  }
-
-  .border-gradient-gold {
-    border-image: linear-gradient(135deg, hsl(40 42% 66%), hsl(38 38% 54%), hsl(36 30% 42%)) 1;
+    background: hsl(var(--gold));
   }
 
   .shadow-luxury {
@@ -163,191 +85,46 @@
   }
 
   .shadow-gold {
-    box-shadow: var(--shadow-gold);
+    box-shadow: none;
   }
 
   .glass-card {
-    background: hsl(0 0% 7% / 0.85);
-    backdrop-filter: blur(20px);
-    border: 1px solid hsl(0 0% 16% / 0.5);
+    background: #fff;
+    border: 1px solid rgba(17, 17, 18, 0.14);
   }
 
   .luxury-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(38 38% 54% / 0.4), transparent);
+    background: rgba(17, 17, 18, 0.14);
   }
 
-  /* Mono uppercase eyebrow label */
-  .eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: 0.75rem;
-    color: hsl(var(--primary));
-  }
-
-  /* Accent tick that precedes eyebrows */
   .eyebrow-tick::before {
-    content: "";
-    display: inline-block;
-    width: 1.5rem;
-    height: 1px;
-    background: hsl(var(--primary));
-    vertical-align: middle;
-    margin-right: 0.75rem;
+    content: none;
   }
 
-  /* Subtle blueprint grid backdrop */
   .bg-grid {
-    background-image:
-      linear-gradient(hsl(0 0% 100% / 0.025) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(0 0% 100% / 0.025) 1px, transparent 1px);
-    background-size: 56px 56px;
+    background-image: none;
   }
 
-  /* Layered hero overlay — dark on the text side, near-clear opposite */
-  .hero-overlay {
-    background:
-      linear-gradient(90deg, hsl(0 0% 4% / 0.74) 0%, hsl(0 0% 4% / 0.45) 45%, hsl(0 0% 4% / 0.08) 100%),
-      linear-gradient(180deg, hsl(0 0% 4% / 0.35) 0%, transparent 30%, transparent 62%, hsl(0 0% 4% / 0.92) 100%);
-  }
-
-  /* Centered-text hero overlay — darker core so headlines stay legible over bright snow */
-  .hero-overlay-center {
-    background:
-      radial-gradient(ellipse 70% 55% at 50% 42%, hsl(0 0% 4% / 0.55), transparent 100%),
-      linear-gradient(180deg, hsl(0 0% 4% / 0.6) 0%, hsl(0 0% 4% / 0.48) 45%, hsl(0 0% 4% / 0.94) 100%);
-  }
-
-  /* Full-bleed CTA band overlay — mid gradient, not a flat wash */
-  .cta-overlay {
-    background: linear-gradient(90deg, hsl(0 0% 4% / 0.82) 0%, hsl(0 0% 4% / 0.55) 55%, hsl(0 0% 4% / 0.2) 100%);
-  }
-
-  /* Offset accent frame for image+text sections */
   .accent-frame {
     position: relative;
-  }
-  .accent-frame::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    transform: translate(14px, 14px);
-    border: 1px solid hsl(var(--primary) / 0.35);
-    pointer-events: none;
-    z-index: -1;
-  }
-}
-
-/* Protect site header from third-party CSS (e.g., BookRidesOnline Bootstrap) */
-header[style*="position: fixed"] {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: 9999 !important;
-  pointer-events: auto !important;
-}
-
-header[style*="position: fixed"] nav {
-  display: flex !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-header[style*="position: fixed"] [data-testid="desktop-nav"] {
-  display: none !important;
-}
-
-@media (min-width: 1024px) {
-  header[style*="position: fixed"] [data-testid="desktop-nav"] {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Cormorant", "Bodoni MT", "Didot", "Iowan Old Style", Georgia, serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
-  .font-body {
-    font-family: 'Inter', sans-serif;
-  }
-
+  .font-body,
   .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
   .text-balance {
     text-wrap: balance;
-  }
-
-  .animate-fade-up {
-    animation: fadeUp 0.8s ease-out forwards;
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
-
-  .animate-shimmer {
-    animation: shimmer 3s ease-in-out infinite;
-  }
-
-  .animate-marquee {
-    animation: marquee 36s linear infinite;
-  }
-
-  .pause-on-hover:hover .animate-marquee {
-    animation-play-state: paused;
-  }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes shimmer {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.7;
-    }
-  }
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .animate-marquee {
-      animation: none;
-    }
   }
 }

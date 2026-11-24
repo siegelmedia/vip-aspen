@@ -1,21 +1,22 @@
-import { motion } from "framer-motion";
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import AreasMarquee from "@/components/AreasMarquee";
-import Services from "@/components/Services";
-import WhyVIPAspen from "@/components/WhyVIPAspen";
-import Fleet from "@/components/Fleet";
-import HowWeWork from "@/components/HowWeWork";
-import CTABand from "@/components/CTABand";
-import AirportTransfers from "@/components/AirportTransfers";
-import HomeGuides from "@/components/HomeGuides";
-import HomeFAQ, { homeFaqs } from "@/components/HomeFAQ";
-import { createFAQSchema } from "@/lib/schema";
-import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
-import BookingWidget from "@/components/BookingWidget";
-import { fadeInUp } from "@/lib/animations";
+import SiteShell from "@/components/site/SiteShell";
+import Marquee from "@/components/site/Marquee";
+import { CtaRound, FaqSection, GuideCards } from "@/components/site/Shared";
+import VideoHero from "@/components/home/VideoHero";
+import FleetShowcase from "@/components/home/FleetShowcase";
+import WhereWeDrive from "@/components/home/WhereWeDrive";
+import { AboutBand, Intro, SeoBlock, ServiceTiles, Standards, Team, WhatToExpect } from "@/components/home/Sections";
+import { homeFaqs } from "@/components/HomeFAQ";
+import { guideSummaries } from "@/data/guides";
+import { createFAQSchema } from "@/lib/schema";
 
+/**
+ * Homepage, section for section in the order of summitblackcar.com
+ * (2026-11-23 rebuild). Sections that need material VIP Aspen does not have
+ * yet (partner logos, memberships, client reviews) are left out until Andrew
+ * supplies them; see REDESIGN-PLAN.md.
+ */
 const Index = () => {
   return (
     <>
@@ -27,39 +28,41 @@ const Index = () => {
         ogImage="https://www.vipaspen.com/og-image.jpg"
         schemaData={createFAQSchema(homeFaqs)}
       />
-      <main className="min-h-screen bg-background">
-        <Header />
-        <Hero />
-        <AreasMarquee />
-        <Services />
-        <Fleet />
-        <HowWeWork />
-        <WhyVIPAspen />
-        <AirportTransfers />
-        <HomeGuides />
-
-        {/* On-page booking — the BookRidesOnline reservation widget */}
-        <section id="booking" className="py-20 md:py-28 bg-muted/20">
-          <div className="container mx-auto px-6">
-            <motion.div {...fadeInUp} className="text-center mb-10 max-w-2xl mx-auto">
-              <p className="eyebrow mb-4">Reserve</p>
-              <h2 className="font-display text-3xl md:text-5xl font-semibold text-foreground mb-4">
-                Book Your <span className="text-gradient-gold">Aspen Ride</span>
+      <SiteShell>
+        <VideoHero />
+        <Marquee />
+        <Intro />
+        <ServiceTiles />
+        <Standards />
+        <FleetShowcase />
+        <WhatToExpect />
+        <Team />
+        <WhereWeDrive />
+        <AboutBand />
+        <FaqSection faqs={homeFaqs} heading="Questions We Hear {{Every Day}}" />
+        <section className="sec sec--paper" id="guides">
+          <div className="wrap">
+            <div className="sec__head center">
+              <p className="eyebrow">Aspen Travel Guides</p>
+              <h2 className="h2">
+                Plan Your Trip Like a <em>Local</em>
               </h2>
-              <p className="text-foreground/60 text-lg">
-                Select your vehicle, date, and route — confirmed in minutes. No surge pricing,
-                available 24/7.
+              <p className="lead">
+                Honest answers to the questions every Aspen visitor asks, written by the team that drives these roads
+                every day.
               </p>
-            </motion.div>
-            <BookingWidget />
+            </div>
+            <GuideCards guides={guideSummaries.slice(0, 3)} />
+            <div className="btns center" style={{ justifyContent: "center" }}>
+              <Link className="btn btn--dark" to="/guides">
+                All Aspen Guides
+              </Link>
+            </div>
           </div>
         </section>
-
-        <HomeFAQ />
-        <CTABand />
-
-        <Footer />
-      </main>
+        <SeoBlock />
+        <CtaRound />
+      </SiteShell>
     </>
   );
 };

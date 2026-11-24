@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Check, Crown, Star, Gem, Phone, Clock, Plane, Users, Shield, ArrowRightLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import SiteShell from "@/components/site/SiteShell";
+import Marquee from "@/components/site/Marquee";
+import PageHero from "@/components/layout/PageHero";
+import heroImage from "@/assets/rolls-gallery-side.webp";
 import SEOHead from "@/components/SEOHead";
 import { combineSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/schema";
 import { COMPANY } from "@/data/constants";
@@ -211,34 +213,20 @@ const MembershipPage = () => {
         schemaData={pageSchema}
       />
 
-      <main className="min-h-screen bg-background">
-        <Header />
-
-        {/* Hero Section */}
-        <section className="relative pt-32 pb-20 md:pt-40 md:pb-24">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
-          <div className="container mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <p className="text-primary uppercase tracking-[0.3em] text-sm mb-4">
-                Membership
-              </p>
-              <h1 className="font-display text-4xl md:text-6xl font-semibold text-foreground mb-6">
-                VIP Aspen <span className="text-gradient-gold">Memberships</span>
-              </h1>
-              <p className="text-foreground/70 text-lg md:text-xl leading-relaxed mb-4">
-                Monthly memberships that include free transportation services, discounted rates, and a personal concierge. Members receive priority booking and can roll over unused benefits month to month.
-              </p>
-              <p className="text-foreground/50 text-sm">
-                Memberships are billed monthly unless prepaid.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+      <SiteShell>
+        <PageHero
+          data={{
+            tagline: "Membership",
+            headline: "VIP Aspen {{Memberships}}",
+            description:
+              "Monthly memberships that include free transportation services, discounted rates, and a personal concierge. Members receive priority booking and can roll over unused benefits month to month. Memberships are billed monthly unless prepaid.",
+            bgImage: heroImage,
+            ctaLabel: "Join Now",
+            ctaLink: "#contact",
+          }}
+          crumbs={[{ name: "Home", href: "/" }, { name: "Membership" }]}
+        />
+        <Marquee />
 
         {/* Key Features */}
         <section className="py-12 bg-muted/30">
@@ -283,7 +271,7 @@ const MembershipPage = () => {
                 <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground mb-8 text-center">
                   Why Become a <span className="text-gradient-gold">VIP Aspen Member</span>
                 </h2>
-                <div className="prose prose-lg max-w-none space-y-6 text-foreground/70 leading-relaxed">
+                <div className="prose">
                   <p>
                     Our membership program isn't just about discounts — it's about access and priority. Aspen's peak seasons are among the most competitive in luxury travel. During Christmas and New Year's, FIS World Cup ski races, X Games, and the Food &amp; Wine Classic, demand for luxury transportation surges and vehicles book out weeks in advance. VIP Aspen members receive guaranteed availability during these critical periods, ensuring your plans are never disrupted by last-minute booking shortages.
                   </p>
@@ -712,8 +700,7 @@ const MembershipPage = () => {
           </div>
         </section>
 
-        <Footer />
-      </main>
+      </SiteShell>
     </>
   );
 };

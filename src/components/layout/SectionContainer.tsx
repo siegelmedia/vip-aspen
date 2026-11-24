@@ -4,13 +4,17 @@ interface SectionContainerProps {
   children: ReactNode;
   id?: string;
   className?: string;
-  background?: "default" | "muted" | "gradient";
+  /** default = white, muted / gradient = light grey paper, ink = black with white text */
+  background?: "default" | "muted" | "gradient" | "ink";
+  /** Narrow text column (860 px) instead of the full page width. */
+  narrow?: boolean;
 }
 
 const bgClasses = {
   default: "",
-  muted: "bg-muted/20",
-  gradient: "bg-gradient-to-b from-primary/5 to-transparent",
+  muted: " sec--paper",
+  gradient: " sec--paper",
+  ink: " sec--ink",
 };
 
 const SectionContainer = ({
@@ -18,10 +22,11 @@ const SectionContainer = ({
   id,
   className = "",
   background = "default",
+  narrow = false,
 }: SectionContainerProps) => {
   return (
-    <section id={id} className={`py-16 md:py-24 ${bgClasses[background]} ${className}`}>
-      <div className="container mx-auto px-6">{children}</div>
+    <section id={id} className={`sec${bgClasses[background]}${className ? ` ${className}` : ""}`}>
+      <div className={`wrap${narrow ? " wrap--narrow" : ""}`}>{children}</div>
     </section>
   );
 };

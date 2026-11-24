@@ -1,14 +1,13 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Shield, Car, MapPin, Star, Users, ArrowRight, Phone, Clock, Award } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { Shield, Car, MapPin, Star, Users, Clock, Award } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import SiteShell from "@/components/site/SiteShell";
+import Marquee from "@/components/site/Marquee";
+import { CtaRound } from "@/components/site/Shared";
+import PageHero from "@/components/layout/PageHero";
+import SectionContainer from "@/components/layout/SectionContainer";
 import SectionHeader from "@/components/layout/SectionHeader";
 import { createBreadcrumbSchema } from "@/lib/schema";
-import { fadeInUp, staggerChild } from "@/lib/animations";
 import { COMPANY } from "@/data/constants";
 import heroImage from "@/assets/hero-aspen.webp";
 import cullinanImage from "@/assets/rolls-royce-cullinan.webp";
@@ -148,7 +147,7 @@ const serviceAreas = [
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
       <SEOHead
         title="About VIP Aspen | Veteran & LEO-Owned Car Service"
         description="VIP Aspen is a veteran and law-enforcement owned luxury transportation and executive protection company in Aspen, Colorado. Rolls-Royce, Escalade & Sprinter, available 24/7."
@@ -157,303 +156,197 @@ const AboutPage = () => {
         schemaData={aboutSchema}
       />
 
-      <Header />
+      <SiteShell>
+        <PageHero
+          data={{
+            tagline: "About VIP Aspen",
+            headline: "Transportation, Access & Protection. {{One Aspen Team.}}",
+            description:
+              "VIP Aspen is a veteran and law-enforcement owned company built for the way people actually visit Aspen: arriving by jet, moving between mountains and dinners, and expecting every detail to be handled quietly.",
+            bgImage: heroImage,
+            ctaLabel: "Contact Us",
+            ctaLink: "/contact",
+          }}
+          crumbs={[{ name: "Home", href: "/" }, { name: "About" }]}
+        />
+        <Marquee />
 
-      {/* Hero */}
-      <section className="relative md:min-h-[70vh] flex flex-col md:flex-row md:items-center overflow-hidden bg-background">
-        {/* Same phone treatment as the homepage hero: 4:3 band, copy below */}
-        <div className="relative mt-[88px] aspect-[4/3] md:mt-0 md:aspect-auto md:absolute md:inset-0">
-          <img
-            src={heroImage}
-            alt="Aspen, Colorado, home of VIP Aspen luxury car service"
-            className="w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
-            {...{ fetchpriority: "high" }}
-          />
-          <div className="absolute inset-0 hidden md:block hero-overlay" />
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background via-background/40 to-transparent md:hidden" />
-        </div>
-        <div className="relative z-10 container mx-auto px-6 -mt-6 pb-16 md:mt-0 md:pt-44 md:pb-28">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15 }}
-            className="max-w-3xl"
-          >
-            <p className="eyebrow eyebrow-tick mb-6">About VIP Aspen</p>
-            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-6">
-              Transportation, Access & Protection.{" "}
-              <span className="text-gradient-gold">One Aspen Team.</span>
-            </h1>
-            <p className="text-foreground/75 text-lg md:text-xl max-w-2xl leading-relaxed">
-              VIP Aspen is a veteran and law-enforcement owned company built for the way people
-              actually visit Aspen: arriving by jet, moving between mountains and dinners, and
-              expecting every detail to be handled quietly.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Story */}
-      <section className="py-20 md:py-28 bg-background relative">
-        <div className="absolute inset-0 bg-grid pointer-events-none" aria-hidden />
-        <div className="container mx-auto px-6 relative">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <motion.div {...fadeInUp}>
-              <p className="eyebrow eyebrow-tick mb-4">Our Story</p>
-              <h2 className="font-display text-3xl md:text-5xl font-semibold mb-8 leading-[1.1]">
-                Built for Aspen's <span className="text-gradient-gold">Most Demanding Guests</span>
-              </h2>
-              <div className="space-y-5 text-foreground/70 leading-relaxed">
-                <p>
-                  VIP Aspen was founded to fill a gap in the Aspen luxury market. Most car services
-                  offer a ride from A to B. The executives, athletes, entertainers, and families who
-                  choose this town over anywhere else in the world need more than that: a chauffeur
-                  who understands discretion, a vehicle that belongs on Main Street, and a team that
-                  can arrange the table, the tarmac, and the security detail with the same phone call.
-                </p>
-                <p>
-                  We are operated by Aspen Security LLC, a Colorado-licensed security company with
-                  veteran and law enforcement ownership. That background shapes everything about how
-                  we work. Every chauffeur is background-checked and trained. Every itinerary is
-                  planned in advance. Confidentiality is a standing policy, not a request.
-                </p>
-                <p>
-                  We are also unapologetically local. Our team knows every hotel entrance, every FBO
-                  gate at ASE, every valet stand, and how Highway 82 behaves in a February storm. That
-                  knowledge cannot be trained into a national franchise or an app. It comes from
-                  living and working in the Roaring Fork Valley, and it is the reason our clients
-                  come back season after season.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="accent-frame max-w-xl mx-auto lg:mx-0 w-full"
-            >
+        {/* Story */}
+        <section className="sec sec--split">
+          <div className="wrap duo">
+            <figure className="duo__img">
               <img
                 src={teamImage}
                 alt="VIP Aspen chauffeur with the Rolls-Royce Cullinan in downtown Aspen"
-                className="w-full aspect-[4/5] object-cover"
                 loading="lazy"
+                decoding="async"
               />
-            </motion.div>
+            </figure>
+            <div className="duo__copy">
+              <p className="eyebrow">Our Story</p>
+              <h2 className="h2">
+                Built for Aspen's <em>Most Demanding Guests</em>
+              </h2>
+              <p>
+                VIP Aspen was founded to fill a gap in the Aspen luxury market. Most car services offer a ride from A
+                to B. The executives, athletes, entertainers, and families who choose this town over anywhere else in
+                the world need more than that: a chauffeur who understands discretion, a vehicle that belongs on Main
+                Street, and a team that can arrange the table, the tarmac, and the security detail with the same phone
+                call.
+              </p>
+              <p>
+                We are operated by Aspen Security LLC, a Colorado-licensed security company with veteran and law
+                enforcement ownership. That background shapes everything about how we work. Every chauffeur is
+                background-checked and trained. Every itinerary is planned in advance. Confidentiality is a standing
+                policy, not a request.
+              </p>
+              <p>
+                We are also unapologetically local. Our team knows every hotel entrance, every FBO gate at ASE, every
+                valet stand, and how Highway 82 behaves in a February storm. That knowledge cannot be trained into a
+                national franchise or an app. It comes from living and working in the Roaring Fork Valley, and it is
+                the reason our clients come back season after season.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Leadership */}
-      <section id="leadership" className="py-20 md:py-28 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <SectionHeader
-            eyebrow="Leadership"
-            heading="The People {{Behind the Wheel}}"
-            subtitle="Law enforcement and special operations backgrounds, not a dispatch desk. These are the people who set the standard for every ride."
-          />
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {leaders.map((person, i) => (
-              <motion.article
-                key={person.id}
-                id={person.id}
-                {...staggerChild(i)}
-                className="glass-card p-7 md:p-8 flex flex-col sm:flex-row gap-6"
-              >
-                <img
-                  src={person.photo}
-                  alt={`${person.name}, ${person.title} at VIP Aspen`}
-                  width={160}
-                  height={160}
-                  loading="lazy"
-                  className="w-32 h-32 sm:w-40 sm:h-40 object-cover object-top shrink-0 accent-frame"
-                />
-                <div>
-                  <h3 className="font-display text-2xl font-semibold mb-1">{person.name}</h3>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary/80 mb-4">
-                    {person.title}
-                  </p>
-                  <ul className="flex flex-wrap gap-2 mb-4">
-                    {person.credentials.map((c) => (
-                      <li
-                        key={c}
-                        className="text-[11px] uppercase tracking-[0.12em] font-mono px-2.5 py-1 border border-primary/30 text-foreground/70"
-                      >
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-foreground/65 text-sm leading-relaxed">{person.bio}</p>
-                </div>
-              </motion.article>
-            ))}
+        {/* Leadership */}
+        <section id="leadership" className="sec sec--paper">
+          <div className="wrap">
+            <SectionHeader
+              eyebrow="Leadership"
+              heading="The People {{Behind the Wheel}}"
+              subtitle="Law enforcement and special operations backgrounds, not a dispatch desk. These are the people who set the standard for every ride."
+            />
+            <div className="crew crew--2" style={{ marginTop: 0 }}>
+              {leaders.map((person) => (
+                <article key={person.id} id={person.id} className="crew__card">
+                  <div className="crew__photo">
+                    <img
+                      src={person.photo}
+                      alt={`${person.name}, ${person.title} at VIP Aspen`}
+                      width={900}
+                      height={1125}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="crew__body">
+                    <h3>{person.name}</h3>
+                    <p className="crew__role">{person.title}</p>
+                    <ul className="crew__creds">
+                      {person.credentials.map((c) => (
+                        <li key={c}>{c}</li>
+                      ))}
+                    </ul>
+                    <p className="crew__bio">
+                      <b className="crew__who">{person.name}</b> {person.bio}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Pillars */}
-      <section className="py-20 md:py-28 bg-navy-light">
-        <div className="container mx-auto px-6">
+        {/* Pillars */}
+        <SectionContainer>
           <SectionHeader
             eyebrow="What Sets Us Apart"
             heading="The VIP Aspen {{Standard}}"
             subtitle="Four commitments that apply to every ride, every client, every season."
           />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {pillars.map((pillar, index) => {
+          <div className="svc svc--4">
+            {pillars.map((pillar) => {
               const Icon = pillar.icon;
               return (
-                <motion.div
-                  key={pillar.title}
-                  {...staggerChild(index)}
-                  className="glass-card p-7 hover:border-primary/40 hover:-translate-y-1.5 transition-all duration-300"
-                >
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 border border-primary/25 mb-5">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-display text-lg font-semibold mb-3">{pillar.title}</h3>
-                  <p className="text-foreground/60 text-sm leading-relaxed">{pillar.description}</p>
-                </motion.div>
+                <div key={pillar.title} className="svc__card">
+                  <span className="svc__icon">
+                    <Icon aria-hidden="true" strokeWidth={1.5} />
+                  </span>
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.description}</p>
+                </div>
               );
             })}
           </div>
-        </div>
-      </section>
+        </SectionContainer>
 
-      {/* Fleet */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-6">
+        {/* Fleet */}
+        <SectionContainer background="muted">
           <SectionHeader
             eyebrow="The Fleet"
             heading="Three Vehicles, {{Hand-Selected}}"
             subtitle="Chosen for Colorado mountain driving and the expectations of the people who ride in them."
           />
-          <div className="grid md:grid-cols-3 gap-8">
-            {fleet.map((vehicle, i) => (
-              <motion.div key={vehicle.name} {...staggerChild(i)} className="group">
-                <Link to={vehicle.link} className="block">
-                  <div className="relative overflow-hidden mb-6 accent-frame">
-                    <img
-                      src={vehicle.image}
-                      alt={vehicle.alt}
-                      className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-                  </div>
-                  <h3 className="font-display text-xl md:text-2xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                    {vehicle.name}
-                  </h3>
-                  <p className="text-foreground/60 text-sm leading-relaxed mb-4">
-                    {vehicle.description}
-                  </p>
-                  <span className="inline-flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all">
-                    View Vehicle <ArrowRight className="w-4 h-4" />
+          <div className="cards3">
+            {fleet.map((vehicle) => (
+              <Link key={vehicle.name} to={vehicle.link} className="gcard">
+                <div className="gcard__img">
+                  <img src={vehicle.image} alt={vehicle.alt} loading="lazy" decoding="async" />
+                </div>
+                <div className="gcard__body">
+                  <h3>{vehicle.name}</h3>
+                  <p style={{ color: "var(--muted)", fontSize: ".93rem" }}>{vehicle.description}</p>
+                  <span className="go">
+                    View vehicle <i aria-hidden="true">&rarr;</i>
                   </span>
-                </Link>
-              </motion.div>
+                </div>
+              </Link>
             ))}
           </div>
-        </div>
-      </section>
+        </SectionContainer>
 
-      {/* Service Area */}
-      <section className="py-20 md:py-28 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-5 gap-12 items-start">
-            <motion.div {...fadeInUp} className="lg:col-span-3">
-              <p className="eyebrow eyebrow-tick mb-4">Where We Operate</p>
-              <h2 className="font-display text-3xl md:text-5xl font-semibold mb-6 leading-[1.1]">
-                Aspen and the <span className="text-gradient-gold">Roaring Fork Valley</span>
+        {/* Service Area */}
+        <section className="sec sec--ink overview">
+          <div className="wrap overview__grid">
+            <div className="overview__intro">
+              <p className="eyebrow">Where We Operate</p>
+              <h2 className="h2">
+                Aspen and the <em>Roaring Fork Valley</em>
               </h2>
-              <p className="text-foreground/70 leading-relaxed">
-                VIP Aspen provides luxury car service throughout Aspen and the entire Roaring Fork
-                Valley, from downtown to Snowmass Village, Basalt, Woody Creek, Carbondale, and
-                Glenwood Springs. We also run long-distance chauffeured service to Vail, Beaver
-                Creek, and Denver, and private airport transfers from Aspen (ASE), Rifle Garfield
-                County (RIL), Eagle County (EGE), and Denver International (DEN). Wherever you are
-                headed in the Colorado mountains, we get you there in style.
+              <p className="lead" style={{ marginTop: "1.25rem", maxWidth: "60ch" }}>
+                VIP Aspen provides luxury car service throughout Aspen and the entire Roaring Fork Valley, from
+                downtown to Snowmass Village, Basalt, Woody Creek, Carbondale, and Glenwood Springs. We also run
+                long-distance chauffeured service to Vail, Beaver Creek, and Denver, and private airport transfers from
+                Aspen (ASE), Rifle Garfield County (RIL), Eagle County (EGE), and Denver International (DEN). Wherever
+                you are headed in the Colorado mountains, we get you there in style.
               </p>
-            </motion.div>
-            <motion.div {...fadeInUp} className="lg:col-span-2 glass-card p-7">
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary/80 mb-5">
-                Service Areas
-              </p>
-              <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
+            </div>
+            <aside className="glance" style={{ background: "var(--graphite)" }} aria-labelledby="areas-h">
+              <h2 id="areas-h">Service Areas</h2>
+              <ul className="ticks" style={{ gridTemplateColumns: "1fr 1fr" }}>
                 {serviceAreas.map((area) => (
-                  <li key={area} className="flex items-center gap-2 text-foreground/75 text-sm">
-                    <MapPin className="w-4 h-4 text-primary shrink-0" />
-                    {area}
-                  </li>
+                  <li key={area}>{area}</li>
                 ))}
               </ul>
-            </motion.div>
+            </aside>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Services */}
-      <section className="py-20 md:py-28 bg-navy-light relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid pointer-events-none" aria-hidden />
-        <div className="container mx-auto px-6 relative">
+        {/* Services */}
+        <SectionContainer>
           <SectionHeader
             eyebrow="What We Do"
             heading="Explore Our {{Services}}"
             subtitle="Transportation, VIP access, and security, coordinated by one team."
           />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            {services.map((service, i) => {
-              const Icon = service.icon;
-              return (
-                <motion.div key={service.href} {...staggerChild(i)}>
-                  <Link
-                    to={service.href}
-                    className="glass-card flex items-center gap-3 p-4 hover:border-primary/40 hover:-translate-y-1 transition-all duration-300 group h-full"
-                  >
-                    <Icon className="w-5 h-5 text-primary shrink-0" />
-                    <span className="text-sm font-medium group-hover:text-primary transition-colors">
-                      {service.label}
-                    </span>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+          <nav className="rel" aria-label="Services" style={{ marginTop: 0 }}>
+            {services.map((service) => (
+              <Link key={service.href} to={service.href}>
+                <span>{service.label}</span>
+                <i aria-hidden="true">&rarr;</i>
+              </Link>
+            ))}
+          </nav>
+        </SectionContainer>
 
-      {/* CTA */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp} className="max-w-2xl mx-auto">
-            <p className="eyebrow mb-4">Get Started</p>
-            <h2 className="font-display text-3xl md:text-5xl font-semibold mb-6">
-              Experience <span className="text-gradient-gold">VIP Aspen</span>
-            </h2>
-            <p className="text-foreground/70 text-lg mb-8">
-              Tell us your dates, your flights, and your plans. We will handle the rest.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="luxury" size="xl" asChild>
-                <Link to="/contact">Contact Us</Link>
-              </Button>
-              <Button variant="luxuryOutline" size="xl" asChild>
-                <a href={`tel:${COMPANY.phoneRaw}`}>
-                  <Phone className="w-5 h-5 mr-2" />
-                  {COMPANY.phoneDisplay}
-                </a>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <Footer />
-      <WhatsAppButton />
-    </div>
+        <CtaRound
+          title="Experience {{VIP Aspen}}"
+          text="Tell us your dates, your flights, and your plans. We will handle the rest. Book online or call"
+        />
+      </SiteShell>
+    </>
   );
 };
 

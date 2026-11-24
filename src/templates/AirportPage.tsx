@@ -1,19 +1,15 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { MapPin, Clock, Plane } from "lucide-react";
 import PageWrapper from "@/components/layout/PageWrapper";
 import PageHero from "@/components/layout/PageHero";
 import SectionContainer from "@/components/layout/SectionContainer";
 import SectionHeader from "@/components/layout/SectionHeader";
+import Marquee from "@/components/site/Marquee";
+import { FaqSection, RelatedLinks } from "@/components/site/Shared";
 import FeatureGrid from "@/components/blocks/FeatureGrid";
-import FAQAccordion from "@/components/blocks/FAQAccordion";
-import RelatedServices from "@/components/blocks/RelatedServices";
-import BookingWidget from "@/components/BookingWidget";
 import ProseSection from "@/components/blocks/ProseSection";
 import BookingCTA from "@/components/blocks/BookingCTA";
 import { createAirportSchema } from "@/lib/schema";
 import { COMPANY } from "@/data/constants";
-import { fadeInUp } from "@/lib/animations";
 import type { AirportPageData } from "@/types";
 
 interface AirportPageProps {
@@ -31,55 +27,61 @@ const AirportPage = ({ data }: AirportPageProps) => {
   ];
 
   return (
-    <PageWrapper
-      seo={data.seo}
-      schemaData={schema}
-      faqs={data.faqs}
-      breadcrumbs={breadcrumbs}
-    >
-      <PageHero data={data.hero}>
-        <div id="booking">
-          <BookingWidget />
-        </div>
-      </PageHero>
+    <PageWrapper seo={data.seo} schemaData={schema} faqs={data.faqs} breadcrumbs={breadcrumbs}>
+      <PageHero data={data.hero} />
+      <Marquee />
 
-      {/* Airport Info Card */}
-      <SectionContainer background="muted">
-        <motion.div {...fadeInUp} className="max-w-2xl mx-auto">
-          <div className="glass-card p-8 flex flex-col sm:flex-row items-center gap-6">
-            <div className="p-4 bg-primary/10 rounded-sm flex-shrink-0">
-              <Plane className="w-8 h-8 text-primary" />
-            </div>
-            <div className="text-center sm:text-left">
-              <h2 className="font-display text-2xl font-semibold text-foreground mb-2">
-                {data.airport.name}{" "}
-                <span className="text-primary">({data.airport.code})</span>
-              </h2>
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-sm text-foreground/60">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-primary" />
-                  <span>{data.airport.distanceToAspen} to {destination}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-primary" />
-                  <span>{data.airport.driveTime} transfer</span>
-                </div>
-              </div>
-            </div>
+      <BookingCTA
+        id="booking"
+        variant="widget"
+        serviceType={data.slug}
+        heading={data.destination ? `Book Your {{${destination} Transfer}}` : `Book Your {{${data.airport.code} Transfer}}`}
+        subheading="Flight-tracked pickups, meet-and-greet, and a flat all-inclusive rate."
+      />
+
+      {/* Overview: the page's opening text beside the airport facts */}
+      <section className="sec sec--paper overview">
+        <div className="wrap overview__grid">
+          <div className="overview__intro">
+            {data.intro ? (
+              <ProseSection content={data.intro} lead eyebrow="Overview" />
+            ) : (
+              <p className="lead">{data.hero.description}</p>
+            )}
           </div>
-        </motion.div>
-      </SectionContainer>
+          <aside className="glance" aria-labelledby="glance-h">
+            <h2 id="glance-h">At a glance</h2>
+            <dl>
+              <div>
+                <dt>Airport</dt>
+                <dd>
+                  {data.airport.name} ({data.airport.code})
+                </dd>
+              </div>
+              <div>
+                <dt>Distance to {destination}</dt>
+                <dd>{data.airport.distanceToAspen}</dd>
+              </div>
+              <div>
+                <dt>Transfer time</dt>
+                <dd>{data.airport.driveTime}</dd>
+              </div>
+              <div>
+                <dt>Dispatch</dt>
+                <dd>
+                  24/7 &middot; <a href={`tel:${COMPANY.phoneRaw}`}>{COMPANY.phoneDisplay}</a>
+                </dd>
+              </div>
+            </dl>
+            <a className="btn btn--brass" href="#booking">
+              Get an Instant Quote
+            </a>
+          </aside>
+        </div>
+      </section>
 
-      {/* Intro Prose */}
-      {data.intro && (
-        <SectionContainer>
-          <ProseSection content={data.intro} />
-        </SectionContainer>
-      )}
-
-      {/* Features */}
       {data.features && (
-        <SectionContainer background="muted">
+        <SectionContainer>
           <SectionHeader
             heading="Why Choose {{VIP Aspen}}"
             subtitle="Every detail handled with precision and discretion."
@@ -91,95 +93,56 @@ const AirportPage = ({ data }: AirportPageProps) => {
         </SectionContainer>
       )}
 
-      {/* Destinations Grid */}
       {data.destinations && data.destinations.length > 0 && (
-        <SectionContainer>
+        <SectionContainer background="muted">
           <SectionHeader
             heading="Popular {{Destinations}}"
             subtitle="We provide transfers to all hotels, resorts, and private residences."
           />
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {data.destinations.map((dest, index) => (
-              <motion.div
-                key={dest.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card p-6 text-center"
-              >
-                <h3 className="font-display text-lg font-semibold text-foreground mb-2">
-                  {dest.name}
-                </h3>
-                <p className="text-primary text-sm">{dest.detail}</p>
-              </motion.div>
+          <div className="svc svc--4">
+            {data.destinations.map((dest) => (
+              <div key={dest.name} className="svc__card">
+                <h3>{dest.name}</h3>
+                <p>{dest.detail}</p>
+              </div>
             ))}
           </div>
         </SectionContainer>
       )}
 
-      {/* Fleet Options */}
       {data.fleetOptions && data.fleetOptions.length > 0 && (
-        <SectionContainer background="muted">
-          <SectionHeader
-            heading="Our {{Transfer Fleet}}"
-            subtitle="Choose the vehicle that suits your journey."
-          />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {data.fleetOptions.map((vehicle, index) => (
-              <motion.div
-                key={vehicle.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="glass-card overflow-hidden group hover:border-primary/30 transition-colors"
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={vehicle.image}
-                    alt={vehicle.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+        <SectionContainer>
+          <SectionHeader heading="Our {{Transfer Fleet}}" subtitle="Choose the vehicle that suits your journey." />
+          <div className="cards3">
+            {data.fleetOptions.map((vehicle) => (
+              <Link key={vehicle.name} to={vehicle.link} className="gcard">
+                <div className="gcard__img">
+                  <img src={vehicle.image} alt={vehicle.name} loading="lazy" decoding="async" />
                 </div>
-                <div className="p-6">
-                  <h3 className="font-display text-xl font-semibold text-foreground mb-2">
-                    {vehicle.name}
-                  </h3>
-                  <p className="text-foreground/60 text-sm mb-4 leading-relaxed">
-                    {vehicle.description}
-                  </p>
-                  <Link
-                    to={vehicle.link}
-                    className="text-primary hover:text-primary/80 text-sm font-medium transition-colors"
-                  >
-                    Learn More &rarr;
-                  </Link>
+                <div className="gcard__body">
+                  <h3>{vehicle.name}</h3>
+                  <p style={{ color: "var(--muted)", fontSize: ".93rem" }}>{vehicle.description}</p>
+                  <span className="go">
+                    Learn more <i aria-hidden="true">&rarr;</i>
+                  </span>
                 </div>
-              </motion.div>
+              </Link>
             ))}
           </div>
         </SectionContainer>
       )}
 
-      {/* FAQs */}
-      {data.faqs && (
-        <SectionContainer>
-          <FAQAccordion faqs={data.faqs} />
-        </SectionContainer>
-      )}
+      <FaqSection faqs={data.faqs} paper />
 
-      <RelatedServices items={data.relatedServices} />
+      <RelatedLinks items={data.relatedServices} />
 
-      {/* Closing conversion point for readers who scrolled past the hero widget */}
-      <SectionContainer background="gradient">
-        <BookingCTA
-          variant="contact-only"
-          serviceType={data.slug}
-          heading={data.destination ? `Reserve Your {{${destination} Transfer}}` : `Reserve Your {{${data.airport.code} Transfer}}`}
-          subheading="Flight-tracked pickups, meet-and-greet, and a flat all-inclusive rate. Book online above or reach our 24/7 dispatch."
-        />
-      </SectionContainer>
+      {/* Closing conversion point for readers who scrolled past the booking form */}
+      <BookingCTA
+        variant="contact-only"
+        serviceType={data.slug}
+        heading={data.destination ? `Reserve Your {{${destination} Transfer}}` : `Reserve Your {{${data.airport.code} Transfer}}`}
+        subheading="Flight-tracked pickups, meet-and-greet, and a flat all-inclusive rate. Book online above or reach our 24/7 dispatch."
+      />
     </PageWrapper>
   );
 };

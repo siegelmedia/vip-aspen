@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import SiteShell from "@/components/site/SiteShell";
 import SEOHead from "@/components/SEOHead";
 import type { SEOData, FAQ } from "@/types";
 import { combineSchema, createFAQSchema, createBreadcrumbSchema } from "@/lib/schema";
@@ -28,7 +27,7 @@ const PageWrapper = ({
   modifiedTime,
 }: PageWrapperProps) => {
   // One @graph per page: page schema + FAQPage + BreadcrumbList, all in the
-  // synchronous Helmet so the Prerender snapshot always carries it.
+  // synchronous Helmet so the build-time HTML always carries it.
   const schema = combineSchema(
     schemaData,
     faqs && faqs.length > 0 && createFAQSchema(faqs),
@@ -48,12 +47,7 @@ const PageWrapper = ({
         publishedTime={publishedTime}
         modifiedTime={modifiedTime}
       />
-
-      <main className="min-h-screen bg-background">
-        <Header />
-        {children}
-        <Footer />
-      </main>
+      <SiteShell>{children}</SiteShell>
     </>
   );
 };

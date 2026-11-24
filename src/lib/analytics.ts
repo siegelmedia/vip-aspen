@@ -3,8 +3,8 @@
  *
  * gtag.js is loaded in index.html with pageview collection only. Everything a
  * visitor can do that signals intent — tapping the phone number, emailing,
- * opening WhatsApp, hitting a "Book" CTA, interacting with the reservation
- * widget, or submitting a form — funnels through trackEvent() so it shows up
+ * opening WhatsApp, hitting a "Book" CTA, opening the phone booking card, or
+ * submitting a form — funnels through trackEvent() so it shows up
  * in GA4 as an event that can be marked as a conversion.
  *
  * Event names follow GA4's recommended vocabulary where one exists
@@ -53,5 +53,7 @@ export function classifyLink(anchor: HTMLAnchorElement): { name: string; params:
   if (href.startsWith("mailto:")) return { name: "email_click", params: base };
   if (href.includes("wa.me/") || href.includes("whatsapp.com")) return { name: "whatsapp_click", params: base };
   if (href === "#booking" || href.endsWith("#booking")) return { name: "book_cta_click", params: base };
+  // "Book Now" buttons open the hosted Corsa booking page; the booking itself is reported by Corsa's form.
+  if (href.startsWith("https://ops.summitblackcar.com/book")) return { name: "book_cta_click", params: base };
   return null;
 }

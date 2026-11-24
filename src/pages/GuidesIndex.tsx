@@ -1,11 +1,10 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowRight, Clock } from "lucide-react";
 import PageWrapper from "@/components/layout/PageWrapper";
-import SectionContainer from "@/components/layout/SectionContainer";
+import PageHero from "@/components/layout/PageHero";
+import Marquee from "@/components/site/Marquee";
+import { CtaRound, GuideCards } from "@/components/site/Shared";
 import { guideSummaries } from "@/data/guides";
 import { COMPANY } from "@/data/constants";
-import { fadeInUp, staggerChild } from "@/lib/animations";
+import heroImage from "@/assets/guide-winter-travel.webp";
 import type { SEOData } from "@/types";
 
 const seo: SEOData = {
@@ -38,67 +37,26 @@ const itemListSchema = {
 const GuidesIndex = () => {
   return (
     <PageWrapper seo={seo} schemaData={itemListSchema} breadcrumbs={breadcrumbs}>
-      <section className="pt-32 pb-10 md:pt-40 md:pb-14">
-        <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="max-w-3xl mx-auto text-center">
-            <p className="text-primary uppercase tracking-[0.3em] text-sm mb-4">
-              Aspen Travel Guides
-            </p>
-            <h1 className="font-display text-4xl md:text-6xl font-semibold text-foreground mb-6">
-              Getting To &amp; Around <span className="text-gradient-gold">Aspen</span>
-            </h1>
-            <p className="text-foreground/70 text-lg md:text-xl leading-relaxed">
-              Honest, practical answers to the questions every Aspen visitor asks —
-              written by a team that drives these roads every day.
-            </p>
-          </motion.div>
+      <PageHero
+        data={{
+          tagline: "Aspen Travel Guides",
+          headline: "Getting To & Around {{Aspen}}",
+          description:
+            "Honest, practical answers to the questions every Aspen visitor asks — written by a team that drives these roads every day.",
+          bgImage: heroImage,
+        }}
+        crumbs={[{ name: "Home", href: "/" }, { name: "Guides" }]}
+        cta={false}
+      />
+      <Marquee />
+
+      <section className="sec sec--paper">
+        <div className="wrap">
+          <GuideCards guides={guideSummaries} h="h2" excerpt />
         </div>
       </section>
 
-      <SectionContainer className="pt-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {guideSummaries.map((guide, index) => (
-            <motion.div key={guide.slug} {...staggerChild(index)}>
-              <Link
-                to={`/guides/${guide.slug}`}
-                className="glass-card overflow-hidden flex flex-col h-full group hover:border-primary/40 hover:-translate-y-1.5 hover:shadow-luxury transition-all duration-300"
-              >
-                <div className="relative overflow-hidden aspect-[16/9]">
-                  <img
-                    src={guide.image}
-                    alt={guide.title.replace(/\{\{|\}\}/g, "")}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
-                </div>
-                <div className="p-7 flex flex-col flex-grow -mt-8 relative">
-                <p className="text-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">
-                  {guide.category}
-                </p>
-                <h2 className="font-display text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {guide.title.replace(/\{\{|\}\}/g, "")}
-                </h2>
-                <p className="text-foreground/60 text-sm leading-relaxed mb-5 flex-grow">
-                  {guide.excerpt}
-                </p>
-                <div className="flex items-center justify-between mt-auto">
-                  {guide.readTime && (
-                    <span className="flex items-center gap-1.5 text-foreground/40 text-xs">
-                      <Clock className="w-3.5 h-3.5" />
-                      {guide.readTime}
-                    </span>
-                  )}
-                  <span className="inline-flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all">
-                    Read <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </SectionContainer>
+      <CtaRound />
     </PageWrapper>
   );
 };

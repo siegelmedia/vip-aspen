@@ -92,8 +92,7 @@ function collect(file, section) {
       else pages.set(literal(attr('canonicalUrl')), metadata);
     }
   };
-  // Pages that render their hero with a plain <img> (About, the homepage's
-  // Hero component) have no hero object literal: their first image import is it.
+  // A file with no hero object literal (the homepage data file): its first image import is the hero.
   visitor.hero = () => hero ?? [...imports.values()].find(path => /\.(webp|jpe?g|png|avif)$/i.test(path));
   visitor.faqs = faqs;
   return visitor;
@@ -113,10 +112,10 @@ for (const name of ['Index', 'AboutPage', 'ContactPage', 'MembershipPage', 'Secu
   visit(await source(file), visitor);
   for (const page of pages.values()) if (page.file === file) page.hero = visitor.hero;
 }
-// The homepage hero and FAQs live in components, not the page file.
+// The homepage hero image is the first image src/data/home.ts imports; its FAQs live in a component.
 {
-  const visitor = collect('src/components/Hero.tsx', 'Company');
-  visit(await source('src/components/Hero.tsx'), visitor);
+  const visitor = collect('src/data/home.ts', 'Company');
+  visit(await source('src/data/home.ts'), visitor);
   pages.get('/').hero = visitor.hero;
   const faqs = collect('src/components/HomeFAQ.tsx', 'Company');
   visit(await source('src/components/HomeFAQ.tsx'), faqs);
