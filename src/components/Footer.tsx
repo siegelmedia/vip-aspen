@@ -36,8 +36,8 @@ const Footer = () => {
           <div className="ftr__brand">
             <img src={logo} width={305} height={127} alt="VIP Aspen" loading="lazy" />
             <p>
-              Aspen's premier luxury car service and VIP concierge. Backed by Aspen Security LLC:
-              Colorado-licensed, veteran and law-enforcement owned. Available 24/7.
+              Aspen's premier luxury car service and VIP concierge. Law enforcement-owned, with professional
+              chauffeurs. Available 24/7.
             </p>
             <p className="ftr__contact">
               <a href={TEL_HREF}>{COMPANY.phoneDisplay}</a>
@@ -80,13 +80,13 @@ const Footer = () => {
             driving, private ski transfers across Aspen Mountain, Highlands, Buttermilk, and Snowmass, plus wedding,
             corporate, and special-event transportation, VIP nightlife access, security drivers, and executive
             protection. Serving Aspen, Snowmass Village, Basalt, Woody Creek, Carbondale, and the Roaring Fork Valley.
-            Backed by Aspen Security LLC, a Colorado-licensed security company with veteran and law enforcement
-            ownership. Available 24/7: <a href={TEL_HREF}>call {COMPANY.phoneDisplay}</a>.
+            VIP Aspen is law enforcement-owned, and every chauffeur is background-checked and trained. Available
+            24/7: <a href={TEL_HREF}>call {COMPANY.phoneDisplay}</a>.
           </p>
         </div>
         <div className="wrap ftr__base">
           <address itemScope itemType="https://schema.org/PostalAddress">
-            &copy; {new Date().getFullYear()} {COMPANY.name}. A service of Aspen Security LLC &middot;{" "}
+            &copy; {new Date().getFullYear()} {COMPANY.name} &middot;{" "}
             <span itemProp="streetAddress">{COMPANY.address.street}</span>,{" "}
             <span itemProp="addressLocality">{COMPANY.address.city}</span>,{" "}
             <span itemProp="addressRegion">{COMPANY.address.state}</span>{" "}

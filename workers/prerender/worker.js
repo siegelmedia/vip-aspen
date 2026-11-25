@@ -74,6 +74,7 @@ const REDIRECTS = {
   "/private-entertainment": "/aspen-clubs",
   "/promotional-services": "/special-event-transportation",
   "/talent": "/aspen-clubs",
+  "/security-assessment": "/executive-protection",
 };
 
 function isBot(userAgent) {

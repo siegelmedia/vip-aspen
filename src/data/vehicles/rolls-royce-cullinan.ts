@@ -70,7 +70,7 @@ const data: VehiclePageData = {
     {
       question: "Can I book the Rolls Royce for a ski resort transfer?",
       answer:
-        "Absolutely. We provide door-to-door chauffeured service to Aspen Mountain, Aspen Highlands, Buttermilk, Snowmass, and beyond. Our professional driver handles all luggage and ski equipment.",
+        "Absolutely. We provide door-to-door chauffeured service to Aspen Mountain, Aspen Highlands, Buttermilk, Snowmass, and beyond. The Cullinan does not carry ski equipment, so for ski days with gear we recommend the Escalade or the Executive Sprinter.",
     },
     {
       question: "Is the Rolls Royce Cullinan available for weddings in Aspen?",

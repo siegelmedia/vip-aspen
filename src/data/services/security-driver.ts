@@ -25,7 +25,7 @@ const data: ServicePageData = {
   },
   trustBadges: [
     { label: "Colorado Licensed", icon: Shield },
-    { label: "Veteran & LEO Backgrounds" },
+    { label: "Law Enforcement Backgrounds" },
     { label: "NDA on Every Engagement" },
     { label: "Integrates with Your Detail" },
   ],
@@ -77,7 +77,7 @@ const data: ServicePageData = {
     {
       title: "A Security Company, Not a Car Service Subcontractor",
       description:
-        "VIP Aspen is operated by Aspen Security LLC — a Colorado-licensed security firm with veteran and law enforcement ownership. Our security drivers are our own trained personnel, not gig-economy drivers with a clean suit. When you hire a security driver from us, you're hiring a security professional who happens to be driving.",
+        "VIP Aspen is a law enforcement-owned company. Our security drivers are our own trained personnel, not gig-economy drivers with a clean suit. When you hire a security driver from us, you're hiring a security professional who happens to be driving.",
     },
     {
       title: "Trained for the Job You Hope They Never Have to Do",
@@ -151,7 +151,7 @@ const data: ServicePageData = {
   relatedServices: [
     { label: "Executive Protection", href: "/executive-protection" },
     { label: "Black Car Service", href: "/black-car-service" },
-    { label: "Security Assessment", href: "/security-assessment" },
+    { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
   ],
 };
 

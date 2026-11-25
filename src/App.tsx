@@ -32,13 +32,13 @@ const RETIRED_ROUTES: Record<string, string> = {
   "/private-entertainment": "/aspen-clubs",
   "/promotional-services": "/special-event-transportation",
   "/talent": "/aspen-clubs",
+  "/security-assessment": "/executive-protection",
 };
 
 // Custom pages — lazy in the browser, eager for the build-time server render (see lib/lazyRoute)
 const AboutPage = lazyRoute("about", () => import("./pages/AboutPage"));
 const ContactPage = lazyRoute("contact", () => import("./pages/ContactPage"));
 const MembershipPage = lazyRoute("membership", () => import("./pages/MembershipPage"));
-const SecurityAssessment = lazyRoute("security-assessment", () => import("./pages/SecurityAssessment"));
 const SummitBlackCar = lazyRoute("summit-blackcar", () => import("./pages/SummitBlackCar"));
 const SummitBlackCarDriver = lazyRoute("summit-blackcar-driver", () => import("./pages/SummitBlackCarDriver"));
 const GuidesIndex = lazyRoute("guides", () => import("./pages/GuidesIndex"));
@@ -87,7 +87,7 @@ const HERO_BOOKING_PAGES = new Set([
  * Security and access services are not a car pickup, so their booking section
  * is the inquiry form rather than the ride-reservation widget.
  */
-const INQUIRY_FORM_PAGES = new Set(["executive-protection", "aspen-clubs", "property-watch"]);
+const INQUIRY_FORM_PAGES = new Set(["executive-protection", "aspen-clubs"]);
 
 const serviceRoutes = Object.entries(serviceLoaders).map(([slug, load]) => {
   const Page = dataRoute(`service:${slug}`, () => import("./templates/ServicePage"), load, (data) => ({
@@ -146,7 +146,6 @@ export const AppRoutes = ({ hydrating = false }: { hydrating?: boolean }) => (
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/membership" element={<MembershipPage />} />
-          <Route path="/security-assessment" element={<SecurityAssessment />} />
 
           {/* Retired services — client-side redirects so old links and stale
               search results land somewhere useful instead of a 404. The

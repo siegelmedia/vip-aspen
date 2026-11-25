@@ -24,10 +24,10 @@ for (const path of ['/vip-audit-missing-20260908', '/service/.env', '/missing.js
   const r = await get(path); assert.equal(r.status, 404, path);
   assert(!r.headers.has('x-prerender-requestid'), path);
 }
-for (const [from,to] of [['/private-entertainment','/aspen-clubs'], ['/promotional-services','/special-event-transportation'], ['/talent','/aspen-clubs']]) {
+for (const [from,to] of [['/private-entertainment','/aspen-clubs'], ['/promotional-services','/special-event-transportation'], ['/talent','/aspen-clubs'], ['/security-assessment','/executive-protection']]) {
   const r = await get(from); assert.equal(r.status, 301, from);
   assert.equal(new URL(r.headers.get('location'), base).pathname, to);
 }
 const tablet = await get('/summit-blackcar/andrew-siegel'); assert.equal(tablet.status, 200);
 assert(/noindex/.test(await tablet.text()));
-console.log(`PASS: ${PAGE_PATHS.size} public pages, three real 404s, three 301 redirects, and tablet noindex (${agent}).`);
+console.log(`PASS: ${PAGE_PATHS.size} public pages, three real 404s, four 301 redirects, and tablet noindex (${agent}).`);

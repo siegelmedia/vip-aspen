@@ -25,7 +25,7 @@ const data: ServicePageData = {
   },
   intro: {
     heading: "The Smartest Way to {{Move Around Aspen}}",
-    body: `<p>Aspen is a compact mountain town, but its destinations are spread across a sprawling valley that stretches from the base of Aspen Mountain to the village of Snowmass and everywhere in between. Ride-share services like Uber and Lyft are notoriously unreliable in mountain towns \u2014 drivers are scarce, wait times are unpredictable, and surge pricing during events like the Food & Wine Classic or X Games can triple the fare for a five-minute ride. Parking in downtown Aspen is limited and expensive, and navigating icy winter roads in an unfamiliar rental car is stressful at best and dangerous at worst. A dedicated hourly chauffeur eliminates every one of these problems. Your SUV waits while you ski, dine, shop, and explore \u2014 warm, ready, and right where you left it.</p>
+    body: `<p>Aspen is a compact mountain town, but its destinations are spread across a sprawling valley that stretches from the base of Aspen Mountain to the village of Snowmass and everywhere in between. Ride-share services like Uber and Lyft are notoriously unreliable in mountain towns \u2014 drivers are scarce, wait times are unpredictable, and during events like the Food & Wine Classic or X Games a car can be impossible to find. Parking in downtown Aspen is limited and expensive, and navigating icy winter roads in an unfamiliar rental car is stressful at best and dangerous at worst. A dedicated hourly chauffeur eliminates every one of these problems. Your SUV waits while you ski, dine, shop, and explore \u2014 warm, ready, and right where you left it.</p>
 <p>For families visiting Aspen, the hourly chauffeur service is a game changer. Traveling with children means car seats, ski gear, snacks, extra layers, and the unpredictable schedule that comes with nap times and tired legs. Having the same driver and vehicle all day eliminates the stress of rebooking rides, reinstalling car seats, and explaining your itinerary to a new driver every time. Your chauffeur holds boots and jackets in the vehicle, keeps the cabin warm while you're on the slopes, and is standing by at the base of the mountain the moment your family is ready to leave. For full-day ski coverage with door-to-door service at every resort, pair this with our <a href="/black-car-service">black car service</a> for a seamless mountain experience.</p>
 <p>The hourly service is available in every vehicle in our fleet. Choose the <a href="/cadillac-escalade">Cadillac Escalade</a> for groups of up to 5 passengers \u2014 the most popular option for families and small groups. The <a href="/executive-sprinter">Executive Sprinter</a> seats up to 13 and is ideal for larger families, multi-family trips, or groups who want to travel together. For special occasions \u2014 anniversaries, proposals, or simply making an impression \u2014 the <a href="/rolls-royce-cullinan">Rolls Royce Cullinan</a> delivers an experience that elevates every moment of the day. <a href="/membership">VIP Members</a> receive discounted hourly rates and priority booking during peak season, ensuring your vehicle is guaranteed even when Aspen is at its busiest.</p>`,
   },
@@ -90,7 +90,7 @@ const data: ServicePageData = {
       step: 4,
       title: "Flexible Overtime",
       description:
-        "Need more time? Extend on the spot. No rebooking, no surge pricing. Just let your driver know.",
+        "Need more time? Extend on the spot. No rebooking. Just let your driver know.",
     },
   ],
   pricing: [
@@ -144,7 +144,7 @@ const data: ServicePageData = {
     {
       question: "Can I extend my booking on the spot?",
       answer:
-        "Yes. If you need more time, simply tell your driver. Extensions are billed at the same hourly rate with no surge or rebooking fees.",
+        "Yes. If you need more time, simply tell your driver. Extensions are billed at your hourly rate with no rebooking fees.",
     },
     {
       question: "Do you provide car seats for children?",

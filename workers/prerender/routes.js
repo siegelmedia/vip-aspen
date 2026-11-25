@@ -34,7 +34,6 @@ export const PAGE_PATHS = new Set([
   "/rates",
   "/rifle-airport-transfer",
   "/rolls-royce-cullinan",
-  "/security-assessment",
   "/security-driver",
   "/snowmass-village-transfer",
   "/special-event-transportation",

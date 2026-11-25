@@ -180,8 +180,8 @@ const data: ServicePageData = {
         {
           label: "New Year's & Holiday",
           href: "/aspen-new-years-eve-transportation",
-          detail: "Peak-season, no surge",
-          description: "Guaranteed holiday-week vehicles with rates locked and no surge pricing.",
+          detail: "Peak-season availability",
+          description: "Guaranteed holiday-week vehicles, reserved in advance.",
           icon: Star,
         },
         {
@@ -272,7 +272,7 @@ const data: ServicePageData = {
     {
       question: "Why choose a private car service over ride-share in Aspen?",
       answer:
-        "Ride-share is notoriously unreliable in mountain towns — drivers are scarce, wait times are long, and surge pricing spikes during events and holidays. A pre-booked private chauffeur guarantees a vehicle on your schedule, at a locked rate, with a driver who knows the valley.",
+        "Ride-share is notoriously unreliable in mountain towns — drivers are scarce, wait times are long, and cars are hard to find during events and holidays. A pre-booked private chauffeur guarantees a vehicle on your schedule, at a price confirmed in advance, with a driver who knows the valley.",
     },
   ],
   relatedServices: [

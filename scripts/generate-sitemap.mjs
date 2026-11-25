@@ -41,7 +41,6 @@ const sourcesFor = new Map([
   ["about", ["src/pages/AboutPage.tsx"]],
   ["contact", ["src/pages/ContactPage.tsx"]],
   ["membership", ["src/pages/MembershipPage.tsx"]],
-  ["security-assessment", ["src/pages/SecurityAssessment.tsx"]],
   ["guides", ["src/pages/GuidesIndex.tsx", "src/data/guides/index.ts"]],
 ]);
 for (const folder of ["services", "vehicles", "airports", "guides"]) {
@@ -78,7 +77,7 @@ function lastmodFor(path) {
 }
 
 // Routes defined directly in App.tsx rather than generated from data.
-const staticRoutes = ["", "about", "contact", "membership", "security-assessment", "guides"];
+const staticRoutes = ["", "about", "contact", "membership", "guides"];
 
 /** Priority tiers — homepage first, then money pages, then supporting content. */
 const priorityFor = (path) => {
@@ -125,7 +124,7 @@ writeFileSync(join(root, "public/sitemap.xml"), xml, "utf8");
 console.log(`sitemap.xml: ${unique.length} URLs (per-page lastmod from git history)`);
 
 // Sanity check: nothing retired should ever reappear in the sitemap.
-const retired = ["private-entertainment", "promotional-services", "talent"];
+const retired = ["private-entertainment", "promotional-services", "talent", "security-assessment"];
 const leaked = retired.filter((slug) => unique.includes(slug));
 if (leaked.length) {
   console.error(`Retired routes leaked into the sitemap: ${leaked.join(", ")}`);

@@ -46,7 +46,7 @@ const data: ServicePageData = {
       icon: Clock,
       title: "On Call All Day",
       description:
-        "Long lunch, early finish, one more run — your driver is standing by at the base whenever you're ready. No schedules, no surge pricing.",
+        "Long lunch, early finish, one more run — your driver is standing by at the base whenever you're ready. No schedules.",
     },
     {
       icon: Users,

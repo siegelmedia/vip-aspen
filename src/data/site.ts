@@ -32,15 +32,15 @@ export interface NavLinkItem {
 }
 
 /** Top line of the homepage hero, above the name. */
-export const heroHighlights = ["Veteran & Law Enforcement-Owned", "Rolls-Royce Fleet", "Professional Chauffeurs"];
+export const heroHighlights = ["Law Enforcement-Owned", "Rolls-Royce Fleet", "Professional Chauffeurs"];
 
 /** Scrolling strip under the headers. */
 export const marqueeItems = [
-  "Veteran & Law Enforcement-Owned",
+  "Law Enforcement-Owned",
   "Rolls-Royce Cullinan · Escalade · Sprinter",
   "Available 24/7",
-  "No Surge Pricing",
-  "Colorado Licensed Security",
+  "Instant Online Quotes",
+  "Professional Chauffeurs",
   "Aspen · Snowmass · Roaring Fork Valley",
   "ASE · EGE · RIL · DEN Airports",
 ];
@@ -64,7 +64,6 @@ export const moreServices: NavLinkItem[] = [
   { label: "Food & Wine Classic", href: "/aspen-food-and-wine-transportation" },
   { label: "New Year's Eve & Holiday", href: "/aspen-new-years-eve-transportation" },
   { label: "Security Drivers", href: "/security-driver" },
-  { label: "Security Assessment", href: "/security-assessment" },
   { label: "VIP Membership", href: "/membership" },
   { label: "Rates & Pricing", href: "/rates" },
 ];
@@ -172,7 +171,6 @@ export const footerColumns: { title: string; links: NavLinkItem[] }[] = [
 ];
 
 export const footerUtilityLinks: NavLinkItem[] = [
-  { label: "Security Assessment", href: "/security-assessment" },
   { label: "Travel Guides", href: "/guides" },
 ];
 

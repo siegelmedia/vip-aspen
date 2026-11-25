@@ -39,7 +39,7 @@ const data: GuidePageData = {
     {
       heading: "Is Uber Reliable in Aspen? (Honestly, No)",
       body: `<p>Uber and Lyft operate in Aspen, but the experience is very different from a city. The driver pool is small, so wait times can be long or rides simply unavailable — especially late at night, in bad weather, and during big events when demand spikes and surge pricing can multiply the fare for even a short trip. Counting on a ride-share to make a dinner reservation or get back from a party at 1 a.m. is a gamble many visitors lose. If you do use it, build in extra time and a backup plan.</p>
-<p>This unreliability is exactly why our clients pre-book. A scheduled private car is guaranteed to be there, at a locked rate, with no surge — see our <a href="/hourly-chauffeur">hourly chauffeur</a> and <a href="/black-car-service">black car service</a>.</p>`,
+<p>This unreliability is exactly why our clients pre-book. A scheduled private car is guaranteed to be there, at a price confirmed when you book — see our <a href="/hourly-chauffeur">hourly chauffeur</a> and <a href="/black-car-service">black car service</a>.</p>`,
     },
     {
       heading: "When a Private Car Is Worth It",

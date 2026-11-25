@@ -17,7 +17,7 @@ export const homeFaqs: FAQ[] = [
   {
     question: "How much does an Aspen car service cost?",
     answer:
-      "Hourly chauffeur service starts at $200 per hour for the Cadillac Escalade, $300 for the Executive Sprinter, and $400 for the Rolls-Royce Cullinan. Airport and route transfers are quoted as flat rates with no surge pricing. See our rates page for details.",
+      "Hourly chauffeur service starts at $200 per hour for the Cadillac Escalade, $300 for the Executive Sprinter, and $400 for the Rolls-Royce Cullinan. Airport and route transfers are quoted up front as a flat rate for your trip. See our rates page for details.",
   },
   {
     question: "Do you offer ski transfers to Snowmass, Highlands, and Buttermilk?",
@@ -27,7 +27,7 @@ export const homeFaqs: FAQ[] = [
   {
     question: "What makes VIP Aspen different from other car services?",
     answer:
-      "We are operated by Aspen Security LLC, a Colorado-licensed, veteran and law-enforcement owned security company. Chauffeurs are background-checked and trained, discretion is standard, and transportation, VIP access, and executive protection are coordinated by one local team.",
+      "VIP Aspen is a law enforcement-owned company with its own Rolls-Royce Cullinan, Cadillac Escalades, and Executive Sprinter. Chauffeurs are background-checked and trained, discretion is standard, and every ride is coordinated by one local team that answers 24/7.",
   },
   {
     question: "How far in advance should I book?",

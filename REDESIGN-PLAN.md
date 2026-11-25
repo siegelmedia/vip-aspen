@@ -10,10 +10,10 @@ Built and checked on the branch:
 - Design system ported from Summit (`src/styles/summit.css`), with VIP Aspen's gold accents in `src/styles/vip.css`
   (Andrew: "we will keep the logo white but use gold for other areas and buttons").
 - New header, menu drawer, footer and phone action bar.
-- Homepage in the Summit section order, with a Cullinan still in place of the video.
+- Homepage in the Summit section order, with Andrew's header video in the hero.
 - Corsa booking form (`vip-aspen`) in the homepage hero and on every service, airport, vehicle and guide page.
   The BookRidesOnline widget is removed.
-- Service, airport, vehicle and guide templates, plus About, Contact, Membership, Security Assessment, Guides
+- Service, airport, vehicle and guide templates, plus About, Contact, Membership, Guides
   index and the 404 page.
 - Checks: build and tests pass; all 41 pages have no sideways overflow at 375 px and 1440 px; titles,
   descriptions, canonicals, Open Graph tags, JSON-LD and H1 text are identical to the previous build
@@ -21,8 +21,8 @@ Built and checked on the branch:
 
 Still open:
 
-- **Header video.** Put `hero.mp4` and `hero-sm.mp4` in `public/video/` and set `HERO_VIDEO` in
-  `src/data/home.ts`.
+- ~~Header video~~ Done 2026-11-24: Andrew's header edit is in `public/video/` (desktop and phone versions), with
+  its first frame as the still. Notes on replacing it are beside `HERO_VIDEO` in `src/data/home.ts`.
 - **Partner logos, memberships, client reviews.** Left off the homepage until real VIP Aspen ones exist.
 - **Corsa settings for VIP Aspen.** The form shows no phone number yet; see "Not verified" below.
 - **Membership page body.** Restyled by the new colours and type, but its layout is still the old one.
@@ -84,7 +84,7 @@ Summit's Python builder.
 | Law enforcement-owned panel (black, interactive list) | "Why VIP Aspen" content |
 | Fleet showcase with vehicle selector | Cullinan first, then Escalade, then Sprinter |
 | What to Expect, three steps | "How We Work" content |
-| Meet our drivers | Andrew and Austin (photos on file); others need photos |
+| Meet our drivers | Chauffeur standards only, no named staff (Andrew 2026-11-24) |
 | Where We Drive, black panel with map | Airports, routes and service areas; new Aspen-centred map |
 | Memberships row | Only if the memberships apply to VIP Aspen |
 | About band | About page summary |
@@ -133,7 +133,7 @@ Summit's Python builder.
    if it is in the logo.
 2. **Homepage sections that need VIP Aspen material.** Partner logos, memberships (NLA, BBB, CLA) and client
    reviews. Default: left out until real VIP Aspen ones are supplied. Summit's reviews are not reused.
-3. **Drivers section.** Default: show Andrew and Austin, who have photos.
+3. **Drivers section.** Decided 2026-11-24: no named staff on the homepage.
 4. **Booking address.** Corsa's booking page for VIP Aspen is on `ops.summitblackcar.com`, so VIP Aspen clients
    will see the Summit domain. Default: use it as is.
 5. **More Rolls-Royce images.** Supply photos, or authorize Higgsfield.
@@ -144,5 +144,5 @@ Summit's Python builder.
   Rolls Royce Cullinan (read 2026-11-23), while this site presents three (Cullinan, Escalade, Sprinter). Corsa's
   owner checklist still lists open VIP Aspen items: domain-verified tick, office number, Google review link, Twilio.
 - A real booking through the new form. No test booking was made, because Corsa charges real cards.
-- The company's legal name. This site says Aspen Security LLC; Corsa's legal text says Summit Executive
+- The company's legal name. This site no longer names one (Aspen Security LLC removed 2026-11-24); Corsa's legal text says Summit Executive
   Transportation LLC doing business as VIP Aspen.

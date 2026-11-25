@@ -7,7 +7,7 @@ const data: ServicePageData = {
   seo: {
     title: "Food & Wine Classic Transportation Aspen",
     description:
-      "Private transportation for the Food & Wine Classic in Aspen. Pre-booked Rolls Royce, Escalade & Sprinter, on-call drivers, no surge. Book early: (970) 452-6636.",
+      "Private transportation for the Food & Wine Classic in Aspen. Pre-booked Rolls Royce, Escalade & Sprinter, on-call drivers. Book early: (970) 452-6636.",
     keywords:
       "Aspen Food and Wine Classic transportation, Food & Wine Classic car service, Food and Wine Aspen shuttle, Food and Wine Classic chauffeur, Aspen Food Wine private car, Grand Tasting transportation Aspen",
     canonicalUrl: "/aspen-food-and-wine-transportation",
@@ -18,15 +18,15 @@ const data: ServicePageData = {
     bgImage: heroBg,
     headline: "Transportation for the {{Food & Wine Classic}}",
     description:
-      "Every June, the Food & Wine Classic takes over Aspen. Skip the surge pricing and the scramble with a pre-booked private chauffeur — from the Grand Tasting at Wagner Park to seminars, dinners, and after-parties across the valley.",
+      "Every June, the Food & Wine Classic takes over Aspen. Skip the scramble with a pre-booked private chauffeur — from the Grand Tasting at Wagner Park to seminars, dinners, and after-parties across the valley.",
     ctaLabel: "Reserve Your Car",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },
   },
   intro: {
     heading: "Aspen's Signature Weekend Deserves {{Better Transportation}}",
-    body: `<p>The Food & Wine Classic is Aspen's marquee summer event — three days of Grand Tastings at Wagner Park, seminars with celebrated chefs and winemakers, and a packed calendar of private dinners, brand activations, and late-night parties spread across town and up the mountainsides. It's also one of the hardest weekends of the year to get a ride. Demand spikes, ride-share availability collapses, and surge pricing turns a five-minute hop into a small fortune. The guests who actually enjoy the weekend are the ones who arranged their transportation in advance.</p>
-<p>VIP Aspen clients move through the Classic effortlessly. We pre-assign your vehicle and chauffeur, lock your rate with no surge, and keep your driver on call so you glide from a morning seminar to an afternoon tasting to a private dinner without a single logistics worry — glass of wine firmly in hand, no one in your group worried about driving. Our chauffeurs know every venue, the Wagner Park drop-off points, and the back routes around the downtown crowds. For groups and host committees, we coordinate multiple vehicles under one point of contact — see our <a href="/special-event-transportation">event transportation</a> and <a href="/aspen-corporate-transportation">corporate transportation</a> services.</p>
+    body: `<p>The Food & Wine Classic is Aspen's marquee summer event — three days of Grand Tastings at Wagner Park, seminars with celebrated chefs and winemakers, and a packed calendar of private dinners, brand activations, and late-night parties spread across town and up the mountainsides. It's also one of the hardest weekends of the year to get a ride. Demand spikes and ride-share availability collapses. The guests who actually enjoy the weekend are the ones who arranged their transportation in advance.</p>
+<p>VIP Aspen clients move through the Classic effortlessly. We pre-assign your vehicle and chauffeur, confirm your price when you book, and keep your driver on call so you glide from a morning seminar to an afternoon tasting to a private dinner without a single logistics worry — glass of wine firmly in hand, no one in your group worried about driving. Our chauffeurs know every venue, the Wagner Park drop-off points, and the back routes around the downtown crowds. For groups and host committees, we coordinate multiple vehicles under one point of contact — see our <a href="/special-event-transportation">event transportation</a> and <a href="/aspen-corporate-transportation">corporate transportation</a> services.</p>
 <p>Match the vehicle to the occasion: a <a href="/cadillac-escalade">Cadillac Escalade</a> for couples, an <a href="/executive-sprinter">Executive Sprinter</a> to keep a group together between events, or the <a href="/rolls-royce-cullinan">Rolls Royce Cullinan</a> for an arrival worthy of the weekend. Because Food & Wine sells out the town, vehicles book out early — reserve as far ahead as you can, and <a href="/membership">VIP members</a> receive guaranteed availability.</p>`,
   },
   features: [
@@ -38,9 +38,9 @@ const data: ServicePageData = {
     },
     {
       icon: Star,
-      title: "No Surge Pricing",
+      title: "Price Confirmed Up Front",
       description:
-        "Your rate is locked at booking. Ride-share fares multiply during the Classic; yours never changes.",
+        "You get an all-inclusive quote when you book, so you know the price before the weekend starts.",
     },
     {
       icon: Clock,
@@ -87,11 +87,6 @@ const data: ServicePageData = {
       question: "Can you coordinate transportation for a group or sponsor activation?",
       answer:
         "Absolutely. We routinely coordinate multi-vehicle fleets for host committees, brand activations, and corporate groups during the Classic, all managed through a single point of contact.",
-    },
-    {
-      question: "Is there surge pricing during the Classic?",
-      answer:
-        "No. Our rates are locked at the time of booking and do not surge with demand, even on the busiest Food & Wine evenings.",
     },
   ],
   relatedServices: [

@@ -17,18 +17,11 @@ export const summitDrivers: SummitDriver[] = [
     bio: "Andrew Siegel is the Founder and CEO of Summit Black Car. A former Colorado State Trooper and current Reserve Colorado Ranger, Andrew is certified in dignitary protection and has experience supporting high-profile motorcades, executive travel, and VIP movements throughout Colorado. His background in law enforcement, mountain operations, and executive protection helped shape Summit Black Car's focus on safety, discretion, and luxury service.",
   },
   {
-    slug: "austin-dvorak",
-    name: "Austin Dvorak",
-    location: "Dillon, Colorado",
-    photo: "/austinheadshot.jpg",
-    bio: "Austin Dvorak is the COO of Aspen Security and brings a background in Special Operations, executive protection, and high-risk operational planning. He has completed advanced training through multiple nationally recognized executive protection academies, with specialized experience in threat assessment, surveillance detection, emergency response, fleet logistics, and secure transportation. Austin helps oversee operational standards, training, and VIP service execution, bringing a disciplined, protection-focused mindset to every client movement.",
-  },
-  {
     slug: "logan-vanduzer",
     name: "Logan VanDuzer",
     location: "Silverthorne, Colorado",
     photo: PLACEHOLDER_PHOTO,
-    bio: "Logan VanDuzer is a 15-plus-year law enforcement veteran with extensive experience in patrol operations, SWAT, emergency response, training, and tactical instruction. His background includes service as a Patrol Sergeant, SWAT Operator and Breacher, and Commander of a Municipal Emergency Response Team. Logan is also a Colorado P.O.S.T. instructor and has completed more than 1,450 hours of documented professional training, bringing a high level of safety, professionalism, and situational awareness to every client movement.",
+    bio: "Logan VanDuzer has 15-plus years in law enforcement, with extensive experience in patrol operations, SWAT, emergency response, training, and tactical instruction. His background includes service as a Patrol Sergeant, SWAT Operator and Breacher, and Commander of a Municipal Emergency Response Team. Logan is also a Colorado P.O.S.T. instructor and has completed more than 1,450 hours of documented professional training, bringing a high level of safety, professionalism, and situational awareness to every client movement.",
   },
   {
     slug: "tony-maurina",

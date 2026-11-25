@@ -6,7 +6,7 @@ import { CtaRound, FaqSection, GuideCards } from "@/components/site/Shared";
 import VideoHero from "@/components/home/VideoHero";
 import FleetShowcase from "@/components/home/FleetShowcase";
 import WhereWeDrive from "@/components/home/WhereWeDrive";
-import { AboutBand, Intro, SeoBlock, ServiceTiles, Standards, Team, WhatToExpect } from "@/components/home/Sections";
+import { AboutBand, Chauffeurs, Intro, SeoBlock, ServiceTiles, Standards, WhatToExpect } from "@/components/home/Sections";
 import { homeFaqs } from "@/components/HomeFAQ";
 import { guideSummaries } from "@/data/guides";
 import { createFAQSchema } from "@/lib/schema";
@@ -23,7 +23,7 @@ const Index = () => {
       <SEOHead
         title="Aspen Luxury Car Service | Rolls Royce, Escalade"
         description="Luxury car service in Aspen, Colorado: chauffeured Rolls Royce Cullinan, Cadillac Escalade & Executive Sprinter. Airport transfers, ski transfers & executive protection, 24/7."
-        keywords="luxury car service Aspen, Aspen chauffeur, Rolls Royce Aspen, black car service Aspen Colorado, Aspen airport transfer, luxury transportation Aspen, VIP car service Aspen, private driver Aspen, Aspen security"
+        keywords="luxury car service Aspen, Aspen chauffeur, Rolls Royce Aspen, black car service Aspen Colorado, Aspen airport transfer, luxury transportation Aspen, VIP car service Aspen, private driver Aspen"
         canonicalUrl="/"
         ogImage="https://www.vipaspen.com/og-image.jpg"
         schemaData={createFAQSchema(homeFaqs)}
@@ -36,7 +36,7 @@ const Index = () => {
         <Standards />
         <FleetShowcase />
         <WhatToExpect />
-        <Team />
+        <Chauffeurs />
         <WhereWeDrive />
         <AboutBand />
         <FaqSection faqs={homeFaqs} heading="Questions We Hear {{Every Day}}" />

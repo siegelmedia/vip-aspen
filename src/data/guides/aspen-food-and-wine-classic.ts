@@ -44,7 +44,7 @@ const data: GuidePageData = {
     {
       heading: "Getting Around During the Classic",
       body: `<p>Here's the part nobody warns you about: the Classic is one of the hardest weekends of the year to get a ride in Aspen. The town's population swells, ride-share availability collapses, and surge pricing can multiply a short fare several times over — if you can find a car at all. Downtown gridlocks, and parking near Wagner Park is gone. Trying to app a ride between a seminar and a dinner reservation is a gamble that ruins more than a few evenings.</p>
-<p>The travelers who enjoy the weekend are the ones who arranged transportation in advance. A pre-booked private car with an on-call chauffeur means you move on your schedule, your rate is locked with no surge, and nobody in your group has to be the designated driver. Our drivers know the Wagner Park drop-off points and the back routes around the crowds. See our dedicated <a href="/aspen-food-and-wine-transportation">Food &amp; Wine Classic transportation</a> service, and our broader guide to <a href="/guides/getting-around-aspen">getting around Aspen</a>.</p>`,
+<p>The travelers who enjoy the weekend are the ones who arranged transportation in advance. A pre-booked private car with an on-call chauffeur means you move on your schedule, your price is confirmed when you book, and nobody in your group has to be the designated driver. Our drivers know the Wagner Park drop-off points and the back routes around the crowds. See our dedicated <a href="/aspen-food-and-wine-transportation">Food &amp; Wine Classic transportation</a> service, and our broader guide to <a href="/guides/getting-around-aspen">getting around Aspen</a>.</p>`,
     },
     {
       heading: "Tips for a Smoother Classic",
@@ -65,7 +65,7 @@ const data: GuidePageData = {
     {
       question: "How do you get around Aspen during the Food & Wine Classic?",
       answer:
-        "It's one of the busiest weekends of the year. Ride-share is scarce and surges heavily, parking downtown is full, and the streets gridlock. The easiest option is a pre-booked private car with an on-call chauffeur, which guarantees a ride on your schedule at a locked rate. See our Food & Wine Classic transportation service.",
+        "It's one of the busiest weekends of the year. Ride-share is scarce and surges heavily, parking downtown is full, and the streets gridlock. The easiest option is a pre-booked private car with an on-call chauffeur, which guarantees a ride on your schedule at a price confirmed in advance. See our Food & Wine Classic transportation service.",
     },
     {
       question: "Is parking available near Wagner Park during the Classic?",

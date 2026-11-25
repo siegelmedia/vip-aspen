@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { COMPANY } from "@/data/constants";
 import { TEL_HREF } from "@/data/site";
-import { aboutImage, seoImages, serviceTiles, standards, steps, team, teamImage } from "@/data/home";
+import { aboutImage, seoImages, serviceTiles, standards, steps, teamImage } from "@/data/home";
 
 /** Intro with the outlined "VIP" watermark behind the display line, and the page's H1. */
 export const Intro = () => (
@@ -17,8 +17,8 @@ export const Intro = () => (
           Chauffeured <Link to="/rolls-royce-cullinan">Rolls-Royce Cullinan</Link>,{" "}
           <Link to="/cadillac-escalade">Cadillac Escalade</Link> &amp;{" "}
           <Link to="/executive-sprinter">Executive Sprinter</Link>. Airport transfers, private ski transfers, and
-          executive protection — for Aspen's most discerning clients. Transportation, security, and concierge — all
-          under one roof. Select your vehicle, date, and route — confirmed in minutes. No surge pricing, available
+          hourly chauffeur service for Aspen's most discerning clients, from a law enforcement-owned company with
+          professional chauffeurs. Select your vehicle, date, and route — confirmed in minutes. Available
           24/7. To reserve, call <a href={TEL_HREF}>{COMPANY.phoneDisplay}</a> or{" "}
           <a href="#booking">get an instant quote online</a>.
         </p>
@@ -125,8 +125,8 @@ export const Standards = () => {
           </div>
         </div>
         <div className="btns">
-          <Link className="btn btn--brass" to="/executive-protection">
-            Executive protection
+          <Link className="btn btn--brass" to="/rolls-royce-cullinan">
+            The Rolls-Royce Cullinan
           </Link>
           <Link className="btn btn--line" to="/about">
             Our story
@@ -158,15 +158,15 @@ export const WhatToExpect = () => (
   </section>
 );
 
-/** The people behind the wheel: photo beside the company's standards, then the leadership cards. */
-export const Team = () => (
-  <section className="sec sec--paper" id="team">
+/** The people behind the wheel: a photo beside what every ride comes with. No named staff here (Andrew 2026-11-24). */
+export const Chauffeurs = () => (
+  <section className="sec sec--paper" id="chauffeurs">
     <div className="wrap">
       <div className="sec__head sec__head--split">
         <div>
           <p className="eyebrow">The people behind the wheel</p>
           <h2 className="h2">
-            A security company <em>first</em>
+            Professional chauffeurs, <em>local knowledge</em>
           </h2>
         </div>
         <p className="lead">
@@ -181,14 +181,13 @@ export const Team = () => (
         <div className="duo__copy">
           <h3 className="h3">Vetting, discretion, and planning on every ride.</h3>
           <p>
-            VIP Aspen is operated by Aspen Security LLC, a Colorado-licensed security firm with veteran and law
-            enforcement ownership. Vetting, discretion, and planning are built into every ride, not added on. Our team
-            lives and works in the Roaring Fork Valley and knows every hotel entrance, FBO gate, valet stand, and
-            mountain road in every season.
+            VIP Aspen is a law enforcement-owned company. Vetting, discretion, and planning are built into every ride,
+            not added on. Our team lives and works in the Roaring Fork Valley and knows every hotel entrance, FBO gate,
+            valet stand, and mountain road in every season.
           </p>
           <ul className="ticks ticks--dark">
-            <li>Veteran and law enforcement-owned</li>
-            <li>Colorado-licensed security company</li>
+            <li>Law enforcement-owned</li>
+            <li>Background-checked, trained chauffeurs</li>
             <li>Aspen local knowledge</li>
             <li>One call, around the clock</li>
           </ul>
@@ -196,29 +195,6 @@ export const Team = () => (
             About VIP Aspen
           </Link>
         </div>
-      </div>
-      <div className="crew crew--2">
-        {team.map((p) => (
-          <article className="crew__card" key={p.id}>
-            <div className="crew__photo">
-              <img
-                src={p.photo}
-                width={p.width}
-                height={p.height}
-                alt={`Headshot of ${p.name}, ${p.role}`}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div className="crew__body">
-              <h3>{p.name}</h3>
-              <p className="crew__role">{p.role}</p>
-              <p className="crew__bio">
-                <b className="crew__who">{p.name}</b> {p.bio}
-              </p>
-            </div>
-          </article>
-        ))}
       </div>
     </div>
   </section>
@@ -237,7 +213,7 @@ export const AboutBand = () => (
           <strong>Transportation, Access &amp; Protection. One Aspen Team.</strong>
         </p>
         <p>
-          VIP Aspen is a veteran and law-enforcement owned company built for the way people actually visit Aspen:
+          VIP Aspen is a law enforcement-owned company built for the way people actually visit Aspen:
           arriving by jet, moving between mountains and dinners, and expecting every detail to be handled quietly.
         </p>
         <div className="btns">

@@ -1,6 +1,5 @@
 export const COMPANY = {
   name: "VIP Aspen",
-  legalName: "Aspen Security LLC",
   phone: "+1-970-452-6636",
   phoneDisplay: "(970) 452-6636",
   phoneRaw: "+19704526636",

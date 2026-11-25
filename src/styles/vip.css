@@ -162,3 +162,11 @@ a.svc__card:hover .svc__icon{border-color:rgba(255,255,255,.3);color:var(--gold-
 .inq .glass-card{border:0;padding:0}
 .inq form>h2,.inq form>h2+p{display:none}
 @media (max-width:759px){.crew--2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Homepage hero: the white logo stands where Summit has its name in type (Andrew 2026-11-23: replace "VIP ASPEN"
+   with the logo). The file is 305 px wide, so it is not shown wider than that. */
+.vhero__brand--logo{line-height:0;margin-top:.8rem}
+.vhero__brand--logo img{display:inline-block;width:clamp(200px,24vw,305px);height:auto;filter:drop-shadow(0 2px 18px rgba(0,0,0,.5))}
+
+/* About page: one leadership card, centred (Andrew 2026-11-24: only the founder is shown). */
+.crew--1{grid-template-columns:minmax(0,430px);justify-content:center}

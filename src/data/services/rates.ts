@@ -6,7 +6,7 @@ const data: ServicePageData = {
   seo: {
     title: "Aspen Car Service Rates & Pricing",
     description:
-      "How VIP Aspen pricing works: flat-rate airport and route transfers, hourly chauffeur from $200/hr, and no surge pricing, ever. Quotes: (970) 452-6636.",
+      "How VIP Aspen pricing works: flat-rate airport and route transfers and hourly chauffeur from $200/hr, quoted up front. Quotes: (970) 452-6636.",
     keywords:
       "Aspen car service rates, Aspen car service cost, Aspen limo prices, Aspen chauffeur rates, how much is a car service in Aspen, Aspen airport transfer cost, Aspen black car pricing",
     canonicalUrl: "/rates",
@@ -16,20 +16,20 @@ const data: ServicePageData = {
     tagline: "Rates & Pricing",
     headline: "Transparent {{Aspen Car Service}} Rates",
     description:
-      "Flat-rate transfers, straightforward hourly pricing, and no surge — ever. Here's exactly how VIP Aspen pricing works, with a tailored quote one call away.",
+      "Flat-rate transfers and straightforward hourly pricing, quoted up front. Here's exactly how VIP Aspen pricing works, with a tailored quote one call away.",
     ctaLabel: "Request a Quote",
     ctaLink: "#booking",
     secondaryCta: { label: "(970) 452-6636", link: "tel:+19704526636" },
   },
   trustBadges: [
-    { label: "No Surge Pricing", icon: Star },
+    { label: "Quoted Up Front", icon: Star },
     { label: "Available 24/7", icon: Clock },
     { label: "Flat-Rate Transfers", icon: BadgeCheck },
-    { label: "Veteran & LEO Owned", icon: ShieldCheck },
+    { label: "Law Enforcement-Owned", icon: ShieldCheck },
   ],
   intro: {
     heading: "How Our {{Pricing Works}}",
-    body: `<p>Luxury transportation shouldn't come with surprises. VIP Aspen prices two simple ways: <strong>flat rates</strong> for airport transfers and point-to-point routes, and an <strong>as-directed hourly rate</strong> when you want a dedicated vehicle and driver on your schedule. Every quote includes a professional chauffeur, fuel, and the vehicle — and unlike ride-share, our rates never surge, even on New Year's Eve or during the Food & Wine Classic.</p>
+    body: `<p>Luxury transportation shouldn't come with surprises. VIP Aspen prices two simple ways: <strong>flat rates</strong> for airport transfers and point-to-point routes, and an <strong>as-directed hourly rate</strong> when you want a dedicated vehicle and driver on your schedule. Every quote includes a professional chauffeur, fuel, and the vehicle.</p>
 <p>Because every trip is different — your vehicle, route, timing, stops, and season all factor in — the most accurate price is a quick custom quote. Below are our published starting points so you know roughly what to expect. <a href="/membership">VIP members</a> receive preferred rates on everything.</p>`,
   },
   pricing: [
@@ -60,7 +60,7 @@ const data: ServicePageData = {
     },
     {
       category: "Airport & Route Transfers",
-      note: "Transfers are quoted as flat rates based on route, vehicle, and timing — confirmed up front, with no surge. Contact us for an exact quote for your trip.",
+      note: "Transfers are quoted as flat rates based on route, vehicle, and timing — confirmed up front. Contact us for an exact quote for your trip.",
       items: [
         {
           name: "Aspen Airport (ASE)",
@@ -94,11 +94,6 @@ const data: ServicePageData = {
       question: "How much does a car service in Aspen cost?",
       answer:
         "As-directed hourly service starts at $200/hr for the Cadillac Escalade, $300/hr for the Executive Sprinter, and $400/hr for the Rolls Royce Cullinan (2-hour minimum). Airport and route transfers are quoted as flat rates based on the route, vehicle, and timing. Contact us for an exact quote for your trip.",
-    },
-    {
-      question: "Is there surge pricing during events or holidays?",
-      answer:
-        "No. Our rates are locked at the time of booking and never surge — including New Year's Eve, the Food & Wine Classic, X Games, and other peak periods when ride-share prices multiply.",
     },
     {
       question: "What's included in the price?",

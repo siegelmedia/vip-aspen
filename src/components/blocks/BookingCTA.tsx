@@ -86,7 +86,7 @@ const BookingCTA = ({
             {subheading ||
               (variant === "form"
                 ? "Tell us about your needs and we'll get back to you promptly."
-                : "Select your vehicle, date, and route — confirmed in minutes. No surge pricing, available 24/7.")}
+                : "Select your vehicle, date, and route — confirmed in minutes. Available 24/7.")}
           </p>
           {variant === "widget" && (
             <ol className="steps">

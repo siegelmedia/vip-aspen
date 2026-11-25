@@ -106,7 +106,7 @@ for (const folder of ['services', 'vehicles', 'airports', 'guides']) {
     if (registered.has(name)) visit(await source(file), collect(file, SECTIONS[folder]));
   }
 }
-for (const name of ['Index', 'AboutPage', 'ContactPage', 'MembershipPage', 'SecurityAssessment', 'GuidesIndex', 'NotFound']) {
+for (const name of ['Index', 'AboutPage', 'ContactPage', 'MembershipPage', 'GuidesIndex', 'NotFound']) {
   const file = `src/pages/${name}.tsx`;
   const visitor = collect(file, 'Company');
   visit(await source(file), visitor);
@@ -196,15 +196,15 @@ const grouped = sections.map(section => [section, [...pages].filter(([, m]) => m
 const header = [
   '# VIP Aspen',
   '',
-  '> Luxury chauffeured car service and executive protection in Aspen, Colorado. Rolls-Royce Cullinan,',
+  '> Luxury chauffeured car service in Aspen, Colorado. Rolls-Royce Cullinan,',
   '> Cadillac Escalade and Executive Sprinter with professional chauffeurs. Airport transfers (ASE, EGE, RIL, DEN),',
-  '> Vail/Beaver Creek/Glenwood route transfers, private ski transfers, security drivers. Operated by Aspen Security LLC,',
-  '> veteran and law-enforcement owned, available 24/7. Phone +1 970-452-6636. 411 E Main St, Suite 205H, Aspen, CO 81611.',
+  '> Vail/Beaver Creek/Glenwood route transfers, private ski transfers, hourly chauffeur service. Law enforcement-owned,',
+  '> available 24/7. Phone +1 970-452-6636. 411 E Main St, Suite 205H, Aspen, CO 81611.',
   '',
   '## Quick Facts',
   '',
   '- Fleet: Rolls-Royce Cullinan (3 passengers, the only one for chauffeured hire in Aspen), Cadillac Escalade (5 passengers), Executive Sprinter (13 passengers).',
-  '- As-directed hourly rates from $200/hr (Escalade), $300/hr (Sprinter), $400/hr (Rolls-Royce); 2-hour minimum; chauffeur and fuel included; no surge pricing.',
+  '- As-directed hourly rates from $200/hr (Escalade), $300/hr (Sprinter), $400/hr (Rolls-Royce); 2-hour minimum; chauffeur and fuel included.',
   '- Airport transfers are flat-rate: Aspen ASE (3 miles, ~5-10 min to downtown), Eagle EGE (~70 miles, ~90 min), Rifle RIL (~60 miles, ~75 min), Denver DEN (~225 miles, ~3.5 hours).',
   '- Flight tracking, meet-and-greet and ski/luggage handling on every airport pickup. Dispatch staffed 24/7.',
   '- Memberships: Silver $1,000/mo, Gold $2,500/mo, Black $6,000/mo, including airport transfers, hourly service and a personal concierge.',

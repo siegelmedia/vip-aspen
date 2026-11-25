@@ -24,7 +24,7 @@ const data: ServicePageData = {
   },
   intro: {
     heading: "Aspen's Events Demand {{Better Transportation}}",
-    body: `<p>Aspen's event calendar is one of the most packed in the country. The Food & Wine Classic takes over town every June, the X Games electrify Buttermilk each January, and the Aspen Ideas Festival draws thought leaders from around the world every summer. Add JAS Aspen Snowmass for world-class jazz and country music, World Cup ski racing on Aspen Mountain, and a year-round circuit of gallery openings, charity galas, museum fundraisers, and private estate events \u2014 and you have a town where transportation becomes the single biggest logistical headache on any event weekend. Surge pricing spikes, ride-share availability drops to zero, and downtown streets gridlock with traffic. VIP Aspen clients skip the chaos entirely with pre-booked luxury vehicles, professional chauffeurs who know the event landscape, and guaranteed availability when everyone else is scrambling for a ride.</p>
+    body: `<p>Aspen's event calendar is one of the most packed in the country. The Food & Wine Classic takes over town every June, the X Games electrify Buttermilk each January, and the Aspen Ideas Festival draws thought leaders from around the world every summer. Add JAS Aspen Snowmass for world-class jazz and country music, World Cup ski racing on Aspen Mountain, and a year-round circuit of gallery openings, charity galas, museum fundraisers, and private estate events \u2014 and you have a town where transportation becomes the single biggest logistical headache on any event weekend. Ride-share availability drops to zero and downtown streets gridlock with traffic. VIP Aspen clients skip the chaos entirely with pre-booked luxury vehicles, professional chauffeurs who know the event landscape, and guaranteed availability when everyone else is scrambling for a ride.</p>
 <p>For corporate groups, wedding parties, host committees, and event planners managing large-scale gatherings, we provide multi-vehicle coordination with a single point of contact. Your fleet arrives on schedule, at the correct venue entrance, with every driver briefed on event logistics, parking restrictions, and VIP staging areas. Whether you need three Escalades rotating between a hotel and a conference venue or a Sprinter shuttling guests between a rehearsal dinner and an after-party, one coordinator manages your entire transportation timeline from start to finish. For larger corporate activations and multi-day conferences, see our dedicated <a href="/aspen-corporate-transportation">corporate transportation</a> service for full fleet management capabilities.</p>
 <p>Venue knowledge is what separates a professional event car service from a random ride. Our chauffeurs know every venue in the Roaring Fork Valley \u2014 The Little Nell, Hotel Jerome, Limelight Hotel, the Aspen Art Museum, Wheeler Opera House, Belly Up, Caribou Club, and dozens of private estates scattered across the mountainsides. They know where the VIP drop-off points are, where to stage vehicles between pickups, and how to route around event traffic to get you in and out without fighting the crowds. For clients heading to Aspen's most exclusive nightlife after an event, our <a href="/aspen-clubs">VIP Club Access</a> service pairs perfectly with event transportation for a seamless evening from gala to after-party.</p>`,
   },
@@ -57,7 +57,7 @@ const data: ServicePageData = {
       icon: Clock,
       title: "On-Call All Evening",
       description:
-        "Your driver stays on call throughout your event. Leave when you want, not when the shuttle runs. No surge pricing, no wait.",
+        "Your driver stays on call throughout your event. Leave when you want, not when the shuttle runs. No wait.",
     },
     {
       icon: Car,
@@ -89,7 +89,7 @@ const data: ServicePageData = {
       step: 4,
       title: "Enjoy the Event",
       description:
-        "Your driver is on call all evening. Leave when you're ready \u2014 no surge, no scramble, no stress.",
+        "Your driver is on call all evening. Leave when you're ready \u2014 no scramble, no stress.",
     },
   ],
   faqs: [
@@ -107,11 +107,6 @@ const data: ServicePageData = {
       question: "Do your drivers know the event venues?",
       answer:
         "Absolutely. Our chauffeurs know every venue in the valley \u2014 VIP entrances, staging areas, and the fastest routes to avoid event traffic.",
-    },
-    {
-      question: "Is there surge pricing during events?",
-      answer:
-        "No. Our rates are consistent regardless of event schedules or demand. Book in advance and your price is locked.",
     },
     {
       question: "Can I keep my driver on call during an event?",

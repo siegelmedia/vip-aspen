@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import QuickBook from "@/components/site/QuickBook";
+import logo from "@/assets/vip-aspen-logo.webp";
 import { heroHighlights } from "@/data/site";
 import { HERO_VIDEO, heroImage, heroServices } from "@/data/home";
 
 /**
  * First section of the homepage, laid out like summitblackcar.com: the video
- * (or its still), the highlight line, the name, the booking card, and the
+ * (or its still), the highlight line, the logo, the booking card, and the
  * three most requested services along the bottom.
  *
  * The video starts after the page has loaded, uses the smaller file on phones,
@@ -73,7 +74,9 @@ const VideoHero = () => {
               <li key={h}>{h}</li>
             ))}
           </ul>
-          <p className="vhero__brand">VIP Aspen</p>
+          <p className="vhero__brand vhero__brand--logo">
+            <img src={logo} width={305} height={127} alt="VIP Aspen" decoding="async" />
+          </p>
         </div>
         <div className="vhero__form">
           <QuickBook />

@@ -17,7 +17,7 @@ const data: AirportPageData = {
   seo: {
     title: "Eagle Airport (EGE) to Aspen Car Service",
     description:
-      "Luxury Eagle County Airport (EGE) transfers to Aspen, Vail & Beaver Creek. Escalade, Rolls Royce & Sprinter with flight tracking, meet & greet and ski gear handling.",
+      "Luxury Eagle County Airport (EGE) transfers to Aspen, Vail & Beaver Creek. Escalade, Rolls Royce & Sprinter with flight tracking and meet & greet.",
     keywords:
       "Eagle airport transfer, EGE to Aspen car service, Eagle County Regional airport, Eagle Vail airport luxury transfer, EGE chauffeur",
     canonicalUrl: "/eagle-airport-transfer",

@@ -28,15 +28,7 @@ const leaders = [
     title: "Founder",
     photo: "/andrewheadshot.jpg",
     credentials: ["Former Colorado State Trooper", "Reserve Colorado Ranger", "Dignitary protection certified"],
-    bio: "Andrew Siegel is the founder of VIP Aspen and its sister company Summit Black Car. A former Colorado State Trooper and current Reserve Colorado Ranger, Andrew is certified in dignitary protection and has experience supporting high-profile motorcades, executive travel, and VIP movements throughout Colorado. His background in law enforcement, mountain operations, and executive protection shaped the company's focus on safety, discretion, and luxury service.",
-  },
-  {
-    id: "austin-dvorak",
-    name: "Austin Dvorak",
-    title: "Chief Operating Officer, Aspen Security",
-    photo: "/austinheadshot.jpg",
-    credentials: ["Special Operations veteran", "Executive protection trained", "Threat assessment & secure transportation"],
-    bio: "Austin Dvorak is the COO of Aspen Security and brings a background in Special Operations, executive protection, and high-risk operational planning. He has completed advanced training through multiple nationally recognized executive protection academies, with specialized experience in threat assessment, surveillance detection, emergency response, fleet logistics, and secure transportation. Austin oversees operational standards, training, and VIP service execution, bringing a disciplined, protection-focused mindset to every client movement.",
+    bio: "Andrew Siegel is the founder of VIP Aspen and its sister company Summit Black Car, and the owner of Aspen Security. A former Colorado State Trooper and current Reserve Colorado Ranger, Andrew is certified in dignitary protection and has experience supporting high-profile motorcades, executive travel, and VIP movements throughout Colorado. His background in law enforcement, mountain operations, and executive protection shaped the company's focus on safety, discretion, and luxury service.",
   },
 ];
 
@@ -71,16 +63,16 @@ const aboutSchema = {
 
 const pillars = [
   {
-    icon: Shield,
-    title: "A Security Company First",
-    description:
-      "VIP Aspen is operated by Aspen Security LLC, a Colorado-licensed security firm with veteran and law enforcement ownership. Vetting, discretion, and planning are built into every ride, not added on.",
-  },
-  {
     icon: Award,
     title: "Vehicles Chosen for the Mountains",
     description:
       "A Rolls-Royce Cullinan with a bespoke interior, late-model Cadillac Escalades, and a 13-passenger Executive Sprinter, all selected for Colorado winters and the expectations of our clients.",
+  },
+  {
+    icon: Shield,
+    title: "Law Enforcement-Owned",
+    description:
+      "VIP Aspen is a law enforcement-owned company. Every chauffeur is background-checked and trained, and vetting, discretion, and planning are built into every ride, not added on.",
   },
   {
     icon: MapPin,
@@ -149,9 +141,9 @@ const AboutPage = () => {
   return (
     <>
       <SEOHead
-        title="About VIP Aspen | Veteran & LEO-Owned Car Service"
-        description="VIP Aspen is a veteran and law-enforcement owned luxury transportation and executive protection company in Aspen, Colorado. Rolls-Royce, Escalade & Sprinter, available 24/7."
-        keywords="about VIP Aspen, luxury car service Aspen Colorado, VIP transportation Roaring Fork Valley, Aspen car service company, executive protection Aspen, Aspen Security LLC"
+        title="About VIP Aspen | Law Enforcement-Owned Car Service"
+        description="VIP Aspen is a law enforcement-owned luxury car service in Aspen, Colorado. Chauffeured Rolls-Royce Cullinan, Cadillac Escalade & Executive Sprinter, available 24/7."
+        keywords="about VIP Aspen, luxury car service Aspen Colorado, VIP transportation Roaring Fork Valley, Aspen car service company, Aspen chauffeur service"
         canonicalUrl="/about"
         schemaData={aboutSchema}
       />
@@ -162,7 +154,7 @@ const AboutPage = () => {
             tagline: "About VIP Aspen",
             headline: "Transportation, Access & Protection. {{One Aspen Team.}}",
             description:
-              "VIP Aspen is a veteran and law-enforcement owned company built for the way people actually visit Aspen: arriving by jet, moving between mountains and dinners, and expecting every detail to be handled quietly.",
+              "VIP Aspen is a law enforcement-owned company built for the way people actually visit Aspen: arriving by jet, moving between mountains and dinners, and expecting every detail to be handled quietly.",
             bgImage: heroImage,
             ctaLabel: "Contact Us",
             ctaLink: "/contact",
@@ -195,8 +187,8 @@ const AboutPage = () => {
                 call.
               </p>
               <p>
-                We are operated by Aspen Security LLC, a Colorado-licensed security company with veteran and law
-                enforcement ownership. That background shapes everything about how we work. Every chauffeur is
+                VIP Aspen is a law enforcement-owned company, and that background shapes everything about how we
+                work. Every chauffeur is
                 background-checked and trained. Every itinerary is planned in advance. Confidentiality is a standing
                 policy, not a request.
               </p>
@@ -214,11 +206,11 @@ const AboutPage = () => {
         <section id="leadership" className="sec sec--paper">
           <div className="wrap">
             <SectionHeader
-              eyebrow="Leadership"
-              heading="The People {{Behind the Wheel}}"
-              subtitle="Law enforcement and special operations backgrounds, not a dispatch desk. These are the people who set the standard for every ride."
+              eyebrow="Founder"
+              heading="The Person {{Behind VIP Aspen}}"
+              subtitle="A law enforcement background, not a dispatch desk. Andrew sets the standard for every ride."
             />
-            <div className="crew crew--2" style={{ marginTop: 0 }}>
+            <div className="crew crew--1" style={{ marginTop: 0 }}>
               {leaders.map((person) => (
                 <article key={person.id} id={person.id} className="crew__card">
                   <div className="crew__photo">

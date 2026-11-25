@@ -3,7 +3,7 @@
  * The wording is the previous homepage's own copy, rearranged into the new
  * sections; nothing here is a new claim about the company.
  */
-import heroPoster from "@/assets/hero-aspen.webp";
+import heroPoster from "@/assets/hero-video-poster.webp";
 import carCullinan from "@/assets/car-cullinan.webp";
 import carEscalade from "@/assets/car-escalade.webp";
 import carSprinter from "@/assets/car-sprinter.webp";
@@ -43,19 +43,23 @@ import seoLeft from "@/assets/hero-wedding.webp";
 import seoRight from "@/assets/rolls-gallery-interior.webp";
 
 /**
- * Homepage video. Andrew is making a new header video (2026-11-23): put the
- * desktop loop at /public/video/hero.mp4 and a small phone version at
- * /public/video/hero-sm.mp4 (1920x1080 and about 960x540, 10 to 20 seconds, no
- * audio, H.264), then set this to { mp4: "/video/hero.mp4", mp4Small:
- * "/video/hero-sm.mp4" }. Until then the still photo below is shown; with a
- * video it stays as the first frame and as the picture for visitors who ask
- * for reduced motion or data saving.
+ * Homepage video (Andrew's header edit, added 2026-11-24). Source:
+ * Desktop/PREMIEREPROADCODEX/VIP_Aspen_Header_Web.mp4 (1920x1080, 16.8 s, no
+ * audio). /public/video/hero.mp4 is that file with the index moved to the
+ * front so it starts while downloading; hero-sm.mp4 is a 960x540 copy for
+ * phones. To replace the video, overwrite both files and remake the still
+ * (src/assets/hero-video-poster.webp, the video's first frame at 1600x900),
+ * which shows before the video starts and for visitors who ask for reduced
+ * motion or data saving. Set this to null to go back to the still alone.
  */
-export const HERO_VIDEO: { mp4: string; mp4Small?: string } | null = null;
+export const HERO_VIDEO: { mp4: string; mp4Small?: string } | null = {
+  mp4: "/video/hero.mp4",
+  mp4Small: "/video/hero-sm.mp4",
+};
 
 export const heroImage = {
   src: heroPoster,
-  alt: "Black Rolls-Royce Cullinan on a mountain road above Aspen at sunset",
+  alt: "Black Rolls-Royce Cullinan driving beside a mountain lake at sunset",
 };
 
 /** The three buttons along the bottom of the hero, each with its vehicle. */
@@ -97,7 +101,7 @@ export const serviceTiles = [
   },
   {
     title: "Executive Protection",
-    blurb: "Discreet, Colorado-licensed protection for high-profile individuals — from security drivers to full details.",
+    blurb: "Discreet protection for high-profile individuals, operated by our Aspen Security team.",
     image: tileProtection,
     alt: "Executive protection agents beside a black SUV",
     href: "/executive-protection",
@@ -114,10 +118,10 @@ export const serviceTiles = [
 /** The interactive list on black: each line opens its text and shows its photo. */
 export const standards = [
   {
-    title: "Veteran & Law Enforcement-Owned",
-    text: "VIP Aspen is operated by Aspen Security LLC, a Colorado-licensed, veteran and law-enforcement owned security company.",
+    title: "Law Enforcement-Owned",
+    text: "VIP Aspen is a law enforcement-owned company. Vetting, discretion, and planning are built into every ride.",
     image: stdOwned,
-    alt: "Security driver standing beside a black Cadillac Escalade in Aspen",
+    alt: "Chauffeur standing beside a black Cadillac Escalade in Aspen",
   },
   {
     title: "Background-Checked Chauffeurs",
@@ -126,8 +130,8 @@ export const standards = [
     alt: "Chauffeur opening the door of a black luxury SUV in Aspen",
   },
   {
-    title: "Flat Rates, No Surge Pricing",
-    text: "You receive a flat, all-inclusive quote and your chauffeur's details before the ride. No surge pricing, ever.",
+    title: "A Clear Quote Before You Ride",
+    text: "You receive an all-inclusive quote and your chauffeur's details before the ride.",
     image: stdRates,
     alt: "Black Rolls-Royce Cullinan parked outside a mountain residence",
   },
@@ -243,7 +247,7 @@ export const steps = {
     },
     {
       title: "Confirm",
-      text: "Receive a flat, all-inclusive quote and your chauffeur's details. No surge pricing, ever.",
+      text: "Receive an all-inclusive quote and your chauffeur's details before the ride.",
     },
     {
       title: "Ride",
@@ -251,28 +255,6 @@ export const steps = {
     },
   ],
 };
-
-/** Leadership, as published on the About page. */
-export const team = [
-  {
-    id: "andrew-siegel",
-    name: "Andrew Siegel",
-    role: "Founder",
-    photo: "/andrewheadshot.jpg",
-    width: 900,
-    height: 1125,
-    bio: "A former Colorado State Trooper and current Reserve Colorado Ranger, certified in dignitary protection, with experience supporting high-profile motorcades, executive travel, and VIP movements throughout Colorado.",
-  },
-  {
-    id: "austin-dvorak",
-    name: "Austin Dvorak",
-    role: "Chief Operating Officer, Aspen Security",
-    photo: "/austinheadshot.jpg",
-    width: 900,
-    height: 900,
-    bio: "A Special Operations veteran trained through multiple nationally recognized executive protection academies. Austin oversees operational standards, training, and VIP service execution.",
-  },
-];
 
 export const teamImage = { src: teamPhoto, alt: "Guest stepping out of the VIP Aspen Rolls-Royce Cullinan in downtown Aspen" };
 export const aboutImage = { src: aboutPhoto, alt: "" };
