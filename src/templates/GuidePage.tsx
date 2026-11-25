@@ -70,7 +70,9 @@ const GuidePage = ({ data }: GuidePageProps) => {
           <>
             <p className="phero__lede">{data.excerpt}</p>
             <p className="byline" style={{ marginTop: ".9rem" }}>
-              By {COMPANY.name} &middot; Updated <time dateTime={data.dateModified}>{updated}</time>
+              {/* A plain link, not a router Link: the browser scrolls to the #anchor on the About page. */}
+              By <a href="/about#andrew-siegel">Andrew Siegel</a>, Founder &middot; Updated{" "}
+              <time dateTime={data.dateModified}>{updated}</time>
               {data.readTime ? <> &middot; {data.readTime}</> : null}
             </p>
           </>

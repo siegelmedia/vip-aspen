@@ -18,74 +18,79 @@ const data: ServicePageData = {
     bgImage: heroBg,
     headline: "Luxury Transportation for {{Hotel Jerome}} Guests",
     description:
-      "Seamless airport transfers, hourly chauffeur service, and on-demand luxury transportation for guests of Aspen's iconic Hotel Jerome. Your driver knows the property, the drop-off, and the standard of service you expect.",
+      "Airport transfers, hourly chauffeur service, and on-demand private cars for guests staying at Hotel Jerome on Main Street in downtown Aspen, 5 to 10 minutes from Aspen airport.",
     ctaLabel: "Book Now",
     ctaLink: "#booking",
     secondaryCta: { label: "Call (970) 452-6636", link: "tel:+19704526636" },
   },
   intro: {
-    heading: "Aspen's Most Iconic Hotel Deserves {{Matching Transportation}}",
-    body: `<p>The Hotel Jerome, built in 1889, is Aspen's most storied luxury hotel — and its guests expect a level of service that matches. VIP Aspen provides dedicated transportation for Jerome guests, from the moment you land at <a href="/aspen-airport-transfer">Aspen-Pitkin County Airport</a> to dinner reservations at Element 47 and everywhere in between. Our drivers know the Jerome's porte-cochère, the loading zones, and the concierge team by name.</p>
-<p>For families staying at the Jerome, our <a href="/hourly-chauffeur">hourly chauffeur service</a> is the perfect complement — a dedicated SUV and driver on call for ski days, shopping trips to downtown, and multi-stop adventures across the valley. No hunting for parking on Galena Street, no waiting in the cold for a ride.</p>
-<p>We serve Jerome guests with our full fleet: <a href="/cadillac-escalade">Cadillac Escalade</a> for families and small groups, <a href="/executive-sprinter">Executive Sprinter</a> for larger parties, and <a href="/rolls-royce-cullinan">Rolls Royce Cullinan</a> for the ultimate arrival. <a href="/membership">VIP Members</a> get priority booking during peak season.</p>`,
+    heading: "A Private Car for Your Stay on {{Main Street}}",
+    body: `<p>Hotel Jerome has stood at 330 East Main Street since 1889, in the middle of downtown Aspen. It is 5 to 10 minutes from <a href="/aspen-airport-transfer">Aspen-Pitkin County Airport</a>, and the Silver Queen Gondola on Aspen Mountain is about a third of a mile away, roughly a 10-minute walk. VIP Aspen provides private car service for guests staying there, from the airport pickup to the last ride back after dinner.</p>
+<p>Because the Jerome sits on Main Street rather than at the base of a lift, a car earns its keep on ski days. We drive you and your gear to the gondola in a couple of minutes, or to Aspen Highlands, Buttermilk, or Snowmass, and collect you when you come off the mountain. Our <a href="/hourly-chauffeur">hourly chauffeur service</a> keeps one vehicle and driver on call for the day, so there is no parking to find downtown and no waiting in the cold for a ride.</p>
+<p>Choose the vehicle by group size: the <a href="/cadillac-escalade">Cadillac Escalade</a> for up to 5 passengers with luggage and skis, the <a href="/executive-sprinter">Executive Sprinter</a> for up to 13, and the <a href="/rolls-royce-cullinan">Rolls Royce Cullinan</a> for up to 3 passengers with standard luggage. The Cullinan does not carry ski equipment. <a href="/membership">VIP Members</a> get priority booking during peak season.</p>`,
   },
   features: [
     {
       icon: Plane,
       title: "Airport Transfers",
       description:
-        "Direct service from ASE, Eagle, Rifle, and Denver airports to the Hotel Jerome front entrance. Flight tracking and meet-and-greet included.",
+        "Flight-tracked transfers from ASE (5 to 10 minutes), Eagle, Rifle, and Denver airports to the Hotel Jerome entrance on Main Street.",
     },
     {
       icon: Clock,
       title: "Hourly Chauffeur",
       description:
-        "A dedicated SUV and driver on your schedule. Ski resorts, restaurants, shopping, events — your car waits while you enjoy Aspen.",
-    },
-    {
-      icon: Star,
-      title: "Concierge Coordination",
-      description:
-        "We work directly with the Hotel Jerome concierge team to coordinate pickups, timing, and special requests seamlessly.",
+        "A dedicated SUV and driver on your schedule. Ski resorts, restaurants, shopping, events: your car waits while you enjoy Aspen.",
     },
     {
       icon: MapPin,
-      title: "Local Knowledge",
+      title: "Rides to the Lifts",
       description:
-        "Our drivers know every restaurant, trail, and venue within minutes of the Jerome. Ask for recommendations — they'll steer you right.",
+        "The Silver Queen Gondola is about a 10-minute walk from the Jerome. We drive you and your gear there, or to Aspen Highlands, Buttermilk, or Snowmass.",
+    },
+    {
+      icon: Star,
+      title: "Planned Around Your Stay",
+      description:
+        "Send us your dinner reservations and ski plans, or have your assistant or concierge book for you, and we schedule the car around them.",
     },
     {
       icon: Car,
       title: "Full Fleet Available",
       description:
-        "Escalade, Sprinter, and Rolls Royce Cullinan. Match the vehicle to your group size and occasion.",
+        "Escalade for up to 5 with luggage and skis, Sprinter for up to 13, and the Rolls Royce Cullinan for up to 3 with standard luggage.",
     },
   ],
   faqs: [
     {
       question: "How do I book a car from the airport to Hotel Jerome?",
       answer:
-        "Call us or book online with your flight details. We track your flight, meet you at baggage claim (ASE) or curbside (other airports), and drive you directly to the Jerome's front entrance.",
-    },
-    {
-      question: "Can you coordinate with the Hotel Jerome concierge?",
-      answer:
-        "Yes. We regularly work with the Jerome's concierge team and can coordinate pickup times, special requests, and multi-day itineraries.",
-    },
-    {
-      question: "What's the best option for a family at the Jerome?",
-      answer:
-        "The Cadillac Escalade fits 5 passengers with luggage and ski gear. For larger families, the Executive Sprinter seats up to 13. Car seats available on request.",
+        "Use the online booking form on this page for an instant quote, or call (970) 452-6636, and include your flight details. We track your flight and drive you to the Jerome's entrance on Main Street. Commercial arrivals at Aspen airport are met in the Ground Transportation Circle directly outside baggage claim, and private jets are met at the FBO. For Eagle, Rifle and Denver, we confirm the meeting point with your booking.",
     },
     {
       question: "How far is ASE airport from Hotel Jerome?",
       answer:
-        "Aspen-Pitkin County Airport (ASE) is approximately 5 minutes from the Hotel Jerome. We include 60 minutes of complimentary wait time for flight delays.",
+        "Aspen-Pitkin County Airport (ASE) is 5 to 10 minutes from Hotel Jerome, about 3 miles along Highway 82 and Main Street. Complimentary wait time is included on airport transfers in case your flight runs late.",
+    },
+    {
+      question: "Where is Hotel Jerome, and how close is it to the gondola?",
+      answer:
+        "Hotel Jerome is at 330 East Main Street in downtown Aspen. The Silver Queen Gondola at the base of Aspen Mountain is about a third of a mile away, roughly a 10-minute walk or a couple of minutes by car. With skis and boots, most guests prefer the ride.",
+    },
+    {
+      question: "What's the best option for a family at the Jerome?",
+      answer:
+        "The Cadillac Escalade fits 5 passengers with luggage and ski gear. For larger families, the Executive Sprinter seats up to 13. Car seats are available on request. The Rolls Royce Cullinan seats 3 and does not carry ski equipment.",
     },
     {
       question: "Can I keep a driver on call during my stay?",
       answer:
-        "Absolutely. Our hourly chauffeur service gives you a dedicated driver and vehicle for as long as you need — by the hour, half-day, or full day.",
+        "Yes. Our hourly chauffeur service gives you a dedicated driver and vehicle for as long as you need: by the hour, for a half day, or for a full day.",
+    },
+    {
+      question: "Can my assistant or the hotel concierge book for me?",
+      answer:
+        "Yes. Anyone arranging your trip can book on your behalf online or by phone. VIP Aspen is an independent car service, so the reservation is made directly with us rather than through the hotel.",
     },
   ],
   relatedServices: [
@@ -93,6 +98,7 @@ const data: ServicePageData = {
     { label: "Hourly Chauffeur", href: "/hourly-chauffeur" },
     { label: "Aspen Airport Transfer", href: "/aspen-airport-transfer" },
     { label: "St. Regis Transportation", href: "/st-regis-aspen-transportation" },
+    { label: "Little Nell Transportation", href: "/little-nell-transportation" },
   ],
 };
 

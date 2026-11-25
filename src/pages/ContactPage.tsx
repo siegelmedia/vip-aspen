@@ -9,27 +9,24 @@ import PageHero from "@/components/layout/PageHero";
 import FormErrorFallback from "@/components/FormErrorFallback";
 import { trackEvent } from "@/lib/analytics";
 import { CORSA, WHATSAPP_URL } from "@/data/site";
+import { COMPANY } from "@/data/constants";
+import { combineSchema, createBreadcrumbSchema } from "@/lib/schema";
 import heroImage from "@/assets/fleet-tarmac-hero.webp";
 
-const schemaData = {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "mainEntity": {
-    "@id": "https://www.vipaspen.com/#organization",
-    "@type": "LocalBusiness",
-    "name": "VIP Aspen",
-    "telephone": "+19704526636",
-    "email": "info@vipaspen.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "411 E Main St, Suite 205H",
-      "addressLocality": "Aspen",
-      "addressRegion": "CO",
-      "postalCode": "81611",
-      "addressCountry": "US"
-    }
-  }
-};
+// The business itself is declared once, site-wide, as #organization; this page only points at it.
+const schemaData = combineSchema(
+  {
+    "@type": "ContactPage",
+    "@id": `${COMPANY.url}/contact#webpage`,
+    url: `${COMPANY.url}/contact`,
+    name: "Contact VIP Aspen",
+    mainEntity: { "@id": `${COMPANY.url}/#organization` },
+  },
+  createBreadcrumbSchema([
+    { name: "Home", url: COMPANY.url },
+    { name: "Contact", url: `${COMPANY.url}/contact` },
+  ]),
+);
 
 const serviceLinks = [
   { label: "Rolls Royce Cullinan", to: "/rolls-royce-cullinan" },
@@ -82,9 +79,7 @@ const ContactPage = () => {
             <div className="svc svc--contact" style={{ marginTop: 0 }}>
               <a className="svc__card" href="tel:+19704526636">
                 <p className="eyebrow">Call or text</p>
-                <h3 className="h3" itemProp="telephone">
-                  (970) 452-6636
-                </h3>
+                <h3 className="h3">(970) 452-6636</h3>
                 <p>Dispatch is staffed 24/7. The fastest way to reach us for same-day requests and changes.</p>
               </a>
               <a className="svc__card" href={`${WHATSAPP_URL}?text=${encodeURIComponent("Hello, I'd like to learn more about VIP Aspen services.")}`} target="_blank" rel="noopener noreferrer">
@@ -95,7 +90,7 @@ const ContactPage = () => {
               <a className="svc__card" href={CORSA.bookUrl}>
                 <p className="eyebrow">Instant quote</p>
                 <h3 className="h3">Book online</h3>
-                <p>Select your vehicle, date, and route. Confirmed in minutes with a flat rate.</p>
+                <p>Select your vehicle, date, and route. Your price is shown before you book.</p>
               </a>
               <a className="svc__card" href="mailto:info@vipaspen.com">
                 <p className="eyebrow">Email</p>
@@ -116,7 +111,7 @@ const ContactPage = () => {
               </div>
               <div>
                 <dt>Hours</dt>
-                <dd>Available 24/7 for our members</dd>
+                <dd>Available 24/7</dd>
               </div>
               <div>
                 <dt>Services</dt>

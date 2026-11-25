@@ -101,7 +101,7 @@ export const serviceTiles = [
   },
   {
     title: "Executive Protection",
-    blurb: "Discreet protection for high-profile individuals, operated by our Aspen Security team.",
+    blurb: "Discreet protection for high-profile individuals — from security drivers to full details.",
     image: tileProtection,
     alt: "Executive protection agents beside a black SUV",
     href: "/executive-protection",

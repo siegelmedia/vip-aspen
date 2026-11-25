@@ -36,7 +36,7 @@ const AirportPage = ({ data }: AirportPageProps) => {
         variant="widget"
         serviceType={data.slug}
         heading={data.destination ? `Book Your {{${destination} Transfer}}` : `Book Your {{${data.airport.code} Transfer}}`}
-        subheading="Flight-tracked pickups, meet-and-greet, and a flat all-inclusive rate."
+        subheading="Flight-tracked pickups, luggage handled at the vehicle, and an all-inclusive quote before you book."
       />
 
       {/* Overview: the page's opening text beside the airport facts */}
@@ -141,7 +141,7 @@ const AirportPage = ({ data }: AirportPageProps) => {
         variant="contact-only"
         serviceType={data.slug}
         heading={data.destination ? `Reserve Your {{${destination} Transfer}}` : `Reserve Your {{${data.airport.code} Transfer}}`}
-        subheading="Flight-tracked pickups, meet-and-greet, and a flat all-inclusive rate. Book online above or reach our 24/7 dispatch."
+        subheading="Flight-tracked pickups, luggage handled at the vehicle, and an all-inclusive quote before you book. Book online above or reach our 24/7 dispatch."
       />
     </PageWrapper>
   );

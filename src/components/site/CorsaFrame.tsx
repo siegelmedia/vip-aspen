@@ -13,6 +13,11 @@ import { CORSA } from "@/data/site";
  * here instead, with the same remembered source. If the script is blocked or
  * slow, the plain form loads after two seconds so booking never waits on it.
  *
+ * A frame marked `manual` is never handed to Corsa's script: it loads here, and
+ * only once `active` is true. The homepage card uses this so a phone, where the
+ * form sits behind a closed "Instant Quote" button, does not download the
+ * booking app until the visitor opens it.
+ *
  * Talking with the form (the same messages Corsa's own embed script handles):
  * the form posts {corsa:'height'} with its height, {corsa:'step'} when another
  * step shows and {corsa:'reveal'} when a list or pop-up opens. This component
@@ -81,6 +86,10 @@ interface CorsaFrameProps {
   frameRef?: React.MutableRefObject<HTMLIFrameElement | null>;
   /** A changing value asks the frame to report its visible part again. */
   viewKey?: unknown;
+  /** Load the form here instead of leaving it to Corsa's script (see the note at the top). */
+  manual?: boolean;
+  /** With `manual`: load only once this is true. */
+  active?: boolean;
 }
 
 const CorsaFrame = ({
@@ -89,6 +98,8 @@ const CorsaFrame = ({
   sized,
   frameRef,
   viewKey,
+  manual = false,
+  active = true,
 }: CorsaFrameProps) => {
   const ref = useRef<HTMLIFrameElement | null>(null);
   const live = useRef(false);
@@ -116,15 +127,6 @@ const CorsaFrame = ({
     const frame = ref.current;
     if (!frame) return;
     if (frameRef) frameRef.current = frame;
-
-    // Load the form if Corsa's script will not (see the note at the top).
-    const load = () => {
-      if (!frame.getAttribute("src")) frame.src = formAddress();
-    };
-    const scriptRan = (window as unknown as { corsaLinks?: boolean }).corsaLinks === true;
-    let timer: ReturnType<typeof setTimeout> | undefined;
-    if (scriptRan && document.readyState !== "loading") load();
-    else timer = setTimeout(load, 2000);
 
     const isSized = () => !sizedRef.current || sizedRef.current();
 
@@ -188,13 +190,45 @@ const CorsaFrame = ({
     window.addEventListener("scroll", moved, { passive: true, capture: true });
     window.addEventListener("resize", moved);
     return () => {
-      if (timer) clearTimeout(timer);
       window.removeEventListener("message", onMessage);
       window.removeEventListener("scroll", moved, { capture: true });
       window.removeEventListener("resize", moved);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Load the form if Corsa's script will not (see the note at the top).
+  useEffect(() => {
+    const frame = ref.current;
+    if (!frame || !active) return;
+    const load = () => {
+      if (!frame.getAttribute("src")) frame.src = formAddress();
+    };
+    const scriptRan = () => (window as unknown as { corsaLinks?: boolean }).corsaLinks === true;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    let poll: ReturnType<typeof setInterval> | undefined;
+    if (scriptRan() && document.readyState !== "loading") load();
+    else {
+      timer = setTimeout(() => {
+        clearInterval(poll);
+        load();
+      }, 2000);
+      // A manual frame is never picked up by the script, so load as soon as the script has saved the visit's source.
+      if (manual) {
+        poll = setInterval(() => {
+          if (!scriptRan()) return;
+          clearInterval(poll);
+          clearTimeout(timer);
+          load();
+        }, 100);
+      }
+    }
+    return () => {
+      clearTimeout(timer);
+      clearInterval(poll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active]);
 
   // After the card around the frame has finished growing or shrinking.
   useEffect(() => {
@@ -216,7 +250,7 @@ const CorsaFrame = ({
       <iframe
         ref={ref}
         title={title}
-        data-corsa-form={CORSA.embedUrl}
+        {...(manual ? { "data-corsa-manual": CORSA.embedUrl } : { "data-corsa-form": CORSA.embedUrl })}
         allow="payment"
         onLoad={() => setLoaded(true)}
         suppressHydrationWarning

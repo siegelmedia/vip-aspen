@@ -6,7 +6,7 @@ const data: GuidePageData = {
   seo: {
     title: "Aspen Events Calendar: X Games, Ideas Fest & More",
     description:
-      "A season-by-season guide to Aspen's biggest events: X Games, Gay Ski Week, Food & Wine Classic, Ideas Festival, Music Festival and the holidays, plus how to get around.",
+      "A season-by-season guide to Aspen's biggest events: X Games, Gay Ski Week, Food & Wine Classic, Ideas Festival and the holidays, plus getting around.",
     keywords:
       "Aspen events, Aspen events calendar, X Games Aspen, Aspen Ideas Festival, Aspen Music Festival, Jazz Aspen Snowmass, Aspen Gay Ski Week, best time to visit Aspen, Aspen New Year's Eve, Aspen event transportation",
     canonicalUrl: "/guides/aspen-events-calendar",
@@ -17,7 +17,7 @@ const data: GuidePageData = {
   excerpt:
     "From X Games and Gay Ski Week to the Ideas Festival, Music Festival, and Jazz Aspen, here's the year in Aspen events, what each weekend feels like, and how to move around town when it's packed.",
   datePublished: "2026-09-08",
-  dateModified: "2026-09-08",
+  dateModified: "2026-11-24",
   readTime: "8 min read",
   heroImage,
   keyTakeaways: [
@@ -35,10 +35,10 @@ const data: GuidePageData = {
 <p>Transportation reality: this is the hardest fortnight of the year to find a car on demand. Ride-share is sparse and surges, taxis are scarce, and visitors who did not pre-book end up walking in the cold or calling around at 11 p.m. Our <a href="/aspen-new-years-eve-transportation">New Year's Eve and holiday transportation</a> is reserved weeks in advance, and hourly service is by far the most popular option so the car simply waits between dinner, the party, and home.</p>`,
     },
     {
-      heading: "January: Wintersköl, Gay Ski Week, and X Games",
-      body: `<p>Mid-January brings <strong>Wintersköl</strong>, Aspen's long-running "toast to winter" with a canine fashion show, a soup cook-off, fireworks, and a torchlight descent on Aspen Mountain. It is a local favorite and one of the more relaxed weekends of the season.</p>
-<p><strong>Aspen Gay Ski Week</strong>, also in mid-January, is one of the largest LGBTQ+ ski events in the world, with a week of parties, the downhill costume contest, and evening events across town and in Snowmass.</p>
-<p><strong>X Games Aspen</strong> lands in late January at Buttermilk Mountain, three miles west of downtown. The competitions are free to attend, the evening concerts draw big crowds, and the whole town fills with athletes, sponsors, and fans. Highway 82 between Aspen and Buttermilk becomes a slow river of traffic after the evening finals, and parking at the venue is limited to shuttle lots. Our <a href="/special-event-transportation">event transportation</a> teams run continuous loops between hotels and the venue drop zone all weekend, which is the only way to leave the finals and be at a downtown table twenty minutes later.</p>`,
+      heading: "Midwinter: Wintersköl, Gay Ski Week, and X Games",
+      body: `<p><strong>Wintersköl</strong>, now held in mid-December (December 10 to 13 in 2026), is Aspen's long-running "toast to winter" with a canine fashion show, a soup cook-off, fireworks, and a torchlight descent on Aspen Mountain. It is a local favorite and one of the more relaxed weekends of the season.</p>
+<p><strong>Aspen Gay Ski Week</strong>, in mid-January, is one of the largest LGBTQ+ ski events in the world, with a week of parties, the downhill costume contest, and evening events across town and in Snowmass.</p>
+<p><strong>X Games Aspen</strong> lands in late January at Buttermilk Mountain, three miles west of downtown (January 29 to 31 in 2027). Daytime access is free, the evening competitions and concerts require a ticket, and the whole town fills with athletes, sponsors, and fans. The cut-off time and ticket options change from year to year, so check <a href="https://www.xgames.com/tickets" target="_blank" rel="noopener">xgames.com</a> before you go. Highway 82 between Aspen and Buttermilk becomes a slow river of traffic after the evening finals, and parking at the venue is limited to shuttle lots. Our <a href="/special-event-transportation">event transportation</a> teams run continuous loops between hotels and the venue drop zone all weekend, which is the only way to leave the finals and be at a downtown table twenty minutes later.</p>`,
     },
     {
       heading: "February and March: Presidents' Day and Spring Break",
@@ -80,7 +80,7 @@ const data: GuidePageData = {
     {
       question: "When are X Games Aspen held?",
       answer:
-        "X Games Aspen takes place at Buttermilk Mountain in late January each year. Competitions are free to attend, evening concerts require tickets, and traffic on Highway 82 between Aspen and Buttermilk is heavy before and after the evening finals.",
+        "X Games Aspen takes place at Buttermilk Mountain in late January each year; the 2027 dates are January 29 to 31. Daytime access is free, while the evening competitions and concerts require a ticket. The cut-off time and ticket options change from year to year, so check xgames.com before you go. Traffic on Highway 82 between Aspen and Buttermilk is heavy before and after the evening finals.",
     },
     {
       question: "When is the Aspen Food & Wine Classic?",

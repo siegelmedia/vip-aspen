@@ -2,5 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /*.json$
-Disallow: /summit-blackcar
 Sitemap: https://www.vipaspen.com/sitemap.xml

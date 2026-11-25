@@ -22,7 +22,7 @@ const Index = () => {
     <>
       <SEOHead
         title="Aspen Luxury Car Service | Rolls Royce, Escalade"
-        description="Luxury car service in Aspen, Colorado: chauffeured Rolls Royce Cullinan, Cadillac Escalade & Executive Sprinter. Airport transfers, ski transfers & executive protection, 24/7."
+        description="Luxury car service in Aspen, Colorado: chauffeured Rolls-Royce Cullinan, Cadillac Escalade & Executive Sprinter. Airport transfers and hourly service, 24/7."
         keywords="luxury car service Aspen, Aspen chauffeur, Rolls Royce Aspen, black car service Aspen Colorado, Aspen airport transfer, luxury transportation Aspen, VIP car service Aspen, private driver Aspen"
         canonicalUrl="/"
         ogImage="https://www.vipaspen.com/og-image.jpg"
@@ -52,7 +52,7 @@ const Index = () => {
                 every day.
               </p>
             </div>
-            <GuideCards guides={guideSummaries.slice(0, 3)} />
+            <GuideCards guides={guideSummaries.slice(0, 6)} />
             <div className="btns center" style={{ justifyContent: "center" }}>
               <Link className="btn btn--dark" to="/guides">
                 All Aspen Guides

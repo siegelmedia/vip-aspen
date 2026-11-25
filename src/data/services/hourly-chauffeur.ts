@@ -95,13 +95,12 @@ const data: ServicePageData = {
   ],
   pricing: [
     {
-      category: "Hourly Rates",
-      note: "All rates include a professional chauffeur, fuel, and vehicle. 2-hour minimum. VIP Members receive discounted rates.",
+      category: "Vehicles by the Hour",
+      note: "Every hourly booking includes a professional chauffeur, fuel, and the vehicle. 2-hour minimum. Your price is shown instantly in the online booking form, or call (970) 452-6636.",
       items: [
         {
           name: "Cadillac Escalade",
           detail: "Up to 5 passengers",
-          price: "From $200/hr",
           features: [
             "4WD luxury SUV",
             "Room for ski gear and luggage",
@@ -113,7 +112,6 @@ const data: ServicePageData = {
         {
           name: "Executive Sprinter",
           detail: "Up to 13 passengers",
-          price: "From $300/hr",
           features: [
             "Conference-style seating",
             "Premium entertainment system",
@@ -124,7 +122,6 @@ const data: ServicePageData = {
         {
           name: "Rolls Royce Cullinan",
           detail: "Up to 3 passengers",
-          price: "From $400/hr",
           features: [
             "Bespoke Mandarin interior",
             "Champagne cooler",

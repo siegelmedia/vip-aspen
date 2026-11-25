@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { COMPANY } from "@/data/constants";
 import { TEL_HREF } from "@/data/site";
-import { Accent, SmartLink } from "@/components/site/Shared";
+import { Accent, SmartLink, plain } from "@/components/site/Shared";
 import fallbackImage from "@/assets/cullinan-mountain-road.webp";
 import type { HeroData } from "@/types";
 
@@ -44,7 +44,7 @@ const PageHero = ({ data, crumbs, article = false, side, cta = true }: PageHeroP
   return (
     <section className={`phero${article ? " phero--article" : ""}`}>
       <div className="phero__media">
-        <img src={image} alt={data.tagline} decoding="async" {...{ fetchpriority: "high" }} />
+        <img src={image} alt={plain(data.headline)} decoding="async" {...{ fetchpriority: "high" }} />
       </div>
       <div className="wrap phero__in">
         {trail.length > 1 && (

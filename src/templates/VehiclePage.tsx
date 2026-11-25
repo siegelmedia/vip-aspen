@@ -3,7 +3,7 @@ import PageHero from "@/components/layout/PageHero";
 import SectionContainer from "@/components/layout/SectionContainer";
 import SectionHeader from "@/components/layout/SectionHeader";
 import Marquee from "@/components/site/Marquee";
-import { FaqSection, RelatedLinks } from "@/components/site/Shared";
+import { FaqSection, RelatedLinks, plain } from "@/components/site/Shared";
 import FeatureGrid from "@/components/blocks/FeatureGrid";
 import BookingCTA from "@/components/blocks/BookingCTA";
 import ProseSection from "@/components/blocks/ProseSection";
@@ -19,7 +19,7 @@ const VehiclePage = ({ data }: VehiclePageProps) => {
   const schema = createVehicleSchema(data);
   const breadcrumbs = [
     { name: "Home", url: COMPANY.url },
-    { name: data.hero.tagline, url: `${COMPANY.url}/${data.slug}` },
+    { name: plain(data.hero.headline), url: `${COMPANY.url}/${data.slug}` },
   ];
 
   // "At a glance": the page's own spec list when it has one, else the vehicle's identity.
@@ -30,16 +30,18 @@ const VehiclePage = ({ data }: VehiclePageProps) => {
         ? [
             { label: "Vehicle", value: `${data.vehicle.make} ${data.vehicle.model}` },
             { label: "Passengers", value: `Up to ${data.vehicle.passengers}` },
-            ...(data.vehicle.hourlyRateFrom
-              ? [{ label: "Hourly service", value: `From $${data.vehicle.hourlyRateFrom} per hour` }]
-              : []),
+            { label: "Hourly service", value: "2-hour minimum, chauffeur and fuel included" },
+            { label: "Pricing", value: "Shown instantly in the booking form" },
             { label: "Availability", value: "24/7, with a professional chauffeur" },
           ]
         : [];
 
   return (
     <PageWrapper seo={data.seo} schemaData={schema} faqs={data.faqs} breadcrumbs={breadcrumbs}>
-      <PageHero data={data.hero} />
+      <PageHero
+        data={data.hero}
+        crumbs={[{ name: "Home", href: "/" }, { name: plain(data.hero.headline) }]}
+      />
       <Marquee />
 
       {/* On-page booking form, directly below the header so the header's
@@ -99,7 +101,7 @@ const VehiclePage = ({ data }: VehiclePageProps) => {
           <div className={`gallery${data.gallery.length === 2 || data.gallery.length === 4 ? "" : " gallery--3"}`}>
             {data.gallery.map((src, index) => (
               <figure key={src}>
-                <img src={src} alt={`${data.hero.tagline} - photo ${index + 1}`} loading="lazy" decoding="async" />
+                <img src={src} alt={`${plain(data.hero.headline)}, photo ${index + 1}`} loading="lazy" decoding="async" />
               </figure>
             ))}
           </div>

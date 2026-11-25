@@ -10,13 +10,13 @@ const data: VehiclePageData = {
   seo: {
     title: "Chauffeured Cadillac Escalade in Aspen",
     description:
-      "Chauffeured latest-generation Cadillac Escalade in Aspen, Colorado. Luxury SUV with professional driver for airport transfers, ski days, weddings & tours. Up to 5 passengers.",
+      "Chauffeured latest-generation Cadillac Escalade in Aspen, Colorado, for airport transfers, ski days, weddings & tours. Up to 5 passengers.",
     keywords:
       "Cadillac Escalade Aspen, luxury SUV charter Aspen, Escalade mountain roads, ski resort SUV Aspen, Escalade hire Colorado, luxury SUV chauffeur Aspen",
     canonicalUrl: "/cadillac-escalade",
     ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
-  vehicle: { make: "Cadillac", model: "Escalade", passengers: 5, hourlyRateFrom: 200 },
+  vehicle: { make: "Cadillac", model: "Escalade", passengers: 5 },
   hero: {
     tagline: "Premium SUV",
     headline: "Chauffeured {{Cadillac Escalade}} in Aspen",
@@ -71,7 +71,7 @@ const data: VehiclePageData = {
   ],
   gallery: [signatureImg, interiorImg, tarmacImg],
   faqs: [
-    { question: "How much does it cost to hire the Escalade?", answer: "Contact us for current rates. We offer both hourly charters and flat-rate airport transfers. VIP Aspen members receive discounted rates on all Escalade bookings." },
+    { question: "How much does it cost to hire the Escalade?", answer: "The price depends on your route, date, and how long you need the car. Enter your trip in the online booking form and the price for the Escalade is shown instantly, or call (970) 452-6636. Hourly service has a two-hour minimum, and the chauffeur and fuel are included. VIP Aspen members receive preferred rates on Escalade bookings." },
     { question: "How many passengers fit in the Escalade?", answer: "The Escalade comfortably seats up to 5 passengers with luggage. For larger groups, consider our Executive Sprinter which accommodates up to 13 passengers." },
     { question: "Is the Escalade suitable for winter mountain roads?", answer: "Absolutely. Our Escalades feature 4WD, winter tires, and are driven by experienced mountain road professionals who know every pass and canyon in the valley." },
     { question: "What amenities are inside the Escalade?", answer: "Premium AKG sound system, rear entertainment screens, tri-zone climate control, Wi-Fi, USB charging, and complimentary bottled water. The interior is detailed before every ride." },

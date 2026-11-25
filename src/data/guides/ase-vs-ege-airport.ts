@@ -17,13 +17,13 @@ const data: GuidePageData = {
   excerpt:
     "Aspen has its own airport five minutes from town — but it isn't always the smartest place to fly. Here's how ASE, Eagle, Rifle, and Denver really compare, and how to pick the right one.",
   datePublished: "2026-06-08",
-  dateModified: "2026-06-08",
+  dateModified: "2026-11-24",
   readTime: "7 min read",
   heroImage,
   keyTakeaways: [
     "ASE (Aspen) is closest — 5 minutes to town — but has a single high-altitude runway and cancels frequently in winter weather.",
     "EGE (Eagle, near Vail) is ~70 miles / 90 minutes away but is far more reliable, with bigger aircraft and more nonstops in ski season.",
-    "RIL (Rifle) is the quiet private-aviation option ~60 minutes out; GJT (Grand Junction) and DEN (Denver) are larger fallbacks.",
+    "RIL (Rifle) is the quiet private-aviation option ~75 minutes out; GJT (Grand Junction) and DEN (Denver) are larger fallbacks.",
     "Rule of thumb: fly ASE for convenience when weather is good; fly EGE when reliability matters most — and book a transfer either way.",
   ],
   intro: `<p>One of the first decisions for any Aspen trip is where to actually land. Aspen has its own commercial airport practically in town, which sounds like an easy call — but seasoned visitors know it isn't that simple. Four airports realistically serve Aspen, and the best choice depends on the season, where you're flying from, and how much you value certainty over a short drive.</p>
@@ -43,7 +43,7 @@ const data: GuidePageData = {
     },
     {
       heading: "RIL — Rifle Garfield County Airport",
-      body: `<p><strong>Distance to town:</strong> ~60 minutes. <strong>Best for:</strong> private aviation and quieter arrivals.</p>
+      body: `<p><strong>Distance to town:</strong> about 75 minutes. <strong>Best for:</strong> private aviation and quieter arrivals.</p>
 <p>Rifle is a favorite for private jets: it has a long runway, easier slot availability than ASE, and far less congestion during peak periods. Commercial service is limited, but for charter and private flights it's an excellent, low-stress gateway. We position vehicles at Rifle regularly — see <a href="/rifle-airport-transfer">Rifle Airport transfers</a>.</p>`,
     },
     {

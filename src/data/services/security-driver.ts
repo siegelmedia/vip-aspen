@@ -16,7 +16,7 @@ const data: ServicePageData = {
   hero: {
     tagline: "Security Drivers",
     bgImage: heroBg,
-    headline: "Trained Drivers for {{Those Who Demand More}}",
+    headline: "Security Drivers in {{Aspen, Colorado}}",
     description:
       "When a standard chauffeur isn't enough. Security-trained drivers with law enforcement and military backgrounds — for CEOs, high-profile clients, and visiting protective details that require a vetted driver who understands protective operations.",
     ctaLabel: "Request a Security Driver",
@@ -75,7 +75,7 @@ const data: ServicePageData = {
   ],
   differentiators: [
     {
-      title: "A Security Company, Not a Car Service Subcontractor",
+      title: "Our Own Trained Drivers, Never Subcontracted",
       description:
         "VIP Aspen is a law enforcement-owned company. Our security drivers are our own trained personnel, not gig-economy drivers with a clean suit. When you hire a security driver from us, you're hiring a security professional who happens to be driving.",
     },

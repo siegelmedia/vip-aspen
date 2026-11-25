@@ -31,7 +31,7 @@ const imageOf = (primary?: string, fallback?: string) => {
 export const createServiceSchema = (data: ServicePageData) => ({
   "@context": "https://schema.org",
   "@type": "Service",
-  name: `VIP Aspen ${shortTitle(data.seo.title)}`,
+  name: shortTitle(data.seo.title),
   description: data.seo.description,
   url: `${COMPANY.url}/${data.slug}`,
   serviceType: data.serviceType || data.hero.tagline,
@@ -43,7 +43,9 @@ export const createServiceSchema = (data: ServicePageData) => ({
 /**
  * A chauffeured vehicle is a service you book, not a product you buy, so this
  * is a Service with the vehicle's maker as its brand. Product markup without a
- * price or review is rejected by Google's rich-result validator.
+ * price or review is rejected by Google's rich-result validator. No Offer or
+ * price is emitted: rates are not posted on the site, the booking form quotes
+ * each trip.
  */
 export const createVehicleSchema = (data: VehiclePageData) => ({
   "@context": "https://schema.org",
@@ -55,27 +57,7 @@ export const createVehicleSchema = (data: VehiclePageData) => ({
   provider: providerRef,
   areaServed: defaultArea,
   ...imageOf(data.hero.image, data.hero.bgImage),
-  ...(data.vehicle
-    ? {
-        brand: { "@type": "Brand", name: data.vehicle.make },
-        ...(data.vehicle.hourlyRateFrom
-          ? {
-              offers: {
-                "@type": "Offer",
-                priceCurrency: "USD",
-                availability: "https://schema.org/InStock",
-                priceSpecification: {
-                  "@type": "UnitPriceSpecification",
-                  price: data.vehicle.hourlyRateFrom,
-                  priceCurrency: "USD",
-                  unitText: "HOUR",
-                  description: `From $${data.vehicle.hourlyRateFrom}/hr, 2-hour minimum, chauffeur and fuel included`,
-                },
-              },
-            }
-          : {}),
-      }
-    : {}),
+  ...(data.vehicle ? { brand: { "@type": "Brand", name: data.vehicle.make } } : {}),
 });
 
 export const createAirportSchema = (data: AirportPageData) => {
@@ -101,7 +83,7 @@ export const AUTHOR = {
   "@id": `${COMPANY.url}/about#andrew-siegel`,
   name: "Andrew Siegel",
   jobTitle: "Founder",
-  url: `${COMPANY.url}/about`,
+  url: `${COMPANY.url}/about#andrew-siegel`,
   worksFor: providerRef,
 };
 

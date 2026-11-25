@@ -13,13 +13,13 @@ const data: VehiclePageData = {
   seo: {
     title: "Rolls Royce Cullinan Aspen | Chauffeur & Hire",
     description:
-      "Hire Aspen's only chauffeured Rolls Royce Cullinan. Bespoke Mandarin interior, discreet professional chauffeur. Airport transfers, weddings & scenic tours. (970) 452-6636.",
+      "Hire Aspen's only chauffeured Rolls-Royce Cullinan. Bespoke Mandarin interior and a discreet chauffeur for airport transfers, weddings & scenic tours.",
     keywords:
       "Rolls Royce Aspen, Rolls Royce chauffeur Aspen, Rolls Royce Cullinan Aspen, chauffeured Rolls Royce Aspen, Rolls Royce car service Aspen, Cullinan chauffeur, Rolls Royce hire Colorado, bespoke Mandarin interior, ultra-luxury SUV Aspen, Rolls Royce rental Aspen",
     canonicalUrl: "/rolls-royce-cullinan",
     ogImage: "https://www.vipaspen.com/og-rolls-royce.jpg",
   },
-  vehicle: { make: "Rolls-Royce", model: "Cullinan", passengers: 3, hourlyRateFrom: 400 },
+  vehicle: { make: "Rolls-Royce", model: "Cullinan", passengers: 3 },
   hero: {
     tagline: "Aspen's Finest",
     headline: "Chauffeured {{Rolls Royce Cullinan}} in Aspen",
@@ -65,7 +65,7 @@ const data: VehiclePageData = {
     {
       question: "How much does it cost to hire a Rolls Royce in Aspen?",
       answer:
-        "Our chauffeured Rolls Royce Cullinan starts at a flat rate for airport transfers and is also available by the hour for half-day or full-day bookings. Contact us at (970) 452-6636 for current pricing and availability.",
+        "The price depends on your route, date, and how long you need the car. Enter your trip in the online booking form and the price for the Cullinan is shown instantly, or call (970) 452-6636. Hourly service has a two-hour minimum, and the chauffeur and fuel are included.",
     },
     {
       question: "Can I book the Rolls Royce for a ski resort transfer?",

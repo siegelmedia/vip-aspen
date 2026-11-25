@@ -4,7 +4,11 @@ interface PricingTableProps {
   tiers: PricingTier[];
 }
 
-/** Rates as a ruled list: one group per category, name and detail on the left, price on the right. */
+/**
+ * Pricing information as a ruled list: one group per category, name and detail
+ * on the left, an optional short label on the right. No dollar figures are
+ * posted; the booking form gives the price for a specific trip.
+ */
 const PricingTable = ({ tiers }: PricingTableProps) => {
   return (
     <>
@@ -12,7 +16,7 @@ const PricingTable = ({ tiers }: PricingTableProps) => {
         <div key={tier.category} className="price">
           <div className="price__cat">
             <div>
-              <p className="eyebrow">Rates</p>
+              <p className="eyebrow">Pricing</p>
               <h2 className="h2">{tier.category}</h2>
             </div>
             {tier.note && <span>{tier.note}</span>}
@@ -26,7 +30,7 @@ const PricingTable = ({ tiers }: PricingTableProps) => {
                   {item.featured ? " · Popular" : ""}
                 </small>
               </h3>
-              <span className="price__amt">{item.price}</span>
+              {item.price && <span className="price__amt">{item.price}</span>}
               {item.description && <p>{item.description}</p>}
               {item.features && item.features.length > 0 && (
                 <ul className="svc__list">

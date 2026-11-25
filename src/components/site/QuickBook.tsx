@@ -19,6 +19,8 @@ import { trackEvent } from "@/lib/analytics";
 const QuickBook = () => {
   const [open, setOpen] = useState(false);
   const [full, setFull] = useState<number>(CORSA.height);
+  // Phones keep the form closed, so the booking app is not loaded until the card is opened.
+  const [armed, setArmed] = useState(false);
   const box = useRef<HTMLDivElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
   const frame = useRef<HTMLIFrameElement | null>(null);
@@ -26,6 +28,11 @@ const QuickBook = () => {
   openRef.current = open;
 
   const isPhone = () => typeof window !== "undefined" && window.matchMedia("(max-width: 699px)").matches;
+
+  useEffect(() => {
+    if (open || !isPhone()) setArmed(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
 
   useEffect(() => {
     // A click or tap inside the (cross-origin) form moves focus into the frame, which blurs this window.
@@ -93,7 +100,7 @@ const QuickBook = () => {
         <i aria-hidden="true" />
       </button>
       <div className="qb__body book__frame" id="qb-form">
-        <CorsaFrame onHeight={setFull} sized={() => openRef.current} frameRef={frame} viewKey={open} />
+        <CorsaFrame onHeight={setFull} sized={() => openRef.current} frameRef={frame} viewKey={open} manual active={armed} />
       </div>
       <div className="qb__foot">
         <button className="qb__more" type="button" aria-expanded={open} aria-controls="booking" onClick={onMore}>

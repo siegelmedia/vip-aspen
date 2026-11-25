@@ -27,7 +27,7 @@ const data: GuidePageData = {
     "Pre-booking private transportation is the single easiest way to glide between tastings, dinners, and parties all weekend.",
   ],
   intro: `<p>For one weekend each June, Aspen becomes the center of the culinary world. The FOOD & WINE Classic in Aspen — the flagship event of FOOD & WINE magazine — brings celebrated chefs, master sommeliers, winemakers, and tens of thousands of passionate food-and-wine lovers to a mountain town that, the rest of the year, has a fraction of that population. It's three days of Grand Tastings, seminars, demonstrations, and a sprawling unofficial calendar of dinners, brand activations, and late-night parties.</p>
-<p>If you're attending for the first time — or returning and want the weekend to run smoother — here's a practical primer on what the Classic is, what to expect, and the one piece of logistics that trips up almost everyone: getting around. (For exact 2026 dates, the seminar schedule, and tickets, check the official FOOD & WINE Classic website — events sell out well in advance.)</p>`,
+<p>If you're attending for the first time — or returning and want the weekend to run smoother — here's a practical primer on what the Classic is, what to expect, and the one piece of logistics that trips up almost everyone: getting around. (For the exact dates of the next Classic, the seminar schedule, and tickets, check the official FOOD & WINE Classic website — events sell out well in advance.)</p>`,
   sections: [
     {
       heading: "What Is the FOOD & WINE Classic?",
@@ -55,7 +55,7 @@ const data: GuidePageData = {
     {
       question: "When is the FOOD & WINE Classic in Aspen?",
       answer:
-        "The Classic is held annually in mid-June in downtown Aspen, typically across a Friday–Sunday weekend. For the exact 2026 dates and ticket information, check the official FOOD & WINE Classic in Aspen website, as sessions sell out well in advance.",
+        "The Classic is held annually in mid-June in downtown Aspen, typically across a Friday–Sunday weekend. For the exact dates of the next Classic and ticket information, check the official FOOD & WINE Classic in Aspen website, as sessions sell out well in advance.",
     },
     {
       question: "Where does the Food & Wine Classic take place?",

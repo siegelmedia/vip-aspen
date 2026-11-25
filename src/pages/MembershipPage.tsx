@@ -11,12 +11,7 @@ import { combineSchema, createBreadcrumbSchema, createFAQSchema } from "@/lib/sc
 import { COMPANY } from "@/data/constants";
 
 import WhatsAppButton from "@/components/WhatsAppButton";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { FaqList } from "@/components/site/Shared";
 
 const tiers = [
   {
@@ -111,7 +106,7 @@ const keyFeatures = [
   {
     icon: Plane,
     title: "Airport Coverage",
-    description: "All transfers include 1 hour of complimentary wait time. Covered airports: ASE, RIL, EGE, and DEN. We monitor your flight and accommodate delays automatically.",
+    description: "All transfers include 1 hour of complimentary wait time. Included transfers are the Aspen (ASE) transfers your tier lists; Rifle, Eagle, and Denver can be booked and are quoted. We monitor your flight and accommodate delays automatically.",
   },
   {
     icon: Users,
@@ -132,7 +127,7 @@ const faqs = [
   },
   {
     question: "What airports are covered for transfers?",
-    answer: "All airport transfers cover Aspen–Pitkin County Airport (ASE), Rifle Garfield County Airport (RIL), Eagle County Regional Airport (EGE), and Denver International Airport (DEN). Each transfer includes 1 hour of complimentary wait time.",
+    answer: "The transfers included in a membership are the ones your tier lists: Aspen–Pitkin County Airport (ASE) transfers, each with 1 hour of complimentary wait time. Transfers to and from Rifle (RIL), Eagle (EGE), and Denver (DEN) can be booked as well and are quoted for the trip.",
   },
   {
     question: "What happens if my flight is delayed or diverted?",
@@ -649,22 +644,7 @@ const MembershipPage = () => {
               transition={{ duration: 0.6 }}
               className="max-w-3xl mx-auto"
             >
-              <Accordion type="single" collapsible className="space-y-3">
-                {faqs.map((faq, index) => (
-                  <AccordionItem
-                    key={index}
-                    value={`faq-${index}`}
-                    className="glass-card px-6 border-none"
-                  >
-                    <AccordionTrigger className="text-left font-display text-foreground hover:text-primary hover:no-underline py-5">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-foreground/70 text-sm leading-relaxed pb-5">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              <FaqList faqs={faqs} />
             </motion.div>
           </div>
         </section>

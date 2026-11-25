@@ -27,7 +27,7 @@ const data: AirportPageData = {
     tagline: "Snowmass Village Transfers",
     headline: "Luxury Car Service to {{Snowmass Village}}, Colorado",
     description:
-      "Private chauffeured transfers from Aspen, ASE Airport, Eagle Airport, and Denver to Snowmass Village resorts, hotels, and residences.",
+      "Private chauffeured transfers from Aspen, ASE Airport, Eagle Airport, Rifle Airport, and Denver to Snowmass Village resorts, hotels, and residences.",
     bgImage: heroBg,
     ctaLabel: "Book Snowmass Transfer",
     ctaLink: "#booking",
@@ -37,55 +37,57 @@ const data: AirportPageData = {
     code: "ASE",
     name: "Aspen-Pitkin County Airport",
     distanceToAspen: "9 miles",
-    driveTime: "~20 min",
+    driveTime: "~15-20 min",
   },
   destination: "Snowmass Village",
   intro: {
     heading: "Getting to Snowmass Village {{in Style}}",
-    body: "Snowmass Village is just 15 minutes from downtown Aspen and 20 minutes from Aspen-Pitkin County Airport (ASE), but getting there with luggage, ski equipment, and family in a standard taxi or rideshare isn't the luxury experience you came to the mountains for. VIP Aspen provides private, door-to-door Snowmass Village car service in the Rolls Royce Cullinan, Cadillac Escalade, or Executive Sprinter \u2014 directly to the front entrance of your Snowmass hotel, condominium, or private residence with every piece of luggage and ski gear handled for you.\n\nWe know every property in Snowmass Village intimately \u2014 from the slope-side luxury of the Viceroy and the modern energy of the Limelight Snowmass to the refined comfort of the Westin, the condos scattered through Base Village, and the private homes tucked into the mountainside above the village center. Our chauffeurs pull up to the correct entrance, know where the bellhops are, and ensure your arrival is seamless regardless of which property you call home during your stay.",
+    body: `<p>Snowmass Village is 15 to 20 minutes from Aspen-Pitkin County Airport (ASE) and about 20 minutes from downtown Aspen. VIP Aspen provides private, door-to-door Snowmass Village car service in the Rolls-Royce Cullinan, Cadillac Escalade, or Executive Sprinter, directly to the entrance of your hotel, condominium, or private residence.</p>
+<p>Choose the vehicle by headcount and gear. The Cadillac Escalade carries up to 5 passengers with luggage and skis, and the Executive Sprinter carries up to 13. The Rolls-Royce Cullinan seats 3 with standard luggage and does not carry ski equipment, so ski and snowboard bags travel in the Escalade or Sprinter. At <a href="/aspen-airport-transfer">Aspen airport</a> your chauffeur meets you in the Ground Transportation Circle directly outside baggage claim and loads your luggage at the vehicle.</p>
+<p>We drive to every part of the village: the Viceroy, the Limelight Snowmass, Viewline Resort Snowmass, the condominiums in Base Village, and the private homes on the mountainside above the village center. Tell us the property name or address when you book and your chauffeur will pull up to the right entrance. We also run transfers to Snowmass from <a href="/eagle-airport-transfer">Eagle (EGE)</a>, <a href="/rifle-airport-transfer">Rifle (RIL)</a> and <a href="/denver-to-aspen-car-service">Denver (DEN)</a>.</p>`,
   },
   features: [
     {
       icon: MapPin,
       title: "Door-to-Door Service",
       description:
-        "Direct transfers to every property in Snowmass Village \u2014 hotels, condos, and private residences.",
+        "Direct transfers to every property in Snowmass Village: hotels, condos, and private residences.",
     },
     {
       icon: Plane,
       title: "All Airports Covered",
       description:
-        "Luxury transfers from ASE (20 min), EGE (80 min), RIL (50 min), and DEN (3.5 hours) to Snowmass.",
+        "Transfers to Snowmass from ASE (15 to 20 minutes), RIL (about 65 minutes), EGE (about 80 minutes), and DEN (about 3.5 to 4 hours).",
     },
     {
       icon: ShieldCheck,
-      title: "Meet & Greet Service",
+      title: "Flight-Tracked Pickups",
       description:
-        "Flight tracking and meet-and-greet at every airport arrival for a seamless pickup.",
+        "We track your flight and meet you at the airport's pickup point: the Ground Transportation Circle outside baggage claim at ASE, or the FBO for private jets.",
     },
     {
       icon: Luggage,
       title: "Ski Gear & Luggage Handling",
       description:
-        "All luggage and ski equipment handled from terminal to your Snowmass property doorstep.",
+        "Your chauffeur loads your luggage at the vehicle and unloads it at your Snowmass door. Ski equipment travels in the Escalade or Sprinter.",
     },
     {
       icon: Clock,
       title: "Local Knowledge",
       description:
-        "Our chauffeurs know every property entrance in Snowmass Village for seamless arrivals.",
+        "Our chauffeurs know Snowmass Village: the hotel entrances, Base Village, and the residential roads above it.",
     },
     {
       icon: Star,
       title: "Peak Season Priority",
       description:
-        "Membership holders enjoy complimentary Snowmass transfers and priority booking during peak season.",
+        "Members receive priority booking over non-members, which matters most during holiday and peak ski weeks.",
     },
   ],
   destinations: [
     { name: "The Viceroy Snowmass", detail: "Slope-side luxury" },
-    { name: "Limelight Hotel Snowmass", detail: "Modern mountain energy" },
-    { name: "Westin Snowmass", detail: "Refined comfort" },
+    { name: "Limelight Hotel Snowmass", detail: "Base Village" },
+    { name: "Viewline Resort Snowmass", detail: "Formerly the Westin" },
     { name: "Snowmass Base Village", detail: "Condos & residences" },
     { name: "Snowmass Club", detail: "Golf & recreation" },
     { name: "Snowmass Ski Area", detail: "3,300+ acres of terrain" },
@@ -97,21 +99,21 @@ const data: AirportPageData = {
       name: "Rolls Royce Cullinan",
       image: cullinan,
       description:
-        "The only Rolls Royce Cullinan for hire in Aspen. Bespoke Mandarin interior and champagne cooler for the ultimate Snowmass arrival.",
+        "The only Rolls Royce Cullinan for hire in Aspen. Bespoke Mandarin interior and champagne cooler for up to three passengers with standard luggage. It does not carry ski equipment.",
       link: "/rolls-royce-cullinan",
     },
     {
       name: "Cadillac Escalade",
       image: escalade,
       description:
-        "Premium comfort with generous space for families, luggage, and ski equipment. Our most popular Snowmass transfer vehicle.",
+        "Premium comfort for up to five passengers, with generous space for luggage and ski equipment. Our most popular Snowmass transfer vehicle.",
       link: "/cadillac-escalade",
     },
     {
       name: "Executive Sprinter",
       image: sprinter,
       description:
-        "First-class cabin for groups up to 13. Perfect for corporate retreats, wedding parties, and group ski trips to Snowmass.",
+        "First-class cabin for groups up to 13, with room for luggage and ski equipment. Suited to corporate retreats, wedding parties, and group ski trips to Snowmass.",
       link: "/executive-sprinter",
     },
   ],
@@ -119,23 +121,42 @@ const data: AirportPageData = {
     {
       question: "How far is Snowmass Village from Aspen Airport (ASE)?",
       answer:
-        "Snowmass Village is approximately 20 minutes from Aspen-Pitkin County Airport (ASE). VIP Aspen provides door-to-door luxury transfers directly to your Snowmass hotel, condo, or residence.",
+        "Snowmass Village is 15 to 20 minutes from Aspen-Pitkin County Airport (ASE). VIP Aspen provides door-to-door transfers directly to your Snowmass hotel, condo, or residence.",
     },
     {
-      question: "What is the best way to get to Snowmass Village from Denver?",
+      question: "Where does my driver meet me at the airport?",
       answer:
-        "The most comfortable option is a private luxury transfer from Denver International Airport (DEN). The 3.5-hour scenic drive through the Rocky Mountains can be made in a Rolls Royce Cullinan, Cadillac Escalade, or Executive Sprinter with a professional chauffeur.",
+        "At Aspen airport your chauffeur meets you in the Ground Transportation Circle directly outside baggage claim. Airport rules require drivers to stay with their vehicles and do not allow them inside the terminal, so your luggage is loaded at the car. Private jet arrivals are met at the FBO. For Eagle, Rifle and Denver, we confirm the meeting point with your booking.",
     },
     {
-      question:
-        "Do you provide car service to all Snowmass Village hotels and resorts?",
+      question: "Which vehicle fits my group and ski gear?",
       answer:
-        "Yes. We provide door-to-door service to every property in Snowmass Village including the Viceroy, Limelight Snowmass, Westin Snowmass, Snowmass Base Village condos, Snowmass Club, and all private residences.",
+        "The Cadillac Escalade carries up to 5 passengers with luggage and skis, and the Executive Sprinter carries up to 13. The Rolls-Royce Cullinan seats 3 with standard luggage and does not carry ski equipment. If you want the Cullinan for a ski trip, book an Escalade alongside it for the gear.",
     },
     {
-      question: "Can I book a Snowmass transfer from Eagle Airport (EGE)?",
+      question: "Can I book a Snowmass transfer from Denver, Eagle or Rifle?",
       answer:
-        "Absolutely. Eagle County Regional Airport is approximately 80 minutes from Snowmass Village. We offer luxury transfers in our full fleet with flight tracking and meet-and-greet service at EGE arrivals.",
+        "Yes. Snowmass Village is about 3.5 to 4 hours from Denver International Airport (DEN), about 80 minutes from Eagle County Regional Airport (EGE) and about 65 minutes from Rifle Garfield County Airport (RIL). The Denver and Eagle routes follow I-70 west to Glenwood Springs and then Highway 82. We track your flight or aircraft and have the vehicle waiting when you land.",
+    },
+    {
+      question: "Do you provide car service to all Snowmass Village hotels and resorts?",
+      answer:
+        "Yes. We drive to every property in Snowmass Village, including the Viceroy, Limelight Snowmass, Viewline Resort Snowmass, Base Village condominiums, the Snowmass Club, and private residences.",
+    },
+    {
+      question: "What happens if my flight is delayed or diverted?",
+      answer:
+        "We track your flight and adjust the pickup to the new arrival time, with complimentary wait time included on airport transfers. If your flight is diverted to another airport, call dispatch at (970) 452-6636 and we will send a vehicle there whenever one is available.",
+    },
+    {
+      question: "Will Aspen airport be open in 2027?",
+      answer:
+        "Not for most of the year. ASE will be closed for runway reconstruction from April 4, 2027 at 11 p.m. until November 19, 2027 at 7 p.m., with no commercial or private flights. During that period, Snowmass transfers start from Eagle (about 80 minutes), Rifle (about 65 minutes) or Denver (about 3.5 to 4 hours).",
+    },
+    {
+      question: "How do I book a Snowmass transfer?",
+      answer:
+        "Use the online booking form on this page for an instant quote, or call dispatch at (970) 452-6636 at any hour. Give us your flight number and the name or address of your Snowmass property.",
     },
   ],
   relatedServices: [

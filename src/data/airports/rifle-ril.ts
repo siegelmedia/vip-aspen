@@ -17,7 +17,7 @@ const data: AirportPageData = {
   seo: {
     title: "Rifle Airport (RIL) to Aspen Car Service",
     description:
-      "Luxury Rifle Garfield County Airport (RIL) transfers to Aspen for private jet arrivals. Tarmac meet & greet in an Escalade, Rolls Royce or Sprinter. (970) 452-6636.",
+      "Rifle Garfield County Airport (RIL) transfers to Aspen for private jet arrivals, about 75 minutes. Met at the FBO in an Escalade, Rolls-Royce or Sprinter.",
     keywords:
       "Rifle airport transfer, RIL car service Aspen, Garfield County airport, private jet transfer Rifle, RIL luxury chauffeur",
     canonicalUrl: "/rifle-airport-transfer",
@@ -27,7 +27,7 @@ const data: AirportPageData = {
     tagline: "RIL Private Jet Transfers",
     headline: "Rifle Airport {{Private Jet Service}}",
     description:
-      "Rifle Garfield County Airport (RIL) is the preferred choice for private jet travelers heading to Aspen. With longer runways and fewer weather restrictions, RIL offers reliable access year-round. Our luxury fleet meets you on the tarmac for seamless, VIP-level transfers.",
+      "Rifle Garfield County Airport (RIL) is a private aviation gateway about 75 minutes from Aspen, with a 7,000-foot runway at a lower elevation than Aspen's airport. Your chauffeur meets you at the FBO and drives you door to door to Aspen or Snowmass.",
     bgImage: heroBg,
     ctaLabel: "Book RIL Transfer",
     ctaLink: "#booking",
@@ -36,57 +36,59 @@ const data: AirportPageData = {
   airport: {
     code: "RIL",
     name: "Rifle Garfield County Airport",
-    distanceToAspen: "60 miles",
+    distanceToAspen: "65 miles",
     driveTime: "~75 min",
   },
   intro: {
     heading: "About RIL Airport",
-    body: "Rifle Garfield County Airport (RIL) has become the go-to destination for discerning travelers arriving by private jet. Located 60 miles from Aspen, the airport features a 7,000-foot runway capable of handling the largest private aircraft, with fewer weather delays than higher-altitude airports.\n\nFor VIP clients, we provide tarmac meet & greet service\u2014your chauffeur will be waiting steps from your aircraft. The scenic drive along Highway 82 through Glenwood Springs and Carbondale takes approximately 75 minutes, offering stunning views of the Colorado River and Roaring Fork Valley.",
+    body: `<p>Rifle Garfield County Airport (RIL) is a general aviation airport about 65 miles from Aspen, used mainly by private aircraft. Its single runway is 7,000 feet long, and the field sits at roughly 5,500 feet, more than 2,000 feet lower than Aspen's airport. That combination is why many operators choose Rifle for Aspen trips, and why aircraft bound for Aspen often land here when weather closes in up the valley.</p>
+<p>Your chauffeur meets you at Atlantic Aviation, the FBO at Rifle, and loads your luggage from the aircraft or the FBO to the vehicle. Planeside pickup on the ramp can be requested and depends on the FBO's approval. The drive to Aspen takes about 75 minutes: east on I-70 to Glenwood Springs, then south on Highway 82 through Carbondale and Basalt. Snowmass Village is about 65 minutes. Unlike the drive from Eagle or Denver, this route does not pass through Glenwood Canyon.</p>
+<p><strong>2027 Aspen airport closure:</strong> Aspen-Pitkin County Airport (ASE) will be closed for runway reconstruction from April 4, 2027 at 11 p.m. until November 19, 2027 at 7 p.m., with no commercial or private flights. Rifle is one of the alternates the Aspen airport lists, so private aircraft that would normally use Aspen will need another field during those months. Reserve Rifle transfers early for that period.</p>`,
   },
   features: [
     {
       icon: Plane,
-      title: "Private Jet Specialist",
-      description: "Purpose-built for private aviation with tarmac-side meet & greet directly at your aircraft.",
+      title: "Private Aviation Focus",
+      description: "Rifle transfers are built around private aircraft: we follow your tail number and time the vehicle to your arrival.",
     },
     {
       icon: ShieldCheck,
-      title: "Tarmac Meet & Greet",
-      description: "Your chauffeur waits steps from your aircraft on the ramp\u2014no terminals, no crowds, no waiting.",
+      title: "Met at the FBO",
+      description: "Your chauffeur meets you at Atlantic Aviation, the FBO at Rifle. Planeside pickup can be requested, subject to the FBO's approval.",
     },
     {
       icon: Timer,
       title: "Complimentary Wait Time",
-      description: "Generous wait time included so there is never any pressure on arrival.",
+      description: "Complimentary wait time is included, so a late departure or a slow turn does not put pressure on your arrival.",
     },
     {
       icon: Luggage,
       title: "Ski Gear & Luggage Handling",
-      description: "All luggage and ski equipment handled directly from the aircraft to your vehicle.",
+      description: "Your chauffeur loads your luggage into the vehicle. Ski equipment travels in the Escalade or Sprinter.",
     },
     {
       icon: Mountain,
-      title: "Scenic Roaring Fork Route",
-      description: "The 75-minute drive passes through Glenwood Springs and Carbondale with stunning valley views.",
+      title: "Roaring Fork Valley Route",
+      description: "About 75 minutes to Aspen on I-70 and Highway 82, through Glenwood Springs and Carbondale, without crossing Glenwood Canyon.",
     },
     {
       icon: Clock,
-      title: "Weather Reliability",
-      description: "Lower elevation means fewer weather-related delays and cancellations compared to mountain airports.",
+      title: "Lower-Elevation Airfield",
+      description: "Rifle sits at roughly 5,500 feet with a 7,000-foot runway, and it is a frequent alternate when weather affects Aspen's airport.",
     },
   ],
   destinations: [
     { name: "Aspen", detail: "~75 min" },
     { name: "Snowmass", detail: "~65 min" },
-    { name: "Glenwood Springs", detail: "~20 min" },
-    { name: "Carbondale", detail: "~40 min" },
+    { name: "Glenwood Springs", detail: "~25-30 min" },
+    { name: "Carbondale", detail: "~40-45 min" },
   ],
   fleetOptions: [
     {
       name: "Rolls Royce Cullinan",
       image: cullinan,
       description:
-        "The ultimate tarmac-to-resort transfer. Your chauffeur pulls directly onto the ramp and you step from your jet into the most prestigious SUV in the world.",
+        "Step from your jet into the Rolls-Royce Cullinan for the drive up the valley. Seats three with standard luggage and does not carry ski equipment.",
       link: "/rolls-royce-cullinan",
     },
     {
@@ -100,28 +102,54 @@ const data: AirportPageData = {
       name: "Executive Sprinter",
       image: sprinter,
       description:
-        "Seats up to 13 in a first-class cabin configuration. Ideal for larger private jet parties and groups.",
+        "Seats up to 13 in a first-class cabin, with room for luggage and ski equipment. Suited to larger private jet parties and groups.",
       link: "/executive-sprinter",
     },
   ],
   faqs: [
     {
-      question: "Why do private jet travelers choose Rifle Airport?",
+      question: "Where does my driver meet me at Rifle airport?",
       answer:
-        "RIL has a 7,000-foot runway at lower altitude that accommodates all private jet types, fewer weather delays, and our exclusive tarmac meet & greet for a truly private arrival.",
+        "Your chauffeur meets you at Atlantic Aviation, the FBO at Rifle Garfield County Airport. If you would like the vehicle to meet the aircraft on the ramp, ask when you book; planeside access depends on the FBO's approval on the day.",
     },
     {
       question: "How long is the drive from Rifle Airport to Aspen?",
       answer:
-        "Approximately 75 minutes along Highway 82 through Glenwood Springs and Carbondale.",
+        "About 75 minutes to Aspen and about 65 minutes to Snowmass Village. The route runs east on I-70 to Glenwood Springs, then south on Highway 82 through Carbondale and Basalt, roughly 65 miles in all.",
     },
     {
-      question: "Do you meet passengers on the tarmac?",
+      question: "Why do private jet travelers choose Rifle Airport?",
       answer:
-        "Yes. For private jet arrivals at RIL, your chauffeur is waiting on the ramp, steps from your aircraft. No terminals, no crowds.",
+        "Rifle has a 7,000-foot runway at roughly 5,500 feet of elevation, more than 2,000 feet lower than Aspen's airport. It is a common choice when weather or traffic limits Aspen, and the drive to Aspen is about 75 minutes.",
+    },
+    {
+      question: "Which vehicle fits my party and ski gear?",
+      answer:
+        "The Cadillac Escalade carries up to 5 passengers with luggage and skis, and the Executive Sprinter carries up to 13. The Rolls-Royce Cullinan seats 3 with standard luggage and does not carry ski equipment. For a larger party we can send more than one vehicle.",
+    },
+    {
+      question: "What if my arrival time changes or my aircraft diverts to Rifle?",
+      answer:
+        "We follow your aircraft by tail number and move the pickup when your arrival time changes. If you were headed to Aspen and are diverted to Rifle, call dispatch at (970) 452-6636 as early as you can. We will send a vehicle to Rifle whenever one is available and drive you the rest of the way.",
+    },
+    {
+      question: "What is the drive from Rifle like in winter?",
+      answer:
+        "The route stays on I-70 and Highway 82, which are plowed and open year-round, and it does not cross a mountain pass or Glenwood Canyon. Snow can still slow Highway 82 between Glenwood Springs and Aspen, so allow extra time in a storm.",
+    },
+    {
+      question: "Can I use Rifle while Aspen airport is closed in 2027?",
+      answer:
+        "Yes. ASE will be closed for runway reconstruction from April 4, 2027 at 11 p.m. until November 19, 2027 at 7 p.m., and Rifle is one of the alternate airports the Aspen airport lists. The transfer from Rifle to Aspen takes about 75 minutes. Book early for those months.",
+    },
+    {
+      question: "How do I book a Rifle airport transfer?",
+      answer:
+        "Use the online booking form on this page for an instant quote, or call dispatch at (970) 452-6636 at any hour. Send us your tail number, estimated arrival time, passenger count and destination.",
     },
   ],
   relatedServices: [
+    { label: "Private Jet / FBO Transfer", href: "/aspen-private-jet-transfer" },
     { label: "Aspen Airport Transfer", href: "/aspen-airport-transfer" },
     { label: "Eagle Airport Transfer", href: "/eagle-airport-transfer" },
     { label: "Denver to Aspen", href: "/denver-to-aspen-car-service" },

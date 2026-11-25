@@ -62,6 +62,7 @@ export const moreServices: NavLinkItem[] = [
   { label: "Event Transportation", href: "/special-event-transportation" },
   { label: "Corporate Transportation", href: "/aspen-corporate-transportation" },
   { label: "Food & Wine Classic", href: "/aspen-food-and-wine-transportation" },
+  { label: "X Games Aspen", href: "/x-games-aspen-transportation" },
   { label: "New Year's Eve & Holiday", href: "/aspen-new-years-eve-transportation" },
   { label: "Security Drivers", href: "/security-driver" },
   { label: "VIP Membership", href: "/membership" },
@@ -75,6 +76,7 @@ export const transferGroups: { heading: string; links: NavLinkItem[] }[] = [
       { label: "Aspen Airport (ASE)", href: "/aspen-airport-transfer" },
       { label: "Eagle Airport (EGE)", href: "/eagle-airport-transfer" },
       { label: "Rifle Airport (RIL)", href: "/rifle-airport-transfer" },
+      { label: "Grand Junction Airport (GJT)", href: "/grand-junction-to-aspen-car-service" },
       { label: "Private Jet / FBO", href: "/aspen-private-jet-transfer" },
     ],
   },
@@ -85,6 +87,7 @@ export const transferGroups: { heading: string; links: NavLinkItem[] }[] = [
       { label: "Vail to Aspen", href: "/vail-to-aspen-car-service" },
       { label: "Beaver Creek to Aspen", href: "/beaver-creek-to-aspen-car-service" },
       { label: "Glenwood Springs to Aspen", href: "/glenwood-springs-to-aspen-car-service" },
+      { label: "Roaring Fork Valley", href: "/roaring-fork-valley-car-service" },
     ],
   },
   {
@@ -135,11 +138,13 @@ export const footerColumns: { title: string; links: NavLinkItem[] }[] = [
       { label: "Aspen Airport (ASE)", href: "/aspen-airport-transfer" },
       { label: "Eagle Airport (EGE)", href: "/eagle-airport-transfer" },
       { label: "Rifle Airport (RIL)", href: "/rifle-airport-transfer" },
+      { label: "Grand Junction Airport (GJT)", href: "/grand-junction-to-aspen-car-service" },
       { label: "Private Jet / FBO", href: "/aspen-private-jet-transfer" },
       { label: "Denver to Aspen", href: "/denver-to-aspen-car-service" },
       { label: "Vail to Aspen", href: "/vail-to-aspen-car-service" },
       { label: "Beaver Creek to Aspen", href: "/beaver-creek-to-aspen-car-service" },
       { label: "Glenwood Springs to Aspen", href: "/glenwood-springs-to-aspen-car-service" },
+      { label: "Roaring Fork Valley", href: "/roaring-fork-valley-car-service" },
     ],
   },
   {
@@ -150,6 +155,7 @@ export const footerColumns: { title: string; links: NavLinkItem[] }[] = [
       { label: "St. Regis Aspen", href: "/st-regis-aspen-transportation" },
       { label: "The Little Nell", href: "/little-nell-transportation" },
       { label: "Food & Wine Classic", href: "/aspen-food-and-wine-transportation" },
+      { label: "X Games Aspen", href: "/x-games-aspen-transportation" },
       { label: "New Year's Eve & Holiday", href: "/aspen-new-years-eve-transportation" },
       { label: "VIP Club Access", href: "/aspen-clubs" },
       { label: "Travel Guides", href: "/guides" },
@@ -179,13 +185,13 @@ export const footerUtilityLinks: NavLinkItem[] = [
 /** Airports and routes linked from the black "Where We Drive" panel. */
 export const driveLinks: (NavLinkItem & { detail: string })[] = [
   { label: "Aspen Airport (ASE)", detail: "5 minutes to downtown", href: "/aspen-airport-transfer" },
-  { label: "Rifle Airport (RIL)", detail: "60 min, private jets", href: "/rifle-airport-transfer" },
+  { label: "Rifle Airport (RIL)", detail: "75 min, private jets", href: "/rifle-airport-transfer" },
   { label: "Eagle Airport (EGE)", detail: "90 min scenic drive", href: "/eagle-airport-transfer" },
   { label: "Denver Airport (DEN)", detail: "3.5 hour luxury transfer", href: "/denver-to-aspen-car-service" },
   { label: "Vail to Aspen", detail: "~2 hrs", href: "/vail-to-aspen-car-service" },
   { label: "Beaver Creek to Aspen", detail: "~2 hrs", href: "/beaver-creek-to-aspen-car-service" },
-  { label: "Glenwood Springs to Aspen", detail: "~1 hr", href: "/glenwood-springs-to-aspen-car-service" },
-  { label: "Snowmass Village", detail: "20 min", href: "/snowmass-village-transfer" },
+  { label: "Glenwood Springs to Aspen", detail: "50-60 min", href: "/glenwood-springs-to-aspen-car-service" },
+  { label: "Snowmass Village", detail: "15-20 min from ASE", href: "/snowmass-village-transfer" },
 ];
 
 export type MapSide = "n" | "s" | "e" | "w" | "ne" | "nw" | "se" | "sw";

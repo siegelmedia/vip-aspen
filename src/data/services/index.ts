@@ -25,8 +25,12 @@ export const serviceLoaders: Record<
   "glenwood-springs-to-aspen-car-service": () =>
     import("./glenwood-springs-to-aspen-car-service"),
   "beaver-creek-to-aspen-car-service": () => import("./beaver-creek-to-aspen-car-service"),
+  "grand-junction-to-aspen-car-service": () =>
+    import("./grand-junction-to-aspen-car-service"),
+  "roaring-fork-valley-car-service": () => import("./roaring-fork-valley-car-service"),
   "special-event-transportation": () => import("./special-event-transportation"),
   "aspen-food-and-wine-transportation": () => import("./aspen-food-and-wine-transportation"),
+  "x-games-aspen-transportation": () => import("./x-games-aspen-transportation"),
   "aspen-new-years-eve-transportation": () => import("./aspen-new-years-eve-transportation"),
   "hotel-jerome-transportation": () => import("./hotel-jerome-transportation"),
   "st-regis-aspen-transportation": () => import("./st-regis-aspen-transportation"),

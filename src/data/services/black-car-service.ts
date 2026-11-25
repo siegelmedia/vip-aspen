@@ -5,7 +5,7 @@ import type { ServicePageData } from "@/types";
 const data: ServicePageData = {
   slug: "black-car-service",
   seo: {
-    title: "Luxury Black Car Service Aspen, Colorado",
+    title: "Aspen Black Car & Limo Service, Colorado",
     description:
       "Premium Aspen car service: Rolls Royce, Escalade & Sprinter. Airport transfers, hourly charters, hotel & event transport. Call (970) 452-6636.",
     keywords:
@@ -15,7 +15,7 @@ const data: ServicePageData = {
   },
   hero: {
     tagline: "Luxury Transportation",
-    headline: "Aspen {{Black Car Service}}",
+    headline: "Aspen {{Black Car & Limo Service}}",
     description:
       "Chauffeured Rolls Royce, Escalade, and Sprinter. Airport transfers, hourly charters, hotel transport, and special events — available 24/7 across Aspen and the Roaring Fork Valley.",
     bgImage: heroBg,
@@ -96,7 +96,7 @@ const data: ServicePageData = {
         {
           label: "Rifle Airport",
           href: "/rifle-airport-transfer",
-          detail: "RIL · 60 min private jet base",
+          detail: "RIL · 75 min private jet base",
           description: "A favorite for private jet arrivals with easier slot availability than ASE.",
           icon: Plane,
         },
@@ -235,6 +235,11 @@ const data: ServicePageData = {
   },
   faqs: [
     {
+      question: "Do you offer limo service in Aspen?",
+      answer:
+        "Yes. VIP Aspen is a luxury SUV limo service: a chauffeured Rolls-Royce Cullinan, Cadillac Escalades, and a 13-passenger Executive Sprinter rather than stretch limousines, which suits mountain roads and winter conditions far better. Book point to point, by the hour, or for airport transfers, 24/7.",
+    },
+    {
       question: "What areas does VIP Aspen serve?",
       answer:
         "We serve Aspen, Snowmass Village, Basalt, Woody Creek, Carbondale, and the entire Roaring Fork Valley, plus all airports that serve Aspen — ASE, Eagle (EGE), Rifle (RIL), and Denver (DEN) — and resort routes such as Denver to Aspen and Vail to Aspen.",
@@ -257,7 +262,7 @@ const data: ServicePageData = {
     {
       question: "How is pricing structured?",
       answer:
-        "Airport transfers and routes are quoted as flat rates; as-directed bookings are billed hourly (Escalade from $200/hr, Sprinter from $300/hr, Rolls Royce Cullinan from $400/hr). All rates include a professional chauffeur, fuel, and the vehicle. VIP members receive discounted rates. Contact us for a tailored quote.",
+        "Airport transfers and routes are quoted as one price for the trip; as-directed bookings are billed by the hour with a 2-hour minimum. Every quote includes a professional chauffeur, fuel, and the vehicle. The price for your trip is shown instantly in the online booking form, or call (970) 452-6636. VIP members receive preferred rates.",
     },
     {
       question: "Are your vehicles and drivers prepared for winter mountain roads?",
@@ -267,7 +272,7 @@ const data: ServicePageData = {
     {
       question: "Can you handle ski equipment and luggage?",
       answer:
-        "Absolutely. Every vehicle accommodates skis, snowboards, and luggage, and your chauffeur handles all loading from curb or carousel to vehicle. Child seats are available on request at no charge.",
+        "Our Cadillac Escalade and Executive Sprinter carry skis, snowboards, and luggage, and your chauffeur handles the loading at the vehicle. The Rolls-Royce Cullinan seats three with standard luggage and does not carry ski equipment. Child seats are available on request at no charge.",
     },
     {
       question: "Why choose a private car service over ride-share in Aspen?",

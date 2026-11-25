@@ -21,12 +21,12 @@ describe('server render', () => {
     expect(head).toContain('type="application/ld+json"');
   });
 
-  it('writes the booking frame without an address, for the Corsa script to load', async () => {
+  it('writes the homepage booking frame without an address, loaded by the page itself', async () => {
     const { html } = await render('/');
     expect(html).toMatch(/<h1[\s>]/);
-    // The frame carries the form address in data-corsa-form and has no src: nothing is fetched from the static
-    // HTML, and the Corsa embed script (index.html) loads it with the visitor source added.
-    expect(html).toContain('data-corsa-form="https://ops.summitblackcar.com/embed/book?brand=vip-aspen"');
+    // The homepage frame is marked data-corsa-manual and has no src: nothing is fetched from the static
+    // HTML, and CorsaFrame loads it (on phones only once the card is opened) with the visitor source added.
+    expect(html).toContain('data-corsa-manual="https://ops.summitblackcar.com/embed/book?brand=vip-aspen"');
     expect(html).not.toMatch(/<iframe[^>]*\ssrc=/);
   });
 

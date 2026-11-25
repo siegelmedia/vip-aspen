@@ -7,7 +7,7 @@ import { CtaRound } from "@/components/site/Shared";
 import PageHero from "@/components/layout/PageHero";
 import SectionContainer from "@/components/layout/SectionContainer";
 import SectionHeader from "@/components/layout/SectionHeader";
-import { createBreadcrumbSchema } from "@/lib/schema";
+import { combineSchema, createBreadcrumbSchema } from "@/lib/schema";
 import { COMPANY } from "@/data/constants";
 import heroImage from "@/assets/hero-aspen.webp";
 import cullinanImage from "@/assets/rolls-royce-cullinan.webp";
@@ -32,34 +32,32 @@ const leaders = [
   },
 ];
 
-const aboutSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "AboutPage",
-      "@id": `${COMPANY.url}/about#webpage`,
-      url: `${COMPANY.url}/about`,
-      name: "About VIP Aspen",
-      about: { "@id": `${COMPANY.url}/#organization` },
-      isPartOf: { "@type": "WebSite", url: COMPANY.url, name: COMPANY.name },
-    },
-    createBreadcrumbSchema([
-      { name: "Home", url: COMPANY.url },
-      { name: "About", url: `${COMPANY.url}/about` },
-    ]),
-    ...leaders.map((person) => ({
-      "@type": "Person",
-      "@id": `${COMPANY.url}/about#${person.id}`,
-      name: person.name,
-      jobTitle: person.title,
-      description: person.bio,
-      image: `${COMPANY.url}${person.photo}`,
-      url: `${COMPANY.url}/about#${person.id}`,
-      worksFor: { "@id": `${COMPANY.url}/#organization` },
-      knowsAbout: person.credentials,
-    })),
-  ],
-};
+// combineSchema builds one @graph and strips each node's own @context.
+const aboutSchema = combineSchema(
+  {
+    "@type": "AboutPage",
+    "@id": `${COMPANY.url}/about#webpage`,
+    url: `${COMPANY.url}/about`,
+    name: "About VIP Aspen",
+    about: { "@id": `${COMPANY.url}/#organization` },
+    isPartOf: { "@type": "WebSite", url: COMPANY.url, name: COMPANY.name },
+  },
+  createBreadcrumbSchema([
+    { name: "Home", url: COMPANY.url },
+    { name: "About", url: `${COMPANY.url}/about` },
+  ]),
+  ...leaders.map((person) => ({
+    "@type": "Person",
+    "@id": `${COMPANY.url}/about#${person.id}`,
+    name: person.name,
+    jobTitle: person.title,
+    description: person.bio,
+    image: `${COMPANY.url}${person.photo}`,
+    url: `${COMPANY.url}/about#${person.id}`,
+    worksFor: { "@id": `${COMPANY.url}/#organization` },
+    knowsAbout: person.credentials,
+  })),
+);
 
 const pillars = [
   {
@@ -232,7 +230,7 @@ const AboutPage = () => {
                       ))}
                     </ul>
                     <p className="crew__bio">
-                      <b className="crew__who">{person.name}</b> {person.bio}
+                      {person.bio}
                     </p>
                   </div>
                 </article>

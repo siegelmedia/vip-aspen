@@ -4,7 +4,8 @@ import { useEffect } from "react";
 interface SEOHeadProps {
   title: string;
   description: string;
-  keywords: string;
+  /** Accepted so existing callers compile; no longer emitted (search engines ignore the keywords meta tag). */
+  keywords?: string;
   canonicalUrl?: string;
   ogImage?: string;
   schemaData?: object;
@@ -19,7 +20,6 @@ interface SEOHeadProps {
 const SEOHead = ({
   title,
   description,
-  keywords,
   canonicalUrl,
   ogImage,
   schemaData,
@@ -64,7 +64,6 @@ const SEOHead = ({
     <Helmet defer={false}>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
       {robots && <meta name="robots" content={robots} />}
       {title === "Page Not Found" && <meta name="prerender-status-code" content="404" />}
       {canonicalUrl && <link rel="canonical" href={`${baseUrl}${canonicalUrl}`} />}

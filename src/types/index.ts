@@ -40,7 +40,8 @@ export interface Feature {
 export interface PricingItem {
   name: string;
   detail: string;
-  price: string;
+  /** Short label on the right of the row. Never a dollar figure: rates are not posted on the site. */
+  price?: string;
   description?: string;
   features?: string[];
   featured?: boolean;
@@ -154,7 +155,7 @@ export interface VehicleIdentity {
   make: string;
   model: string;
   passengers: number;
-  /** Published as-directed starting rate in USD per hour, if any */
+  /** @deprecated Unused. Rates are not posted on the site; nothing renders this. */
   hourlyRateFrom?: number;
 }
 

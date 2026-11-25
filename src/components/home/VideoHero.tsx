@@ -23,7 +23,8 @@ const VideoHero = () => {
     if (!el || !HERO_VIDEO) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const saver = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
-    if (reduced || saver) return;
+    const speed = (navigator as Navigator & { connection?: { effectiveType?: string } }).connection?.effectiveType || "";
+    if (reduced || saver || /2g|3g/.test(speed)) return;
     let started = false;
     const start = () => {
       if (started) return;

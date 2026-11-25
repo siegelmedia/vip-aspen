@@ -18,74 +18,80 @@ const data: ServicePageData = {
     bgImage: heroBg,
     headline: "Luxury Transportation for {{The Little Nell}} Guests",
     description:
-      "Dedicated car service for guests of Aspen's only five-star, five-diamond hotel. Airport transfers, hourly chauffeur, après-ski rides, and on-demand luxury transportation — matched to the standard The Little Nell is known for.",
+      "Private car service for guests of The Little Nell, the ski-in/ski-out hotel beside the Silver Queen Gondola at the base of Aspen Mountain. Airport transfers, an hourly chauffeur, and rides everywhere the gondola does not go.",
     ctaLabel: "Book Now",
     ctaLink: "#booking",
     secondaryCta: { label: "Call (970) 452-6636", link: "tel:+19704526636" },
   },
   intro: {
-    heading: "Five-Star Hotel, {{Five-Star Transportation}}",
-    body: `<p>The Little Nell is Aspen's only Forbes Five-Star, AAA Five-Diamond hotel — a distinction earned through relentless attention to detail and a guest experience that leaves nothing to chance. Located at the base of Aspen Mountain adjacent to the Silver Queen Gondola, The Little Nell is the epicenter of luxury in the valley. VIP Aspen provides the transportation to match that standard: professional chauffeurs, impeccable vehicles, and a service philosophy built on anticipating what guests need before they ask.</p>
-<p>For Little Nell guests, having a dedicated car means the luxury never pauses. Step from the hotel into a waiting <a href="/cadillac-escalade">Cadillac Escalade</a> for a day on the mountain, then straight to a reservation at element 47 — The Little Nell's acclaimed restaurant and one of Aspen's finest dining destinations — without a moment's friction. Our <a href="/hourly-chauffeur">hourly chauffeur service</a> keeps a driver and vehicle on your schedule all day, so you can explore the valley, visit Snowmass Village, shop downtown, and return to the hotel on your own timeline. No parking, no waiting, no ride-share uncertainty.</p>
-<p>We serve Little Nell guests with every vehicle in our fleet: the <a href="/cadillac-escalade">Cadillac Escalade</a> for families and small groups, the <a href="/executive-sprinter">Executive Sprinter</a> for larger parties and events, and the <a href="/rolls-royce-cullinan">Rolls Royce Cullinan</a> for guests who want the most exclusive arrival in Aspen. Every <a href="/aspen-airport-transfer">airport transfer</a> includes real-time flight tracking, meet-and-greet service, and complimentary wait time. <a href="/membership">VIP Members</a> receive priority booking during peak season — essential during Christmas, New Year's, and the Food & Wine Classic when luxury vehicles book out weeks in advance.</p>`,
+    heading: "From the Gondola to {{Everywhere Else}}",
+    body: `<p>The Little Nell is at 675 East Durant Avenue, at the base of Aspen Mountain beside the Silver Queen Gondola. It is a ski-in/ski-out hotel that holds Forbes Five-Star and AAA Five-Diamond ratings, and it is 5 to 10 minutes from <a href="/aspen-airport-transfer">Aspen-Pitkin County Airport</a>. VIP Aspen provides private car service for guests staying there.</p>
+<p>Guests of The Little Nell can step onto Aspen Mountain without a car, so ours is for the rest of the trip: the airport run, a day at Aspen Highlands, Buttermilk, or Snowmass, dinner across town or in Snowmass Village, and events around the valley. Our <a href="/hourly-chauffeur">hourly chauffeur service</a> keeps a driver and vehicle on your schedule all day, with no parking to find and no ride-share uncertainty on a busy night.</p>
+<p>Choose the vehicle by group size: the <a href="/cadillac-escalade">Cadillac Escalade</a> for up to 5 passengers with luggage and skis, the <a href="/executive-sprinter">Executive Sprinter</a> for up to 13, and the <a href="/rolls-royce-cullinan">Rolls Royce Cullinan</a> for up to 3 passengers with standard luggage. The Cullinan does not carry ski equipment. Every airport transfer includes flight tracking and complimentary wait time, and <a href="/membership">VIP Members</a> receive priority booking during peak season.</p>
+<p><strong>2027 note:</strong> The Little Nell has announced a temporary closure for renovation beginning in April 2027, with reopening planned for the 2027-28 ski season. Check your dates with the hotel before you book travel for that period.</p>`,
   },
   features: [
     {
       icon: Plane,
       title: "Airport Transfers",
       description:
-        "Direct service from ASE, Eagle, Rifle, and Denver airports to The Little Nell's front entrance. Flight tracking and meet-and-greet included with every transfer.",
+        "Flight-tracked transfers from ASE (5 to 10 minutes), Eagle, Rifle, and Denver airports to The Little Nell on Durant Avenue.",
+    },
+    {
+      icon: MapPin,
+      title: "The Other Three Mountains",
+      description:
+        "Aspen Mountain is at the hotel's door. We drive you and your gear to Aspen Highlands, Buttermilk, or Snowmass and pick you up at the base.",
     },
     {
       icon: Clock,
       title: "Hourly Chauffeur",
       description:
-        "A dedicated vehicle and driver on your schedule. Ski days, dining, shopping, spa visits — your car waits while you enjoy the best of Aspen.",
+        "A dedicated vehicle and driver on your schedule for dining, shopping, spa visits, and evenings out. Your car waits while you enjoy Aspen.",
     },
     {
       icon: Star,
-      title: "Five-Star Coordination",
+      title: "Planned Around Your Stay",
       description:
-        "We coordinate directly with The Little Nell's concierge team to align pickups, special occasions, and multi-day itineraries with the hotel's exceptional standards.",
-    },
-    {
-      icon: MapPin,
-      title: "Après-Ski Service",
-      description:
-        "Your driver meets you at the base of Aspen Mountain with a warm vehicle, holds your gear, and takes you wherever the evening leads — dinner, drinks, or back to the hotel.",
+        "Send us your reservations and plans, or have your assistant or concierge book for you, and we schedule each ride around them.",
     },
     {
       icon: Car,
       title: "Full Fleet Available",
       description:
-        "Escalade, Executive Sprinter, and Rolls Royce Cullinan. Choose the vehicle that matches your group size and the moment.",
+        "Escalade for up to 5 with luggage and skis, Executive Sprinter for up to 13, and the Rolls Royce Cullinan for up to 3 with standard luggage.",
     },
   ],
   faqs: [
     {
       question: "How far is ASE airport from The Little Nell?",
       answer:
-        "Aspen-Pitkin County Airport (ASE) is approximately 5 minutes from The Little Nell. We include 60 minutes of complimentary wait time for flight delays and baggage claim.",
+        "Aspen-Pitkin County Airport (ASE) is 5 to 10 minutes from The Little Nell. Complimentary wait time is included on airport transfers to cover flight delays and baggage claim.",
+    },
+    {
+      question: "Where does my driver meet me at the airport?",
+      answer:
+        "At Aspen airport, your chauffeur meets you in the Ground Transportation Circle directly outside baggage claim and loads your luggage at the vehicle. Private jet arrivals are met at the FBO. For Eagle, Rifle and Denver, we confirm the meeting point with your booking.",
+    },
+    {
+      question: "The Little Nell is ski-in/ski-out. Why would I need a car?",
+      answer:
+        "For everything away from Aspen Mountain. The hotel is at 675 East Durant Avenue beside the Silver Queen Gondola, so Aspen Mountain needs no ride. Aspen Highlands, Buttermilk and Snowmass, the airport, and restaurants and events elsewhere in the valley are all a drive away.",
     },
     {
       question: "What vehicle is best for a family staying at The Little Nell?",
       answer:
-        "The Cadillac Escalade is our most popular choice for families — it fits 5 passengers comfortably with luggage and ski gear. For larger families or groups, the Executive Sprinter seats up to 13. Car seats and boosters are available on request at no charge.",
+        "The Cadillac Escalade is our most popular choice for families: it fits 5 passengers with luggage and ski gear. For larger families or groups, the Executive Sprinter seats up to 13. Car seats and boosters are available on request. The Rolls Royce Cullinan seats 3 and does not carry ski equipment.",
     },
     {
-      question: "Do you work with The Little Nell's concierge team?",
+      question: "Can you pick us up after skiing another mountain?",
       answer:
-        "Yes. We coordinate regularly with The Little Nell's concierge to align pickup times, manage special requests, and plan multi-day transportation itineraries for guests.",
-    },
-    {
-      question: "Can you handle après-ski pickups at Aspen Mountain?",
-      answer:
-        "Absolutely. Your driver waits at the base of Aspen Mountain with the vehicle warm and ready. We hold your gear and take you to dinner, back to the hotel, or wherever the evening goes.",
+        "Yes. Your chauffeur meets you at the base of Aspen Highlands, Buttermilk or Snowmass with the vehicle warm, loads your skis into the Escalade or Sprinter, and takes you to dinner or back to the hotel.",
     },
     {
       question: "Can I book a dedicated driver for my entire Little Nell stay?",
       answer:
-        "Yes. Our hourly and multi-day chauffeur options give you the same driver and vehicle for your entire visit — by the hour, half-day, full day, or the full week. VIP Members receive discounted rates and priority booking.",
+        "Yes. Our hourly and multi-day chauffeur service gives you a dedicated driver and vehicle by the hour, half day, full day, or week. Use the booking form on this page for an instant quote, or call (970) 452-6636. VIP Aspen is an independent car service, so you or your assistant book directly with us.",
     },
   ],
   relatedServices: [

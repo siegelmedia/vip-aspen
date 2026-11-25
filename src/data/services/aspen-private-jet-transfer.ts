@@ -52,7 +52,7 @@ const data: ServicePageData = {
       icon: Luggage,
       title: "Full Baggage Handling",
       description:
-        "Luggage, ski equipment, and gear moved from aircraft hold to vehicle by your chauffeur. Nothing for you to manage.",
+        "Luggage and gear moved from aircraft hold to vehicle by your chauffeur; ski equipment travels in the Escalade or Sprinter. Nothing for you to manage.",
     },
     {
       icon: ShieldCheck,
@@ -82,7 +82,7 @@ const data: ServicePageData = {
     {
       question: "What happens if my flight is diverted to Rifle or Eagle?",
       answer:
-        "ASE closes for weather more often than any other airport serving Aspen. If you're diverted to Rifle (RIL) or Eagle (EGE), we reposition a vehicle to meet you where you land and handle the onward drive to Aspen — typically 60 minutes from Rifle or about 90 minutes from Eagle.",
+        "ASE closes for weather more often than any other airport serving Aspen. If you're diverted to Rifle (RIL) or Eagle (EGE), we reposition a vehicle to meet you where you land and handle the onward drive to Aspen — typically about 75 minutes from Rifle or about 90 minutes from Eagle.",
     },
     {
       question: "Do you coordinate with our flight department or scheduler?",

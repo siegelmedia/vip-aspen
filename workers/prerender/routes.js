@@ -18,6 +18,7 @@ export const PAGE_PATHS = new Set([
   "/executive-protection",
   "/executive-sprinter",
   "/glenwood-springs-to-aspen-car-service",
+  "/grand-junction-to-aspen-car-service",
   "/guides",
   "/guides/ase-vs-ege-airport",
   "/guides/aspen-events-calendar",
@@ -33,10 +34,12 @@ export const PAGE_PATHS = new Set([
   "/private-ski-transfers",
   "/rates",
   "/rifle-airport-transfer",
+  "/roaring-fork-valley-car-service",
   "/rolls-royce-cullinan",
   "/security-driver",
   "/snowmass-village-transfer",
   "/special-event-transportation",
   "/st-regis-aspen-transportation",
-  "/vail-to-aspen-car-service"
+  "/vail-to-aspen-car-service",
+  "/x-games-aspen-transportation"
 ]);

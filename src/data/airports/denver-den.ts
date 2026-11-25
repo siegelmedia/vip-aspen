@@ -17,17 +17,17 @@ const data: AirportPageData = {
   seo: {
     title: "Denver to Aspen Car Service | DEN Transfers",
     description:
-      "Luxury private car service from Denver International Airport (DEN) to Aspen. Rolls Royce, Escalade & Sprinter, ~3.5-hour scenic transfer with a professional chauffeur. (970) 452-6636.",
+      "Private car service from Denver International Airport (DEN) to Aspen. Rolls-Royce, Escalade & Sprinter, about 3.5 to 4 hours with a professional chauffeur.",
     keywords:
       "Denver to Aspen car service, DEN airport transfer, Denver International to Aspen, private car Denver Aspen, mountain transfer DEN",
     canonicalUrl: "/denver-to-aspen-car-service",
     ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
   hero: {
-    tagline: "Denver International \u2192 Aspen",
+    tagline: "Denver International → Aspen",
     headline: "Private Luxury Car Service {{Denver to Aspen}}",
     description:
-      "Skip the shuttle van. Your Aspen experience begins the moment you land at DEN. Choose between the Rolls Royce Cullinan, Cadillac Escalade, or Executive Sprinter for a 3.5-hour transfer through some of the most spectacular mountain scenery in the world.",
+      "Skip the shuttle van. Your Aspen trip begins the moment you land at DEN. Choose the Rolls-Royce Cullinan, Cadillac Escalade, or Executive Sprinter for the 3.5 to 4 hour drive through the Rocky Mountains, door to door with a professional chauffeur.",
     bgImage: heroBg,
     ctaLabel: "Book Your Transfer",
     ctaLink: "#booking",
@@ -37,11 +37,13 @@ const data: AirportPageData = {
     code: "DEN",
     name: "Denver International Airport",
     distanceToAspen: "225 miles",
-    driveTime: "~3.5 hours",
+    driveTime: "~3.5-4 hours",
   },
   intro: {
     heading: "What to Expect on the {{Denver to Aspen Drive}}",
-    body: "The 225-mile journey from Denver International Airport to Aspen is one of the most spectacular drives in the state of Colorado \u2014 and one of the most demanding. The route follows Interstate 70 west from Denver through the foothills, climbing to the Eisenhower-Johnson Memorial Tunnel at 11,158 feet before descending past the world-famous ski resorts of Vail and Beaver Creek. From there, the highway drops into Glenwood Canyon \u2014 a breathtaking 12-mile corridor where the road is carved into the walls of the Colorado River gorge \u2014 before exiting at Glenwood Springs and turning south on Highway 82 along the Roaring Fork River into Aspen.\n\nIn winter, Independence Pass (Highway 82 over the Continental Divide) is closed, making the I-70 corridor the only route between Denver and Aspen. Mountain passes, black ice, sudden whiteouts, and altitude all make this a drive that demands an experienced hand. Our professional chauffeurs navigate these roads year-round and know exactly how to handle Colorado's unpredictable mountain weather.",
+    body: `<p>The drive from Denver International Airport to Aspen covers about 225 miles and takes about 3.5 to 4 hours in normal conditions. The route follows Interstate 70 west from Denver through the foothills, climbing to the Eisenhower-Johnson Memorial Tunnel at 11,158 feet before descending past Vail and Beaver Creek. From there the highway drops into Glenwood Canyon, a roughly 12-mile corridor where the road is built into the walls of the Colorado River gorge, before exiting at Glenwood Springs and turning south on Highway 82 along the Roaring Fork River into Aspen.</p>
+<p>In winter, Independence Pass (Highway 82 over the Continental Divide) is closed, so the I-70 corridor through Glenwood Springs is the route between Denver and Aspen. High passes, ice, sudden whiteouts, and weekend ski traffic all make this a drive that rewards an experienced hand. Our professional chauffeurs drive these roads year-round, and you spend the hours working, resting, or watching the scenery instead of watching the road.</p>
+<p>At DEN, pre-arranged car services pick up on Level 5 of the Jeppesen Terminal, the same level as baggage claim. We track your flight and confirm the terminal side and door with your booking, and your chauffeur loads your luggage at the vehicle. Ski equipment travels in the <a href="/cadillac-escalade">Cadillac Escalade</a> or the <a href="/executive-sprinter">Executive Sprinter</a>.</p>`,
   },
   features: [
     {
@@ -51,18 +53,18 @@ const data: AirportPageData = {
     },
     {
       icon: MapPin,
-      title: "Meet & Greet at Baggage Claim",
-      description: "Your chauffeur meets you at baggage claim with a name sign for a seamless handoff.",
+      title: "Pickup Outside Baggage Claim",
+      description: "Pre-arranged car services pick up on Level 5 of the Jeppesen Terminal, the baggage claim level. We confirm the terminal side and door with your booking.",
     },
     {
       icon: Luggage,
-      title: "All Luggage & Ski Gear Handled",
-      description: "Every piece of luggage and ski equipment is handled by your chauffeur from carousel to vehicle.",
+      title: "Luggage & Ski Gear Loaded",
+      description: "Your chauffeur loads your luggage at the vehicle. Ski equipment travels in the Escalade or Sprinter.",
     },
     {
       icon: Clock,
       title: "Door-to-Door Delivery",
-      description: "Non-stop transfer directly to your Aspen property, hotel, or resort\u2014no shared rides, no stops.",
+      description: "A private transfer directly to your Aspen property, hotel, or resort. No shared rides, and no stops you did not ask for.",
     },
     {
       icon: Wifi,
@@ -76,49 +78,74 @@ const data: AirportPageData = {
     },
   ],
   destinations: [
-    { name: "Downtown Aspen", detail: "~3.5 hours" },
-    { name: "Snowmass Village", detail: "~3.5 hours" },
+    { name: "Downtown Aspen", detail: "~3.5-4 hours" },
+    { name: "Snowmass Village", detail: "~3.5-4 hours" },
     { name: "Vail Village", detail: "~2 hours" },
-    { name: "Glenwood Springs", detail: "~2.5 hours" },
+    { name: "Glenwood Springs", detail: "~2.5-3 hours" },
   ],
   fleetOptions: [
     {
       name: "Rolls Royce Cullinan",
       image: cullinan,
       description:
-        "The ultimate Denver to Aspen luxury transfer experience \u2014 complete with champagne cooler and bespoke interior.",
+        "The ultimate Denver to Aspen transfer for up to three passengers with standard luggage, complete with champagne cooler and bespoke interior. It does not carry ski equipment.",
       link: "/rolls-royce-cullinan",
     },
     {
       name: "Cadillac Escalade",
       image: escalade,
       description:
-        "Ideal for families and groups with ski equipment. Premium comfort with generous luggage capacity.",
+        "Ideal for families and small groups with ski equipment. Seats up to five with generous luggage capacity.",
       link: "/cadillac-escalade",
     },
     {
       name: "Executive Sprinter",
       image: sprinter,
       description:
-        "Accommodates up to 13 passengers for corporate retreats and group travel through the Rockies.",
+        "Accommodates up to 13 passengers with luggage and ski equipment for corporate retreats and group travel through the Rockies.",
       link: "/executive-sprinter",
     },
   ],
   faqs: [
     {
+      question: "Where does my driver meet me at Denver airport?",
+      answer:
+        "Your chauffeur meets you at the limousine pickup area outside baggage claim, on Level 5 of the Jeppesen Terminal. The airport's limousine check-in is on Island 2, outside doors 505-507 and 511-513 on the east side and doors 504-506 and 510-512 on the west side. We confirm which side and door with your booking, and your luggage is loaded at the vehicle.",
+    },
+    {
       question: "How long is the drive from Denver to Aspen?",
       answer:
-        "Approximately 3.5 hours (225 miles) via I-70 through the Rocky Mountains.",
+        "About 3.5 to 4 hours in normal conditions, covering roughly 225 miles. The route runs west on I-70 to Glenwood Springs, then south on Highway 82. Weekend ski traffic and winter storms on I-70 can add time, so leave a cushion before any fixed commitment in Aspen.",
+    },
+    {
+      question: "Which vehicle should I book for my group and ski gear?",
+      answer:
+        "The Cadillac Escalade carries up to 5 passengers with luggage and skis, and the Executive Sprinter carries up to 13. The Rolls-Royce Cullinan seats 3 with standard luggage and does not carry ski equipment, so ski and snowboard bags need to travel in an Escalade or the Sprinter.",
+    },
+    {
+      question: "What if my flight is delayed or my connection to Aspen is cancelled?",
+      answer:
+        "We track your inbound flight and move the pickup to the new arrival time, with complimentary wait time included. If your connecting flight from Denver to Aspen is cancelled, call dispatch at (970) 452-6636. A same-day drive to Aspen depends on vehicle availability, so call as soon as you know.",
     },
     {
       question: "Is Independence Pass open in winter?",
       answer:
-        "No, Independence Pass closes in winter. The I-70 route through Glenwood Springs is used year-round.",
+        "No. Independence Pass on Highway 82 closes each winter, usually from early November until around Memorial Day weekend, weather permitting. While it is closed, the route from Denver is I-70 west to Glenwood Springs and then Highway 82 south to Aspen. That I-70 route is also the standard route in summer.",
     },
     {
-      question: "Can I make stops along the way?",
+      question: "What should I know about winter road conditions?",
       answer:
-        "Yes, we can arrange stops in Vail, Glenwood Springs, or other locations along the route.",
+        "Expect a longer drive when it snows. I-70 crosses the Eisenhower Tunnel and Vail Pass and runs through Glenwood Canyon, and any of them can slow or close in a storm. Colorado's Traction Law applies to passenger vehicles on I-70 between Morrison and Dotsero from September 1 through May 31. With a chauffeur who drives the corridor year-round, the weather is not yours to manage.",
+    },
+    {
+      question: "Can you meet a private aircraft instead of a commercial flight?",
+      answer:
+        "Yes. Private arrivals are met at the FBO rather than at the commercial terminal. Tell us the airport, the FBO, your tail number and your estimated arrival time when you book. If you are landing at a Denver-area airport other than Denver International, call dispatch at (970) 452-6636 to arrange the pickup.",
+    },
+    {
+      question: "Can I make stops along the way, and how do I book?",
+      answer:
+        "Yes, stops in Vail, Glenwood Springs, or elsewhere on the route are easy to arrange; mention them when you book. Use the online booking form on this page for an instant quote, or call dispatch at (970) 452-6636 at any hour with your flight number, passenger count and destination.",
     },
   ],
   relatedServices: [

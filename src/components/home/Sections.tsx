@@ -12,14 +12,14 @@ export const Intro = () => (
         <p className="disp">Elevate Your Aspen Experience</p>
       </div>
       <div className="intro__text">
-        <h1>Luxury Car Service &amp; VIP Concierge in Aspen, Colorado</h1>
+        <h1>Luxury Car Service &amp; Private Chauffeur in Aspen, Colorado</h1>
         <p>
           Chauffeured <Link to="/rolls-royce-cullinan">Rolls-Royce Cullinan</Link>,{" "}
           <Link to="/cadillac-escalade">Cadillac Escalade</Link> &amp;{" "}
           <Link to="/executive-sprinter">Executive Sprinter</Link>. Airport transfers, private ski transfers, and
           hourly chauffeur service for Aspen's most discerning clients, from a law enforcement-owned company with
           professional chauffeurs. Select your vehicle, date, and route — confirmed in minutes. Available
-          24/7. To reserve, call <a href={TEL_HREF}>{COMPANY.phoneDisplay}</a> or{" "}
+          24/7. See our <Link to="/rates">rates and pricing</Link>. To reserve, call <a href={TEL_HREF}>{COMPANY.phoneDisplay}</a> or{" "}
           <a href="#booking">get an instant quote online</a>.
         </p>
       </div>
@@ -250,7 +250,7 @@ export const SeoBlock = () => (
           of its kind available for hire in Aspen. Alongside it, a fleet of late-model Cadillac Escalades and a
           13-passenger Executive Sprinter ensure we have the perfect vehicle for every occasion. We specialize in{" "}
           <Link to="/aspen-airport-transfer">airport transfers</Link> from all four airports serving Aspen: ASE (5
-          minutes to downtown), Eagle/EGE (90 minutes), Rifle/RIL (60 minutes for private jets), and Denver/DEN (a
+          minutes to downtown), Eagle/EGE (90 minutes), Rifle/RIL (75 minutes for private jets), and Denver/DEN (a
           3.5-hour scenic mountain transfer).
         </p>
         <p>

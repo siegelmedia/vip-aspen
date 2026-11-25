@@ -6,7 +6,7 @@ const data: GuidePageData = {
   seo: {
     title: "Getting to Aspen in Winter: Roads & Passes",
     description:
-      "How winter changes the trip to Aspen: Independence Pass closure, the I-70 traction law, Glenwood Canyon, ASE cancellations, and how to build a plan that survives a storm.",
+      "How winter changes the trip to Aspen: the Independence Pass closure, the I-70 traction law, Glenwood Canyon, ASE cancellations, and a backup plan.",
     keywords:
       "Aspen winter travel, Independence Pass closed, driving to Aspen in winter, I-70 traction law, Aspen airport winter cancellations, Denver to Aspen winter, Glenwood Canyon closure, Aspen snow driving",
     canonicalUrl: "/guides/aspen-winter-travel",
@@ -17,12 +17,12 @@ const data: GuidePageData = {
   excerpt:
     "Independence Pass closes, I-70 gets its traction law, and ASE cancels when the clouds drop. Here's how Aspen winter travel really works and how to build a plan that survives a storm.",
   datePublished: "2026-09-08",
-  dateModified: "2026-09-08",
+  dateModified: "2026-11-24",
   readTime: "7 min read",
   heroImage,
   keyTakeaways: [
     "Independence Pass (Highway 82 east of Aspen) closes every winter, typically from early November until the Thursday before Memorial Day. Every winter ground route uses I-70 and Glenwood Springs.",
-    "Colorado's Traction Law is active on I-70 through the mountains from September 1 to May 31: you need snow tires, mud-and-snow tires, or all-wheel drive with adequate tread, or chains.",
+    "Colorado's Traction Law covers I-70 between Morrison and Dotsero from September 1 through May 31: you need winter, mud-and-snow, or all-weather tires with at least 3/16 inch of tread, or you must carry chains or an approved traction device. All-wheel drive does not replace proper tires.",
     "Aspen's airport sits at 7,820 feet with a single runway. Snow, low cloud, and wind cause frequent delays and cancellations, and diverted flights often land at Eagle, Grand Junction, or Denver.",
     "Build a buffer: fly in a day before anything important, book ground transportation that tracks your flight, and avoid eastbound I-70 on Sunday afternoons.",
   ],
@@ -36,20 +36,20 @@ const data: GuidePageData = {
     },
     {
       heading: "The I-70 Traction Law and Why It Matters",
-      body: `<p>Since 2019, Colorado has run a seasonal Traction Law on I-70 through the mountain corridor between Morrison, just west of Denver, and Dotsero, near Eagle. It is active from September 1 through May 31 regardless of the weather that day. To be legal, your vehicle needs one of the following: winter or mud-and-snow rated tires with at least 3/16 inch of tread, all-wheel or four-wheel drive with adequate tread, or tire chains or an approved alternative traction device.</p>
-<p>When conditions deteriorate, CDOT can escalate to a Passenger Vehicle Chain Law that requires chains or approved devices on every vehicle, even those with all-wheel drive. Fines start in the hundreds of dollars and climb sharply if you block the road. More importantly, the reason the law exists is that a single spun-out rental sedan on Vail Pass can close the interstate for hours for everyone behind it.</p>
-<p>If you are renting a car at Denver International, ask specifically for all-wheel drive with proper tires. Many airport rentals do not meet the standard. This is one of the main reasons visitors who have done the drive once tend to book a <a href="/denver-to-aspen-car-service">private Denver to Aspen transfer</a> the next time. Our Escalades and Sprinter run winter-rated tires all season and our chauffeurs drive this corridor weekly.</p>`,
+      body: `<p>Colorado's passenger-vehicle Traction Law covers I-70 through the mountain corridor between Morrison, just west of Denver, and Dotsero, near Eagle, from September 1 through May 31, and CDOT can put it in force on other state highways when conditions require. Under the Traction Law, a passenger vehicle needs tires with at least 3/16 inch of tread that are winter tires (the mountain-snowflake symbol), mud-and-snow (M+S) tires, or all-weather rated tires. If your tires do not qualify, you must carry chains or an approved alternative traction device. CDOT also recommends all-wheel or four-wheel drive in the mountains, but that is in addition to proper tires, not instead of them. The current rules are on <a href="https://www.codot.gov/travel/winter-driving/tractionlaw" target="_blank" rel="noopener">CDOT's Traction Law page</a>.</p>
+<p>When conditions deteriorate, CDOT can escalate to a Passenger Vehicle Chain Law that requires chains or approved devices on every vehicle, even those with all-wheel drive. It is the last step before the highway is closed. Fines start at more than one hundred dollars and rise to more than six hundred if your vehicle blocks a lane. More importantly, the reason the law exists is that a single spun-out rental sedan on Vail Pass can close the interstate for hours for everyone behind it.</p>
+<p>If you are renting a car at Denver International, ask specifically for all-wheel drive and check that the tires are winter, mud-and-snow, or all-weather rated with enough tread. Many airport rentals do not meet the standard. This is one of the main reasons visitors who have done the drive once tend to book a <a href="/denver-to-aspen-car-service">private Denver to Aspen transfer</a> the next time. Our Escalades and Sprinter run winter-rated tires all season and our chauffeurs drive this corridor weekly.</p>`,
     },
     {
       heading: "Glenwood Canyon, Vail Pass, and Closures",
       body: `<p>Two stretches of I-70 dictate winter travel to Aspen. Vail Pass, at 10,662 feet, is the first place a storm shows its teeth heading west, and it is where CDOT most often holds traffic or requires chains. Glenwood Canyon, the 12-mile stretch of interstate carved along the Colorado River, is spectacular and narrow. It closes for rockfall, for safety metering during storms, and occasionally for extended periods after slides.</p>
-<p>When Glenwood Canyon closes, the official detour runs north through Steamboat Springs or south through Cottonwood Pass, which is a dirt-and-gravel road that is often impassable in winter. Either adds hours. The realistic advice: check <strong>cotrip.org</strong> before you leave, watch the CDOT alerts on the drive, and if you are traveling with a professional driver, let them make the call. We monitor the corridor all day and reroute or re-time pickups before clients ever see a closure sign.</p>`,
+<p>When Glenwood Canyon closes for more than a couple of hours, CDOT's recommended alternate route runs north on Colorado 9, US 40 and Colorado 13 through Steamboat Springs, which adds several hours. CDOT asks drivers not to use Cottonwood Pass or other county roads as a detour. Check <a href="https://www.cotrip.org" target="_blank" rel="noopener">COtrip.org</a> before you leave and watch the CDOT alerts on the drive. If you are traveling with a professional driver, let them make the call: we monitor the corridor all day and reroute or re-time pickups before clients ever see a closure sign.</p>`,
     },
     {
       heading: "Flying Into Aspen in Winter: What Actually Happens",
       body: `<p>Aspen/Pitkin County Airport (ASE) is three miles from downtown and lands you closer to your hotel than any other mountain airport in Colorado. It also sits at 7,820 feet in a box canyon with a single runway and a steep approach that pilots must fly visually. Low cloud ceilings, snow squalls, and afternoon winds regularly cause delays, ground holds, and cancellations, especially in December and January. Regional jets with strict weight limits are also the first to be bumped or cancelled.</p>
 <p>When ASE weather goes down, airlines divert to Eagle County (EGE), Grand Junction, or back to Denver, and then you need ground transportation from wherever you actually land. This is why our <a href="/aspen-airport-transfer">airport transfers</a> track the flight rather than the schedule: if your plane lands in Eagle instead of Aspen, the car meets you in Eagle.</p>
-<p>Two strategies work well. First, many winter regulars fly into <a href="/eagle-airport-transfer">Eagle (EGE)</a> on purpose. It handles larger aircraft, cancels far less often, and the 90-minute drive to Aspen through Glenwood Canyon is genuinely beautiful. Second, private and charter travelers use <a href="/rifle-airport-transfer">Rifle Garfield County (RIL)</a>, an hour west of Aspen with a long runway and strong reliability, or land at ASE's FBO with a <a href="/aspen-private-jet-transfer">tarmac transfer</a> already arranged. Our guide to <a href="/guides/ase-vs-ege-airport">ASE vs. Eagle</a> goes deeper on the trade-offs.</p>`,
+<p>Two strategies work well. First, many winter regulars fly into <a href="/eagle-airport-transfer">Eagle (EGE)</a> on purpose. It handles larger aircraft, cancels far less often, and the 90-minute drive to Aspen through Glenwood Canyon is genuinely beautiful. Second, private and charter travelers use <a href="/rifle-airport-transfer">Rifle Garfield County (RIL)</a>, about 75 minutes from Aspen with a long runway and strong reliability, or land at ASE's FBO with a <a href="/aspen-private-jet-transfer">tarmac transfer</a> already arranged. Our guide to <a href="/guides/ase-vs-ege-airport">ASE vs. Eagle</a> goes deeper on the trade-offs.</p>`,
     },
     {
       heading: "Timing: When the Roads Are Worst",
@@ -76,7 +76,7 @@ const data: GuidePageData = {
     {
       question: "Do I need chains or snow tires to drive to Aspen?",
       answer:
-        "On I-70 through the mountains, Colorado's Traction Law is active from September 1 to May 31. You need winter or mud-and-snow rated tires with at least 3/16 inch tread, or all-wheel drive with adequate tread, or chains. During storms a stricter chain law can apply to all vehicles. Highway 82 from Glenwood Springs to Aspen is maintained well but also sees traction-law conditions in storms.",
+        "Colorado's Traction Law covers I-70 between Morrison and Dotsero from September 1 through May 31. A passenger vehicle needs winter, mud-and-snow (M+S), or all-weather tires with at least 3/16 inch of tread, or it must carry chains or an approved alternative traction device. All-wheel drive is recommended but does not replace proper tires. During storms a stricter chain law can require chains or an approved device on every vehicle. Highway 82 from Glenwood Springs to Aspen is maintained well, and CDOT can apply the same laws there when conditions require. See CDOT's Traction Law page at codot.gov for the current rules.",
     },
     {
       question: "How long is the drive from Denver to Aspen in winter?",

@@ -9,13 +9,13 @@ const data: VehiclePageData = {
   seo: {
     title: "Executive Sprinter Van Service in Aspen",
     description:
-      "Luxury Executive Sprinter van service in Aspen, Colorado. Seating for up to 13, ambient lighting, entertainment system & professional chauffeur. Groups, airports & events.",
+      "Executive Sprinter van service in Aspen, Colorado. Seats up to 13 with a professional chauffeur, for groups, airport transfers & events.",
     keywords:
       "Executive Sprinter Aspen, 13 passenger luxury van, group transportation Aspen, corporate shuttle Aspen, Sprinter van hire Colorado, luxury group transfer",
     canonicalUrl: "/executive-sprinter",
     ogImage: "https://www.vipaspen.com/og-image.jpg",
   },
-  vehicle: { make: "Mercedes-Benz", model: "Sprinter", passengers: 13, hourlyRateFrom: 300 },
+  vehicle: { make: "Mercedes-Benz", model: "Sprinter", passengers: 13 },
   hero: {
     tagline: "Group Luxury Travel",
     headline: "Executive {{Sprinter}} in Aspen",
@@ -71,6 +71,11 @@ const data: VehiclePageData = {
   gallery: [galleryExterior, sprinterExterior],
   faqs: [
     {
+      question: "How much does the Executive Sprinter cost in Aspen?",
+      answer:
+        "The price depends on your route, date, and how long you need the vehicle. Enter your trip in the online booking form and the price for the Sprinter is shown instantly, or call (970) 452-6636. Hourly service has a two-hour minimum, and the chauffeur and fuel are included.",
+    },
+    {
       question: "How many passengers does the Sprinter hold?",
       answer:
         "Our Executive Sprinter accommodates up to 13 passengers comfortably.",
@@ -80,7 +85,7 @@ const data: VehiclePageData = {
       answer:
         "Yes. Premium sound system, multiple display screens, high-speed Wi-Fi, USB charging at every seat, and ambient lighting. It's a mobile conference room or party lounge.",
     },
-    { question: "Is the Sprinter more cost-effective than multiple SUVs?", answer: "For groups of 6 or more, one Sprinter is typically 30-40% less expensive than booking two Escalades. It's the smart choice for corporate groups, wedding parties, and ski teams." },
+    { question: "Is the Sprinter more cost-effective than multiple SUVs?", answer: "For groups of 6 or more, one Sprinter usually costs less than booking two Escalades, and it keeps the whole group together. The booking form shows the price of each vehicle for your trip so you can compare." },
     { question: "Can the Sprinter be used for weddings?", answer: "Absolutely. The Executive Sprinter is one of our most popular wedding vehicles — it fits the entire bridal party or groomsmen comfortably with room for garment bags and accessories." },
     { question: "How much luggage can the Sprinter carry?", answer: "The Sprinter has ample cargo space for 13 passengers with full luggage, ski gear, golf clubs, or event equipment. It's designed for real travel, not just short transfers." },
   ],

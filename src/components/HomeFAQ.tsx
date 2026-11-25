@@ -17,7 +17,7 @@ export const homeFaqs: FAQ[] = [
   {
     question: "How much does an Aspen car service cost?",
     answer:
-      "Hourly chauffeur service starts at $200 per hour for the Cadillac Escalade, $300 for the Executive Sprinter, and $400 for the Rolls-Royce Cullinan. Airport and route transfers are quoted up front as a flat rate for your trip. See our rates page for details.",
+      "The price depends on the vehicle, the route, the date, and how long you need the car. Enter your trip in the online booking form to see your price instantly, or call (970) 452-6636. Every quote includes the chauffeur and fuel. Our rates page explains how pricing works.",
   },
   {
     question: "Do you offer ski transfers to Snowmass, Highlands, and Buttermilk?",
